@@ -51,13 +51,13 @@
 
                 <div class="group-card-1">
                     <div>
-                        <card-right-img shadow="false" picture="/src/assets/img/story_pinpin_team.png" title="Pinpin Team" msg="« The Green Panda team impressed us at every stage with their expertise, professionalism and dedication. (…) They were with us every step of the way to create Golf Orbit and together we&apos;ve made it a success !  We found a genuine partner in Green Panda and will continue to work closely with them to create hit games.» " position="CEO OF PINPIN TEAM" project="Golf orbit, Fish Orbit"></card-right-img>
+                        <card-right-img class="max-w" picture="/src/assets/img/story_pinpin_team.png" title="Pinpin Team" msg="« The Green Panda team impressed us at every stage with their expertise, professionalism and dedication. (…) They were with us every step of the way to create Golf Orbit and together we&apos;ve made it a success !  We found a genuine partner in Green Panda and will continue to work closely with them to create hit games.» " position="CEO OF PINPIN TEAM" project="Golf orbit, Fish Orbit"></card-right-img>
                     </div>
                     <div class="align-right">
-                        <card-left-img shadow="false" picture="/src/assets/img/story_bee.png" title="Vitaliy Sidirov" msg="« The Green Panda team impressed us at every stage with their expertise, professionalism and dedication. (…) They were with us every step of the way to create Golf Orbit and together we&apos;ve made it a success !  We found a genuine partner in Green Panda and will continue to work closely with them to create hit games.» " position="CEO OF PINPIN TEAM" project="Golf orbit, Fish Orbit"></card-left-img>
+                        <card-left-img class="max-w" picture="/src/assets/img/story_bee.png" title="Vitaliy Sidirov" msg="« The Green Panda team impressed us at every stage with their expertise, professionalism and dedication. (…) They were with us every step of the way to create Golf Orbit and together we&apos;ve made it a success !  We found a genuine partner in Green Panda and will continue to work closely with them to create hit games.» " position="CEO OF PINPIN TEAM" project="Golf orbit, Fish Orbit"></card-left-img>
                     </div>
                     <div>
-                        <card-right-img shadow="true" picture="/src/assets/img/story_pinpin_team.png" title="Pinpin Team" msg="« The Green Panda team impressed us at every stage with their expertise, professionalism and dedication. (…) They were with us every step of the way to create Golf Orbit and together we&apos;ve made it a success !  We found a genuine partner in Green Panda and will continue to work closely with them to create hit games.» " position="CEO OF PINPIN TEAM" project="Golf orbit, Fish Orbit"></card-right-img>
+                        <card-right-img class="max-w" picture="/src/assets/img/story_pinpin_team.png" title="Pinpin Team" msg="« The Green Panda team impressed us at every stage with their expertise, professionalism and dedication. (…) They were with us every step of the way to create Golf Orbit and together we&apos;ve made it a success !  We found a genuine partner in Green Panda and will continue to work closely with them to create hit games.» " position="CEO OF PINPIN TEAM" project="Golf orbit, Fish Orbit"></card-right-img>
                     </div>
                 </div>
 
@@ -204,6 +204,9 @@
         .group-card-1 {
             > div {
                 margin-bottom: 60px;
+              }
+              .max-w {
+                  max-width: 1098px;
               }
             .align-right {
                 padding-left: 102px;

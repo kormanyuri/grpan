@@ -1,9 +1,11 @@
 <template>
+
     <div class="page-container">
 
         <main-menu></main-menu>
 
         <div class="wrap-content" v-bind:class="{ 'mv-left': showRightMenu }">
+
             <section id="section-1">
                 <!--<img src="/src/assets/img/bg-1.png" alt="" class="header-video">-->
                 <div class="slogan">
@@ -18,6 +20,7 @@
                     </div>
                 </div>
             </section>
+
             <section id="section-2">
                 <div class="md-layout statistics">
                     <div class="md-layout-item md-small-size-33">
@@ -34,8 +37,9 @@
                     </div>
                 </div>
             </section>
+
             <section id="section-3">
-                <div class="md-layout md-gutter grid-card-games" >
+                <div class="md-layout grid-card-games" >
                     <div class="md-layout-item md-large-size-25 md-small-size-50">
                         <card-game title="Golf orbit" link="#">
                             <img src="/src/assets/img/games/preview_golf_orbit.png" alt="Golf Orbit">
@@ -78,6 +82,7 @@
                     </div>
                 </div>
             </section>
+
             <section id="section-4">
                 <div class="content">
                     <div class="title">Our story</div><br>
@@ -85,29 +90,34 @@
                         Green Panda Games began in 2013 as a mobile gaming studio developing various hit classical games such as Solitaire, Blackjack, Logo Quiz and Sudoku. After much success in this field, we pivoted to a much bigger genre of games.<br>
                         <b>We are now a leading mobile games publisher dedicated to making your hyper-casual game a HIT.</b>
                     </div>
-                    <button-arrow style="background-color: #203057; margin-left: 0">Publishing</button-arrow>
+                    <button-arrow style="background-color: rgba(32,48,87,0.53); margin-left: 0">Publishing</button-arrow>
                 </div>
-                <img src="/src/assets/img/illu_our_story.png" class="mountains">
-                <img src="/src/assets/img/illu_our_story_copter.png" class="copter">
+                <img src="/src/assets/img/illu_our_story.png" class="mountains md-small-hide">
+                <img src="/src/assets/img/illu_our_story_copter.png" class="copter md-small-hide">
             </section>
+
             <section id="section-5">
                 <div class="carousel-wrap carousel-1">
-                    <carousel paginationColor="#d8d8d8" paginationActiveColor="#4d4d4d" :perPage="1">
+                    <carousel paginationColor="#d8d8d8" paginationActiveColor="#4d4d4d" :perPage="1" :paginationSize="12">
                         <slide class="slide">
-                            <card-right-img picture="/src/assets/img/story_pinpin_team.png" title="Pinpin Team" msg="« The Green Panda team impressed us at every stage with their expertise, professionalism and dedication. (…) They were with us every step of the way to create Golf Orbit and together we&apos;ve made it a success !  We found a genuine partner in Green Panda and will continue to work closely with them to create hit games.» " position="CEO OF PINPIN TEAM" project="Golf orbit, Fish Orbit" style="box-shadow: none"></card-right-img>
+                            <card-right-img picture="/src/assets/img/story_pinpin_team.png" title="Success story" msg="« The Green Panda team impressed us at every stage with their expertise, professionalism and dedication. (…) They were with us every step of the way to create Golf Orbit and together we&apos;ve made it a success !  We found a genuine partner in Green Panda and will continue to work closely with them to create hit games.» " position="CEO OF PINPIN TEAM" project="Golf orbit, Fish Orbit" style="box-shadow: none"></card-right-img>
                         </slide>
                         <slide class="slide">
-                            <card-right-img picture="/src/assets/img/story_pinpin_team.png" title="Pinpin Team" msg="« The Green Panda team impressed us at every stage with their expertise, professionalism and dedication. (…) They were with us every step of the way to create Golf Orbit and together we&apos;ve made it a success !  We found a genuine partner in Green Panda and will continue to work closely with them to create hit games.» " position="CEO OF PINPIN TEAM" project="Golf orbit, Fish Orbit" style="box-shadow: none"></card-right-img>
+                            <card-right-img picture="/src/assets/img/story_pinpin_team.png" title="Success story" msg="« The Green Panda team impressed us at every stage with their expertise, professionalism and dedication. (…) They were with us every step of the way to create Golf Orbit and together we&apos;ve made it a success !  We found a genuine partner in Green Panda and will continue to work closely with them to create hit games.» " position="CEO OF PINPIN TEAM" project="Golf orbit, Fish Orbit" style="box-shadow: none"></card-right-img>
                         </slide>
                         <slide class="slide">
-                            <card-right-img picture="/src/assets/img/story_pinpin_team.png" title="Pinpin Team" msg="« The Green Panda team impressed us at every stage with their expertise, professionalism and dedication. (…) They were with us every step of the way to create Golf Orbit and together we&apos;ve made it a success !  We found a genuine partner in Green Panda and will continue to work closely with them to create hit games.» " position="CEO OF PINPIN TEAM" project="Golf orbit, Fish Orbit" style="box-shadow: none"></card-right-img>
+                            <card-right-img picture="/src/assets/img/story_pinpin_team.png" title="Success story" msg="« The Green Panda team impressed us at every stage with their expertise, professionalism and dedication. (…) They were with us every step of the way to create Golf Orbit and together we&apos;ve made it a success !  We found a genuine partner in Green Panda and will continue to work closely with them to create hit games.» " position="CEO OF PINPIN TEAM" project="Golf orbit, Fish Orbit" style="box-shadow: none"></card-right-img>
                         </slide>
                     </carousel>
                 </div>
             </section>
+
             <section id="section-6">
-                <div class="md-layout md-gutter wrap-join-our-team">
-                    <div class="md-layout-item md-size-25">
+                <div class="section-head">
+                    Jobs
+                </div>
+                <div class="md-layout wrap-join-our-team">
+                    <div class="md-layout-item md-size-25 md-small-hide">
                         <div class="join-our-team">
                             <img src="/src/assets/img/illu_join_team.png" alt="join team">
                             <div>Want to join<br>our team?</div>
@@ -127,30 +137,38 @@
                     <button-arrow>Check all offers</button-arrow>
                 </div>
             </section>
+
             <section id="section-7">
-                <h1>Green Panda News</h1>
-                <div class="subtitle">Stay in touch and get fresh updates about Green Panda Games!</div>
-                <div class="md-layout md-gutter wrap-soc-link">
-                    <div class="md-layout-item md-size-25">
-                        <soc-link icon="/src/assets/img/icn-facebook.png" link="https://www.facebook.com/GreenPandaGames/"></soc-link>
-                    </div>
-                    <div class="md-layout-item md-size-25">
-                        <soc-link icon="/src/assets/img/icn-instagram.png" link="https://www.instagram.com/greenpandagame"></soc-link>
-                    </div>
-                    <div class="md-layout-item md-size-25">
-                        <soc-link icon="/src/assets/img/icn-vk.png" link="https://www.vk.com/green_panda_games/"></soc-link>
-                    </div>
-                    <div class="md-layout-item md-size-25">
-                        <soc-link icon="/src/assets/img/icn-linkedin.png" link="https://www.linkedin.com/company/green-panda-games/"></soc-link>
+                <div class="section-body">
+                    <h1>Green Panda News</h1>
+                    <div class="subtitle">Stay in touch and get fresh updates about Green Panda Games!</div>
+                    <div class="md-layout md-gutter wrap-soc-link">
+                        <div class="md-layout-item md-size-25">
+                            <soc-link icon="/src/assets/img/icn-facebook.png" link="https://www.facebook.com/GreenPandaGames/"></soc-link>
+                        </div>
+                        <div class="md-layout-item md-size-25">
+                            <soc-link icon="/src/assets/img/icn-instagram.png" link="https://www.instagram.com/greenpandagame"></soc-link>
+                        </div>
+                        <div class="md-layout-item md-size-25">
+                            <soc-link icon="/src/assets/img/icn-vk.png" link="https://www.vk.com/green_panda_games/"></soc-link>
+                        </div>
+                        <div class="md-layout-item md-size-25">
+                            <soc-link icon="/src/assets/img/icn-linkedin.png" link="https://www.linkedin.com/company/green-panda-games/"></soc-link>
+                        </div>
                     </div>
                 </div>
             </section>
+
         </div>
+
         <footer-my></footer-my>
+
     </div>
+
 </template>
 
 <script>
+
     import mainMenu from '../components/mainMenu.vue'
     import cardVacancy from '../components/cardVacancy.vue'
     import socLink from '../components/socLink.vue'
@@ -208,7 +226,7 @@
             cardVacancy,
             socLink,
             cardRightImg
-        },
+        }
     }
 </script>
 
@@ -242,13 +260,16 @@
             letter-spacing: 0.9px;
             text-align: center;
             line-height: 50px;
-            margin-top: 20%;
-            margin-bottom: 110px;
+            margin-top: 19.5%;
+            margin-bottom: 100px;
         }
     }
     #section-3,
     #section-6{
-        padding: 0 120px;
+        padding: 0 110px;
+    }
+    #section-3 {
+        padding-bottom: 152px;
     }
     #section-4 {
         height: 556px;
@@ -257,22 +278,22 @@
         position: relative;
 
         .content {
-            width: 553px;
+            width: 660px;
             color: #fff;
-            padding-top: 97px;
+            padding-top: 110px;
             padding-left: 120px;
             .title {
                 font-size: 36px;
                 font-weight: normal;
                 letter-spacing: 0.6px;
-                margin-bottom: 20px;
+                margin-bottom: 24px;
             }
             .text {
                 font-size: 14px;
                 font-weight: 300;
                 line-height: 1.79;
                 letter-spacing: 0.9px;
-                margin-bottom: 30px;
+                margin-bottom: 35px;
             }
         }
         .mountains {
@@ -282,8 +303,8 @@
         }
         .copter {
             position: absolute;
-            right: 95px;
-            bottom: 108px;
+            right: 90px;
+            bottom: 120px;
         }
     }
 
@@ -294,38 +315,51 @@
     #section-6 {
         font-family: 'Poppins', sans-serif;
         background-color: #f5f4f9;
-        padding-top: 116px;
-        padding-bottom: 112px;
+        padding-top: 104px;
+        padding-bottom: 105px;
+        overflow: hidden;
+        .section-head {
+            display: none;
+            text-align: center;
+            font-size: 26px;
+            line-height: normal;
+            letter-spacing: 0.4px;
+            color: #848c9a;
+        }
     }
     #section-7 {
         font-family: 'Poppins', sans-serif;
-        padding: 100px 249px;
-        > h1 {
-            font-size: 48px;
-            font-weight: bold;
-            line-height: 1;
-            letter-spacing: 0.8px;
-            text-align: center;
-            color: #030303;
-            margin: 0 auto 7px;
-        }
-        .subtitle {
-            font-size: 14px;
-            font-weight: 300;
-            line-height: normal;
-            letter-spacing: 0.9px;
-            text-align: center;
-            color: #4a4a4a;
-            margin-bottom: 90px;
-        }
-        .wrap-soc-link {
-            text-align: center;
+        padding-top: 120px;
+        padding-bottom: 128px;
+        .section-body {
+            max-width: 940px;
+            margin: 0 auto;
+            > h1 {
+                  font-size: 48px;
+                  font-weight: bold;
+                  line-height: 1;
+                  letter-spacing: 0.8px;
+                  text-align: center;
+                  color: #030303;
+                  margin: 0 auto 20px;
+              }
+            .subtitle {
+                font-size: 14px;
+                font-weight: 300;
+                line-height: normal;
+                letter-spacing: 0.9px;
+                text-align: center;
+                color: #4a4a4a;
+                margin-bottom: 70px;
+            }
+            .wrap-soc-link {
+                text-align: center;
+            }
         }
     }
     .grid-card-games {
         .md-layout-item {
-            padding-top: 21px;
-            padding-bottom: 21px;
+            padding: 21px 12px;
         }
     }
     .btns-wrap {
@@ -367,9 +401,10 @@
         height: 109px;
         text-align: center;
         width: 927px;
-        margin: 100px auto;
+        margin: 100px auto 60px;
         > div {
-        height: 100%;
+            height: 100%;
+            padding-top: 10px;
           }
         > div span:first-child {
             font-size: 46px;
@@ -389,7 +424,7 @@
         }
     }
     .carousel-wrap {
-        height: 328px;
+        height: 357px;
         border-radius: 6px;
         background-color: #ffffff;
         box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.2);
@@ -397,45 +432,14 @@
     .carousel-1 {
         margin-top: -20px;
         position: relative;
-        .slide {
-            font-family: 'Poppins', sans-serif;
-            display: table;
-            img {
-                float: right;
-                height: 358px;
-            }
-            >div {
-                 display: table-cell;
-                width: 50%;
-                 vertical-align: top;
-                div:nth-child(1) {
-                    font-size: 36px;
-                    font-weight: 600;
-                    line-height: 2.52;
-                    letter-spacing: 0.6px;
-                }
-                div:nth-child(2) {
-                    font-size: 14px;
-                    font-weight: 300;
-                    line-height: 1.79;
-                    letter-spacing: 0.9px;
-                    color: #7a7a7a;
-                    span {
-                        font-weight: bold;
-                        color: #367cff;
-                    }
-                }
-                div:nth-child(3) {
-                    font-size: 14px;
-                    font-weight: normal;
-                    letter-spacing: 0.9px;
-                    color: #000000;
-                }
-             }
-        }
     }
     .wrap-join-our-team {
-        margin-bottom: 58px;
+        width: 1224px;
+        margin: 0 auto;
+        margin-bottom: 40px;
+        .md-layout-item {
+            padding: 12px;
+        }
     }
     .join-our-team {
         border-radius: 8px;
@@ -443,7 +447,7 @@
         background-image: linear-gradient(to top, #38cc7f, #24bb83);
         border: solid 8px #ffffff;
         position: relative;
-        padding: 2px;
+        padding: 8px 0 4px 8px;
         > div {
             position: absolute;
             right: 30px;
@@ -472,10 +476,67 @@
                 line-height: 37px;
             }
         }
+        #section-3 {
+            padding: 0 11px 55px;
+        }
+        #section-4 {
+            height: auto;
+            padding-bottom: 110px;
+            .content {
+                width: auto;
+                padding: 40px 21px 0;
+                .title {
+                    font-size: 26px;
+                    font-weight: normal;
+                    letter-spacing: 0.6px;
+                    margin-bottom: 5px;
+                }
+                .text {
+                    margin-bottom: 27px;
+                }
+            }
+        }
+        #section-5 {
+            padding: 0 12px;
+            margin-bottom: 60px;
+        }
+        #section-6 {
+            padding: 10px 10px 55px 10px;
+            .section-head {
+                display: block;
+                margin-bottom: 5px;
+            }
+        }
+        #section-7 {
+            padding-top: 50px;
+            padding-bottom: 40px;
+            .section-body {
+                > h1 {
+                      font-size: 27px;
+                      font-weight: bold;
+                      letter-spacing: 0.5px;
+                        margin-bottom: 25px;
+                  }
+                  .subtitle {
+                      margin-bottom: 35px;
+                  }
+                .wrap-soc-link {
+                    padding: 0 70px;
+                }
+            }
+        }
+        .wrap-join-our-team {
+            margin-bottom: 30px;
+        }
+        .grid-card-games {
+            .md-layout-item {
+                padding: 5px 17px;
+            }
+        }
         .statistics {
-            height: 109px;
+            height: 50px;
             width: 360px;
-            margin: 50px auto;
+            margin: 40px auto 40px;
             line-height: 20px;
             > div span:first-child {
                   font-size: 24px;
@@ -503,6 +564,12 @@
             > div:last-child {
                     text-align: center;
             }
+        }
+        .carousel-wrap {
+            height: 418px;
+        }
+        .carousel-1 {
+            margin-top: -80px;
         }
     }
 </style>

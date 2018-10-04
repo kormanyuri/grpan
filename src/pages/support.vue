@@ -174,9 +174,7 @@
         padding-top: 9px;
         padding-left: 16px;
     }
-    .md-list.md-dense .md-list-item-text {
-        font-size: 14px;
-    }
+    .md-list.md-dense .md-list-item-text {}
     .form-footer {
         text-align: right;
     }
