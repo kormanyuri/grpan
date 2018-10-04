@@ -1,14 +1,196 @@
 <template>
-    <div id="games">
-        <p>games</p>
+    <div class="page-container">
+
+        <main-menu></main-menu>
+
+        <div id="games">
+
+            <header-my title="Our games" subtitle="We create successful games with talented partners" class="header-my"></header-my>
+
+            <section class="group-games">
+                <div class="group-games-head">
+                    Published Games
+                </div>
+                <div class="group-games-body">
+                    <div class="md-layout md-gutter grid-card-games" >
+                        <div class="md-layout-item md-large-size-25 md-small-size-50">
+                            <card-game title="Golf orbit" link="#">
+                                <img src="/src/assets/img/games/preview_golf_orbit.png" alt="Golf Orbit">
+                            </card-game>
+                        </div>
+                        <div class="md-layout-item md-large-size-25 md-small-size-50">
+                            <card-game title="Bee factory" link="#">
+                                <img src="/src/assets/img/games/preview_bee_factory.png" alt="Bee factory">
+                            </card-game>
+                        </div>
+                        <div class="md-layout-item md-large-size-25 md-small-size-50">
+                            <card-game title="Emoji craft!" link="#">
+                                <img src="/src/assets/img/games/preview_emoji_craft.png" alt="Emoji craft!">
+                            </card-game>
+                        </div>
+                        <div class="md-layout-item md-large-size-25 md-small-size-50">
+                            <card-game title="Axe climber" link="#">
+                                <img src="/src/assets/img/games/preview_axe_climber.png" alt="Axe climber">
+                            </card-game>
+                        </div>
+                        <div class="md-layout-item md-large-size-25 md-small-size-50">
+                            <card-game title="Terrarium" link="#">
+                                <img src="/src/assets/img/games/preview_terrarium.png" alt="Terrarium">
+                            </card-game>
+                        </div>
+                        <div class="md-layout-item md-large-size-25 md-small-size-50">
+                            <card-game title="Golf boy" link="#">
+                                <img src="/src/assets/img/games/preview_golf_boy.png" alt="Golf boy">
+                            </card-game>
+                        </div>
+                        <div class="md-layout-item md-large-size-25 md-small-size-50">
+                            <card-game title="Fish orbit" link="#">
+                                <img src="/src/assets/img/games/preview_fish_orbit.png" alt="Fish orbit">
+                            </card-game>
+                        </div>
+                        <div class="md-layout-item md-large-size-25 md-small-size-50">
+                            <card-game-all title="See on the Appstore" link="#">
+                                <img src="/src/assets/img/games/preview_appstore.png" alt="All games">
+                            </card-game-all>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <md-divider class="divider"></md-divider>
+
+            <section class="group-games group-games-1">
+                <div class="group-games-head">
+                    Published Games
+                </div>
+                <div class="group-games-body">
+                    <div class="md-layout md-gutter grid-card-games" >
+                        <div class="md-layout-item md-large-size-25 md-small-size-50">
+                            <card-game title="Golf orbit" link="#">
+                                <img src="/src/assets/img/games/preview_golf_orbit.png" alt="Golf Orbit">
+                            </card-game>
+                        </div>
+                        <div class="md-layout-item md-large-size-25 md-small-size-50">
+                            <card-game title="Bee factory" link="#">
+                                <img src="/src/assets/img/games/preview_bee_factory.png" alt="Bee factory">
+                            </card-game>
+                        </div>
+                        <div class="md-layout-item md-large-size-25 md-small-size-50">
+                            <card-game title="Emoji craft!" link="#">
+                                <img src="/src/assets/img/games/preview_emoji_craft.png" alt="Emoji craft!">
+                            </card-game>
+                        </div>
+                        <div class="md-layout-item md-large-size-25 md-small-size-50">
+                            <card-game title="Axe climber" link="#">
+                                <img src="/src/assets/img/games/preview_axe_climber.png" alt="Axe climber">
+                            </card-game>
+                        </div>
+                        <div class="md-layout-item md-large-size-25 md-small-size-50">
+                            <card-game title="Terrarium" link="#">
+                                <img src="/src/assets/img/games/preview_terrarium.png" alt="Terrarium">
+                            </card-game>
+                        </div>
+                        <div class="md-layout-item md-large-size-25 md-small-size-50">
+                            <card-game title="Golf boy" link="#">
+                                <img src="/src/assets/img/games/preview_golf_boy.png" alt="Golf boy">
+                            </card-game>
+                        </div>
+                        <div class="md-layout-item md-large-size-25 md-small-size-50">
+                            <card-game title="Fish orbit" link="#">
+                                <img src="/src/assets/img/games/preview_fish_orbit.png" alt="Fish orbit">
+                            </card-game>
+                        </div>
+                        <div class="md-layout-item md-large-size-25 md-small-size-50">
+                            <card-game-all title="See on the Appstore" link="#">
+                                <img src="/src/assets/img/games/preview_appstore.png" alt="All games">
+                            </card-game-all>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="learn-more">
+                <div class="title">
+                    Want to learn more about publishing?
+                </div>
+                <div class="subtitle">
+                    Please contact our team if you need more information or if you have a<br>game you want to publish with us. We will reply to you as soon as possible !
+                </div>
+                <button-arrow>Publishing</button-arrow>
+            </section>
+
+            <footer-my></footer-my>
+
+        </div>
+
     </div>
 </template>
 
 <script>
-    export default {
-        name: 'games',
-        data () {
+    import mainMenu from '../components/mainMenu.vue'
+    import headerMy from '../components/headerMy.vue'
 
-        }
+    export default {
+        components: {
+            headerMy,
+            mainMenu
+        },
     }
 </script>
+
+<style lang="scss" scoped>
+    .header-my {
+        background-image: linear-gradient(107deg, #70cb93, #52c277);
+    }
+    .grid-card-games {
+        .md-layout-item {
+            padding-top: 21px;
+            padding-bottom: 21px;
+        }
+    }
+    .group-games {
+        padding-top: 53px;
+        margin-bottom: 90px;
+    }
+    .group-games-head {
+        font-family: 'Poppins', sans-serif;
+        font-size: 36px;
+        line-height: normal;
+        letter-spacing: 0.6px;
+        color: #848c9a;
+        text-align: center;
+        margin-bottom: 73px;
+    }
+    .group-games-body {
+        padding: 0 120px;
+    }
+    .divider {
+        opacity: 0.5;
+        background-color: #d8d8d8;
+    }
+    .learn-more {
+        height: 440px;
+        background-color: #f5f4f9;
+        font-family: 'Poppins', sans-serif;
+        padding-top: 120px;
+        padding-bottom: 89px;
+        text-align: center;
+        .title {
+            font-size: 48px;
+            font-weight: bold;
+            line-height: 1.89;
+            letter-spacing: 0.8px;
+            text-align: center;
+            color: #030303;
+        }
+        .subtitle {
+            font-size: 14px;
+            font-weight: 300;
+            line-height: normal;
+            letter-spacing: 0.9px;
+            text-align: center;
+            color: #4a4a4a;
+            margin-bottom: 80px;
+        }
+    }
+</style>

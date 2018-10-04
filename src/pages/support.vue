@@ -1,14 +1,184 @@
 <template>
-    <div id="support">
-        <p>support</p>
+    <div class="page-container">
+
+        <main-menu></main-menu>
+
+        <div id="support">
+
+            <header-my title="Player support" subtitle="A question​?​ ​Perhaps even a suggestion? We'd be happy to hear from you, and we'll get back to you with an answer as soon as we can!" class="header-my"></header-my>
+
+            <section class="section-3">
+                <div class="form">
+                    <div class="form-head">Contact us</div>
+                    <form action="">
+                        <div class="md-layout md-gutter">
+                            <div class="md-layout-item md-size-50">
+                                <md-field>
+                                    <label>GAME</label>
+                                    <md-select md-dense required placeholder="Choose a game">
+                                        <md-option value="Golf orbit">Golf orbit</md-option>
+                                        <md-option value="brazil">Bee factory</md-option>
+                                        <md-option value="japan">Emoji craft!</md-option>
+                                        <md-option value="united-states">Axe climber</md-option>
+                                    </md-select>
+                                </md-field>
+                            </div>
+                            <div class="md-layout-item md-size-50">
+
+                            </div>
+                            <div class="md-layout-item md-size-50">
+                                <md-field>
+                                    <label>NAME</label>
+                                    <md-input required placeholder="John Doe"></md-input>
+                                    <span class="md-error">There is an error</span>
+                                </md-field>
+                            </div>
+                            <div class="md-layout-item md-size-50">
+                                <md-field>
+                                    <label>EMAIL</label>
+                                    <md-input type="email" required placeholder="name@societe.com"></md-input>
+                                </md-field>
+                            </div>
+                            <div class="md-layout-item md-size-100">
+                                <md-field>
+                                    <label>MESSAGE</label>
+                                    <md-textarea required placeholder="Tell us more about your game…"></md-textarea>
+                                    <span class="md-error">There is an error</span>
+                                </md-field>
+                            </div>
+                        </div>
+                        <div class="form-footer">
+                            <button-rectangle>Submit</button-rectangle>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <footer-my></footer-my>
+
+        </div>
+
     </div>
 </template>
 
 <script>
-    export default {
-        name: 'support',
-        data () {
+    import mainMenu from '../components/mainMenu.vue'
+    import headerMy from '../components/headerMy.vue'
+    import buttonRectangle from '../components/buttonRectangle.vue'
 
-        }
+    export default {
+        components: {
+            headerMy,
+            mainMenu,
+            buttonRectangle,
+        },
     }
 </script>
+
+<style lang="scss" scoped>
+
+    .header-my {
+        background-color: rgba(255, 72, 95, 0.81);
+    }
+
+    .section-3 {
+        padding: 132px 0 193px;
+    }
+
+    .form {
+        max-width: 976px;
+        padding: 63px 48px 31px 75px;
+        margin: 0 auto;
+        border-radius: 8px;
+        background-color: #ffffff;
+        box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.25);
+        font-family: 'Poppins', sans-serif;
+    .form-head {
+        margin-bottom: 20px;
+        font-size: 36px;
+        font-weight: 600;
+        line-height: normal;
+        letter-spacing: 0.6px;
+        color: #030303;
+    }
+    input[type=text],
+    input[type=text]::placeholder,
+    input[type=email],
+    input[type=email]::placeholder,
+    textarea,
+    textarea::placeholder{
+        font-size: 14px;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: 0.9px;
+        color: #cccccc;
+    }
+    textarea {
+        min-height: 201px !important;
+        padding-top: 15px !important;
+    }
+    .md-field.md-has-placeholder .md-input,
+    .md-field .md-textarea {
+        height: 50px;
+        padding-left: 16px;
+        padding-right: 16px;
+        border-radius: 4px;
+        background-color: #ffffff;
+        border: solid 1px #d9d9d9;
+        font-family: 'Poppins', sans-serif;
+        font-size: 14px;
+        line-height: normal;
+        letter-spacing: 0.9px;
+        color: #cccccc;
+    }
+    .md-field.md-theme-default:after,
+    .md-field.md-theme-default:before {
+        display: none;
+    }
+    .md-field.md-has-placeholder label,
+    .md-field.md-has-placeholder label{
+        opacity: 1;
+        top: -8px;
+    }
+    .md-focused label {
+        color: #4a4a4a;
+    }
+    .md-focused textarea {
+        padding-top: 15px;
+    }
+    .md-field label:after {
+        content: ' (optional)';
+        font-weight: 300;
+    }
+    .md-field.md-required label:after {
+        display: none;
+    }
+    .md-field.md-has-textarea:not(.md-autogrow) label {
+        left: 0;
+    }
+    label {
+        font-family: 'Poppins', sans-serif;
+        font-size: 14px;
+        font-weight: bold;
+        line-height: normal;
+        letter-spacing: 0.9px;
+        color: #4a4a4a;
+        text-transform: uppercase;
+    }
+    .md-select {
+        border: solid 1px #d9d9d9;
+        border-radius: 4px;
+        height: 50px;
+        padding-top: 9px;
+        padding-left: 16px;
+    }
+    .md-list.md-dense .md-list-item-text {
+        font-size: 14px;
+    }
+    .form-footer {
+        text-align: right;
+    }
+    }
+</style>

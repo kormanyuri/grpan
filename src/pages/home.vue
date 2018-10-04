@@ -94,52 +94,19 @@
                 <div class="carousel-wrap carousel-1">
                     <carousel paginationColor="#d8d8d8" paginationActiveColor="#4d4d4d" :perPage="1">
                         <slide class="slide">
-                            <div>
-                                <div class="title">Success story</div>
-                                <div class="content">
-                                    « The Green Panda team impressed us at every stage with their expertise, professionalism and dedication. (…) They were with us every step of the way to create Golf Orbit and together we&apos;ve made it a success !  We found a genuine partner in Green Panda and will continue to work closely with them to create hit games.»
-                                    <br><br>
-                                    <span class="blue">CEO OF PINPIN TEAM</span>
-                                </div>
-                                <div>Golf orbit, Fish Orbit</div>
-                            </div>
-                            <div>
-                                <img src="/src/assets/img/story_pinpin_team.png" alt="man">
-                            </div>
+                            <card-right-img picture="/src/assets/img/story_pinpin_team.png" title="Pinpin Team" msg="« The Green Panda team impressed us at every stage with their expertise, professionalism and dedication. (…) They were with us every step of the way to create Golf Orbit and together we&apos;ve made it a success !  We found a genuine partner in Green Panda and will continue to work closely with them to create hit games.» " position="CEO OF PINPIN TEAM" project="Golf orbit, Fish Orbit" style="box-shadow: none"></card-right-img>
                         </slide>
                         <slide class="slide">
-                            <div>
-                                <div class="title">Success story</div>
-                                <div class="content">
-                                    « The Green Panda team impressed us at every stage with their expertise, professionalism and dedication. (…) They were with us every step of the way to create Golf Orbit and together we&apos;ve made it a success !  We found a genuine partner in Green Panda and will continue to work closely with them to create hit games.»
-                                    <br><br>
-                                    <span class="blue">CEO OF PINPIN TEAM</span>
-                                </div>
-                                <div>Golf orbit, Fish Orbit</div>
-                            </div>
-                            <div>
-                                <img src="/src/assets/img/story_pinpin_team.png" alt="man">
-                            </div>
+                            <card-right-img picture="/src/assets/img/story_pinpin_team.png" title="Pinpin Team" msg="« The Green Panda team impressed us at every stage with their expertise, professionalism and dedication. (…) They were with us every step of the way to create Golf Orbit and together we&apos;ve made it a success !  We found a genuine partner in Green Panda and will continue to work closely with them to create hit games.» " position="CEO OF PINPIN TEAM" project="Golf orbit, Fish Orbit" style="box-shadow: none"></card-right-img>
                         </slide>
                         <slide class="slide">
-                            <div>
-                                <div class="title">Success story</div>
-                                <div class="content">
-                                    « The Green Panda team impressed us at every stage with their expertise, professionalism and dedication. (…) They were with us every step of the way to create Golf Orbit and together we&apos;ve made it a success !  We found a genuine partner in Green Panda and will continue to work closely with them to create hit games.»
-                                    <br><br>
-                                    <span class="blue">CEO OF PINPIN TEAM</span>
-                                </div>
-                                <div>Golf orbit, Fish Orbit</div>
-                            </div>
-                            <div>
-                                <img src="/src/assets/img/story_pinpin_team.png" alt="man">
-                            </div>
+                            <card-right-img picture="/src/assets/img/story_pinpin_team.png" title="Pinpin Team" msg="« The Green Panda team impressed us at every stage with their expertise, professionalism and dedication. (…) They were with us every step of the way to create Golf Orbit and together we&apos;ve made it a success !  We found a genuine partner in Green Panda and will continue to work closely with them to create hit games.» " position="CEO OF PINPIN TEAM" project="Golf orbit, Fish Orbit" style="box-shadow: none"></card-right-img>
                         </slide>
                     </carousel>
                 </div>
             </section>
             <section id="section-6">
-                <div class="md-layout md-gutter" style="padding-left: ">
+                <div class="md-layout md-gutter wrap-join-our-team">
                     <div class="md-layout-item md-size-25">
                         <div class="join-our-team">
                             <img src="/src/assets/img/illu_join_team.png" alt="join team">
@@ -156,15 +123,39 @@
                         <card-vacancy vacancy="Digital advertising analyst H/F CDI" location="Paris, CDI" link="#"></card-vacancy>
                     </div>
                 </div>
+                <div style="text-align: center">
+                    <button-arrow>Check all offers</button-arrow>
+                </div>
+            </section>
+            <section id="section-7">
+                <h1>Green Panda News</h1>
+                <div class="subtitle">Stay in touch and get fresh updates about Green Panda Games!</div>
+                <div class="md-layout md-gutter wrap-soc-link">
+                    <div class="md-layout-item md-size-25">
+                        <soc-link icon="/src/assets/img/icn-facebook.png" link="https://www.facebook.com/GreenPandaGames/"></soc-link>
+                    </div>
+                    <div class="md-layout-item md-size-25">
+                        <soc-link icon="/src/assets/img/icn-instagram.png" link="https://www.instagram.com/greenpandagame"></soc-link>
+                    </div>
+                    <div class="md-layout-item md-size-25">
+                        <soc-link icon="/src/assets/img/icn-vk.png" link="https://www.vk.com/green_panda_games/"></soc-link>
+                    </div>
+                    <div class="md-layout-item md-size-25">
+                        <soc-link icon="/src/assets/img/icn-linkedin.png" link="https://www.linkedin.com/company/green-panda-games/"></soc-link>
+                    </div>
+                </div>
             </section>
         </div>
+        <footer-my></footer-my>
     </div>
 </template>
 
 <script>
     import mainMenu from '../components/mainMenu.vue'
     import cardVacancy from '../components/cardVacancy.vue'
+    import socLink from '../components/socLink.vue'
     import { Carousel, Slide } from 'vue-carousel'
+    import cardRightImg from '../components/cardRightImg.vue'
 
 //    var el = document.getElementById('section-4');
 //
@@ -214,7 +205,9 @@
             mainMenu,
             Carousel,
             Slide,
-            cardVacancy
+            cardVacancy,
+            socLink,
+            cardRightImg
         },
     }
 </script>
@@ -301,8 +294,34 @@
     #section-6 {
         font-family: 'Poppins', sans-serif;
         background-color: #f5f4f9;
+        padding-top: 116px;
+        padding-bottom: 112px;
     }
-
+    #section-7 {
+        font-family: 'Poppins', sans-serif;
+        padding: 100px 249px;
+        > h1 {
+            font-size: 48px;
+            font-weight: bold;
+            line-height: 1;
+            letter-spacing: 0.8px;
+            text-align: center;
+            color: #030303;
+            margin: 0 auto 7px;
+        }
+        .subtitle {
+            font-size: 14px;
+            font-weight: 300;
+            line-height: normal;
+            letter-spacing: 0.9px;
+            text-align: center;
+            color: #4a4a4a;
+            margin-bottom: 90px;
+        }
+        .wrap-soc-link {
+            text-align: center;
+        }
+    }
     .grid-card-games {
         .md-layout-item {
             padding-top: 21px;
@@ -370,13 +389,12 @@
         }
     }
     .carousel-wrap {
-        height: 358px;
+        height: 328px;
         border-radius: 6px;
         background-color: #ffffff;
         box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.2);
     }
     .carousel-1 {
-        padding-left: 78px;
         margin-top: -20px;
         position: relative;
         .slide {
@@ -415,6 +433,9 @@
                 }
              }
         }
+    }
+    .wrap-join-our-team {
+        margin-bottom: 58px;
     }
     .join-our-team {
         border-radius: 8px;

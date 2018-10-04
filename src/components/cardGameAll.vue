@@ -1,6 +1,6 @@
 <template>
 
-    <a href="link" class="card-game-all">
+    <a :href="link" class="card-game-all">
         <div>{{title}}</div>
         <slot></slot>
         <img src="/src/assets/img/arrow.svg" alt="arrow" class="arrow">
@@ -36,6 +36,7 @@
             font-family: 'Poppins', sans-serif;
             font-size: 36px;
             font-weight: bold;
+            line-height: 1.08;
             letter-spacing: 0.6px;
             color: #fff;
          }

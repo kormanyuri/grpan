@@ -3,7 +3,7 @@
     <div class="vacancy-card">
         <div>{{vacancy}}</div>
         <div>{{location}}</div>
-        <div><a href="link">Learn more</a></div>
+        <div><a :href="link">Learn more</a></div>
     </div>
 
 </template>
@@ -19,10 +19,10 @@
         border-radius: 8px;
         box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.12);
         background-color: #ffffff;
-        padding: 20px;
+        padding: 18px 17px 17px;
         font-family: 'Poppins', sans-serif;
         position: relative;
-        height: 126px;
+        height: 134px;
         div:nth-child(1){
             font-size: 18px;
             font-weight: 600;
@@ -36,7 +36,7 @@
             font-weight: normal;
             letter-spacing: 0.3px;
             color: #929292;
-            margin-bottom: 10px;
+            margin-bottom: 4px;
         }
         div:nth-child(3){
             font-size: 14px;

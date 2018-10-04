@@ -5,12 +5,13 @@ import Publishing from './pages/publishing.vue'
 import Games from './pages/games.vue'
 import Jobs from './pages/jobs.vue'
 import Support from './pages/support.vue'
-import { MdToolbar, MdLayout, MdApp, MdDrawer, MdContent, MdButton } from 'vue-material/dist/components'
+import { MdToolbar, MdLayout, MdApp, MdDrawer, MdContent, MdButton, MdList, MdField, MdMenu, MdDivider } from 'vue-material/dist/components'
 import 'vue-material/dist/vue-material.min.css'
 import 'vue-material/dist/theme/default.css'
 import cardGame from './components/cardGame.vue'
 import cardGameAll from './components/cardGameAll.vue'
 import buttonArrow from './components/buttonArrow.vue'
+import footerMy from './components/footerMy.vue'
 
 
 Vue.use(MdLayout)
@@ -19,6 +20,10 @@ Vue.use(MdToolbar)
 Vue.use(MdDrawer)
 Vue.use(MdContent)
 Vue.use(MdButton)
+Vue.use(MdList)
+Vue.use(MdMenu)
+Vue.use(MdField)
+Vue.use(MdDivider)
 Vue.use(VueRouter)
 
 //new Vue({
@@ -41,6 +46,7 @@ const router = new VueRouter({
 Vue.component('card-game', cardGame);
 Vue.component('card-game-all', cardGameAll);
 Vue.component('button-arrow', buttonArrow);
+Vue.component('footer-my', footerMy);
 
 const vm = new Vue({
   el: '#app',
