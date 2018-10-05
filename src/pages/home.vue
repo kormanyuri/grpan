@@ -196,7 +196,7 @@
 //        console.log(123);
 //    }
     export default {
-        name: 'Temporary',
+        name: 'Home',
         data: () => ({
             showRightMenu: false,
         }),
@@ -231,6 +231,7 @@
 </script>
 
 <style lang="scss" scoped>
+
     .page-container {
         position: relative;
     }

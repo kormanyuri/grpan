@@ -59,12 +59,12 @@
 
             <md-divider class="divider"></md-divider>
 
-            <section class="group-games group-games-1">
+            <section class="group-games mrgn-b">
                 <div class="group-games-head">
-                    Published Games
+                    Classic Games
                 </div>
                 <div class="group-games-body">
-                    <div class="md-layout md-gutter grid-card-games" >
+                    <div class="md-layout grid-card-games" >
                         <div class="md-layout-item md-large-size-25 md-small-size-50">
                             <card-game title="Golf orbit" link="#">
                                 <img src="/src/assets/img/games/preview_golf_orbit.png" alt="Golf Orbit">
@@ -113,7 +113,7 @@
                 <div class="title">
                     Want to learn more about publishing?
                 </div>
-                <div class="subtitle">
+                <div class="subtitle md-small-hide">
                     Please contact our team if you need more information or if you have a<br>game you want to publish with us. We will reply to you as soon as possible !
                 </div>
                 <button-arrow>Publishing</button-arrow>
@@ -144,13 +144,15 @@
     }
     .grid-card-games {
         .md-layout-item {
-            padding-top: 21px;
-            padding-bottom: 21px;
+            padding: 21px 12px;
         }
     }
     .group-games {
         padding-top: 53px;
-        margin-bottom: 90px;
+        margin-bottom: 70px;
+    }
+    .group-games.mrgn-b {
+        margin-bottom: 143px;
     }
     .group-games-head {
         font-family: 'Poppins', sans-serif;
@@ -159,10 +161,11 @@
         letter-spacing: 0.6px;
         color: #848c9a;
         text-align: center;
-        margin-bottom: 73px;
+        margin-bottom: 55px;
     }
     .group-games-body {
-        padding: 0 120px;
+        width: 81.6666666%;
+        margin: 0 auto;
     }
     .divider {
         opacity: 0.5;
@@ -172,8 +175,9 @@
         height: 440px;
         background-color: #f5f4f9;
         font-family: 'Poppins', sans-serif;
-        padding-top: 120px;
+        padding-top: 100px;
         padding-bottom: 89px;
+        margin-top: 30px;
         text-align: center;
         .title {
             font-size: 48px;
@@ -190,7 +194,44 @@
             letter-spacing: 0.9px;
             text-align: center;
             color: #4a4a4a;
-            margin-bottom: 80px;
+            margin-bottom: 65px;
+        }
+    }
+
+    @media (max-width: 960px) {
+        .group-games {
+            padding-top: 43px;
+            margin-bottom: 20px;
+        }
+        .group-games.mrgn-b {
+            margin-bottom: 33px;
+        }
+        .group-games-head {
+            font-size: 20px;
+            letter-spacing: 0.3px;
+            margin-bottom: 18px;
+        }
+        .grid-card-games {
+            .md-layout-item {
+                padding: 5px 17px;
+            }
+        }
+        .group-games-body {
+            width: 100%;
+            padding: 16px;
+            margin: 0;
+        }
+        .learn-more {
+            height: 270px;
+            margin-top: 30px;
+            text-align: center;
+            padding: 50px 16px 0;
+            .title {
+                font-size: 27px;
+                line-height: normal;
+                letter-spacing: 0.5px;
+                margin-bottom: 32px;
+            }
         }
     }
 </style>

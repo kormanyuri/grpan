@@ -9,7 +9,7 @@
 
             <section class="section-1">
                 <div class="md-layout md-gutter group-card">
-                    <div class="md-layout-item md-size-50">
+                    <div class="md-layout-item md-small-100 md-large-50">
                         <img src="/src/assets/img/illu_UA.png" alt="UA">
                         <div class="text">
                             <div>Large Scale<br>
@@ -18,14 +18,14 @@
                             <div>We’ve acquired more than 50M active users in the last 6 months for our hyper-casual games. We have the know-how and cross promotion to scale your game to the top rankings without sacrificing ROI.</div>
                         </div>
                     </div>
-                    <div class="md-layout-item md-size-50">
+                    <div class="md-layout-item md-small-100 md-large-50">
                         <img src="/src/assets/img/illu_monetization.png" alt="monetization">
                         <div class="text">
                             <div>Smart Monetization</div>
                             <div>We’re always working to find the right balance of user experience and revenue generation across all our games. We have special advertising deals with all top networks to achieve the best LTV.</div>
                         </div>
                     </div>
-                    <div class="md-layout-item md-size-50">
+                    <div class="md-layout-item md-small-100 md-large-50">
                         <img src="/src/assets/img/illu_project.png" alt="project">
                         <div class="text">
                             <div>Project Management</div>
@@ -33,7 +33,7 @@
                                 We have a dedicated game design and project management team to support game development. Our best practices and A/B testing framework guarantee continuous improvement in your game metrics.</div>
                         </div>
                     </div>
-                    <div class="md-layout-item md-size-50">
+                    <div class="md-layout-item md-small-100 md-large-50">
                         <img src="/src/assets/img/illu_terms.png" alt="project">
                         <div class="text">
                             <div>Clear terms</div>
@@ -153,6 +153,7 @@
 
     .header-my {
         background-image: linear-gradient(107deg, #4553ff, #4553ff 97%, #767fee);
+        padding-top: 80px;
     }
 
     .section-1 {
@@ -162,7 +163,7 @@
             position: relative;
             padding-top: 85px;
             > div {
-                margin-bottom: 125px;
+                margin-bottom: 131px;
             }
             img {
                 position: absolute;
@@ -170,11 +171,15 @@
             .text {
                 margin-left: 208px;
                 > div:nth-child(1) {
+                    display: flex;
+                    align-items: flex-end;
+                    height: 90px;
                     font-size: 32px;
                     font-weight: 600;
                     line-height: normal;
                     letter-spacing: 0.5px;
                     color: #131313;
+                    margin-top: 25px;
                     margin-bottom: 10px;
                 }
                 > div:nth-child(2) {
@@ -191,7 +196,7 @@
     .section-2 {
         font-family: 'Poppins', sans-serif;
         background-color: #f5f4f9;
-        padding: 74px 120px;
+        padding: 74px 120px 50px;
         .section-head {
             font-family: Poppins;
             font-size: 36px;
@@ -227,7 +232,7 @@
         box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.25);
         font-family: 'Poppins', sans-serif;
         .form-head {
-            margin-bottom: 20px;
+            margin-bottom: 26px;
             font-size: 36px;
             font-weight: 600;
             line-height: normal;
@@ -251,6 +256,9 @@
         textarea {
             min-height: 201px !important;
             padding-top: 15px !important;
+        }
+        .md-field {
+            margin-bottom: 45px;
         }
         .md-field.md-has-placeholder .md-input,
         .md-field .md-textarea {
@@ -298,7 +306,7 @@
             line-height: normal;
             letter-spacing: 0.9px;
             color: #4a4a4a;
-            text-transform: uppercase;
+            top: -10px !important;
         }
         .form-footer {
             text-align: right;
@@ -309,17 +317,36 @@
         height: 440px;
         background-color: #f5f4f9;
         font-family: 'Poppins', sans-serif;
-        padding-top: 120px;
+        padding-top: 145px;
         padding-bottom: 89px;
         text-align: center;
         .title {
-            margin-bottom: 100px;
+            margin-bottom: 73px;
             font-size: 48px;
             font-weight: bold;
             line-height: 1.89;
             letter-spacing: 0.8px;
             text-align: center;
             color: #030303;
+        }
+    }
+
+    @media (max-width: 960px) {
+        .section-1 {
+            padding: 0 20px;
+            .group-card {
+                text-align: center;
+                img {
+                    position: relative;
+                }
+                .text {
+                    margin-left: 0;
+                    text-align: center;
+                    > div:nth-child(1) {
+                          justify-content: center;
+                      }
+                }
+            }
         }
     }
 </style>
