@@ -12,7 +12,7 @@
                     Published Games
                 </div>
                 <div class="group-games-body">
-                    <div class="md-layout md-gutter grid-card-games" >
+                    <div class="md-layout grid-card-games" >
                         <div class="md-layout-item md-large-size-25 md-small-size-50">
                             <card-game title="Golf orbit" link="#">
                                 <img src="/src/assets/img/games/preview_golf_orbit.png" alt="Golf Orbit">
@@ -164,7 +164,7 @@
         margin-bottom: 55px;
     }
     .group-games-body {
-        width: 81.6666666%;
+        width: 83.333333%;
         margin: 0 auto;
     }
     .divider {

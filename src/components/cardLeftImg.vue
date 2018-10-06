@@ -28,7 +28,7 @@
 
 <style lang="scss" scoped>
     .card-left-img {
-        max-width: 1098px;
+        /*max-width: 1098px;*/
         min-height: 358px;
         border-radius: 8px;
         background-color: #ffffff;

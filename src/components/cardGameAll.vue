@@ -17,7 +17,7 @@
     .card-game-all {
         display: flex;
         align-items: center;
-        border-radius: 7px;
+        border-radius: 15px;
         box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.25);
         border: 10px solid #ffffff;
         overflow: hidden;
@@ -47,5 +47,20 @@
              width: 37px;
              height: auto;
          }
+    }
+
+    @media (max-width: 960px) {
+        .card-game-all {
+            border-radius: 7px;
+            border-width: 5px;
+            >div:first-child {
+                 font-size: 18px;
+             }
+             .arrow {
+                 width: 20px;
+                 right: 12px;
+                 bottom: 10px;
+             }
+        }
     }
 </style>

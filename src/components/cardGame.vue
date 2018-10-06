@@ -16,7 +16,7 @@
 <style lang="scss" scoped>
     .card-game {
         display: block;
-        border-radius: 7px;
+        border-radius: 15px;
         box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.25);
         border: 10px solid #ffffff;
         overflow: hidden;
@@ -27,7 +27,7 @@
         }
         >div:first-child {
             position: absolute;
-            top: 19px;
+            top: 25px;
             width: 100%;
             text-align: center;
             font-family: 'Poppins', sans-serif;
@@ -36,5 +36,16 @@
             letter-spacing: 0.4px;
             color: #fff;
          }
+    }
+    @media (max-width: 960px) {
+        .card-game {
+            border-radius: 7px;
+            border-width: 5px;
+            >div:first-child {
+                font-size: 12px;
+                 letter-spacing: 0.2px;
+                 top: 8px;
+             }
+        }
     }
 </style>

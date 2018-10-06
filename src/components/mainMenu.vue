@@ -1,5 +1,7 @@
 <template>
+
     <div>
+
         <md-toolbar md-elevation="0" class="topbar"  v-bind:class="{ 'topbar-white': scrolled, 'mv-left': showRightMenu }">
             <a href="/#/"><img v-bind:src='logo' alt="logo" class="logo"></a>
             <div class="md-toolbar-section-end">
@@ -33,7 +35,9 @@
         </div>
 
         <div class="overlay" v-bind:class="{ 'show-overlay': showRightMenu }"></div>
+
     </div>
+
 </template>
 
 <script>
@@ -77,6 +81,7 @@
 <style lang="scss" scoped>
 
     .topbar {
+        padding: 0 50px 0 40px;
         height: 94px;
         width: 100%;
         position: fixed;
@@ -170,7 +175,7 @@
         opacity: 0.34;
     }
     ul.top-menu {
-        margin: 0;
+        margin: 0 20px 0;
         padding: 0;
         li {
             list-style-type: none;
@@ -198,6 +203,7 @@
         border-radius: 4px;
         font-size: 16px;
         text-transform: none;
+        margin: 0;
         padding: 0 8px;
         font-family: 'Open Sans', sans-serif;
         font-weight: bold;
@@ -213,7 +219,8 @@
             height: 64px;
             padding-left: 20px;
             padding-right: 12px;
-            background-color: #479a85;
+            background-color: rgba(0, 0, 0, 0.1);
+
             .logo {
                 width: 146px;
             }

@@ -27,15 +27,37 @@
             text-align: center;
             color: #ffffff;
             margin-bottom: 30px;
+            padding-left: 20px;
+            padding-right: 20px;
         }
         .subtitle {
+            max-width: 58%;
             font-size: 20px;
             font-weight: 300;
             line-height: normal;
             letter-spacing: 1.3px;
             text-align: center;
             color: #ffffff;
-            padding: 0 300px;
+            margin: 0 auto;
+        }
+    }
+    @media (max-width: 960px) {
+        header {
+            height: 270px;
+            position: relative;
+            font-family: 'Poppins', sans-serif;
+            padding-top: 115px;
+            .title {
+                font-size: 27px;
+                line-height: normal;
+                letter-spacing: 0.5px;
+                margin-bottom: 5px;
+            }
+            .subtitle {
+                max-width: 80%;
+                font-size: 14px;
+                letter-spacing: 0.9px;
+            }
         }
     }
 </style>

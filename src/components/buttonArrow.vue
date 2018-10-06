@@ -27,7 +27,7 @@
         font-weight: normal;
         letter-spacing: 0.7px;
         img {
-            padding-left: 22px;
+            padding-left: 8px;
         }
     }
 </style>
