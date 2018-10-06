@@ -11,8 +11,8 @@
                 <div class="form">
                     <div class="form-head">Contact us</div>
                     <form action="">
-                        <div class="md-layout md-gutter">
-                            <div class="md-layout-item md-size-50">
+                        <div class="md-layout">
+                            <div class="md-layout-item md-small-size-100 md-large-size-50">
                                 <md-field>
                                     <label>GAME</label>
                                     <md-select md-dense required placeholder="Choose a game">
@@ -23,23 +23,21 @@
                                     </md-select>
                                 </md-field>
                             </div>
-                            <div class="md-layout-item md-size-50">
-
-                            </div>
-                            <div class="md-layout-item md-size-50">
+                            <div class="md-layout-item md-size-50 md-small-hide"></div>
+                            <div class="md-layout-item md-small-size-100 md-large-size-50">
                                 <md-field>
                                     <label>NAME</label>
                                     <md-input required placeholder="John Doe"></md-input>
                                     <span class="md-error">There is an error</span>
                                 </md-field>
                             </div>
-                            <div class="md-layout-item md-size-50">
+                            <div class="md-layout-item md-small-size-100 md-large-size-50 mrgn-b">
                                 <md-field>
                                     <label>EMAIL</label>
                                     <md-input type="email" required placeholder="name@societe.com"></md-input>
                                 </md-field>
                             </div>
-                            <div class="md-layout-item md-size-100">
+                            <div class="md-layout-item md-size-100 mssg">
                                 <md-field>
                                     <label>MESSAGE</label>
                                     <md-textarea required placeholder="Tell us more about your game…"></md-textarea>
@@ -67,6 +65,7 @@
     import buttonRectangle from '../components/buttonRectangle.vue'
 
     export default {
+        name: 'support',
         components: {
             headerMy,
             mainMenu,
@@ -82,7 +81,7 @@
     }
 
     .section-3 {
-        padding: 132px 0 193px;
+        padding: 95px 0 95px;
     }
 
     .form {
@@ -93,8 +92,17 @@
         background-color: #ffffff;
         box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.25);
         font-family: 'Poppins', sans-serif;
+        .md-layout-item {
+            padding-right: 13px;
+        }
+        .mrgn-b {
+            margin-bottom: 10px;
+        }
+        .mssg {
+            margin-bottom: 15px;
+        }
     .form-head {
-        margin-bottom: 20px;
+        margin-bottom: 41px;
         font-size: 36px;
         font-weight: 600;
         line-height: normal;
@@ -118,6 +126,9 @@
     textarea {
         min-height: 201px !important;
         padding-top: 15px !important;
+    }
+    .md-field {
+        margin-bottom: 36px;
     }
     .md-field.md-has-placeholder .md-input,
     .md-field .md-textarea {
@@ -178,5 +189,41 @@
     .form-footer {
         text-align: right;
     }
+    }
+
+    @media (max-width: 960px) {
+        .header-my {
+            padding-top: 97px;
+        }
+        .section-3 {
+            padding: 0;
+            .form {
+                box-shadow: none;
+                border-radius: 0;
+                padding: 21px 21px 48px;
+                .form-head {
+                    font-size: 26px;
+                    letter-spacing: 0.4px;
+                    margin-bottom: 33px;
+                }
+                .md-layout-item {
+                    padding-right: 0;
+                }
+                .md-field.md-has-placeholder .md-input,
+                .md-field .md-textarea,
+                .md-select {
+                    height: 40px;
+                }
+                .md-select {
+                    padding-top: 3px;
+                }
+                .md-field {
+                    margin-bottom: 20px;
+                }
+                .form-footer {
+                    text-align: center;
+                }
+            }
+        }
     }
 </style>

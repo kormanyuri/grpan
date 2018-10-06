@@ -25,6 +25,7 @@
         font-family: 'Poppins', sans-serif;
         .card-group-head {
             margin-bottom: 18px;
+            padding-left: 12px;
         }
         .circle {
             display: inline-flex;
@@ -34,6 +35,7 @@
             border-radius: 26px;
             justify-content: center;
             align-items: center;
+            margin-right: 21px;
         }
         .title {
             display: inline-flex;
@@ -42,6 +44,34 @@
             line-height: normal;
             letter-spacing: 0.5px;
             color: #848c9a;
+        }
+    }
+
+    @media (max-width: 960px){
+        .card-group-jobs {
+            margin-bottom: 27px;
+            .card-group-head {
+                margin-bottom: 18px;
+                padding-left: 0;
+                text-align: center;
+            }
+            .circle {
+                height: 40px;
+                width: 40px;
+                border-radius: 20px;
+                margin-right: 5px;
+                img {
+                    width: 20px;
+                }
+            }
+            .title {
+                display: inline-flex;
+                align-items: center;
+                font-size: 20px;
+                line-height: normal;
+                letter-spacing: 0.3px;
+                color: #848c9a;
+            }
         }
     }
 </style>

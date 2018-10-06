@@ -5,6 +5,7 @@
         <slot></slot>
         <img src="/src/assets/img/arrow.svg" alt="arrow" class="arrow">
     </a>
+
 </template>
 
 <script>

@@ -7,49 +7,64 @@
 
             <header-my title="Jobs" subtitle="Join & help us to build next hit games" class="header-my"></header-my>
 
+            <section class="nav-in-page">
+                <a href="#" v-scroll-to="'#business'">
+                    <img src="/src/assets/img/icn-business.svg" alt="">Business
+                </a>
+                <a href="#" v-scroll-to="'#marketing'">
+                    <img src="/src/assets/img/icn-marketing.svg" alt="">Marketing
+                </a>
+                <a href="#" v-scroll-to="'#product'">
+                    <img src="/src/assets/img/icn-product.svg" alt="">Product
+                </a>
+                <a href="#" v-scroll-to="'#human-resources'">
+                    <img src="/src/assets/img/icn-human-resources.svg" alt="">Human resources
+                </a>
+            </section>
+
             <section class="section-1">
-                <card-group-jobs title="Marketing" ico="/src/assets/img/icn-marketing.svg">
-                    <div class="md-layout md-gutter wrap-join-our-team">
-                        <div class="md-layout-item md-size-25">
+                <card-group-jobs id="business" title="Business" ico="/src/assets/img/icn-business.svg">
+                    <div class="md-layout wrap-join-our-team">
+                        <div class="md-layout-item md-small-size-100 md-large-size-25">
                             <card-vacancy vacancy="Business developper STAGE)" location="Paris, Stage" link="#"></card-vacancy>
                         </div>
-                        <div class="md-layout-item md-size-25">
+                        <div class="md-layout-item md-small-size-100 md-large-size-25">
                             <card-vacancy vacancy="Business developper H/F CDI" location="Paris, CDI" link="#"></card-vacancy>
                         </div>
                     </div>
                 </card-group-jobs>
-                <card-group-jobs title="Business" ico="/src/assets/img/icn-business.svg">
-                    <div class="md-layout md-gutter wrap-join-our-team">
-                        <div class="md-layout-item md-size-25">
+                <card-group-jobs id="marketing" title="Marketing" ico="/src/assets/img/icn-marketing.svg">
+                    <div class="md-layout wrap-join-our-team">
+                        <div class="md-layout-item md-small-size-100 md-large-size-25">
                             <card-vacancy vacancy="Digital marketing analyst H/F (STAGE FIN D’ETUDE)" location="Paris, Stage" link="#"></card-vacancy>
                         </div>
-                        <div class="md-layout-item md-size-25">
+                        <div class="md-layout-item md-small-size-100 md-large-size-25">
                             <card-vacancy vacancy="Digital marketing manager H/F (CDI)" location="Paris, CDI" link="#"></card-vacancy>
                         </div>
-                        <div class="md-layout-item md-size-25">
+                        <div class="md-layout-item md-small-size-100 md-large-size-25">
                             <card-vacancy vacancy="Digital advertising analyst H/F (STAGE)" location="Paris, CDI" link="#"></card-vacancy>
                         </div>
-                        <div class="md-layout-item md-size-25">
+                        <div class="md-layout-item md-small-size-100 md-large-size-25">
                             <card-vacancy vacancy="Digital advertising analyst H/F CDI" location="Paris, CDI" link="#"></card-vacancy>
                         </div>
                     </div>
                 </card-group-jobs>
-                <card-group-jobs title="Product" ico="/src/assets/img/icn-product.svg">
-                    <div class="md-layout md-gutter wrap-join-our-team">
-                        <div class="md-layout-item md-size-25">
+                <card-group-jobs id="product" title="Product" ico="/src/assets/img/icn-product.svg">
+                    <div class="md-layout wrap-join-our-team">
+                        <div class="md-layout-item md-small-size-100 md-large-size-25">
                             <card-vacancy vacancy="Designer mobile CDI H/F" location="Paris, Stage" link="#"></card-vacancy>
                         </div>
-                        <div class="md-layout-item md-size-25">
+                        <div class="md-layout-item md-small-size-100 md-large-size-25">
                             <card-vacancy vacancy="HTML5 developer (STAGE FIN D’ETUDE)" location="Paris, CDI" link="#"></card-vacancy>
                         </div>
-                        <div class="md-layout-item md-size-25">
+                        <div class="md-layout-item md-small-size-100 md-large-size-25">
                             <card-vacancy vacancy="HTML5 developer" location="Paris, CDI" link="#"></card-vacancy>
                         </div>
                     </div>
                 </card-group-jobs>
-                <card-group-jobs title="Human resources" ico="/src/assets/img/icn-human-resources.svg">
-                    <div class="md-layout md-gutter wrap-join-our-team">
-                        <div class="md-layout-item md-size-25">
+                <card-group-jobs id="human-resources" title="Human resources" ico="/src/assets/img/icn-human-resources.svg">
+                    <div class="md-layout wrap-join-our-team">
+                        <div class="md-layout-item md-small-size-100 md-large-size-25">
                             <card-vacancy vacancy="HR recruiter CDI H/F" location="Paris, CDI"" link="#"></card-vacancy>
                         </div>
                     </div>
@@ -78,6 +93,7 @@
 
 
     export default {
+        name: 'jobs',
         components: {
             headerMy,
             mainMenu,
@@ -93,25 +109,90 @@
         background-image: linear-gradient(107deg, #1e57ac, #2f3f6e);
     }
 
+    .nav-in-page {
+        display: none;
+        padding-left: 41px;
+        padding-right: 41px;
+        text-align: center;
+        font-family: 'Poppins', sans-serif;
+        a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: 40px;
+            border-radius: 100px;
+            background-color: #f5f4f9;
+            padding-left: 13px;
+            padding-right: 19px;
+            margin: 7px 4px;
+            text-decoration: none;
+            font-size: 12px;
+            line-height: normal;
+            letter-spacing: 0.2px;
+            color: #848c9a;
+            img {
+                width: 14px;
+                margin-right: 10px;
+            }
+        }
+    }
+
     .section-1 {
-        padding: 73px 120px 10px;
+        padding: 73px 46px 85px;
+        .md-layout-item {
+            padding: 0 12px;
+        }
     }
 
     .learn-more {
         height: 440px;
         background-color: #f5f4f9;
         font-family: 'Poppins', sans-serif;
-        padding-top: 120px;
+        padding-top: 145px;
         padding-bottom: 89px;
         text-align: center;
-    .title {
-        margin-bottom: 100px;
-        font-size: 48px;
-        font-weight: bold;
-        line-height: 1.89;
-        letter-spacing: 0.8px;
-        text-align: center;
-        color: #030303;
+        .title {
+            margin-bottom: 73px;
+            font-size: 48px;
+            font-weight: bold;
+            line-height: 1.89;
+            letter-spacing: 0.8px;
+            text-align: center;
+            color: #030303;
+        }
     }
+
+    @media (max-width: 960px) {
+        .header-my {
+            padding-top: 125px;
+            margin-bottom: 7px;
+        }
+        .nav-in-page {
+            display: block;
+        }
+        .section-1 {
+            padding: 30px 34px 53px;
+            .md-layout-item {
+                padding: 0 12px;
+            }
+        }
+        .md-layout-item {
+            margin-bottom: 10px;
+        }
+        .learn-more {
+            height: 270px;
+            background-color: #f5f4f9;
+            font-family: 'Poppins', sans-serif;
+            padding-top: 50px;
+            padding-bottom: 89px;
+            text-align: center;
+            .title {
+                margin-bottom: 33px;
+                font-size: 27px;
+                line-height: normal;
+                letter-spacing: 0.5px;
+                color: #030303;
+            }
+        }
     }
 </style>

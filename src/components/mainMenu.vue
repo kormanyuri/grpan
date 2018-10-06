@@ -6,10 +6,10 @@
             <a href="/#/"><img v-bind:src='logo' alt="logo" class="logo"></a>
             <div class="md-toolbar-section-end">
                 <ul class="top-menu md-small-hide">
-                    <li><a href="/#/publishing">Publishing</a></li>
-                    <li><a href="/#/games">Our games</a></li>
-                    <li><a href="/#/jobs">Jobs</a></li>
-                    <li><a href="/#/support">Support</a></li>
+                    <li><router-link :to="{name: 'publishing'}" exact>Publishing</router-link></li>
+                    <li><router-link :to="{name: 'games'}" exact>Our games</router-link></li>
+                    <li><router-link :to="{name: 'jobs'}" exact>Jobs</router-link></li>
+                    <li><router-link :to="{name: 'support'}" exact>Support</router-link></li>
                 </ul>
                 <md-button class="md-primary md-small-hide btn-1">Submit your game</md-button>
                 <md-button class="md-icon-button hide-small-up" @click="toggleMenu" v-bind:class="{ 'md-hide': showRightMenu }">
@@ -23,11 +23,11 @@
                 <img v-bind:src='closeMenuIco' alt="Close menu">
             </md-button>
             <ul>
-                <li><a href="/#/">Home</a></li>
-                <li><a href="/#/publishing">Publishing</a></li>
-                <li><a href="/#/games">Our games</a></li>
-                <li><a href="/#/jobs">Jobs</a></li>
-                <li><a href="/#/support">Support</a></li>
+                <li><router-link :to="{name: 'home'}" exact>Home</router-link></li>
+                <li><router-link :to="{name: 'publishing'}" exact>Publishing</router-link></li>
+                <li><router-link :to="{name: 'games'}" exact>Our games</router-link></li>
+                <li><router-link :to="{name: 'jobs'}" exact>Jobs</router-link></li>
+                <li><router-link :to="{name: 'support'}" exact>Support</router-link></li>
             </ul>
             <div class="wrap-btn">
                 <md-button class="md-primary btn-1">Submit your game</md-button>
@@ -79,6 +79,16 @@
 </script>
 
 <style lang="scss" scoped>
+
+    .top-menu .router-link-active {
+        border-bottom: 1px solid #fff;
+        padding-bottom: 5px;
+    }
+
+    .rihgt-menu .router-link-active {
+        font-weight: 800 !important;
+        color: #131313 !important;
+    }
 
     .topbar {
         padding: 0 50px 0 40px;

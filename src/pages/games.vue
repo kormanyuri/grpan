@@ -131,6 +131,7 @@
     import headerMy from '../components/headerMy.vue'
 
     export default {
+        name: 'games',
         components: {
             headerMy,
             mainMenu

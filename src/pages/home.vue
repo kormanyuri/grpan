@@ -13,12 +13,17 @@
                 </div>
                 <div class="md-layout btns-wrap">
                     <div class="md-layout-item md-small-size-100">
-                        <md-button class="md-primary btn-0" style="margin-right: 18px">Learn more</md-button>
+                        <a href="#" v-scroll-to="{el: '#section-2', offset: -194}">
+                            <md-button class="md-primary btn-0" style="margin-right: 18px">Learn more</md-button>
+                        </a>
                     </div>
                     <div class="md-layout-item md-small-size-100">
                         <md-button class="md-primary btn-1">Submit your game</md-button>
                     </div>
                 </div>
+                <a class="mouse" href="#" v-scroll-to="{el: '#section-2', offset: -194}">
+                    <img src="/src/assets/img/mouse.png" alt="">
+                </a>
             </section>
 
             <section id="section-2">
@@ -76,9 +81,11 @@
                         </card-game>
                     </div>
                     <div class="md-layout-item md-large-size-25 md-small-size-50">
-                        <card-game-all title="All games" link="#">
-                            <img src="/src/assets/img/games/preview_appstore.png" alt="All games">
-                        </card-game-all>
+                        <!--<router-link :to="{name: 'games'}">-->
+                            <card-game-all title="All games" link="/#/games">
+                                <img src="/src/assets/img/games/preview_appstore.png" alt="All games">
+                            </card-game-all>
+                        <!--</router-link>-->
                     </div>
                 </div>
             </section>
@@ -196,7 +203,7 @@
 //        console.log(123);
 //    }
     export default {
-        name: 'Home',
+        name: 'home',
         data: () => ({
             showRightMenu: false,
         }),
@@ -252,6 +259,7 @@
         overflow: hidden;
         background: url('/src/assets/img/bg-1.png') no-repeat;
         background-size: cover;
+        position: relative;
         .slogan {
             width: 100%;
             font-family: 'Poppins', sans-serif;
@@ -263,6 +271,11 @@
             line-height: 50px;
             margin-top: 19.5%;
             margin-bottom: 100px;
+        }
+        .mouse {
+            position: absolute;
+            left: 50%;
+            bottom: 30px;
         }
     }
     #section-3,
