@@ -13,6 +13,7 @@ import cardGameAll from './components/cardGameAll.vue'
 import buttonArrow from './components/buttonArrow.vue'
 import footerMy from './components/footerMy.vue'
 import VueScrollTo from 'vue-scrollto'
+import VueSelect from 'vue-select'
 
 
 Vue.use(MdLayout)
@@ -62,6 +63,7 @@ const router = new VueRouter({
   }
 })
 
+Vue.component('v-select', VueSelect);
 Vue.component('card-game', cardGame);
 Vue.component('card-game-all', cardGameAll);
 Vue.component('button-arrow', buttonArrow);

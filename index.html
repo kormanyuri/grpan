@@ -6,6 +6,60 @@
     <title>greenpanda</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,700" rel="stylesheet">
+    <style>
+      .select-lang {
+        height: 42px;
+        width: 120px;
+      }
+      .select-lang.v-select.searchable .dropdown-toggle {
+        width: 100%;
+        height: 42px;
+        border: 1px solid #ffffff;
+        border-radius: 100px;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 16px;
+        letter-spacing: 0.7px;
+        padding-left: 10px;
+        padding-right: 2px;
+        cursor: pointer;
+      }
+      .select-lang.dropdown .dropdown-toggle .clear {
+        display: none;
+      }
+      .select-lang.v-select .open-indicator:before {
+        border-color: #ffffff;
+        border-width: 1.5px 1.5px 0 0;
+        width: 6px;
+        height: 6px;
+      }
+      .select-lang.v-select .selected-tag {
+        line-height: 31px;
+        color: #fff;
+      }
+      .select-lang.v-select input[type=search],
+      .select-lang.v-select input[type=search]:focus {
+        height: 0px;
+      }
+      .select-lang.v-select .dropdown-menu {
+        top: -90px;
+        overflow: hidden;
+        border-radius: 3px 3px 3px 3px;
+      }
+      .select-lang.v-select .dropdown-menu a {
+        text-decoration: none;
+      }
+      .select-lang.v-select .dropdown-menu .active a {
+        background: rgba(50,50,50,.1);
+        color: #333;
+      }
+      .select-lang.v-select .highlight a,
+      .select-lang.v-select li:hover a {
+        background: rgba(50,50,50,.5);
+        color: #fff;
+      }
+
+    </style>
+
   </head>
   <body>
     <div id="app">

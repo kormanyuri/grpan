@@ -3,7 +3,7 @@
 
         <main-menu></main-menu>
 
-        <div id="publishing">
+        <div id="jobs">
 
             <header-my title="Jobs" subtitle="Join & help us to build next hit games" class="header-my"></header-my>
 

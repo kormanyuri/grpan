@@ -21,7 +21,7 @@
                         <md-button class="md-primary btn-1">Submit your game</md-button>
                     </div>
                 </div>
-                <a class="mouse" href="#" v-scroll-to="{el: '#section-2', offset: -194}">
+                <a class="md-small-hide mouse" href="#" v-scroll-to="{el: '#section-2', offset: -194}">
                     <img src="/src/assets/img/mouse.png" alt="">
                 </a>
             </section>
@@ -118,7 +118,6 @@
                     </carousel>
                 </div>
             </section>
-
             <section id="section-6">
                 <div class="section-head">
                     Jobs
@@ -144,7 +143,6 @@
                     <button-arrow>Check all offers</button-arrow>
                 </div>
             </section>
-
             <section id="section-7">
                 <div class="section-body">
                     <h1>Green Panda News</h1>
@@ -182,31 +180,74 @@
     import { Carousel, Slide } from 'vue-carousel'
     import cardRightImg from '../components/cardRightImg.vue'
 
-//    var el = document.getElementById('section-4');
-//
-//    function getPosition(element) {
-//        var xPosition = 0;
-//        var yPosition = 0;
-//
-//        while(element) {
-//            xPosition += (element.offsetLeft - element.scrollLeft + element.clientLeft);
-//            yPosition += (element.offsetTop - element.scrollTop + element.clientTop);
-//            element = element.offsetParent;
-//        }
-//
-//        return { x: xPosition, y: yPosition };
-//    }
-//
-//    var posEl = getPosition(el);
-//
-//    window.document.body.onscroll = function() {
-//        console.log(123);
-//    }
+
+
+    function getPosition(element) {
+        var xPosition = 0;
+        var yPosition = 0;
+
+        while(element) {
+            xPosition += (element.offsetLeft - element.scrollLeft + element.clientLeft);
+            yPosition += (element.offsetTop - element.scrollTop + element.clientTop);
+            element = element.offsetParent;
+        }
+
+        return { x: xPosition, y: yPosition };
+    }
+
+        const startPosCopter = 10;
+        let copter = document.getElementsByClassName('copter')[0];
+
+//        copter.style.bottom = 10 + 'px';
+
+//    let posEl = getPosition(el);
+
+
     export default {
         name: 'home',
         data: () => ({
             showRightMenu: false,
+
         }),
+        mounted: function () {
+            this.$nextTick(function () {
+
+
+                let el = document.getElementById('section-4');
+
+
+                let posEl = getPosition(el);
+
+//                document.getElementsByClassName('copter')[0].style.bottom = "10px";
+//                console.log(document.getElementsByClassName('copter')[0].style);
+                document.getElementsByClassName('copter')[0].style.bottom = "10px";
+                let tempScrollTop, currScrollTop = 0;
+                window.document.body.onscroll = function() {
+
+//                        if(tempScrollTop < currScrollTop) {
+//                            console.log('scroll down');
+//                        } else if (tempScrollTop > currScrollTop){
+//                            console.log('scroll top');
+//                        }
+
+                    let currScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                    let posCopter = parseInt(document.getElementsByClassName('copter')[0].style.bottom, 10);
+
+                    if(currScrollTop > posEl.y){
+                        if(tempScrollTop < currScrollTop && posCopter < 265) {
+                            console.log('scroll down');
+                            document.getElementsByClassName('copter')[0].style.bottom = (posCopter + 5) +  "px";
+                        } else if (tempScrollTop > currScrollTop && posCopter > 10){
+                            console.log('scroll top');
+                            document.getElementsByClassName('copter')[0].style.bottom = (posCopter - 5) +  "px";
+                        }
+                        tempScrollTop = currScrollTop;
+                    }
+                }
+                console.log(posEl.y);
+                window.scrollTo( 0, posEl.y );
+            })
+        },
         methods: {
 
             handleScroll() {
@@ -218,7 +259,6 @@
             }
 
         },
-
 //        created () {
 //            window.addEventListener('scroll', this.handleScroll);
 //        },
@@ -232,13 +272,25 @@
             Slide,
             cardVacancy,
             socLink,
-            cardRightImg
+            cardRightImg,
         }
     }
 </script>
 
 <style lang="scss" scoped>
 
+
+    #ff .dropdown .dropdown-toggle {
+        border: 1px solid rgba(112, 128, 144, 1);
+        border-radius: 100px;
+        background: red;
+
+    }
+    #ff {
+        .v-select .open-indicator:before {
+            border-color: blue
+        }
+    }
     .page-container {
         position: relative;
     }

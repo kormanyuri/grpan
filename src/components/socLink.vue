@@ -44,8 +44,16 @@
             color: #4d4d4d;
         }
         .ico {
+            width: 60px;
+            height: auto;
+        }
+    }
+
+    @media (max-width: 960px) {
+        .ico {
             width: 40px;
             height: auto;
         }
     }
+
 </style>

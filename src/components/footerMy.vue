@@ -52,14 +52,8 @@
                     <a href="https://www.vk.com/green_panda_games/"><img src="/src/assets/img/icn-vk-grey.png" alt=""></a>
                 </div>
                 <div style="text-align: center">
-                    <form novalidate class="select-lang">
-                        <md-field class="field">
-                            <md-select placeholder="English">
-                                <md-option value="English">English</md-option>
-                                <md-option value="French">Français</md-option>
-                                <md-option value="Russian">Русский</md-option>
-                            </md-select>
-                        </md-field>
+                    <form class="select-lang-mobile">
+                        <v-select v-model="selected" :options="options" class="select-lang"></v-select>
                     </form>
                 </div>
             </div>
@@ -112,19 +106,12 @@
                 </div>
             </div>
         </div>
+
         <div class="copyright">
             <span>© 2018 GREEN PANDA GAMES. ALL RIGHTS RESERVED.</span>
-            <div class="md-small-hide">
-                <form novalidate class="select-lang">
-                    <md-field class="field">
-                        <md-select placeholder="English">
-                            <md-option value="English">English</md-option>
-                            <md-option value="French">Français</md-option>
-                            <md-option value="Russian">Русский</md-option>
-                        </md-select>
-                    </md-field>
-                </form>
-            </div>
+            <form class="md-small-hide">
+                <v-select v-model="selected" :options="options" class="select-lang"></v-select>
+            </form>
         </div>
     </footer>
 
@@ -136,7 +123,13 @@
     export default {
         props: ['icon', 'link'],
         data: () => ({
-            show: false
+            show: false,
+            options: [
+                {id: 1, label: 'English'},
+                {id: 2, label: 'Français'},
+                {id: 3, label: 'Русский'},
+            ],
+            selected: {id: 1, label: 'English'},
         }),
         methods: {
         },
@@ -211,34 +204,34 @@
                 color: #acacac;
             }
         }
-        .select-lang {
-            width: 120px;
-            height: 42px;
-            margin: 0;
-            border-radius: 100px;
-            border: solid 1px #ffffff;
-            padding-left: 15px;
-            padding-right: 15px;
-            display: inline-flex;
-            align-items: center;
-            color: #ffffff;
-            .md-field.md-theme-default:after,
-            .md-field.md-theme-default:before{
-                display: none;
-            }
-            .md-field {
-                margin: 0;
-                padding-top: 0;
-                min-height: 10px;
-                color: #ffffff;
-            }
-            .md-icon {
-                margin-top: 0 !important;
-            }
-            input[type=text]{
+        /*.select-lang {*/
+            /*width: 120px;*/
+            /*height: 42px;*/
+            /*margin: 0;*/
+            /*border-radius: 100px;*/
+            /*border: solid 1px #ffffff;*/
+            /*padding-left: 15px;*/
+            /*padding-right: 15px;*/
+            /*display: inline-flex;*/
+            /*align-items: center;*/
+            /*color: #ffffff;*/
+            /*.md-field.md-theme-default:after,*/
+            /*.md-field.md-theme-default:before{*/
+                /*display: none;*/
+            /*}*/
+            /*.md-field {*/
+                /*margin: 0;*/
+                /*padding-top: 0;*/
+                /*min-height: 10px;*/
+                /*color: #ffffff;*/
+            /*}*/
+            /*.md-icon {*/
+                /*margin-top: 0 !important;*/
+            /*}*/
+            /*input[type=text]{*/
 
-            }
-        }
+            /*}*/
+        /*}*/
         .site-map-mobile {
             display: none;
             .block-heading {
@@ -273,8 +266,10 @@
             .site-map-mobile {
                 display: block;
             }
-            .select-lang {
-                margin-bottom: 8px;
+            .select-lang-mobile {
+                .select-lang {
+                    margin: 0 auto 8px;
+                }
             }
             .copyright {
                 padding: 0;
