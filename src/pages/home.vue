@@ -122,26 +122,23 @@
                 <div class="section-head">
                     Jobs
                 </div>
-                <div style="overflow-x: scroll">
-                    <div class="md-layout wrap-join-our-team">
-                        <div class="md-layout-item md-size-25 md-small-hide">
-                            <div class="join-our-team">
-                                <img src="/src/assets/img/illu_join_team.png" alt="join team">
-                                <div>Want to join<br>our team?</div>
-                            </div>
-                        </div>
-                        <div class="md-layout-item md-size-25">
-                            <card-vacancy vacancy="Designer mobile CDI H/F" location="Paris, CDI" link="#"></card-vacancy>
-                        </div>
-                        <div class="md-layout-item md-size-25">
-                            <card-vacancy vacancy="HTM5 developer" location="Paris, CDI" link="#"></card-vacancy>
-                        </div>
-                        <div class="md-layout-item md-size-25">
-                            <card-vacancy vacancy="Digital advertising analyst H/F CDI" location="Paris, CDI" link="#"></card-vacancy>
+                <div class="md-layout wrap-join-our-team">
+                    <div class="md-layout-item md-size-25 md-small-hide">
+                        <div class="join-our-team">
+                            <img src="/src/assets/img/illu_join_team.png" alt="join team">
+                            <div>Want to join<br>our team?</div>
                         </div>
                     </div>
+                    <div class="md-layout-item md-size-25">
+                        <card-vacancy vacancy="Designer mobile CDI H/F" location="Paris, CDI" link="#"></card-vacancy>
+                    </div>
+                    <div class="md-layout-item md-size-25">
+                        <card-vacancy vacancy="HTM5 developer" location="Paris, CDI" link="#"></card-vacancy>
+                    </div>
+                    <div class="md-layout-item md-size-25">
+                        <card-vacancy vacancy="Digital advertising analyst H/F CDI" location="Paris, CDI" link="#"></card-vacancy>
+                    </div>
                 </div>
-
                 <div style="text-align: center">
                     <button-arrow>Check all offers</button-arrow>
                 </div>
