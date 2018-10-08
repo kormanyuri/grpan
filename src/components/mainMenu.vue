@@ -11,7 +11,9 @@
                     <li><router-link :to="{name: 'jobs'}" exact>Jobs</router-link></li>
                     <li><router-link :to="{name: 'support'}" exact>Support</router-link></li>
                 </ul>
-                <md-button class="md-primary md-small-hide btn-1">Submit your game</md-button>
+                <router-link to="/publishing#want-to-work-with-us-form">
+                    <md-button class="md-primary md-small-hide btn-1">Submit your game</md-button>
+                </router-link>
                 <md-button class="md-icon-button hide-small-up" @click="toggleMenu" v-bind:class="{ 'md-hide': showRightMenu }">
                     <img v-bind:src='showMenuIco' alt="menu">
                 </md-button>
@@ -30,7 +32,9 @@
                 <li><router-link :to="{name: 'support'}" exact>Support</router-link></li>
             </ul>
             <div class="wrap-btn">
-                <md-button class="md-primary btn-1">Submit your game</md-button>
+                <router-link to="/publishing#want-to-work-with-us-form">
+                    <md-button class="md-primary btn-1">Submit your game</md-button>
+                </router-link>
             </div>
         </div>
 
@@ -41,7 +45,10 @@
 </template>
 
 <script>
-    module.exports = {
+
+//    import anchorLink from "anchorLink.vue"
+
+    export default {
         data: function(){
             return {
                 scrolled: false,
@@ -75,6 +82,9 @@
         destroyed () {
             window.removeEventListener('scroll', this.handleScroll);
         },
+        components: {
+//            anchorLink
+        }
     }
 </script>
 

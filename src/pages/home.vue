@@ -12,12 +12,12 @@
                     We make your game a hit
                 </div>
                 <div class="md-layout btns-wrap">
-                    <div class="md-layout-item md-small-size-100">
+                    <div class="md-layout-item md-xsmall-size-100">
                         <a href="#" v-scroll-to="{el: '#section-2', offset: -194}">
                             <md-button class="md-primary btn-0" style="margin-right: 18px">Learn more</md-button>
                         </a>
                     </div>
-                    <div class="md-layout-item md-small-size-100">
+                    <div class="md-layout-item md-xsmall-size-100">
                         <md-button class="md-primary btn-1">Submit your game</md-button>
                     </div>
                 </div>
@@ -122,23 +122,26 @@
                 <div class="section-head">
                     Jobs
                 </div>
-                <div class="md-layout wrap-join-our-team">
-                    <div class="md-layout-item md-size-25 md-small-hide">
-                        <div class="join-our-team">
-                            <img src="/src/assets/img/illu_join_team.png" alt="join team">
-                            <div>Want to join<br>our team?</div>
+                <div style="overflow-x: scroll">
+                    <div class="md-layout wrap-join-our-team">
+                        <div class="md-layout-item md-size-25 md-small-hide">
+                            <div class="join-our-team">
+                                <img src="/src/assets/img/illu_join_team.png" alt="join team">
+                                <div>Want to join<br>our team?</div>
+                            </div>
+                        </div>
+                        <div class="md-layout-item md-size-25">
+                            <card-vacancy vacancy="Designer mobile CDI H/F" location="Paris, CDI" link="#"></card-vacancy>
+                        </div>
+                        <div class="md-layout-item md-size-25">
+                            <card-vacancy vacancy="HTM5 developer" location="Paris, CDI" link="#"></card-vacancy>
+                        </div>
+                        <div class="md-layout-item md-size-25">
+                            <card-vacancy vacancy="Digital advertising analyst H/F CDI" location="Paris, CDI" link="#"></card-vacancy>
                         </div>
                     </div>
-                    <div class="md-layout-item md-size-25">
-                        <card-vacancy vacancy="Designer mobile CDI H/F" location="Paris, CDI" link="#"></card-vacancy>
-                    </div>
-                    <div class="md-layout-item md-size-25">
-                        <card-vacancy vacancy="HTM5 developer" location="Paris, CDI" link="#"></card-vacancy>
-                    </div>
-                    <div class="md-layout-item md-size-25">
-                        <card-vacancy vacancy="Digital advertising analyst H/F CDI" location="Paris, CDI" link="#"></card-vacancy>
-                    </div>
                 </div>
+
                 <div style="text-align: center">
                     <button-arrow>Check all offers</button-arrow>
                 </div>
@@ -181,7 +184,6 @@
     import cardRightImg from '../components/cardRightImg.vue'
 
 
-
     function getPosition(element) {
         var xPosition = 0;
         var yPosition = 0;
@@ -195,77 +197,38 @@
         return { x: xPosition, y: yPosition };
     }
 
-        const startPosCopter = 10;
-        let copter = document.getElementsByClassName('copter')[0];
-
-//        copter.style.bottom = 10 + 'px';
-
-//    let posEl = getPosition(el);
-
 
     export default {
         name: 'home',
         data: () => ({
             showRightMenu: false,
-
+            posCopter: 120, //start Y position copter
+            PosMountains: -100 //start Y position mountains
         }),
         mounted: function () {
             this.$nextTick(function () {
 
+                let posSection = getPosition(document.getElementById('section-4')).y;
+                let posCopter = this.posCopter;
+                let PosMountains = this.PosMountains;
 
-                let el = document.getElementById('section-4');
+                document.getElementsByClassName('copter')[0].style.bottom = posCopter + "px";
+                document.getElementsByClassName('mountains')[0].style.bottom = PosMountains + "px";
 
-
-                let posEl = getPosition(el);
-
-//                document.getElementsByClassName('copter')[0].style.bottom = "10px";
-//                console.log(document.getElementsByClassName('copter')[0].style);
-                document.getElementsByClassName('copter')[0].style.bottom = "10px";
-                let tempScrollTop, currScrollTop = 0;
                 window.document.body.onscroll = function() {
 
-//                        if(tempScrollTop < currScrollTop) {
-//                            console.log('scroll down');
-//                        } else if (tempScrollTop > currScrollTop){
-//                            console.log('scroll top');
-//                        }
-
                     let currScrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                    let posCopter = parseInt(document.getElementsByClassName('copter')[0].style.bottom, 10);
+                    let delta = 0;
 
-                    if(currScrollTop > posEl.y){
-                        if(tempScrollTop < currScrollTop && posCopter < 265) {
-                            console.log('scroll down');
-                            document.getElementsByClassName('copter')[0].style.bottom = (posCopter + 5) +  "px";
-                        } else if (tempScrollTop > currScrollTop && posCopter > 10){
-                            console.log('scroll top');
-                            document.getElementsByClassName('copter')[0].style.bottom = (posCopter - 5) +  "px";
-                        }
-                        tempScrollTop = currScrollTop;
+                    if(currScrollTop >= posSection){
+                        delta = currScrollTop - posSection;
+                        document.getElementsByClassName('mountains')[0].style.bottom = delta * 0.1 + PosMountains + "px"
+                        document.getElementsByClassName('copter')[0].style.bottom = (delta * 0.35) +  "px";
                     }
+
                 }
-                console.log(posEl.y);
-                window.scrollTo( 0, posEl.y );
             })
         },
-        methods: {
-
-            handleScroll() {
-//                console.log(posEl);
-//                if(window.scollY === posEl ){
-//                    console.log(posEl);
-//                }
-
-            }
-
-        },
-//        created () {
-//            window.addEventListener('scroll', this.handleScroll);
-//        },
-//        destroyed () {
-//            window.removeEventListener('scroll', this.handleScroll);
-//        },
-
         components: {
             mainMenu,
             Carousel,
@@ -278,7 +241,6 @@
 </script>
 
 <style lang="scss" scoped>
-
 
     #ff .dropdown .dropdown-toggle {
         border: 1px solid rgba(112, 128, 144, 1);
@@ -342,7 +304,7 @@
         background-image: linear-gradient(1deg, #2a548f, #303d6a);
         font-family: 'Poppins', sans-serif;
         position: relative;
-
+        overflow: hidden;
         .content {
             width: 660px;
             color: #fff;
@@ -366,6 +328,7 @@
             position: absolute;
             right: 0;
             bottom: 0;
+            height: 120%;
         }
         .copter {
             position: absolute;

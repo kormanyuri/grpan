@@ -77,7 +77,7 @@
 
             </section>
 
-            <section class="section-3">
+            <section id="want-to-work-with-us-form" class="section-3">
                 <div class="form">
                     <div class="form-head">Want to work with us?</div>
                     <form action="">
@@ -235,6 +235,7 @@
             }
         }
         .carousel-wrap {
+            display: none;
             height: 357px;
             border-radius: 6px;
             background-color: #ffffff;
@@ -392,6 +393,7 @@
             }
             .carousel-wrap {
                 height: 418px;
+                display: block;
             }
 
         }
