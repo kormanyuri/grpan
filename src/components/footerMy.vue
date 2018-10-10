@@ -2,123 +2,129 @@
 
     <footer>
         <div class="site-map">
-            <div class="site-map-mobile">
-                <accordion>
-                    <div slot="header" class="block-heading">MENU</div>
-                    <ul>
-                        <li><a href="">Home</a></li>
-                        <li><a href="">Publishing</a></li>
-                        <li><a href="">Games</a></li>
-                        <li><a href="">Our story</a></li>
-                        <li><a href="">Career</a></li>
-                        <li><a href="">Contact us</a></li>
-                    </ul>
-                </accordion>
-                <accordion>
-                    <div slot="header" class="block-heading">JOBS</div>
-                    <ul>
-                        <li><a href="">Advertising analyst</a></li>
-                        <li><a href="">Marketing analys</a></li>
-                        <li><a href="">HTML5 Devloper</a></li>
-                        <li><a href="">Marketing Manager</a></li>
-                        <li><a href="" class="bold">+ See more</a></li>
-                    </ul>
-                </accordion>
-                <accordion>
-                    <div slot="header" class="block-heading">PRESS</div>
-                    <ul>
-                        <li><a href="">Press kit</a></li>
-                    </ul>
-                </accordion>
-                <accordion>
-                    <div slot="header" class="block-heading">LEGAL</div>
-                    <ul>
-                        <li><a href="">Privacy Policy</a></li>
-                        <li><a href="">Terms of Use</a></li>
-                    </ul>
-                </accordion>
-                <accordion>
-                    <div slot="header" class="block-heading">CONTACT</div>
-                    <ul>
-                        <li><a href="">Support</a></li>
-                    </ul>
-                </accordion>
-            </div>
-            <div class="wrap-soc-link">
-                <div class="soc-link">
-                    <a href="https://www.facebook.com/GreenPandaGames/"><img src="/src/assets/img/icn-facebook-grey.png" alt=""></a>
-                    <a href="https://www.instagram.com/greenpandagame"><img src="/src/assets/img/icn-instagram-grey.png" alt=""></a>
-                    <a href="https://www.linkedin.com/company/green-panda-games/"><img src="/src/assets/img/icn-linkedin-grey.png" alt=""></a>
-                    <a href="https://www.vk.com/green_panda_games/"><img src="/src/assets/img/icn-vk-grey.png" alt=""></a>
+            <div class="container">
+                <div class="site-map-mobile">
+                    <accordion>
+                        <div slot="header" class="block-heading">MENU</div>
+                        <ul>
+                            <li><a href="">Home</a></li>
+                            <li><a href="">Publishing</a></li>
+                            <li><a href="">Games</a></li>
+                            <li><a href="">Our story</a></li>
+                            <li><a href="">Career</a></li>
+                            <li><a href="">Contact us</a></li>
+                        </ul>
+                    </accordion>
+                    <accordion>
+                        <div slot="header" class="block-heading">JOBS</div>
+                        <ul>
+                            <li><a href="">Advertising analyst</a></li>
+                            <li><a href="">Marketing analys</a></li>
+                            <li><a href="">HTML5 Devloper</a></li>
+                            <li><a href="">Marketing Manager</a></li>
+                            <li><a href="" class="bold">+ See more</a></li>
+                        </ul>
+                    </accordion>
+                    <accordion>
+                        <div slot="header" class="block-heading">PRESS</div>
+                        <ul>
+                            <li><a href="">Press kit</a></li>
+                        </ul>
+                    </accordion>
+                    <accordion>
+                        <div slot="header" class="block-heading">LEGAL</div>
+                        <ul>
+                            <li><a href="">Privacy Policy</a></li>
+                            <li><a href="">Terms of Use</a></li>
+                        </ul>
+                    </accordion>
+                    <accordion>
+                        <div slot="header" class="block-heading">CONTACT</div>
+                        <ul>
+                            <li><a href="">Support</a></li>
+                        </ul>
+                    </accordion>
                 </div>
-                <div style="text-align: center">
-                    <form class="select-lang-mobile">
-                        <v-select v-model="selected" :options="options" class="select-lang"></v-select>
-                    </form>
+                <div class="wrap-soc-link">
+                    <div class="soc-link">
+                        <a href="https://www.facebook.com/GreenPandaGames/"><img src="/src/assets/img/icn-facebook-grey.png" alt=""></a>
+                        <a href="https://www.instagram.com/greenpandagame"><img src="/src/assets/img/icn-instagram-grey.png" alt=""></a>
+                        <a href="https://www.linkedin.com/company/green-panda-games/"><img src="/src/assets/img/icn-linkedin-grey.png" alt=""></a>
+                        <a href="https://www.vk.com/green_panda_games/"><img src="/src/assets/img/icn-vk-grey.png" alt=""></a>
+                    </div>
+                    <div style="text-align: center">
+                        <form class="select-lang-mobile">
+                            <v-select v-model="selected" :options="options" class="select-lang"></v-select>
+                        </form>
+                    </div>
                 </div>
-            </div>
-            <div class="md-layout md-gutter md-small-hide">
-                <div class="md-layout-item md-small-size-100 md-size-15">
-                    <div class="block-heading">PRESS</div>
-                    <ul class="list">
-                        <li><a href="">Home</a></li>
-                        <li><a href="">Publishing</a></li>
-                        <li><a href="">Games</a></li>
-                        <li><a href="">Our story</a></li>
-                        <li><a href="">Career</a></li>
-                        <li><a href="">Contact us</a></li>
-                    </ul>
-                </div>
-                <div class="md-layout-item md-small-size-100 md-size-15">
-                    <div class="block-heading">JOBS</div>
-                    <ul>
-                        <li><a href="">Advertising analyst</a></li>
-                        <li><a href="">Marketing analys</a></li>
-                        <li><a href="">HTML5 Devloper</a></li>
-                        <li><a href="">Marketing Manager</a></li>
-                        <li><a href="" class="bold">+ See more</a></li>
-                    </ul>
-                </div>
-                <div class="md-layout-item md-small-size-100 md-size-15">
-                    <div class="block-heading">PRESS</div>
-                    <ul>
-                        <li><a href="">Press kit</a></li>
-                    </ul>
-                </div>
-                <div class="md-layout-item md-small-size-100 md-size-15">
-                    <div class="block-heading">LEGAL</div>
-                    <ul>
-                        <li><a href="">Privacy Policy</a></li>
-                        <li><a href="">Terms of Use</a></li>
-                    </ul>
-                </div>
-                <div class="md-layout-item md-small-size-100 md-small-size-100 md-size-15">
-                    <div class="block-heading">CONTACT</div>
-                    <ul>
-                        <li><a href="">Support</a></li>
-                    </ul>
-                </div>
-                <div class="md-layout-item md-size-25 soc-link">
-                    <a href="https://www.facebook.com/GreenPandaGames/"><img src="/src/assets/img/icn-facebook-grey.png" alt=""></a>
-                    <a href="https://www.instagram.com/greenpandagame"><img src="/src/assets/img/icn-instagram-grey.png" alt=""></a>
-                    <a href="https://www.linkedin.com/company/green-panda-games/"><img src="/src/assets/img/icn-linkedin-grey.png" alt=""></a>
-                    <a href="https://www.vk.com/green_panda_games/"><img src="/src/assets/img/icn-vk-grey.png" alt=""></a>
+                <div class="md-layout md-gutter md-small-hide">
+                    <div class="md-layout-item md-small-size-100 md-size-15">
+                        <div class="block-heading">PRESS</div>
+                        <ul class="list">
+                            <li><a href="">Home</a></li>
+                            <li><a href="">Publishing</a></li>
+                            <li><a href="">Games</a></li>
+                            <li><a href="">Our story</a></li>
+                            <li><a href="">Career</a></li>
+                            <li><a href="">Contact us</a></li>
+                        </ul>
+                    </div>
+                    <div class="md-layout-item md-small-size-100 md-size-15">
+                        <div class="block-heading">JOBS</div>
+                        <ul>
+                            <li><a href="">Advertising analyst</a></li>
+                            <li><a href="">Marketing analys</a></li>
+                            <li><a href="">HTML5 Devloper</a></li>
+                            <li><a href="">Marketing Manager</a></li>
+                            <li><a href="" class="bold">+ See more</a></li>
+                        </ul>
+                    </div>
+                    <div class="md-layout-item md-small-size-100 md-size-15">
+                        <div class="block-heading">PRESS</div>
+                        <ul>
+                            <li><a href="">Press kit</a></li>
+                        </ul>
+                    </div>
+                    <div class="md-layout-item md-small-size-100 md-size-15">
+                        <div class="block-heading">LEGAL</div>
+                        <ul>
+                            <li><a href="">Privacy Policy</a></li>
+                            <li><a href="">Terms of Use</a></li>
+                        </ul>
+                    </div>
+                    <div class="md-layout-item md-small-size-100 md-small-size-100 md-size-15">
+                        <div class="block-heading">CONTACT</div>
+                        <ul>
+                            <li><a href="">Support</a></li>
+                        </ul>
+                    </div>
+                    <div class="md-layout-item md-size-25 soc-link">
+                        <a href="https://www.facebook.com/GreenPandaGames/"><img src="/src/assets/img/icn-facebook-grey.png" alt=""></a>
+                        <a href="https://www.instagram.com/greenpandagame"><img src="/src/assets/img/icn-instagram-grey.png" alt=""></a>
+                        <a href="https://www.linkedin.com/company/green-panda-games/"><img src="/src/assets/img/icn-linkedin-grey.png" alt=""></a>
+                        <a href="https://www.vk.com/green_panda_games/"><img src="/src/assets/img/icn-vk-grey.png" alt=""></a>
+                    </div>
                 </div>
             </div>
         </div>
 
         <div class="copyright">
-            <span>© 2018 GREEN PANDA GAMES. ALL RIGHTS RESERVED.</span>
-            <form class="md-small-hide">
-                <v-select v-model="selected" :options="options" class="select-lang"></v-select>
-            </form>
+            <div class="container">
+                <span>© 2018 GREEN PANDA GAMES. ALL RIGHTS RESERVED.</span>
+                <form class="md-small-hide">
+                    <v-select v-model="selected" :options="options" class="select-lang"></v-select>
+                </form>
+            </div>
         </div>
+        <snackbar class="snackbar-my"></snackbar>
     </footer>
 
 </template>
 
 <script>
     import accordion from '../components/accordion.vue'
+    import snackbar from '../components/snackbar.vue'
 
     export default {
         props: ['icon', 'link'],
@@ -134,17 +140,19 @@
         methods: {
         },
         components: {
-            accordion
+            accordion,
+            snackbar
         }
     }
 </script>
 
 <style lang="scss" scoped>
-    footer {
+    
+	footer {
         font-family: 'Open Sans', sans-serif;
 
         .block-heading {
-            font-size: 14px;
+            font-size: 0.875rem;
             font-weight: bold;
             line-height: normal;
             letter-spacing: 0.9px;
@@ -153,7 +161,7 @@
         }
         .site-map {
             min-height: 270px;
-            padding: 44px 120px 0;
+            padding: 44px 0 40px;
             background-color: #4d4d4d;
             ul {
                 margin: 0;
@@ -162,7 +170,7 @@
                     list-style-type: none;
                     a {
 
-                        font-size: 14px;
+                        font-size: 0.875rem;
                         font-weight: normal;
                         line-height: 2.14;
                         letter-spacing: 0.9px;
@@ -190,48 +198,22 @@
             }
         }
         .copyright {
-            height: 58px;
-            padding: 0 120px;
             background-color: #343434;
-            display: flex;
-            align-items: center;
             span {
                 margin-right: 33px;
-                font-size: 14px;
+                font-size: 0.875rem;;
                 font-weight: normal;
                 line-height: normal;
                 letter-spacing: 0.9px;
                 color: #acacac;
             }
+            .container {
+                height: 58px;
+                display: flex;
+                align-items: center;
+            }
         }
-        /*.select-lang {*/
-            /*width: 120px;*/
-            /*height: 42px;*/
-            /*margin: 0;*/
-            /*border-radius: 100px;*/
-            /*border: solid 1px #ffffff;*/
-            /*padding-left: 15px;*/
-            /*padding-right: 15px;*/
-            /*display: inline-flex;*/
-            /*align-items: center;*/
-            /*color: #ffffff;*/
-            /*.md-field.md-theme-default:after,*/
-            /*.md-field.md-theme-default:before{*/
-                /*display: none;*/
-            /*}*/
-            /*.md-field {*/
-                /*margin: 0;*/
-                /*padding-top: 0;*/
-                /*min-height: 10px;*/
-                /*color: #ffffff;*/
-            /*}*/
-            /*.md-icon {*/
-                /*margin-top: 0 !important;*/
-            /*}*/
-            /*input[type=text]{*/
 
-            /*}*/
-        /*}*/
         .site-map-mobile {
             display: none;
             .block-heading {
@@ -246,6 +228,9 @@
         }
         .wrap-soc-link {
             display: none;
+        }
+        snackbar-my.md-snackbar {
+            max-width: 100% !important;
         }
     }
 
@@ -273,11 +258,14 @@
             }
             .copyright {
                 padding: 0;
-                justify-content: center;
+
                 span {
-                    font-size: 9px;
+                    font-size: 0.5625rem;
                     letter-spacing: 0.6px;
                     margin-right: 0;
+                }
+                .container {
+                    justify-content: center;
                 }
             }
             .wrap-soc-link {
@@ -285,4 +273,5 @@
             }
         }
     }
+	
 </style>

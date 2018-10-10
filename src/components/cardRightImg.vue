@@ -9,7 +9,7 @@
             <div class="c-r-img-footer">
                 <div class="blue">{{position}}</div>
                 <div>{{project}}</div>
-                <div class="circle-picture md-medium-hide md-xlarge-hide">
+                <div class="circle-picture md-large-hide md-xlarge-hide">
                     <img :src="picture" alt="">
                 </div>
             </div>
@@ -28,7 +28,8 @@
 </script>
 
 <style lang="scss" scoped>
-    .card-right-img {
+    
+	.card-right-img {
         /*max-width: 1098px;*/
         min-height: 358px;
         border-radius: 8px;
@@ -73,19 +74,6 @@
                 letter-spacing: 0.9px;
                 color: #000000;
             }
-            .circle-picture {
-                margin-top: -10px;
-                width: 72px;
-                height: 72px;
-                border-radius: 36px;
-                overflow: hidden;
-                display: none;
-                position: absolute;
-                top: 0;
-                img {
-                    height: 100%;
-                }
-            }
         }
     }
     .shadow {
@@ -93,6 +81,9 @@
     }
     @media (max-width: 960px) {
         .card-right-img {
+            img.md-small-hide {
+                display: none !important;
+            }
             >div {
                  padding: 20px 25px;
                  margin-right: 0;
@@ -116,10 +107,29 @@
                 div:nth-child(2) {
                     letter-spacing: 0.9px;
                 }
-                .circle-picture {
-                    display: inline-block;
-                }
+               .circle-picture {
+                   margin-top: -10px;
+                   width: 72px;
+                   height: 72px;
+                   border-radius: 36px;
+                   overflow: hidden;
+                   display: inline-block;
+                   position: absolute;
+                   top: 0;
+                   img {
+                       display: block;
+                       height: 100%;
+                   }
+               }
             }
         }
     }
+    @media (min-width: 960px) and (max-width: 1280px){
+        .card-right-img {
+            >div {
+                 padding: 20px 40px;
+             }
+        }
+    }
+	
 </style>

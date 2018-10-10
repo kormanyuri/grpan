@@ -7,8 +7,12 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,700" rel="stylesheet">
     <style>
-      body {
-        font-size: 16px !important;
+
+      html {
+        font-size: 16px;
+      }
+      .container {
+        margin: 0 auto;
       }
       .select-lang {
         height: 42px;
@@ -59,6 +63,45 @@
       .select-lang.v-select li:hover a {
         background: rgba(50,50,50,.5);
         color: #fff;
+      }
+      .owl-carousel .owl-item img {
+        width: auto !important;
+      }
+      .owl-theme .owl-dots .owl-dot span {
+        background: #d8d8d8 !important;
+      }
+      .owl-theme .owl-dots .owl-dot.active span,
+      .owl-theme .owl-dots .owl-dot:hover span {
+        background: #4d4d4d !important;
+      }
+      @media (max-width: 960px) {
+        .owl-theme .owl-dots .owl-dot span {
+          width: 8px !important;
+          height: 8px !important;
+        }
+        .owl-theme .owl-nav.disabled + .owl-dots {
+          padding-top: 26px !important;
+        }
+      }
+      @media (min-width: 960px) {
+        .owl-theme .owl-nav.disabled + .owl-dots {
+          padding-top: 46px !important;
+        }
+      }
+      @media (min-width: 767px) and (max-width: 992px) {
+        .container {
+          max-width: 720px;
+        }
+      }
+      @media (min-width: 992px) and (max-width: 1200px) {
+        .container {
+          max-width: 960px;
+        }
+      }
+      @media (min-width: 1280px) {
+        .container {
+          max-width: 1200px;
+        }
       }
 
     </style>

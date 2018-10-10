@@ -14,6 +14,7 @@
 </script>
 
 <style lang="scss" scoped>
+
     .btn-arrow {
         height: 50px;
         padding: 0 12px;
@@ -30,4 +31,5 @@
             padding-left: 8px;
         }
     }
+	
 </style>

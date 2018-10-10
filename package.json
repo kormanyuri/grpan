@@ -10,11 +10,9 @@
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
+    "v-owl-carousel": "^1.0.7",
     "vue": "^2.5.11",
-    "vue-anchor-router-link": "^0.7.3",
-    "vue-carousel": "^0.14.0",
     "vue-material": "^1.0.0-beta-10.2",
-    "vue-parallaxy": "^1.1.1",
     "vue-router": "^3.0.1",
     "vue-scrollto": "^2.13.0",
     "vue-select": "^2.5.1"

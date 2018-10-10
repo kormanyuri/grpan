@@ -13,6 +13,7 @@
 </script>
 
 <style lang="scss" scoped>
+
     .btn-rectangle {
         height: 50px;
         min-width: 180px;
@@ -26,4 +27,5 @@
         font-weight: normal;
         letter-spacing: 0.7px;
     }
+
 </style>

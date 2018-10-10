@@ -7,48 +7,48 @@
 
             <header-my title="Our games" subtitle="We create successful games with talented partners" class="header-my"></header-my>
 
-            <section class="group-games">
+            <section class="group-games container">
                 <div class="group-games-head">
                     Published Games
                 </div>
                 <div class="group-games-body">
                     <div class="md-layout grid-card-games" >
-                        <div class="md-layout-item md-large-size-25 md-small-size-50">
+                        <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
                             <card-game title="Golf orbit" link="#">
                                 <img src="/src/assets/img/games/preview_golf_orbit.png" alt="Golf Orbit">
                             </card-game>
                         </div>
-                        <div class="md-layout-item md-large-size-25 md-small-size-50">
+                        <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
                             <card-game title="Bee factory" link="#">
                                 <img src="/src/assets/img/games/preview_bee_factory.png" alt="Bee factory">
                             </card-game>
                         </div>
-                        <div class="md-layout-item md-large-size-25 md-small-size-50">
+                        <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
                             <card-game title="Emoji craft!" link="#">
                                 <img src="/src/assets/img/games/preview_emoji_craft.png" alt="Emoji craft!">
                             </card-game>
                         </div>
-                        <div class="md-layout-item md-large-size-25 md-small-size-50">
+                        <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
                             <card-game title="Axe climber" link="#">
                                 <img src="/src/assets/img/games/preview_axe_climber.png" alt="Axe climber">
                             </card-game>
                         </div>
-                        <div class="md-layout-item md-large-size-25 md-small-size-50">
+                        <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
                             <card-game title="Terrarium" link="#">
                                 <img src="/src/assets/img/games/preview_terrarium.png" alt="Terrarium">
                             </card-game>
                         </div>
-                        <div class="md-layout-item md-large-size-25 md-small-size-50">
+                        <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
                             <card-game title="Golf boy" link="#">
                                 <img src="/src/assets/img/games/preview_golf_boy.png" alt="Golf boy">
                             </card-game>
                         </div>
-                        <div class="md-layout-item md-large-size-25 md-small-size-50">
+                        <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
                             <card-game title="Fish orbit" link="#">
                                 <img src="/src/assets/img/games/preview_fish_orbit.png" alt="Fish orbit">
                             </card-game>
                         </div>
-                        <div class="md-layout-item md-large-size-25 md-small-size-50">
+                        <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
                             <card-game-all title="See on the Appstore" link="#">
                                 <img src="/src/assets/img/games/preview_appstore.png" alt="All games">
                             </card-game-all>
@@ -59,48 +59,48 @@
 
             <md-divider class="divider"></md-divider>
 
-            <section class="group-games mrgn-b">
+            <section class="group-games mrgn-b container">
                 <div class="group-games-head">
                     Classic Games
                 </div>
                 <div class="group-games-body">
                     <div class="md-layout grid-card-games" >
-                        <div class="md-layout-item md-large-size-25 md-small-size-50">
+                        <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
                             <card-game title="Golf orbit" link="#">
                                 <img src="/src/assets/img/games/preview_golf_orbit.png" alt="Golf Orbit">
                             </card-game>
                         </div>
-                        <div class="md-layout-item md-large-size-25 md-small-size-50">
+                        <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
                             <card-game title="Bee factory" link="#">
                                 <img src="/src/assets/img/games/preview_bee_factory.png" alt="Bee factory">
                             </card-game>
                         </div>
-                        <div class="md-layout-item md-large-size-25 md-small-size-50">
+                        <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
                             <card-game title="Emoji craft!" link="#">
                                 <img src="/src/assets/img/games/preview_emoji_craft.png" alt="Emoji craft!">
                             </card-game>
                         </div>
-                        <div class="md-layout-item md-large-size-25 md-small-size-50">
+                        <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
                             <card-game title="Axe climber" link="#">
                                 <img src="/src/assets/img/games/preview_axe_climber.png" alt="Axe climber">
                             </card-game>
                         </div>
-                        <div class="md-layout-item md-large-size-25 md-small-size-50">
+                        <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
                             <card-game title="Terrarium" link="#">
                                 <img src="/src/assets/img/games/preview_terrarium.png" alt="Terrarium">
                             </card-game>
                         </div>
-                        <div class="md-layout-item md-large-size-25 md-small-size-50">
+                        <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
                             <card-game title="Golf boy" link="#">
                                 <img src="/src/assets/img/games/preview_golf_boy.png" alt="Golf boy">
                             </card-game>
                         </div>
-                        <div class="md-layout-item md-large-size-25 md-small-size-50">
+                        <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
                             <card-game title="Fish orbit" link="#">
                                 <img src="/src/assets/img/games/preview_fish_orbit.png" alt="Fish orbit">
                             </card-game>
                         </div>
-                        <div class="md-layout-item md-large-size-25 md-small-size-50">
+                        <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
                             <card-game-all title="See on the Appstore" link="#">
                                 <img src="/src/assets/img/games/preview_appstore.png" alt="All games">
                             </card-game-all>
@@ -140,8 +140,10 @@
 </script>
 
 <style lang="scss" scoped>
-    .header-my {
-        background-image: linear-gradient(107deg, #70cb93, #52c277);
+    
+	.header-my {
+        background-image: url("/src/assets/img/header_games@2x.png");
+        background-size: cover;
     }
     .grid-card-games {
         .md-layout-item {
@@ -165,7 +167,6 @@
         margin-bottom: 55px;
     }
     .group-games-body {
-        width: 83.333333%;
         margin: 0 auto;
     }
     .divider {
@@ -235,4 +236,21 @@
             }
         }
     }
+
+    @media (min-width: 767px) and (max-width: 992px) {
+        .group-games.container {
+            max-width: 720px +24px;
+        }
+    }
+    @media (min-width: 992px) and (max-width: 1200px) {
+        .group-games.container {
+            max-width: 960px + 24px;
+        }
+    }
+    @media (min-width: 1280px) {
+        .group-games.container {
+            max-width: 1200px + 24px;
+        }
+    }
+	
 </style>

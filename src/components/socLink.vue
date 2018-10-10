@@ -20,6 +20,7 @@
 </script>
 
 <style lang="scss" scoped>
+
     .soc-link {
         >div {
             text-align: center;

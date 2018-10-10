@@ -15,6 +15,7 @@
 </script>
 
 <style lang="scss" scoped>
+   
     .card-game-all {
         display: flex;
         align-items: center;
@@ -35,7 +36,7 @@
             width: 100%;
             text-align: center;
             font-family: 'Poppins', sans-serif;
-            font-size: 36px;
+            font-size: 2.25rem;
             font-weight: bold;
             line-height: 1.08;
             letter-spacing: 0.6px;
@@ -64,4 +65,11 @@
              }
         }
     }
+
+    @media (min-width: 960px) and (max-width: 1280px){
+        .card-game-all > div:first-child {
+            font-size: 1.7rem;
+        }
+    }
+   
 </style>

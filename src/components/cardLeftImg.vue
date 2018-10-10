@@ -27,7 +27,8 @@
 </script>
 
 <style lang="scss" scoped>
-    .card-left-img {
+    
+	.card-left-img {
         /*max-width: 1098px;*/
         min-height: 358px;
         border-radius: 8px;
@@ -44,9 +45,9 @@
         }
         >div {
             padding: 30px 100px 20px 53px;
-             margin-left: 37%;
+             margin-left: 453px;
             div:nth-child(1) {
-                font-size: 36px;
+                font-size: 2.25rem;
                 font-weight: 600;
                 line-height: 2.52;
                 letter-spacing: 0.6px;
@@ -63,11 +64,21 @@
                 }
             }
             div:nth-child(3) {
-                font-size: 14px;
+                font-size: 0.875rem;
                 font-weight: normal;
                 letter-spacing: 0.9px;
                 color: #000000;
             }
         }
     }
+
+    @media (min-width: 960px) and (max-width: 1280px){
+        .card-left-img {
+            >div {
+                padding: 20px 40px;
+                margin-left: 400px;
+             }
+        }
+    }
+	
 </style>

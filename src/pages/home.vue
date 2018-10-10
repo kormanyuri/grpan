@@ -7,7 +7,6 @@
         <div class="wrap-content" v-bind:class="{ 'mv-left': showRightMenu }">
 
             <section id="section-1">
-                <!--<img src="/src/assets/img/bg-1.png" alt="" class="header-video">-->
                 <div class="slogan">
                     We make your game a hit
                 </div>
@@ -21,13 +20,13 @@
                         <md-button class="md-primary btn-1">Submit your game</md-button>
                     </div>
                 </div>
-                <a class="md-small-hide mouse" href="#" v-scroll-to="{el: '#section-2', offset: -194}">
+                <a class="md-small-hide md-medium-hide mouse" href="#" v-scroll-to="{el: '#section-2', offset: -194}">
                     <img src="/src/assets/img/mouse.png" alt="">
                 </a>
             </section>
 
             <section id="section-2">
-                <div class="md-layout statistics">
+                <div class="md-layout statistics container">
                     <div class="md-layout-item md-small-size-33">
                         <span>50M+</span><br>
                         <span>users</span>
@@ -43,44 +42,44 @@
                 </div>
             </section>
 
-            <section id="section-3">
+            <section id="section-3" class="container">
                 <div class="md-layout grid-card-games" >
-                    <div class="md-layout-item md-large-size-25 md-small-size-50">
+                    <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-large-size-25 md-xlarge-size-25">
                         <card-game title="Golf orbit" link="#">
                             <img src="/src/assets/img/games/preview_golf_orbit.png" alt="Golf Orbit">
                         </card-game>
                     </div>
-                    <div class="md-layout-item md-large-size-25 md-small-size-50">
+                    <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-large-size-25 md-xlarge-size-25">
                         <card-game title="Bee factory" link="#">
                             <img src="/src/assets/img/games/preview_bee_factory.png" alt="Bee factory">
                         </card-game>
                     </div>
-                    <div class="md-layout-item md-large-size-25 md-small-size-50">
+                    <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-large-size-25 md-xlarge-size-25">
                         <card-game title="Emoji craft!" link="#">
                             <img src="/src/assets/img/games/preview_emoji_craft.png" alt="Emoji craft!">
                         </card-game>
                     </div>
-                    <div class="md-layout-item md-large-size-25 md-small-size-50">
+                    <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-large-size-25 md-xlarge-size-25">
                         <card-game title="Axe climber" link="#">
                             <img src="/src/assets/img/games/preview_axe_climber.png" alt="Axe climber">
                         </card-game>
                     </div>
-                    <div class="md-layout-item md-large-size-25 md-small-size-50">
+                    <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-large-size-25 md-xlarge-size-25">
                         <card-game title="Terrarium" link="#">
                             <img src="/src/assets/img/games/preview_terrarium.png" alt="Terrarium">
                         </card-game>
                     </div>
-                    <div class="md-layout-item md-large-size-25 md-small-size-50">
+                    <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-large-size-25 md-xlarge-size-25">
                         <card-game title="Golf boy" link="#">
                             <img src="/src/assets/img/games/preview_golf_boy.png" alt="Golf boy">
                         </card-game>
                     </div>
-                    <div class="md-layout-item md-large-size-25 md-small-size-50">
+                    <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-large-size-25 md-xlarge-size-25">
                         <card-game title="Fish orbit" link="#">
                             <img src="/src/assets/img/games/preview_fish_orbit.png" alt="Fish orbit">
                         </card-game>
                     </div>
-                    <div class="md-layout-item md-large-size-25 md-small-size-50">
+                    <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-large-size-25 md-xlarge-size-25">
                         <!--<router-link :to="{name: 'games'}">-->
                             <card-game-all title="All games" link="/#/games">
                                 <img src="/src/assets/img/games/preview_appstore.png" alt="All games">
@@ -91,59 +90,65 @@
             </section>
 
             <section id="section-4">
-                <div class="content">
-                    <div class="title">Our story</div><br>
-                    <div class="text">
-                        Green Panda Games began in 2013 as a mobile gaming studio developing various hit classical games such as Solitaire, Blackjack, Logo Quiz and Sudoku. After much success in this field, we pivoted to a much bigger genre of games.<br>
-                        <b>We are now a leading mobile games publisher dedicated to making your hyper-casual game a HIT.</b>
+                <div class="container">
+                    <div class="content">
+                        <div class="title">Our story</div><br>
+                        <div class="text">
+                            Green Panda Games began in 2013 as a mobile gaming studio developing various hit classical games such as Solitaire, Blackjack, Logo Quiz and Sudoku. After much success in this field, we pivoted to a much bigger genre of games.<br>
+                            <b>We are now a leading mobile games publisher dedicated to making your hyper-casual game a HIT.</b>
+                        </div>
+                        <button-arrow style="background-color: rgba(32,48,87,0.53); margin-left: 0">Publishing</button-arrow>
                     </div>
-                    <button-arrow style="background-color: rgba(32,48,87,0.53); margin-left: 0">Publishing</button-arrow>
                 </div>
                 <img src="/src/assets/img/illu_our_story.png" class="mountains md-small-hide">
                 <img src="/src/assets/img/illu_our_story_copter.png" class="copter md-small-hide">
             </section>
 
-            <section id="section-5">
-                <div class="carousel-wrap carousel-1">
-                    <carousel paginationColor="#d8d8d8" paginationActiveColor="#4d4d4d" :perPage="1" :paginationSize="12">
-                        <slide class="slide">
+            <section id="section-5" class="container">
+                <div class="carousel-wrap">
+                    <owl-carousel :items="1" :nav="false" class="carousel-1">
+                        <div class="carousel-item">
                             <card-right-img picture="/src/assets/img/story_pinpin_team.png" title="Success story" msg="« The Green Panda team impressed us at every stage with their expertise, professionalism and dedication. (…) They were with us every step of the way to create Golf Orbit and together we&apos;ve made it a success !  We found a genuine partner in Green Panda and will continue to work closely with them to create hit games.» " position="CEO OF PINPIN TEAM" project="Golf orbit, Fish Orbit" style="box-shadow: none"></card-right-img>
-                        </slide>
-                        <slide class="slide">
+                        </div>
+                        <div class="carousel-item">
                             <card-right-img picture="/src/assets/img/story_pinpin_team.png" title="Success story" msg="« The Green Panda team impressed us at every stage with their expertise, professionalism and dedication. (…) They were with us every step of the way to create Golf Orbit and together we&apos;ve made it a success !  We found a genuine partner in Green Panda and will continue to work closely with them to create hit games.» " position="CEO OF PINPIN TEAM" project="Golf orbit, Fish Orbit" style="box-shadow: none"></card-right-img>
-                        </slide>
-                        <slide class="slide">
+                        </div>
+                        <div class="carousel-item">
                             <card-right-img picture="/src/assets/img/story_pinpin_team.png" title="Success story" msg="« The Green Panda team impressed us at every stage with their expertise, professionalism and dedication. (…) They were with us every step of the way to create Golf Orbit and together we&apos;ve made it a success !  We found a genuine partner in Green Panda and will continue to work closely with them to create hit games.» " position="CEO OF PINPIN TEAM" project="Golf orbit, Fish Orbit" style="box-shadow: none"></card-right-img>
-                        </slide>
-                    </carousel>
+                        </div>
+                    </owl-carousel>
                 </div>
             </section>
             <section id="section-6">
-                <div class="section-head">
-                    Jobs
-                </div>
-                <div class="md-layout wrap-join-our-team">
-                    <div class="md-layout-item md-size-25 md-small-hide">
-                        <div class="join-our-team">
-                            <img src="/src/assets/img/illu_join_team.png" alt="join team">
-                            <div>Want to join<br>our team?</div>
+                <div class="container">
+                    <div class="section-head">
+                        Jobs
+                    </div>
+
+                    <owl-carousel :autoWidth="true" :items="4" :nav="false" :dots="false" class="carousel-2">
+                        <div class="carousel-item" style="margin-left: 24px">
+                            <div class="join-our-team">
+                                <img src="/src/assets/img/illu_join_team.png" alt="join team">
+                                <div>Want to join<br>our team?</div>
+                            </div>
                         </div>
+                        <div class="carousel-item">
+                            <card-vacancy vacancy="HTM5 developer" location="Paris, CDI" link="#" ></card-vacancy>
+                        </div>
+                        <div class="carousel-item">
+                            <card-vacancy vacancy="Digital advertising analyst H/F CDI" location="Paris, CDI" link="#" ></card-vacancy>
+                        </div>
+                        <div class="carousel-item">
+                            <card-vacancy vacancy="Digital advertising analyst H/F CDI" location="Paris, CDI" link="#" ></card-vacancy>
+                        </div>
+                    </owl-carousel>
+
+                    <div style="text-align: center">
+                        <button-arrow>Check all offers</button-arrow>
                     </div>
-                    <div class="md-layout-item md-size-25">
-                        <card-vacancy vacancy="Designer mobile CDI H/F" location="Paris, CDI" link="#"></card-vacancy>
-                    </div>
-                    <div class="md-layout-item md-size-25">
-                        <card-vacancy vacancy="HTM5 developer" location="Paris, CDI" link="#"></card-vacancy>
-                    </div>
-                    <div class="md-layout-item md-size-25">
-                        <card-vacancy vacancy="Digital advertising analyst H/F CDI" location="Paris, CDI" link="#"></card-vacancy>
-                    </div>
-                </div>
-                <div style="text-align: center">
-                    <button-arrow>Check all offers</button-arrow>
                 </div>
             </section>
-            <section id="section-7">
+            <section id="section-7" class="container">
                 <div class="section-body">
                     <h1>Green Panda News</h1>
                     <div class="subtitle">Stay in touch and get fresh updates about Green Panda Games!</div>
@@ -177,8 +182,8 @@
     import mainMenu from '../components/mainMenu.vue'
     import cardVacancy from '../components/cardVacancy.vue'
     import socLink from '../components/socLink.vue'
-    import { Carousel, Slide } from 'vue-carousel'
     import cardRightImg from '../components/cardRightImg.vue'
+    import owlCarousel from 'v-owl-carousel'
 
 
     function getPosition(element) {
@@ -228,34 +233,24 @@
         },
         components: {
             mainMenu,
-            Carousel,
-            Slide,
             cardVacancy,
             socLink,
             cardRightImg,
+            owlCarousel
         }
     }
 </script>
 
 <style lang="scss" scoped>
 
-    #ff .dropdown .dropdown-toggle {
-        border: 1px solid rgba(112, 128, 144, 1);
-        border-radius: 100px;
-        background: red;
+    $k: 768/375;
 
-    }
-    #ff {
-        .v-select .open-indicator:before {
-            border-color: blue
-        }
-    }
+
     .page-container {
         position: relative;
     }
     .mv-left {
         left: -282px !important;
-
     }
     .wrap-content {
         position: relative;
@@ -274,7 +269,7 @@
         .slogan {
             width: 100%;
             font-family: 'Poppins', sans-serif;
-            font-size: 54px;
+            font-size: 3.375rem;
             font-weight: bold;
             color: #fff;
             letter-spacing: 0.9px;
@@ -287,11 +282,8 @@
             position: absolute;
             left: 50%;
             bottom: 30px;
+            margin-left: -16px;
         }
-    }
-    #section-3,
-    #section-6{
-        padding: 0 110px;
     }
     #section-3 {
         padding-bottom: 152px;
@@ -306,15 +298,15 @@
             width: 660px;
             color: #fff;
             padding-top: 110px;
-            padding-left: 120px;
+            /*padding-left: 120px;*/
             .title {
-                font-size: 36px;
+                font-size: 2.25rem;
                 font-weight: normal;
                 letter-spacing: 0.6px;
                 margin-bottom: 24px;
             }
             .text {
-                font-size: 14px;
+                font-size: 0.875rem;
                 font-weight: 300;
                 line-height: 1.79;
                 letter-spacing: 0.9px;
@@ -335,7 +327,7 @@
     }
 
     #section-5 {
-        padding: 0 170px;
+        padding: 0 50px;
         margin-bottom: 128px;
     }
     #section-6 {
@@ -347,7 +339,7 @@
         .section-head {
             display: none;
             text-align: center;
-            font-size: 26px;
+            font-size: 1.626rem;
             line-height: normal;
             letter-spacing: 0.4px;
             color: #848c9a;
@@ -361,7 +353,7 @@
             max-width: 940px;
             margin: 0 auto;
             > h1 {
-                  font-size: 48px;
+                  font-size: 3rem;
                   font-weight: bold;
                   line-height: 1;
                   letter-spacing: 0.8px;
@@ -370,7 +362,7 @@
                   margin: 0 auto 20px;
               }
             .subtitle {
-                font-size: 14px;
+                font-size: 0.875rem;
                 font-weight: 300;
                 line-height: normal;
                 letter-spacing: 0.9px;
@@ -400,7 +392,7 @@
         color: #ffffff !important;
         border: 1px solid #ffffff;
         border-radius: 4px;
-        font-size: 16px;
+        font-size: 1rem;
         text-transform: none;
         padding: 0 8px;
         font-family: 'Open Sans', sans-serif;
@@ -413,7 +405,7 @@
         background-color: #ffb825;
         color: #ffffff !important;
         border-radius: 4px;
-        font-size: 16px;
+        font-size: 1rem;
         text-transform: none;
         padding: 0 8px;
         font-family: 'Open Sans', sans-serif;
@@ -433,14 +425,14 @@
             padding-top: 10px;
           }
         > div span:first-child {
-            font-size: 46px;
+            font-size: 2.875rem;
             font-weight: bold;
             letter-spacing: 0.8px;
             line-height: 59px;
         }
         > div span:last-child {
             opacity: 0.66;
-            font-size: 20px;
+            font-size: 1.25rem;
             font-weight: 300;
             letter-spacing: 1.3px;
         }
@@ -459,13 +451,14 @@
         margin-top: -20px;
         position: relative;
     }
-    .wrap-join-our-team {
-        width: 1224px;
-        margin: 0 auto;
-        margin-bottom: 40px;
-        .md-layout-item {
-            padding: 12px;
-        }
+    .carousel-2 {
+        /*width: 1200px;*/
+        margin: 0 auto 40px;
+       .carousel-item {
+            width: 282px;
+           margin-left: 24px;
+            margin-bottom: 18px;
+          }
     }
     .join-our-team {
         border-radius: 8px;
@@ -474,16 +467,24 @@
         border: solid 8px #ffffff;
         position: relative;
         padding: 8px 0 4px 8px;
-        > div {
+        height: 134px;
+        > img {
+            height: auto;
+            width: auto;
             position: absolute;
-            right: 30px;
-            bottom: 22px;
-            font-size: 20px;
+            left: 9px;
+            top: 9px;
+            bottom: 9px;
+        }
+        > div {
+            margin-left: 110px;
+            font-size: 1.25rem;
             font-weight: bold;
             letter-spacing: 0.3px;
             line-height: normal;
             color: #ffffff;
-         }
+            padding-top: 37px;
+        }
     }
     @media (min-width: 960px) {
         .hide-small-up {
@@ -496,7 +497,7 @@
             .slogan {
                 margin-top: 28%;
                 margin-bottom: 10%;
-                font-size: 27px;
+                font-size: 1.6875rem;
                 letter-spacing: 0.5px;
                 padding: 0 80px;
                 line-height: 37px;
@@ -512,7 +513,7 @@
                 width: auto;
                 padding: 40px 21px 0;
                 .title {
-                    font-size: 26px;
+                    font-size: 1.625rem;
                     font-weight: normal;
                     letter-spacing: 0.6px;
                     margin-bottom: 5px;
@@ -527,7 +528,7 @@
             margin-bottom: 60px;
         }
         #section-6 {
-            padding: 10px 10px 55px 10px;
+            padding: 10px 0 55px 20px;
             .section-head {
                 display: block;
                 margin-bottom: 5px;
@@ -538,7 +539,7 @@
             padding-bottom: 40px;
             .section-body {
                 > h1 {
-                      font-size: 27px;
+                      font-size: 1.6875rem;
                       font-weight: bold;
                       letter-spacing: 0.5px;
                         margin-bottom: 25px;
@@ -551,8 +552,15 @@
                 }
             }
         }
-        .wrap-join-our-team {
-            margin-bottom: 30px;
+        .carousel-2 {
+            width: 100vw;
+            /*padding-left: 20px;*/
+            margin: 0 auto 30px;
+            .carousel-item {
+                width: 282px;
+                margin-bottom: 18px;
+                margin-left: 24px;
+            }
         }
         .grid-card-games {
             .md-layout-item {
@@ -562,16 +570,16 @@
         .statistics {
             height: 50px;
             width: 360px;
-            margin: 40px auto 40px;
+            margin: (40px * $k) auto (40px * $k);
             line-height: 20px;
             > div span:first-child {
-                  font-size: 24px;
+                  font-size: 1.5rem;
                   font-weight: bold;
                   letter-spacing: 0.4px;
                   line-height: 10px;
               }
             > div span:last-child {
-                  font-size: 12px;
+                  font-size: 0.75rem;
                   letter-spacing: 0.8px;
               }
             > div:nth-child(1),
@@ -591,11 +599,93 @@
                     text-align: center;
             }
         }
-        .carousel-wrap {
-            height: 418px;
-        }
+        /*.carousel-wrap {*/
+            /*height: 418px;*/
+        /*}*/
         .carousel-1 {
             margin-top: -80px;
         }
     }
+
+    @media (max-width: 376px) {
+        .carousel-wrap {
+            height: 418px;
+        }
+    }
+    @media (min-width: 376px) and (max-width: 415px) {
+        .carousel-wrap {
+            height: 408px;
+        }
+    }
+
+    @media (min-width: 416px) and (max-width: 768px) {
+        .carousel-wrap {
+            /*height: 240px;*/
+        }
+        .owl-theme .owl-nav.disabled + .owl-dots {
+            margin-top: 100px !important;
+        }
+        .card-right-img {
+            min-height: 0 !important;
+        }
+    }
+
+    @media (min-width: 415px) and (max-width: 960px){
+        #section-1 {
+            .slogan {
+                margin-top: 19.5%;
+            }
+        }
+        .btns-wrap {
+            > div:first-child {
+                text-align: right;
+              }
+            > div:last-child {
+                text-align: left;
+              }
+        }
+        .statistics {
+            width: 600px;
+            > div:nth-child(1),
+            > div:nth-child(2) {
+                  border-right: 1px solid #d2d8e2;
+              }
+        }
+    }
+
+    @media (min-width: 768px) and (max-width: 992px) {
+        .carousel-wrap {
+            /*height: 0;*/
+            /*margin-bottom: 200px;*/
+        }
+    }
+
+    @media (min-width: 960px) and (max-width: 1280px){
+        #section-1 {
+            height: 586px;
+            .slogan {
+                margin-top: 19.5%;
+            }
+        }
+        .btns-wrap {
+            > div:first-child {
+                text-align: right;
+            }
+            > div:last-child {
+                text-align: left;
+            }
+        }
+        .statistics {
+            margin: (40px * $k) auto (40px * $k);
+        }
+    }
+
+    @media (min-width: 1280px) {
+        #section-6 {
+            .container {
+                max-width: 1224px !important;
+            }
+        }
+    }
+
 </style>

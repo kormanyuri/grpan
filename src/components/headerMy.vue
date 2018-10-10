@@ -14,7 +14,8 @@
 </script>
 
 <style lang="scss" scoped>
-    header {
+    
+	header {
         height: 450px;
         position: relative;
         font-family: 'Poppins', sans-serif;
@@ -59,5 +60,9 @@
                 letter-spacing: 0.9px;
             }
         }
+        .section-1 {
+            padding: 0 20px;
+        }
     }
+	
 </style>

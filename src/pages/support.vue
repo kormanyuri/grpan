@@ -7,7 +7,7 @@
 
             <header-my title="Player support" subtitle="A question​?​ ​Perhaps even a suggestion? We'd be happy to hear from you, and we'll get back to you with an answer as soon as we can!" class="header-my"></header-my>
 
-            <section class="section-3">
+            <section class="section-3 container">
                 <div class="form">
                     <div class="form-head">Contact us</div>
                     <form action="">
@@ -77,17 +77,18 @@
 <style lang="scss" scoped>
 
     .header-my {
-        background-color: rgba(255, 72, 95, 0.81);
+        background-image: url("/src/assets/img/header_support@2x.png");
+        background-size: cover;
     }
 
     .section-3 {
-        padding: 95px 0 95px;
+        padding: 95px 112px 95px;
     }
 
     .form {
-        max-width: 976px;
+        /*max-width: 976px;*/
         padding: 63px 48px 31px 75px;
-        margin: 0 auto;
+        /*margin: 0 auto;*/
         border-radius: 8px;
         background-color: #ffffff;
         box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.25);
@@ -226,4 +227,5 @@
             }
         }
     }
+
 </style>

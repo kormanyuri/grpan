@@ -46,8 +46,6 @@
 
 <script>
 
-//    import anchorLink from "anchorLink.vue"
-
     export default {
         data: function(){
             return {
@@ -83,12 +81,18 @@
             window.removeEventListener('scroll', this.handleScroll);
         },
         components: {
-//            anchorLink
+
         }
     }
 </script>
 
 <style lang="scss" scoped>
+
+    .top-menu {
+        li {
+            font-size: 0.875rem;
+        }
+    }
 
     .top-menu .router-link-active {
         border-bottom: 1px solid #fff;
@@ -117,6 +121,9 @@
         background-color: #fff !important;
         color: #000;
         box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+        .router-link-active{
+            border-bottom-color: #000000;
+        }
     }
     .rihgt-menu {
         height: 100vh;
@@ -221,7 +228,7 @@
         background-color: #ffb825;
         color: #ffffff !important;
         border-radius: 4px;
-        font-size: 16px;
+        font-size: 1rem;
         text-transform: none;
         margin: 0;
         padding: 0 8px;
@@ -246,4 +253,5 @@
             }
         }
     }
+	
 </style>

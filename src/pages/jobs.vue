@@ -22,49 +22,49 @@
                 </a>
             </section>
 
-            <section class="section-1">
+            <section class="section-1 container">
                 <card-group-jobs id="business" title="Business" ico="/src/assets/img/icn-business.svg">
                     <div class="md-layout wrap-join-our-team">
-                        <div class="md-layout-item md-small-size-100 md-large-size-25">
+                        <div class="md-layout-item md-small-size-100 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
                             <card-vacancy vacancy="Business developper STAGE)" location="Paris, Stage" link="#"></card-vacancy>
                         </div>
-                        <div class="md-layout-item md-small-size-100 md-large-size-25">
+                        <div class="md-layout-item md-small-size-100 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
                             <card-vacancy vacancy="Business developper H/F CDI" location="Paris, CDI" link="#"></card-vacancy>
                         </div>
                     </div>
                 </card-group-jobs>
                 <card-group-jobs id="marketing" title="Marketing" ico="/src/assets/img/icn-marketing.svg">
                     <div class="md-layout wrap-join-our-team">
-                        <div class="md-layout-item md-small-size-100 md-large-size-25">
+                        <div class="md-layout-item md-small-size-100 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
                             <card-vacancy vacancy="Digital marketing analyst H/F (STAGE FIN D’ETUDE)" location="Paris, Stage" link="#"></card-vacancy>
                         </div>
-                        <div class="md-layout-item md-small-size-100 md-large-size-25">
+                        <div class="md-layout-item md-small-size-100 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
                             <card-vacancy vacancy="Digital marketing manager H/F (CDI)" location="Paris, CDI" link="#"></card-vacancy>
                         </div>
-                        <div class="md-layout-item md-small-size-100 md-large-size-25">
+                        <div class="md-layout-item md-small-size-100 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
                             <card-vacancy vacancy="Digital advertising analyst H/F (STAGE)" location="Paris, CDI" link="#"></card-vacancy>
                         </div>
-                        <div class="md-layout-item md-small-size-100 md-large-size-25">
+                        <div class="md-layout-item md-small-size-100 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
                             <card-vacancy vacancy="Digital advertising analyst H/F CDI" location="Paris, CDI" link="#"></card-vacancy>
                         </div>
                     </div>
                 </card-group-jobs>
                 <card-group-jobs id="product" title="Product" ico="/src/assets/img/icn-product.svg">
                     <div class="md-layout wrap-join-our-team">
-                        <div class="md-layout-item md-small-size-100 md-large-size-25">
+                        <div class="md-layout-item md-small-size-100 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
                             <card-vacancy vacancy="Designer mobile CDI H/F" location="Paris, Stage" link="#"></card-vacancy>
                         </div>
-                        <div class="md-layout-item md-small-size-100 md-large-size-25">
+                        <div class="md-layout-item md-small-size-100 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
                             <card-vacancy vacancy="HTML5 developer (STAGE FIN D’ETUDE)" location="Paris, CDI" link="#"></card-vacancy>
                         </div>
-                        <div class="md-layout-item md-small-size-100 md-large-size-25">
+                        <div class="md-layout-item md-small-size-100 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
                             <card-vacancy vacancy="HTML5 developer" location="Paris, CDI" link="#"></card-vacancy>
                         </div>
                     </div>
                 </card-group-jobs>
                 <card-group-jobs id="human-resources" title="Human resources" ico="/src/assets/img/icn-human-resources.svg">
                     <div class="md-layout wrap-join-our-team">
-                        <div class="md-layout-item md-small-size-100 md-large-size-25">
+                        <div class="md-layout-item md-small-size-100 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
                             <card-vacancy vacancy="HR recruiter CDI H/F" location="Paris, CDI"" link="#"></card-vacancy>
                         </div>
                     </div>
@@ -72,10 +72,12 @@
             </section>
 
             <section class="learn-more">
-                <div class="title">
-                    Learn more about our published games ?
+                <div class="container">
+                    <div class="title">
+                        Learn more about our published games ?
+                    </div>
+                    <button-arrow>Our games</button-arrow>
                 </div>
-                <button-arrow>Our games</button-arrow>
             </section>
 
             <footer-my></footer-my>
@@ -106,7 +108,8 @@
 <style lang="scss" scoped>
 
     .header-my {
-        background-image: linear-gradient(107deg, #1e57ac, #2f3f6e);
+        background-image: url("/src/assets/img/header_jobs@2x.png");
+        background-size: cover;
     }
 
     .nav-in-page {
@@ -138,7 +141,7 @@
     }
 
     .section-1 {
-        padding: 73px 46px 85px;
+        padding: 73px 0 85px;
         .md-layout-item {
             padding: 0 12px;
         }
@@ -195,4 +198,34 @@
             }
         }
     }
+
+    @media (min-width: 414px) and (max-width: 960px){
+        .header-my {
+            margin-bottom: 30px;
+        }
+    }
+
+    @media (min-width: 960px) and (max-width: 1280px){
+        .learn-more {
+            padding-top: 60px;
+            padding-left: 200px;
+            padding-right: 200px;
+        }
+    }
+    @media (min-width: 767px) and (max-width: 992px) {
+        .section-1.container {
+            max-width: 720px +24px;
+        }
+    }
+    @media (min-width: 992px) and (max-width: 1200px) {
+        .section-1.container {
+            max-width: 960px + 24px;
+        }
+    }
+    @media (min-width: 1280px) {
+        .section-1.container {
+            max-width: 1200px + 24px;
+        }
+    }
+
 </style>

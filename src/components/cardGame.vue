@@ -14,7 +14,8 @@
 </script>
 
 <style lang="scss" scoped>
-    .card-game {
+    
+	.card-game {
         display: block;
         border-radius: 15px;
         box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.25);
@@ -31,7 +32,7 @@
             width: 100%;
             text-align: center;
             font-family: 'Poppins', sans-serif;
-            font-size: 24px;
+            font-size: 1.5rem;
             font-weight: bold;
             letter-spacing: 0.4px;
             color: #fff;
@@ -42,10 +43,11 @@
             border-radius: 7px;
             border-width: 5px;
             >div:first-child {
-                font-size: 12px;
+                font-size: 0.75rem;
                  letter-spacing: 0.2px;
                  top: 8px;
              }
         }
     }
+	
 </style>

@@ -20,7 +20,8 @@
 </script>
 
 <style lang="scss" scoped>
-    .card-group-jobs {
+    
+	.card-group-jobs {
         margin-bottom: 56px;
         font-family: 'Poppins', sans-serif;
         .card-group-head {
@@ -74,4 +75,5 @@
             }
         }
     }
+	
 </style>
