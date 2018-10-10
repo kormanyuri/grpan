@@ -10,7 +10,9 @@
             <section class="section-1 container">
                 <div class="md-layout md-gutter group-card">
                     <div class="md-layout-item md-xsmall-size-100 md-medium-size-50 md-small-size-50 md-xlarge-size-50">
-                        <img src="/src/assets/img/illu_UA.png" alt="UA">
+                        <img srcset="/src/assets/img/illu_UA.png 1x,
+                                     /src/assets/img/illu_UA@2x.png 2x"
+                             src="/src/assets/img/illu_UA.png" alt="UA">
                         <div class="text">
                             <div>Large Scale<br>
                                 User Acquisition
@@ -19,14 +21,18 @@
                         </div>
                     </div>
                     <div class="md-layout-item md-xsmall-size-100 md-medium-size-50 md-small-size-50 md-xlarge-size-50">
-                        <img src="/src/assets/img/illu_monetization.png" alt="monetization">
+                        <img srcset="/src/assets/img/illu_monetization.png 1x,
+                                     /src/assets/img/illu_monetization@2x.png 2x"
+                             src="/src/assets/img/illu_monetization.png" alt="monetization">
                         <div class="text">
                             <div>Smart Monetization</div>
                             <div>We’re always working to find the right balance of user experience and revenue generation across all our games. We have special advertising deals with all top networks to achieve the best LTV.</div>
                         </div>
                     </div>
                     <div class="md-layout-item md-xsmall-size-100 md-medium-size-50 md-small-size-50 md-xlarge-size-50">
-                        <img src="/src/assets/img/illu_project.png" alt="project">
+                        <img srcset="/src/assets/img/illu_project.png 1x,
+                                     /src/assets/img/illu_project@2x.png 2x"
+                             src="/src/assets/img/illu_project.png" alt="project">
                         <div class="text">
                             <div>Project Management</div>
                             <div>Marketing and advertising is half the battle.
@@ -34,7 +40,9 @@
                         </div>
                     </div>
                     <div class="md-layout-item md-xsmall-size-100 md-medium-size-50 md-small-size-50 md-xlarge-size-50">
-                        <img src="/src/assets/img/illu_terms.png" alt="project">
+                        <img srcset="/src/assets/img/illu_terms.png 1x,
+                                     /src/assets/img/illu_terms@2x.png 2x"
+                             src="/src/assets/img/illu_terms.png" alt="terms">
                         <div class="text">
                             <div>Clear terms</div>
                             <div>We aim for long term partnerships. Our terms are simple, transparent and attractive.</div>
@@ -174,7 +182,15 @@
 <style lang="scss" scoped>
 
     .header-my {
-        background-image: url("/src/assets/img/header_publishing@2x.png");
+        background-image: url('/src/assets/img/header_publishing.png');
+        background-image: -webkit-image-set(url('/src/assets/img/header_publishing.png') 1x,
+                url('/src/assets/img/header_publishing@2x.png') 2x);
+        background-image: -moz-image-set(url('/src/assets/img/header_publishing.png') 1x,
+                url('/src/assets/img/header_publishing@2x.png') 2x);
+        background-image: -o-image-set(url('/src/assets/img/header_publishing.png') 1x,
+                url('/src/assets/img/header_publishing@2x.png') 2x);
+        background-image: -ms-image-set(url('/src/assets/img/header_publishing.png') 1x,
+                url('/src/assets/img/header_publishing@2x.png') 2x);
         background-size: cover;
     }
 

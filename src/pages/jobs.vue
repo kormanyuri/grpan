@@ -108,7 +108,15 @@
 <style lang="scss" scoped>
 
     .header-my {
-        background-image: url("/src/assets/img/header_jobs@2x.png");
+        background-image: url('/src/assets/img/header_jobs.png');
+        background-image: -webkit-image-set(url('/src/assets/img/header_jobs.png') 1x,
+                url('/src/assets/img/header_jobs@2x.png') 2x);
+        background-image: -moz-image-set(url('/src/assets/img/header_jobs.png') 1x,
+                url('/src/assets/img/header_jobs@2x.png') 2x);
+        background-image: -o-image-set(url('/src/assets/img/header_jobs.png') 1x,
+                url('/src/assets/img/header_jobs@2x.png') 2x);
+        background-image: -ms-image-set(url('/src/assets/img/header_jobs.png') 1x,
+                url('/src/assets/img/header_jobs@2x.png') 2x);
         background-size: cover;
     }
 

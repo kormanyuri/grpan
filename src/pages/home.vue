@@ -21,7 +21,10 @@
                     </div>
                 </div>
                 <a class="md-small-hide md-medium-hide mouse" href="#" v-scroll-to="{el: '#section-2', offset: -194}">
-                    <img src="/src/assets/img/mouse.png" alt="">
+                    <img srcset="/src/assets/img/mouse.png 1x,
+                                 /src/assets/img/mouse@2x.png 2x,
+                                 /src/assets/img/mouse@3x.png 3x"
+                         src="/src/assets/img/mouse.png" alt="Golf Orbit">
                 </a>
             </section>
 
@@ -44,46 +47,60 @@
 
             <section id="section-3" class="container">
                 <div class="md-layout grid-card-games" >
-                    <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-large-size-25 md-xlarge-size-25">
+                    <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
                         <card-game title="Golf orbit" link="#">
-                            <img src="/src/assets/img/games/preview_golf_orbit.png" alt="Golf Orbit">
+                            <img srcset="/src/assets/img/games/preview_golf_orbit.png 1x,
+                                             /src/assets/img/games/preview_golf_orbit@2x.png 2x"
+                                 src="/src/assets/img/games/preview_golf_orbit.png" alt="Golf Orbit">
                         </card-game>
                     </div>
-                    <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-large-size-25 md-xlarge-size-25">
+                    <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
                         <card-game title="Bee factory" link="#">
-                            <img src="/src/assets/img/games/preview_bee_factory.png" alt="Bee factory">
+                            <img srcset="/src/assets/img/games/preview_bee_factory.png 1x,
+                                             /src/assets/img/games/preview_bee_factory@2x.png 2x"
+                                 src="/src/assets/img/games/preview_bee_factory.png" alt="Bee Factory">
                         </card-game>
                     </div>
-                    <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-large-size-25 md-xlarge-size-25">
+                    <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
                         <card-game title="Emoji craft!" link="#">
-                            <img src="/src/assets/img/games/preview_emoji_craft.png" alt="Emoji craft!">
+                            <img srcset="/src/assets/img/games/preview_emoji_craft.png 1x,
+                                             /src/assets/img/games/preview_emoji_craft@2x.png 2x"
+                                 src="/src/assets/img/games/preview_emoji_craft.png" alt="Emoji craft!">
                         </card-game>
                     </div>
-                    <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-large-size-25 md-xlarge-size-25">
+                    <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
                         <card-game title="Axe climber" link="#">
-                            <img src="/src/assets/img/games/preview_axe_climber.png" alt="Axe climber">
+                            <img srcset="/src/assets/img/games/preview_axe_climber.png 1x,
+                                             /src/assets/img/games/preview_axe_climber@2x.png 2x"
+                                 src="/src/assets/img/games/preview_axe_climber.png" alt="Axe climber">
                         </card-game>
                     </div>
-                    <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-large-size-25 md-xlarge-size-25">
+                    <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
                         <card-game title="Terrarium" link="#">
-                            <img src="/src/assets/img/games/preview_terrarium.png" alt="Terrarium">
+                            <img srcset="/src/assets/img/games/preview_terrarium.png 1x,
+                                             /src/assets/img/games/preview_terrarium@2x.png 2x"
+                                 src="/src/assets/img/games/preview_terrarium.png" alt="Terrarium">
                         </card-game>
                     </div>
-                    <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-large-size-25 md-xlarge-size-25">
+                    <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
                         <card-game title="Golf boy" link="#">
-                            <img src="/src/assets/img/games/preview_golf_boy.png" alt="Golf boy">
+                            <img srcset="/src/assets/img/games/preview_golf_boy.png 1x,
+                                             /src/assets/img/games/preview_golf_boy@2x.png 2x"
+                                 src="/src/assets/img/games/preview_golf_boy.png" alt="Golf Boy">
                         </card-game>
                     </div>
-                    <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-large-size-25 md-xlarge-size-25">
+                    <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
                         <card-game title="Fish orbit" link="#">
-                            <img src="/src/assets/img/games/preview_fish_orbit.png" alt="Fish orbit">
+                            <img srcset="/src/assets/img/games/preview_fish_orbit.png 1x,
+                                             /src/assets/img/games/preview_fish_orbit@2x.png 2x"
+                                 src="/src/assets/img/games/preview_fish_orbit.png" alt="Fish orbit">
                         </card-game>
                     </div>
                     <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-large-size-25 md-xlarge-size-25">
                         <!--<router-link :to="{name: 'games'}">-->
-                            <card-game-all title="All games" link="/#/games">
-                                <img src="/src/assets/img/games/preview_appstore.png" alt="All games">
-                            </card-game-all>
+                        <img srcset="/src/assets/img/games/preview_appstore.png 1x,
+                                     /src/assets/img/games/preview_appstore@2x.png 2x"
+                             src="/src/assets/img/games/preview_appstore.png" alt="All games">
                         <!--</router-link>-->
                     </div>
                 </div>
@@ -154,16 +171,16 @@
                     <div class="subtitle">Stay in touch and get fresh updates about Green Panda Games!</div>
                     <div class="md-layout md-gutter wrap-soc-link">
                         <div class="md-layout-item md-size-25">
-                            <soc-link icon="/src/assets/img/icn-facebook.png" link="https://www.facebook.com/GreenPandaGames/"></soc-link>
+                            <soc-link icon="/src/assets/img/icn-facebook.svg" link="https://www.facebook.com/GreenPandaGames/"></soc-link>
                         </div>
                         <div class="md-layout-item md-size-25">
-                            <soc-link icon="/src/assets/img/icn-instagram.png" link="https://www.instagram.com/greenpandagame"></soc-link>
+                            <soc-link icon="/src/assets/img/icn-instagram.svg" link="https://www.instagram.com/greenpandagame"></soc-link>
                         </div>
                         <div class="md-layout-item md-size-25">
-                            <soc-link icon="/src/assets/img/icn-vk.png" link="https://www.vk.com/green_panda_games/"></soc-link>
+                            <soc-link icon="/src/assets/img/icn-vk.svg" link="https://www.vk.com/green_panda_games/"></soc-link>
                         </div>
                         <div class="md-layout-item md-size-25">
-                            <soc-link icon="/src/assets/img/icn-linkedin.png" link="https://www.linkedin.com/company/green-panda-games/"></soc-link>
+                            <soc-link icon="/src/assets/img/icn-linkedin.svg" link="https://www.linkedin.com/company/green-panda-games/"></soc-link>
                         </div>
                     </div>
                 </div>

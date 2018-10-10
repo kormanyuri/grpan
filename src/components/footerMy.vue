@@ -47,10 +47,10 @@
                 </div>
                 <div class="wrap-soc-link">
                     <div class="soc-link">
-                        <a href="https://www.facebook.com/GreenPandaGames/"><img src="/src/assets/img/icn-facebook-grey.png" alt=""></a>
-                        <a href="https://www.instagram.com/greenpandagame"><img src="/src/assets/img/icn-instagram-grey.png" alt=""></a>
-                        <a href="https://www.linkedin.com/company/green-panda-games/"><img src="/src/assets/img/icn-linkedin-grey.png" alt=""></a>
-                        <a href="https://www.vk.com/green_panda_games/"><img src="/src/assets/img/icn-vk-grey.png" alt=""></a>
+                        <a href="https://www.facebook.com/GreenPandaGames/"><img src="/src/assets/img/icn-facebook-grey.svg" alt=""></a>
+                        <a href="https://www.instagram.com/greenpandagame"><img src="/src/assets/img/icn-instagram-grey.svg" alt=""></a>
+                        <a href="https://www.linkedin.com/company/green-panda-games/"><img src="/src/assets/img/icn-linkedin-grey.svg" alt=""></a>
+                        <a href="https://www.vk.com/green_panda_games/"><img src="/src/assets/img/icn-vk-grey.svg" alt=""></a>
                     </div>
                     <div style="text-align: center">
                         <form class="select-lang-mobile">
@@ -100,10 +100,10 @@
                         </ul>
                     </div>
                     <div class="md-layout-item md-size-25 soc-link">
-                        <a href="https://www.facebook.com/GreenPandaGames/"><img src="/src/assets/img/icn-facebook-grey.png" alt=""></a>
-                        <a href="https://www.instagram.com/greenpandagame"><img src="/src/assets/img/icn-instagram-grey.png" alt=""></a>
-                        <a href="https://www.linkedin.com/company/green-panda-games/"><img src="/src/assets/img/icn-linkedin-grey.png" alt=""></a>
-                        <a href="https://www.vk.com/green_panda_games/"><img src="/src/assets/img/icn-vk-grey.png" alt=""></a>
+                        <a href="https://www.facebook.com/GreenPandaGames/"><img src="/src/assets/img/icn-facebook-grey.svg" alt=""></a>
+                        <a href="https://www.instagram.com/greenpandagame"><img src="/src/assets/img/icn-instagram-grey.svg" alt=""></a>
+                        <a href="https://www.linkedin.com/company/green-panda-games/"><img src="/src/assets/img/icn-linkedin-grey.svg" alt=""></a>
+                        <a href="https://www.vk.com/green_panda_games/"><img src="/src/assets/img/icn-vk-grey.svg" alt=""></a>
                     </div>
                 </div>
             </div>
