@@ -27,7 +27,7 @@ Vue.use(MdMenu)
 Vue.use(MdField)
 Vue.use(MdDivider)
 Vue.use(VueRouter)
-Vue.use(MdSnackbar)
+
 
 
 Vue.use(VueScrollTo, {
