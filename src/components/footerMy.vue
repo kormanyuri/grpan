@@ -7,12 +7,12 @@
                     <accordion>
                         <div slot="header" class="block-heading">MENU</div>
                         <ul>
-                            <li><a href="">Home</a></li>
-                            <li><a href="">Publishing</a></li>
-                            <li><a href="">Games</a></li>
-                            <li><a href="">Our story</a></li>
-                            <li><a href="">Career</a></li>
-                            <li><a href="">Contact us</a></li>
+                            <li><router-link to="/">Home</router-link></li>
+                            <li><router-link to="/publishing">Publishing</router-link></li>
+                            <li><router-link to="/games">Games</router-link></li>
+                            <li><router-link to="/publishing#success-story">Our story</router-link></li>
+                            <li><router-link to="/jobs">Career</router-link></li>
+                            <li><router-link to="/support">Contact us</router-link></li>
                         </ul>
                     </accordion>
                     <accordion>
@@ -41,7 +41,7 @@
                     <accordion>
                         <div slot="header" class="block-heading">CONTACT</div>
                         <ul>
-                            <li><a href="">Support</a></li>
+                            <li><router-link to="/support">Support</router-link></li>
                         </ul>
                     </accordion>
                 </div>
@@ -54,7 +54,8 @@
                     </div>
                     <div style="text-align: center">
                         <form class="select-lang-mobile">
-                            <v-select v-model="selected" :options="options" class="select-lang"></v-select>
+                            <locale-switcher class="select-lang"></locale-switcher>
+                            <!--<v-select v-model="selected" :options="options" class="select-lang"></v-select>-->
                         </form>
                     </div>
                 </div>
@@ -62,12 +63,12 @@
                     <div class="md-layout-item md-small-size-100 md-size-15">
                         <div class="block-heading">PRESS</div>
                         <ul class="list">
-                            <li><a href="">Home</a></li>
-                            <li><a href="">Publishing</a></li>
-                            <li><a href="">Games</a></li>
-                            <li><a href="">Our story</a></li>
-                            <li><a href="">Career</a></li>
-                            <li><a href="">Contact us</a></li>
+                            <li><router-link to="/">Home</router-link></li>
+                            <li><router-link to="/publishing">Publishing</router-link></li>
+                            <li><router-link to="/games">Games</router-link></li>
+                            <li><router-link to="/publishing#success-story">Our story</router-link></li>
+                            <li><router-link to="/jobs">Career</router-link></li>
+                            <li><router-link to="/support">Contact us</router-link></li>
                         </ul>
                     </div>
                     <div class="md-layout-item md-small-size-100 md-size-15">
@@ -96,7 +97,7 @@
                     <div class="md-layout-item md-small-size-100 md-small-size-100 md-size-15">
                         <div class="block-heading">CONTACT</div>
                         <ul>
-                            <li><a href="">Support</a></li>
+                            <li><router-link to="/support">Support</router-link></li>
                         </ul>
                     </div>
                     <div class="md-layout-item md-size-25 soc-link">
@@ -113,7 +114,8 @@
             <div class="container">
                 <span>© 2018 GREEN PANDA GAMES. ALL RIGHTS RESERVED.</span>
                 <form class="md-small-hide">
-                    <v-select v-model="selected" :options="options" class="select-lang"></v-select>
+                    <locale-switcher></locale-switcher>
+                    <!--<v-select v-model="locale" :options="options" class="select-lang"></v-select>-->
                 </form>
             </div>
         </div>
@@ -125,23 +127,38 @@
 <script>
     import accordion from '../components/accordion.vue'
     import snackbar from '../components/snackbar.vue'
+    import LocaleSwitcher from '../components/LocaleSwitcher.vue'
 
     export default {
         props: ['icon', 'link'],
-        data: () => ({
-            show: false,
-            options: [
-                {id: 1, label: 'English'},
-                {id: 2, label: 'Français'},
-                {id: 3, label: 'Русский'},
-            ],
-            selected: {id: 1, label: 'English'},
-        }),
+
+//        data: function(){
+//            return {
+//                show: false,
+//                options: [
+//                    {id: 'en', label: 'English'},
+//                    {id: 'fr', label: 'Français'},
+//                    {id: 'ru', label: 'Русский'},
+//                ],
+//                locale: {id: 'en', label: 'English'},
+//            }
+//        },
+//        watch: {
+//            locale (val) {
+//                this.$i18n.locale = val.id
+//            }
+//        },
         methods: {
+        },
+        computed: {
+            currentLocale() {
+                return this.$route.params.locale
+            },
         },
         components: {
             accordion,
-            snackbar
+            snackbar,
+            LocaleSwitcher
         }
     }
 </script>
@@ -252,6 +269,7 @@
                 display: block;
             }
             .select-lang-mobile {
+                text-align: center;
                 .select-lang {
                     margin: 0 auto 8px;
                 }

@@ -17,7 +17,9 @@
                         </a>
                     </div>
                     <div class="md-layout-item md-xsmall-size-100">
-                        <md-button class="md-primary btn-1">Submit your game</md-button>
+                        <router-link to="/publishing#want-to-work-with-us-form">
+                            <md-button class="md-primary btn-1">Submit your game</md-button>
+                        </router-link>
                     </div>
                 </div>
                 <a class="md-small-hide md-medium-hide mouse" href="#" v-scroll-to="{el: '#section-2', offset: -194}">
@@ -97,13 +99,11 @@
                         </card-game>
                     </div>
                     <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-large-size-25 md-xlarge-size-25">
-                        <!--<router-link :to="{name: 'games'}">-->
-                        <card-game-all title="All games" link="#">
+                        <card-game-all title="All games" link="/games">
                             <img srcset="/src/assets/img/games/preview_appstore.png 1x,
                                          /src/assets/img/games/preview_appstore@2x.png 2x"
                                  src="/src/assets/img/games/preview_appstore.png" alt="All games">
                         </card-game-all>
-                        <!--</router-link>-->
                     </div>
                 </div>
             </section>
@@ -116,7 +116,9 @@
                             Green Panda Games began in 2013 as a mobile gaming studio developing various hit classical games such as Solitaire, Blackjack, Logo Quiz and Sudoku. After much success in this field, we pivoted to a much bigger genre of games.<br>
                             <b>We are now a leading mobile games publisher dedicated to making your hyper-casual game a HIT.</b>
                         </div>
-                        <button-arrow style="background-color: rgba(32,48,87,0.53); margin-left: 0">Publishing</button-arrow>
+                        <router-link to="/publishing">
+                            <button-arrow style="background-color: rgba(32,48,87,0.53); margin-left: 0">Publishing</button-arrow>
+                        </router-link>
                     </div>
                 </div>
                 <img src="/src/assets/img/illu_our_story.png" class="mountains md-small-hide">
@@ -163,7 +165,9 @@
                     </owl-carousel>
 
                     <div style="text-align: center">
-                        <button-arrow>Check all offers</button-arrow>
+                        <router-link to="/jobs">
+                            <button-arrow>Check all offers</button-arrow>
+                        </router-link>
                     </div>
                 </div>
             </section>

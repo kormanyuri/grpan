@@ -76,7 +76,9 @@
                     <div class="title">
                         Learn more about our published games ?
                     </div>
-                    <button-arrow>Our games</button-arrow>
+                    <router-link to="/games">
+                        <button-arrow>Our games</button-arrow>
+                    </router-link>
                 </div>
             </section>
 

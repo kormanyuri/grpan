@@ -148,7 +148,9 @@
                 <div class="subtitle md-small-hide">
                     Please contact our team if you need more information or if you have a<br>game you want to publish with us. We will reply to you as soon as possible !
                 </div>
-                <button-arrow>Publishing</button-arrow>
+                <router-link to="/publishing">
+                    <button-arrow>Publishing</button-arrow>
+                </router-link>
             </section>
 
             <footer-my></footer-my>

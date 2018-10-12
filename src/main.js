@@ -14,7 +14,10 @@ import buttonArrow from './components/buttonArrow.vue'
 import footerMy from './components/footerMy.vue'
 import VueScrollTo from 'vue-scrollto'
 import VueSelect from 'vue-select'
-
+import { defaultLocale } from './config/i18n'
+import en from './lang/en';
+import fr from './lang/fr';
+import ru from './lang/ru';
 
 Vue.use(MdLayout)
 Vue.use(MdApp)
@@ -27,8 +30,20 @@ Vue.use(MdMenu)
 Vue.use(MdField)
 Vue.use(MdDivider)
 Vue.use(VueRouter)
+Vue.use(VueI18n)
 
+const locale = 'en'
 
+const messages = {
+  en: en,
+  fr: fr,
+  ru: ru,
+}
+
+const i18n = new VueI18n({
+  locale,
+  messages
+})
 
 Vue.use(VueScrollTo, {
   container: "body",
@@ -83,11 +98,24 @@ const scrollBehavior = function (to, from, savedPosition) {
 }
 
 const routes = [
-  { path: '/', name: 'home', component: home },
-  { path: '/publishing', name: 'publishing', component: publishing },
-  { path: '/games', name: 'games', component: games },
-  { path: '/jobs', name: 'jobs', component: jobs },
-  { path: '/support', name: 'support', component: support },
+  {
+    path: '/',
+    redirect: `/${defaultLocale}`,
+  },
+  {
+    path: '/:locale',
+    component: {
+      template: '<router-view />',
+    },
+    children: [
+      { path: '', name: 'home', component: home },
+      { path: 'publishing', name: 'publishing', component: publishing },
+      { path: 'games', name: 'games', component: games },
+      { path: 'jobs', name: 'jobs', component: jobs },
+      { path: 'support', name: 'support', component: support },
+    ],
+  }
+
 ]
 
 const router = new VueRouter({
@@ -106,6 +134,7 @@ Vue.component('footer-my', footerMy);
 const vm = new Vue({
   el: '#app',
   router,
+  i18n,
   methods: {
     afterLeave () {
       this.$root.$emit('triggerScroll')
