@@ -127,7 +127,7 @@
 
             <section id="section-5" class="container">
                 <div class="carousel-wrap">
-                    <owl-carousel :items="1" :nav="false" class="carousel-1">
+                    <owl-carousel :items="1" :nav="false" :responsive="false" class="carousel-1">
                         <div class="carousel-item">
                             <card-right-img picture="/src/assets/img/story_pinpin_team.png" title="Success story" msg="« The Green Panda team impressed us at every stage with their expertise, professionalism and dedication. (…) They were with us every step of the way to create Golf Orbit and together we&apos;ve made it a success !  We found a genuine partner in Green Panda and will continue to work closely with them to create hit games.» " position="CEO OF PINPIN TEAM" project="Golf orbit, Fish Orbit" style="box-shadow: none"></card-right-img>
                         </div>
@@ -146,7 +146,7 @@
                         Jobs
                     </div>
 
-                    <owl-carousel :autoWidth="true" :items="4" :nav="false" :dots="false" class="carousel-2">
+                    <owl-carousel :autoWidth="true" :items="4" :nav="false" :dots="false" :responsive="false" class="carousel-2">
                         <div class="carousel-item" style="margin-left: 24px">
                             <div class="join-our-team">
                                 <img src="/src/assets/img/illu_join_team.png" alt="join team">
