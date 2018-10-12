@@ -3,7 +3,7 @@
     <div>
 
         <md-toolbar md-elevation="0" class="topbar"  v-bind:class="{ 'topbar-white': scrolled, 'mv-left': showRightMenu }">
-            <a href="/#/"><img v-bind:src='logo' alt="logo" class="logo"></a>
+            <a v-bind:href="'/' + locale.code"><img v-bind:src='logo' alt="logo" class="logo"></a>
             <div class="md-toolbar-section-end">
                 <ul class="top-menu md-small-hide">
                     <li><router-link :to="{name: 'publishing'}" exact><p>{{ $t("message.PUBLISHING") }}</p></router-link></li>
@@ -11,11 +11,11 @@
                     <li><router-link :to="{name: 'jobs'}" exact>{{ $t("message.JOBS") }}</router-link></li>
                     <li><router-link :to="{name: 'support'}" exact>Support</router-link></li>
                 </ul>
-                <router-link to="/publishing#want-to-work-with-us-form">
+                <router-link v-bind:to="'/' + locale.code + '/publishing#want-to-work-with-us-form'">
                     <md-button class="md-primary md-small-hide btn-1">Submit your game</md-button>
                 </router-link>
                 <md-button class="md-icon-button hide-small-up" @click="toggleMenu" v-bind:class="{ 'md-hide': showRightMenu }">
-                    <img v-bind:src='showMenuIco' alt="menu">
+                    <img v-bind:src='showMenuIco' alt="menu"/>
                 </md-button>
             </div>
         </md-toolbar>
@@ -45,6 +45,7 @@
 </template>
 
 <script>
+    import Parser from '../tools/Parser';
 
     export default {
         data: function(){
@@ -55,6 +56,7 @@
                 logo: '/src/assets/img/logo-gp-white.svg',
                 showMenuIco: '/src/assets/img/menu-ico-white.svg',
                 closeMenuIco: '/src/assets/img/close-ico-white.svg',
+                locale: {code: 'en', label: 'English'},
             }
         },
         methods: {
@@ -74,6 +76,12 @@
                 }
             }
         },
+
+
+        mounted: function(){
+          const parser = new Parser();
+          this.locale = {code: parser.locale, label: parser.localeLabel};
+        },
         created () {
             window.addEventListener('scroll', this.handleScroll);
         },
@@ -84,6 +92,7 @@
 
         }
     }
+
 </script>
 
 <style lang="scss" scoped>

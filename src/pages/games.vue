@@ -13,60 +13,18 @@
                 </div>
                 <div class="group-games-body">
                     <div class="md-layout grid-card-games" >
-                        <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
-                            <card-game title="Golf orbit" link="#">
-                                <img srcset="/src/assets/img/games/preview_golf_orbit.png 1x,
-                                             /src/assets/img/games/preview_golf_orbit@2x.png 2x"
-                                     src="/src/assets/img/games/preview_golf_orbit.png" alt="Golf Orbit">
+                        <div v-for="item in games" v-if="item.category.id == 1" class="md-layout-item md-xsmall-size-50 md-small-size-25 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
+                            <card-game v-bind:title="item.name" v-bind:link="item.url">
+                                <img v-bind:srcset="'http://greenpanda.ceant.net/admin/storage/' + item.image + ' 1x,'+
+                                             'http://greenpanda.ceant.net/admin/storage/' + item.image +' 2x'"
+                                     v-bind:src="'http://greenpanda.ceant.net/admin/storage/' + item.image" v-bind:alt="item.name">
                             </card-game>
                         </div>
                         <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
-                            <card-game title="Bee factory" link="#">
-                                <img srcset="/src/assets/img/games/preview_bee_factory.png 1x,
-                                             /src/assets/img/games/preview_bee_factory@2x.png 2x"
-                                     src="/src/assets/img/games/preview_bee_factory.png" alt="Bee Factory">
-                            </card-game>
-                        </div>
-                        <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
-                            <card-game title="Emoji craft!" link="#">
-                                <img srcset="/src/assets/img/games/preview_emoji_craft.png 1x,
-                                             /src/assets/img/games/preview_emoji_craft@2x.png 2x"
-                                     src="/src/assets/img/games/preview_emoji_craft.png" alt="Emoji craft!">
-                            </card-game>
-                        </div>
-                        <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
-                            <card-game title="Axe climber" link="#">
-                                <img srcset="/src/assets/img/games/preview_axe_climber.png 1x,
-                                             /src/assets/img/games/preview_axe_climber@2x.png 2x"
-                                     src="/src/assets/img/games/preview_axe_climber.png" alt="Axe climber">
-                            </card-game>
-                        </div>
-                        <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
-                            <card-game title="Terrarium" link="#">
-                                <img srcset="/src/assets/img/games/preview_terrarium.png 1x,
-                                             /src/assets/img/games/preview_terrarium@2x.png 2x"
-                                     src="/src/assets/img/games/preview_terrarium.png" alt="Terrarium">
-                            </card-game>
-                        </div>
-                        <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
-                            <card-game title="Golf boy" link="#">
-                                <img srcset="/src/assets/img/games/preview_golf_boy.png 1x,
-                                             /src/assets/img/games/preview_golf_boy@2x.png 2x"
-                                     src="/src/assets/img/games/preview_golf_boy.png" alt="Golf Boy">
-                            </card-game>
-                        </div>
-                        <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
-                            <card-game title="Fish orbit" link="#">
-                                <img srcset="/src/assets/img/games/preview_fish_orbit.png 1x,
-                                             /src/assets/img/games/preview_fish_orbit@2x.png 2x"
-                                     src="/src/assets/img/games/preview_fish_orbit.png" alt="Fish orbit">
-                            </card-game>
-                        </div>
-                        <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
-                            <card-game-all title="See on the Appstore" link="#">
+                            <card-game-all title="See on the Appstore" v-bind:link="'/' + locale + '/games'">
                                 <img srcset="/src/assets/img/games/preview_appstore.png 1x,
                                              /src/assets/img/games/preview_appstore@2x.png 2x"
-                                     src="/src/assets/img/games/preview_appstore.png" alt="All games">
+                                     src="/src/assets/img/games/preview_appstore.png" alt="All games"/>
                             </card-game-all>
                         </div>
                     </div>
@@ -81,57 +39,15 @@
                 </div>
                 <div class="group-games-body">
                     <div class="md-layout grid-card-games" >
-                        <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
-                            <card-game title="Golf orbit" link="#">
-                                <img srcset="/src/assets/img/games/preview_golf_orbit.png 1x,
-                                             /src/assets/img/games/preview_golf_orbit@2x.png 2x"
-                                     src="/src/assets/img/games/preview_golf_orbit.png" alt="Golf Orbit">
-                            </card-game>
+                        <div v-for="item in games" v-if="item.category.id == 2" class="md-layout-item md-xsmall-size-50 md-small-size-25 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
+                            <card-game v-bind:title="item.name" v-bind:link="item.url">
+                              <img v-bind:srcset="'http://greenpanda.ceant.net/admin/storage/' + item.image + ' 1x,'+
+                                             'http://greenpanda.ceant.net/admin/storage/' + item.image +' 2x'"
+                                   v-bind:src="'http://greenpanda.ceant.net/admin/storage/' + item.image" v-bind:alt="item.name">                            </card-game>
                         </div>
+
                         <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
-                            <card-game title="Bee factory" link="#">
-                                <img srcset="/src/assets/img/games/preview_bee_factory.png 1x,
-                                             /src/assets/img/games/preview_bee_factory@2x.png 2x"
-                                     src="/src/assets/img/games/preview_bee_factory.png" alt="Bee Factory">
-                            </card-game>
-                        </div>
-                        <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
-                            <card-game title="Emoji craft!" link="#">
-                                <img srcset="/src/assets/img/games/preview_emoji_craft.png 1x,
-                                             /src/assets/img/games/preview_emoji_craft@2x.png 2x"
-                                     src="/src/assets/img/games/preview_emoji_craft.png" alt="Emoji craft!">
-                            </card-game>
-                        </div>
-                        <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
-                            <card-game title="Axe climber" link="#">
-                                <img srcset="/src/assets/img/games/preview_axe_climber.png 1x,
-                                             /src/assets/img/games/preview_axe_climber@2x.png 2x"
-                                     src="/src/assets/img/games/preview_axe_climber.png" alt="Axe climber">
-                            </card-game>
-                        </div>
-                        <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
-                            <card-game title="Terrarium" link="#">
-                                <img srcset="/src/assets/img/games/preview_terrarium.png 1x,
-                                             /src/assets/img/games/preview_terrarium@2x.png 2x"
-                                     src="/src/assets/img/games/preview_terrarium.png" alt="Terrarium">
-                            </card-game>
-                        </div>
-                        <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
-                            <card-game title="Golf boy" link="#">
-                                <img srcset="/src/assets/img/games/preview_golf_boy.png 1x,
-                                             /src/assets/img/games/preview_golf_boy@2x.png 2x"
-                                     src="/src/assets/img/games/preview_golf_boy.png" alt="Golf Boy">
-                            </card-game>
-                        </div>
-                        <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
-                            <card-game title="Fish orbit" link="#">
-                                <img srcset="/src/assets/img/games/preview_fish_orbit.png 1x,
-                                             /src/assets/img/games/preview_fish_orbit@2x.png 2x"
-                                     src="/src/assets/img/games/preview_fish_orbit.png" alt="Fish orbit">
-                            </card-game>
-                        </div>
-                        <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
-                            <card-game-all title="See on the Appstore" link="#">
+                            <card-game-all title="See on the Appstore"  v-bind:link="'/' + locale + '/games'">
                                 <img srcset="/src/assets/img/games/preview_appstore.png 1x,
                                              /src/assets/img/games/preview_appstore@2x.png 2x"
                                      src="/src/assets/img/games/preview_appstore.png" alt="All games">
@@ -143,12 +59,13 @@
 
             <section class="learn-more">
                 <div class="title">
-                    Want to learn more about publishing?
+                    {{staticContent ? staticContent.bottom.title : ''}}
                 </div>
                 <div class="subtitle md-small-hide">
-                    Please contact our team if you need more information or if you have a<br>game you want to publish with us. We will reply to you as soon as possible !
+                    {{staticContent ? staticContent.bottom.text : ''}}
+                    <!--Please contact our team if you need more information or if you have a<br>game you want to publish with us. We will reply to you as soon as possible !-->
                 </div>
-                <router-link to="/publishing">
+                <router-link v-bind:to="'/' + locale + '/publishing'">
                     <button-arrow>Publishing</button-arrow>
                 </router-link>
             </section>
@@ -161,6 +78,11 @@
 </template>
 
 <script>
+
+    import Parser from '../tools/Parser'
+    import StaticContent from '../tools/StaticContent'
+    import Game from '../tools/Game'
+    import GameCategory from '../tools/GameCategory'
     import mainMenu from '../components/mainMenu.vue'
     import headerMy from '../components/headerMy.vue'
 
@@ -170,6 +92,44 @@
             headerMy,
             mainMenu
         },
+        data: () => ({
+          staticContent: null,
+          games: [],
+          gameCategories: [],
+          locale: ''
+        }),
+        created: function(){
+          const parser = new Parser();
+          const staticContent = new StaticContent(parser.route, parser.locale);
+          const game = new Game();
+          const gameCategory = new GameCategory();
+
+          this.locale = parser.locale;
+
+          staticContent.update(json => {
+            this.staticContent = json.data;
+          });
+
+          game.update(json => {
+            for (let i = 0; i < json.length; i++ ) {
+              this.games.push({
+                name: json[i].name,
+                image: json[i].image,
+                url: json[i].url,
+                category: json[i].category
+              });
+            }
+          });
+
+          gameCategory.update(json => {
+            for (let i = 0; i < json.length; i++ ) {
+              this.gameCategories.push({
+                id: json[i].id,
+                name: json[i].name
+              });
+            }
+          });
+        }
     }
 </script>
 

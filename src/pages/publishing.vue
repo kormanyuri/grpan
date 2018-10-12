@@ -1,11 +1,11 @@
-<template>
+<template v-if="staticContent">
     <div class="page-container">
 
         <main-menu></main-menu>
 
         <div id="publishing">
 
-            <header-my title="Let’s create a successful story together" subtitle="A team of mobile experts dedicated to your success " class="header-my"></header-my>
+            <header-my v-if="staticContent" v-bind:title="staticContent.header.title" v-bind:subtitle="staticContent.header.text" class="header-my"></header-my>
 
             <section class="section-1 container">
                 <div class="md-layout md-gutter group-card">
@@ -60,13 +60,13 @@
 
                     <div class="group-card-1 md-small-hide">
                         <div>
-                            <card-right-img class="max-w" picture="/src/assets/img/story_pinpin_team.png" title="Pinpin Team" msg="« The Green Panda team impressed us at every stage with their expertise, professionalism and dedication. (…) They were with us every step of the way to create Golf Orbit and together we&apos;ve made it a success !  We found a genuine partner in Green Panda and will continue to work closely with them to create hit games.» " position="CEO OF PINPIN TEAM" project="Golf orbit, Fish Orbit"></card-right-img>
+                            <card-right-img v-if="staticContent" class="max-w" picture="/src/assets/img/story_pinpin_team.png" v-bind:title="staticContent.success_story.slides[0].title" v-bind:msg="staticContent.success_story.slides[0].text" position="CEO OF PINPIN TEAM" project="Golf orbit, Fish Orbit"></card-right-img>
                         </div>
                         <div class="align-right">
-                            <card-left-img class="max-w" picture="/src/assets/img/story_bee.png" title="Vitaliy Sidirov" msg="« The Green Panda team impressed us at every stage with their expertise, professionalism and dedication. (…) They were with us every step of the way to create Golf Orbit and together we&apos;ve made it a success !  We found a genuine partner in Green Panda and will continue to work closely with them to create hit games.» " position="CEO OF PINPIN TEAM" project="Golf orbit, Fish Orbit"></card-left-img>
+                            <card-left-img v-if="staticContent" class="max-w" picture="/src/assets/img/story_bee.png"  v-bind:title="staticContent.success_story.slides[1].title" v-bind:msg="staticContent.success_story.slides[1].text" position="CEO OF PINPIN TEAM" project="Golf orbit, Fish Orbit"></card-left-img>
                         </div>
                         <div>
-                            <card-right-img class="max-w" picture="/src/assets/img/story_pinpin_team.png" title="Pinpin Team" msg="« The Green Panda team impressed us at every stage with their expertise, professionalism and dedication. (…) They were with us every step of the way to create Golf Orbit and together we&apos;ve made it a success !  We found a genuine partner in Green Panda and will continue to work closely with them to create hit games.» " position="CEO OF PINPIN TEAM" project="Golf orbit, Fish Orbit"></card-right-img>
+                            <card-right-img v-if="staticContent" class="max-w" picture="/src/assets/img/story_pinpin_team.png" v-bind:title="staticContent.success_story.slides[2].title" v-bind:msg="staticContent.success_story.slides[2].text" position="CEO OF PINPIN TEAM" project="Golf orbit, Fish Orbit"></card-right-img>
                         </div>
                     </div>
 
@@ -143,10 +143,10 @@
 
             <section class="learn-more">
                 <div class="container">
-                    <div class="title">
-                        Learn more about our published games ?
+                    <div v-if="staticContent" class="title">
+                        {{ staticContent.bottom.title }}
                     </div>
-                    <router-link to="/games">
+                    <router-link v-bind:to="'/' + locale+'/games'">
                         <button-arrow>Our games</button-arrow>
                     </router-link>
                 </div>
@@ -161,6 +161,8 @@
 
 <script>
 
+    import Parser from '../tools/Parser'
+    import StaticContent from '../tools/StaticContent'
     import mainMenu from '../components/mainMenu.vue'
     import headerMy from '../components/headerMy.vue'
     import cardRightImg from '../components/cardRightImg.vue'
@@ -178,6 +180,19 @@
             buttonRectangle,
             owlCarousel
         },
+        data: () => ({
+          staticContent: null,
+          locale: ''
+        }),
+        created: function(){
+          const parser = new Parser();
+          const staticContent = new StaticContent(parser.route, parser.locale);
+          this.locale = parser.locale;
+
+          staticContent.update(json => {
+            this.staticContent = json.data;
+          });
+        }
     }
 </script>
 

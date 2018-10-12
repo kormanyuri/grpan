@@ -63,22 +63,19 @@
                     <div class="md-layout-item md-small-size-100 md-size-15">
                         <div class="block-heading">PRESS</div>
                         <ul class="list">
-                            <li><router-link to="/">Home</router-link></li>
-                            <li><router-link to="/publishing">Publishing</router-link></li>
-                            <li><router-link to="/games">Games</router-link></li>
-                            <li><router-link to="/publishing#success-story">Our story</router-link></li>
-                            <li><router-link to="/jobs">Career</router-link></li>
-                            <li><router-link to="/support">Contact us</router-link></li>
+                            <li><router-link v-bind:to="'/' + locale.code">Home</router-link></li>
+                            <li><router-link v-bind:to="'/' + locale.code + '/publishing'">Publishing</router-link></li>
+                            <li><router-link v-bind:to="'/' + locale.code + '/games'">Games</router-link></li>
+                            <li><router-link v-bind:to="'/' + locale.code + '/publishing#success-story'">Our story</router-link></li>
+                            <li><router-link v-bind:to="'/' + locale.code + '/jobs'">Career</router-link></li>
+                            <li><router-link v-bind:to="'/' + locale.code + '/support'">Contact us</router-link></li>
                         </ul>
                     </div>
                     <div class="md-layout-item md-small-size-100 md-size-15">
                         <div class="block-heading">JOBS</div>
                         <ul>
-                            <li><a href="">Advertising analyst</a></li>
-                            <li><a href="">Marketing analys</a></li>
-                            <li><a href="">HTML5 Devloper</a></li>
-                            <li><a href="">Marketing Manager</a></li>
-                            <li><a href="" class="bold">+ See more</a></li>
+                            <li v-for="job in jobs"><a href="">{{job.name}}</a></li>
+                            <li><a v-bind:href="'/' + locale.code + '/jobs'" class="bold">+ See more</a></li>
                         </ul>
                     </div>
                     <div class="md-layout-item md-small-size-100 md-size-15">
@@ -97,7 +94,7 @@
                     <div class="md-layout-item md-small-size-100 md-small-size-100 md-size-15">
                         <div class="block-heading">CONTACT</div>
                         <ul>
-                            <li><router-link to="/support">Support</router-link></li>
+                            <li><router-link v-bind:to="locale.code+'/support'">Support</router-link></li>
                         </ul>
                     </div>
                     <div class="md-layout-item md-size-25 soc-link">
@@ -128,27 +125,40 @@
     import accordion from '../components/accordion.vue'
     import snackbar from '../components/snackbar.vue'
     import LocaleSwitcher from '../components/LocaleSwitcher.vue'
+    import Parser from '../tools/Parser';
+    import Job from '../tools/Job';
 
     export default {
         props: ['icon', 'link'],
 
-//        data: function(){
-//            return {
-//                show: false,
-//                options: [
-//                    {id: 'en', label: 'English'},
-//                    {id: 'fr', label: 'Français'},
-//                    {id: 'ru', label: 'Русский'},
-//                ],
-//                locale: {id: 'en', label: 'English'},
-//            }
-//        },
+        data: function(){
+           return {
+               show: false,
+               jobs: null,
+               locale: {code: 'en', label: 'English'},
+           }
+        },
 //        watch: {
 //            locale (val) {
 //                this.$i18n.locale = val.id
 //            }
 //        },
-        methods: {
+        mounted: function(){
+          const parser = new Parser();
+          const job = new Job(parser.locale);
+
+          this.locale = {code: parser.locale, label: parser.localeLabel};
+
+          job.update(json => {
+            this.jobs = [];
+            for(let i = 0; i < json.length; i++) {
+              this.jobs.push(json[i]);
+
+              if (i === 3) {
+                break;
+              }
+            }
+          })
         },
         computed: {
             currentLocale() {

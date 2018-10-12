@@ -5,7 +5,7 @@
 
         <div id="jobs">
 
-            <header-my title="Jobs" subtitle="Join & help us to build next hit games" class="header-my"></header-my>
+            <header-my v-if="staticContent" v-bind:title="staticContent.header.title" v-bind:subtitle="staticContent.header.text" class="header-my"></header-my>
 
             <section class="nav-in-page">
                 <a href="#" v-scroll-to="'#business'">
@@ -25,48 +25,30 @@
             <section class="section-1 container">
                 <card-group-jobs id="business" title="Business" ico="/src/assets/img/icn-business.svg">
                     <div class="md-layout wrap-join-our-team">
-                        <div class="md-layout-item md-small-size-100 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
-                            <card-vacancy vacancy="Business developper STAGE)" location="Paris, Stage" link="#"></card-vacancy>
-                        </div>
-                        <div class="md-layout-item md-small-size-100 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
-                            <card-vacancy vacancy="Business developper H/F CDI" location="Paris, CDI" link="#"></card-vacancy>
+                        <div v-for="item in jobs" v-if="item.category.name=='Business'" class="md-layout-item md-small-size-100 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
+                            <card-vacancy v-bind:vacancy="item.name" v-bind:location="item.city" link="#"></card-vacancy>
                         </div>
                     </div>
                 </card-group-jobs>
                 <card-group-jobs id="marketing" title="Marketing" ico="/src/assets/img/icn-marketing.svg">
                     <div class="md-layout wrap-join-our-team">
-                        <div class="md-layout-item md-small-size-100 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
-                            <card-vacancy vacancy="Digital marketing analyst H/F (STAGE FIN D’ETUDE)" location="Paris, Stage" link="#"></card-vacancy>
-                        </div>
-                        <div class="md-layout-item md-small-size-100 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
-                            <card-vacancy vacancy="Digital marketing manager H/F (CDI)" location="Paris, CDI" link="#"></card-vacancy>
-                        </div>
-                        <div class="md-layout-item md-small-size-100 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
-                            <card-vacancy vacancy="Digital advertising analyst H/F (STAGE)" location="Paris, CDI" link="#"></card-vacancy>
-                        </div>
-                        <div class="md-layout-item md-small-size-100 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
-                            <card-vacancy vacancy="Digital advertising analyst H/F CDI" location="Paris, CDI" link="#"></card-vacancy>
-                        </div>
+                      <div v-for="item in jobs" v-if="item.category.name=='Marketing'" class="md-layout-item md-small-size-100 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
+                        <card-vacancy v-bind:vacancy="item.name" v-bind:location="item.city" link="#"></card-vacancy>
+                      </div>
                     </div>
                 </card-group-jobs>
                 <card-group-jobs id="product" title="Product" ico="/src/assets/img/icn-product.svg">
                     <div class="md-layout wrap-join-our-team">
-                        <div class="md-layout-item md-small-size-100 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
-                            <card-vacancy vacancy="Designer mobile CDI H/F" location="Paris, Stage" link="#"></card-vacancy>
-                        </div>
-                        <div class="md-layout-item md-small-size-100 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
-                            <card-vacancy vacancy="HTML5 developer (STAGE FIN D’ETUDE)" location="Paris, CDI" link="#"></card-vacancy>
-                        </div>
-                        <div class="md-layout-item md-small-size-100 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
-                            <card-vacancy vacancy="HTML5 developer" location="Paris, CDI" link="#"></card-vacancy>
-                        </div>
+                      <div v-for="item in jobs" v-if="item.category.name=='Product'" class="md-layout-item md-small-size-100 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
+                        <card-vacancy v-bind:vacancy="item.name" v-bind:location="item.city" link="#"></card-vacancy>
+                      </div>
                     </div>
                 </card-group-jobs>
                 <card-group-jobs id="human-resources" title="Human resources" ico="/src/assets/img/icn-human-resources.svg">
                     <div class="md-layout wrap-join-our-team">
-                        <div class="md-layout-item md-small-size-100 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
-                            <card-vacancy vacancy="HR recruiter CDI H/F" location="Paris, CDI"" link="#"></card-vacancy>
-                        </div>
+                      <div v-for="item in jobs" v-if="item.category.name=='Human resources'" class="md-layout-item md-small-size-100 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
+                        <card-vacancy v-bind:vacancy="item.name" v-bind:location="item.city" link="#"></card-vacancy>
+                      </div>
                     </div>
                 </card-group-jobs>
             </section>
@@ -74,9 +56,9 @@
             <section class="learn-more">
                 <div class="container">
                     <div class="title">
-                        Learn more about our published games ?
+                        {{staticContent ? staticContent.bottom.title : ''}}
                     </div>
-                    <router-link to="/games">
+                    <router-link v-bind:to="'/' + locale + '/games'">
                         <button-arrow>Our games</button-arrow>
                     </router-link>
                 </div>
@@ -90,11 +72,14 @@
 </template>
 
 <script>
+
+    import Parser from '../tools/Parser'
+    import StaticContent from '../tools/StaticContent'
     import mainMenu from '../components/mainMenu.vue'
     import headerMy from '../components/headerMy.vue'
     import cardGroupJobs from '../components/cardGroupJobs.vue'
     import cardVacancy from '../components/cardVacancy.vue'
-
+    import Job from "../tools/Job";
 
     export default {
         name: 'jobs',
@@ -104,6 +89,28 @@
             cardGroupJobs,
             cardVacancy,
         },
+        data: () => ({
+          staticContent: null,
+          jobs: [],
+          locale: ''
+        }),
+        created: function(){
+          const parser = new Parser();
+          const staticContent = new StaticContent(parser.route, parser.locale);
+          const job = new Job(parser.locale);
+
+          job.update(json => {
+            for (let i = 0; i < json.length; i++) {
+              this.jobs.push(json[i]);
+            }
+          });
+
+          this.locale = parser.locale;
+
+          staticContent.update(json => {
+            this.staticContent = json.data;
+          });
+        }
     }
 </script>
 

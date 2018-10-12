@@ -8,8 +8,12 @@
 </template>
 
 <script>
+    import Parser from '../tools/Parser';
+
     export default {
         props: ['title', 'subtitle'],
+
+
     }
 </script>
 

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <v-select v-model="locale" :options="options" class="select-lang">
+        <v-select v-model="locale" :options="options" :on-change="changeLanguage" class="select-lang">
             <!--<template slot="option" slot-scope="option">-->
                 <!--<div class="d-center" style="background: #000000">-->
                     <!--<router-link :to="`/${locale.code}`">-->
@@ -28,6 +28,7 @@
 <script>
 
     import { locales } from '../config/i18n'
+    import Parser from '../tools/Parser'
 
     export default {
         name: 'LocaleSwitcher',
@@ -43,6 +44,21 @@
                 locales
             }
         },
+        mounted: function(){
+          const parser = new Parser();
+          this.locale = {code: parser.locale, label: parser.localeLabel};
+        },
+        methods: {
+          changeLanguage: function(e) {
+
+
+            if (e.code != this.locale.code) {
+              const parser = new Parser();
+              window.location = '/' + e.code + parser.route
+            }
+          }
+        }
+
 //        watch: {
 //            locale (val) {
 //                this.$i18n.locale = val.id

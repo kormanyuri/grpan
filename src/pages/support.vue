@@ -5,7 +5,7 @@
 
         <div id="support">
 
-            <header-my title="Player support" subtitle="A question​?​ ​Perhaps even a suggestion? We'd be happy to hear from you, and we'll get back to you with an answer as soon as we can!" class="header-my"></header-my>
+            <header-my v-if="staticContent" v-bind:title="staticContent.header.title" v-bind:subtitle="staticContent.header.text" class="header-my"></header-my>
 
             <section class="section-3 container">
                 <div class="form">
@@ -60,6 +60,8 @@
 </template>
 
 <script>
+    import Parser from '../tools/Parser'
+    import StaticContent from '../tools/StaticContent'
     import mainMenu from '../components/mainMenu.vue'
     import headerMy from '../components/headerMy.vue'
     import buttonRectangle from '../components/buttonRectangle.vue'
@@ -71,6 +73,19 @@
             mainMenu,
             buttonRectangle,
         },
+        data: () => ({
+          staticContent: null,
+          locale: ''
+        }),
+        created: function(){
+          const parser = new Parser();
+          const staticContent = new StaticContent(parser.route, parser.locale);
+          this.locale = parser.locale;
+
+          staticContent.update(json => {
+            this.staticContent = json.data;
+          });
+        }
     }
 </script>
 
