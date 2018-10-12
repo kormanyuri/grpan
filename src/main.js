@@ -34,7 +34,6 @@ Vue.use(VueI18n)
 
 const reg = /\/(ru|en|fr)/;
 
-console.log(window.location.pathname);
 const l = reg.exec(window.location.pathname);
 const locale = l[1];
 
