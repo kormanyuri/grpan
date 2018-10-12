@@ -51,7 +51,7 @@
                 </div>
             </section>
 
-            <section class="section-2">
+            <section class="section-2" id="success-story">
 
                 <div class="container">
                     <div class="section-head">
@@ -146,7 +146,9 @@
                     <div class="title">
                         Learn more about our published games ?
                     </div>
-                    <button-arrow>Our games</button-arrow>
+                    <router-link to="/games">
+                        <button-arrow>Our games</button-arrow>
+                    </router-link>
                 </div>
             </section>
 

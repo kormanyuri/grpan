@@ -1,10 +1,9 @@
 <template>
-
-    <a :href="link" class="card-game-all">
+    <router-link :to="link" class="card-game-all">
         <div>{{title}}</div>
         <slot></slot>
         <img src="/src/assets/img/arrow.svg" alt="arrow" class="arrow">
-    </a>
+    </router-link>
 
 </template>
 
@@ -15,7 +14,6 @@
 </script>
 
 <style lang="scss" scoped>
-   
     .card-game-all {
         display: flex;
         align-items: center;
@@ -71,5 +69,4 @@
             font-size: 1.7rem;
         }
     }
-   
 </style>
