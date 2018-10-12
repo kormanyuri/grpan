@@ -32,7 +32,11 @@ Vue.use(MdDivider)
 Vue.use(VueRouter)
 Vue.use(VueI18n)
 
-const locale = 'en'
+const reg = /\/(ru|en|fr)/;
+
+console.log(window.location.pathname);
+const l = reg.exec(window.location.pathname);
+const locale = l[1];
 
 const messages = {
   en: en,

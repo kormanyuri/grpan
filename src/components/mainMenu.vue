@@ -6,9 +6,9 @@
             <a href="/#/"><img v-bind:src='logo' alt="logo" class="logo"></a>
             <div class="md-toolbar-section-end">
                 <ul class="top-menu md-small-hide">
-                    <li><router-link :to="{name: 'publishing'}" exact>Publishing</router-link></li>
+                    <li><router-link :to="{name: 'publishing'}" exact><p>{{ $t("message.PUBLISHING") }}</p></router-link></li>
                     <li><router-link :to="{name: 'games'}" exact>Our games</router-link></li>
-                    <li><router-link :to="{name: 'jobs'}" exact>Jobs</router-link></li>
+                    <li><router-link :to="{name: 'jobs'}" exact>{{ $t("message.JOBS") }}</router-link></li>
                     <li><router-link :to="{name: 'support'}" exact>Support</router-link></li>
                 </ul>
                 <router-link to="/publishing#want-to-work-with-us-form">
@@ -253,5 +253,5 @@
             }
         }
     }
-	
+
 </style>
