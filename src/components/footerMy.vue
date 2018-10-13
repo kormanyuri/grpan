@@ -5,43 +5,43 @@
             <div class="container">
                 <div class="site-map-mobile">
                     <accordion>
-                        <div slot="header" class="block-heading">MENU</div>
+                        <div slot="header" class="block-heading">{{$t("message.MENU")}}</div>
                         <ul>
-                            <li><router-link to="/">Home</router-link></li>
-                            <li><router-link to="/publishing">Publishing</router-link></li>
-                            <li><router-link to="/games">Games</router-link></li>
-                            <li><router-link to="/publishing#success-story">Our story</router-link></li>
-                            <li><router-link to="/jobs">Career</router-link></li>
-                            <li><router-link to="/support">Contact us</router-link></li>
+                          <li><router-link v-bind:to="'/' + locale.code">{{$t("message.Home")}}</router-link></li>
+                          <li><router-link v-bind:to="'/' + locale.code + '/publishing'">{{$t("message.Publishing")}}</router-link></li>
+                          <li><router-link v-bind:to="'/' + locale.code + '/games'">{{$t("message.Games")}}</router-link></li>
+                          <li><router-link v-bind:to="'/' + locale.code + '/publishing#success-story'">{{$t("message.our_story")}}</router-link></li>
+                          <li><router-link v-bind:to="'/' + locale.code + '/jobs'">{{$t("message.Career")}}</router-link></li>
+                          <li><router-link v-bind:to="'/' + locale.code + '/support'">{{$t("message.contact_us")}}</router-link></li>
                         </ul>
                     </accordion>
                     <accordion>
-                        <div slot="header" class="block-heading">JOBS</div>
+                        <div slot="header" class="block-heading">{{$t("message.JOBS")}}</div>
                         <ul>
-                            <li><a href="">Advertising analyst</a></li>
-                            <li><a href="">Marketing analys</a></li>
-                            <li><a href="">HTML5 Devloper</a></li>
-                            <li><a href="">Marketing Manager</a></li>
-                            <li><a href="" class="bold">+ See more</a></li>
+                            <li><a v-bind:href="'/' + locale.code + '/jobs#business'">{{$t("message.Business")}}</a></li>
+                            <li><a v-bind:href="'/' + locale.code + '/jobs#marketing'">{{$t("message.Marketing")}}</a></li>
+                            <li><a v-bind:href="'/' + locale.code + '/jobs#product'">{{$t("message.Product")}}</a></li>
+                            <li><a v-bind:href="'/' + locale.code + '/jobs#human-resources'">{{$t("message.Human_resources")}}</a></li>
+                            <li><a v-bind:href="'/' + locale.code + '/jobs'"  class="bold">+ {{$t("message.see_more")}}</a></li>
                         </ul>
                     </accordion>
                     <accordion>
-                        <div slot="header" class="block-heading">PRESS</div>
+                        <div slot="header" class="block-heading">{{$t("message.PRESS")}}</div>
                         <ul>
-                            <li><a href="">Press kit</a></li>
+                            <li><a href="">{{$t("message.press_kit")}}</a></li>
                         </ul>
                     </accordion>
                     <accordion>
-                        <div slot="header" class="block-heading">LEGAL</div>
+                        <div slot="header" class="block-heading">{{$t("message.LEGAL")}}</div>
                         <ul>
-                            <li><a href="">Privacy Policy</a></li>
-                            <li><a href="">Terms of Use</a></li>
+                            <li><a href="">{{$t("message.privacy_policy")}}</a></li>
+                            <li><a href="">{{$t("message.terms_of_use")}}</a></li>
                         </ul>
                     </accordion>
                     <accordion>
-                        <div slot="header" class="block-heading">CONTACT</div>
+                        <div slot="header" class="block-heading">{{$t("message.CONTACT")}}</div>
                         <ul>
-                            <li><router-link to="/support">Support</router-link></li>
+                            <li><router-link v-bind:to="'/' + locale + '/support'">{{$t("message.Support")}}</router-link></li>
                         </ul>
                     </accordion>
                 </div>
@@ -61,40 +61,43 @@
                 </div>
                 <div class="md-layout md-gutter md-small-hide">
                     <div class="md-layout-item md-small-size-100 md-size-15">
-                        <div class="block-heading">PRESS</div>
+                        <div class="block-heading">{{$t("message.PRESS")}}</div>
                         <ul class="list">
-                            <li><router-link v-bind:to="'/' + locale.code">Home</router-link></li>
-                            <li><router-link v-bind:to="'/' + locale.code + '/publishing'">Publishing</router-link></li>
-                            <li><router-link v-bind:to="'/' + locale.code + '/games'">Games</router-link></li>
-                            <li><router-link v-bind:to="'/' + locale.code + '/publishing#success-story'">Our story</router-link></li>
-                            <li><router-link v-bind:to="'/' + locale.code + '/jobs'">Career</router-link></li>
-                            <li><router-link v-bind:to="'/' + locale.code + '/support'">Contact us</router-link></li>
+                            <li><router-link v-bind:to="'/' + locale.code">{{$t("message.Home")}}</router-link></li>
+                            <li><router-link v-bind:to="'/' + locale.code + '/publishing'">{{$t("message.Publishing")}}</router-link></li>
+                            <li><router-link v-bind:to="'/' + locale.code + '/games'">{{$t("message.Games")}}</router-link></li>
+                            <li><router-link v-bind:to="'/' + locale.code + '/publishing#success-story'">{{$t("message.our_story")}}</router-link></li>
+                            <li><router-link v-bind:to="'/' + locale.code + '/jobs'">{{$t("message.Career")}}</router-link></li>
+                            <li><router-link v-bind:to="'/' + locale.code + '/support'">{{$t("message.contact_us")}}</router-link></li>
                         </ul>
                     </div>
                     <div class="md-layout-item md-small-size-100 md-size-15">
-                        <div class="block-heading">JOBS</div>
+                        <div class="block-heading">{{$t("message.JOBS")}}</div>
                         <ul>
-                            <li v-for="job in jobs"><a href="">{{job.name}}</a></li>
-                            <li><a v-bind:href="'/' + locale.code + '/jobs'" class="bold">+ See more</a></li>
+                            <li><a v-bind:href="'/' + locale.code + '/jobs#business'">{{$t("message.Business")}}</a></li>
+                            <li><a v-bind:href="'/' + locale.code + '/jobs#marketing'">{{$t("message.Marketing")}}</a></li>
+                            <li><a v-bind:href="'/' + locale.code + '/jobs#product'">{{$t("message.Product")}}</a></li>
+                            <li><a v-bind:href="'/' + locale.code + '/jobs#human-resources'">{{$t("message.Human_resources")}}</a></li>
+                            <li><a v-bind:href="'/' + locale.code + '/jobs'" class="bold">+ {{$t("message.see_more")}}</a></li>
                         </ul>
                     </div>
                     <div class="md-layout-item md-small-size-100 md-size-15">
-                        <div class="block-heading">PRESS</div>
+                        <div class="block-heading">{{$t("message.PRESS")}}</div>
                         <ul>
-                            <li><a href="">Press kit</a></li>
+                            <li><a href="">{{$t("message.press_kit")}}</a></li>
                         </ul>
                     </div>
                     <div class="md-layout-item md-small-size-100 md-size-15">
-                        <div class="block-heading">LEGAL</div>
+                        <div class="block-heading">{{$t("message.LEGAL")}}</div>
                         <ul>
-                            <li><a href="">Privacy Policy</a></li>
-                            <li><a href="">Terms of Use</a></li>
+                            <li><a href="">{{$t("message.privacy_policy")}}</a></li>
+                            <li><a href="">{{$t("message.terms_of_use")}}</a></li>
                         </ul>
                     </div>
                     <div class="md-layout-item md-small-size-100 md-small-size-100 md-size-15">
-                        <div class="block-heading">CONTACT</div>
+                        <div class="block-heading">{{$t("message.CONTACT")}}</div>
                         <ul>
-                            <li><router-link v-bind:to="locale.code+'/support'">Support</router-link></li>
+                            <li><router-link v-bind:to="locale.code+'/support'">{{$t("message.Support")}}</router-link></li>
                         </ul>
                     </div>
                     <div class="md-layout-item md-size-25 soc-link">
