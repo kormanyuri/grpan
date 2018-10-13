@@ -3,7 +3,7 @@
     <div class="vacancy-card">
         <div>{{vacancy}}</div>
         <div>{{location}}</div>
-        <div><a :href="link">Learn more</a></div>
+        <div><a :href="link">{{$t("message.learn_more")}}</a></div>
     </div>
 
 </template>

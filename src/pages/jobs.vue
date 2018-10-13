@@ -9,16 +9,16 @@
 
             <section class="nav-in-page">
                 <a href="#" v-scroll-to="'#business'">
-                    <img src="/src/assets/img/icn-business.svg" alt="">Business
+                    <img src="/src/assets/img/icn-business.svg" alt="">{{$t('message.Business')}}
                 </a>
                 <a href="#" v-scroll-to="'#marketing'">
-                    <img src="/src/assets/img/icn-marketing.svg" alt="">Marketing
+                    <img src="/src/assets/img/icn-marketing.svg" alt="">{{$t('message.Marketing')}}
                 </a>
                 <a href="#" v-scroll-to="'#product'">
-                    <img src="/src/assets/img/icn-product.svg" alt="">Product
+                    <img src="/src/assets/img/icn-product.svg" alt="">{{$t('message.Product')}}
                 </a>
                 <a href="#" v-scroll-to="'#human-resources'">
-                    <img src="/src/assets/img/icn-human-resources.svg" alt="">Human resources
+                    <img src="/src/assets/img/icn-human-resources.svg" alt="">{{$t('message.Human_resources')}}
                 </a>
             </section>
 
@@ -59,7 +59,7 @@
                         {{staticContent ? staticContent.bottom.title : ''}}
                     </div>
                     <router-link v-bind:to="'/' + locale + '/games'">
-                        <button-arrow>Our games</button-arrow>
+                        <button-arrow>{{$t("message.OUR_GAMES")}}</button-arrow>
                     </router-link>
                 </div>
             </section>

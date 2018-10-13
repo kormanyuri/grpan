@@ -147,7 +147,7 @@
                         {{ staticContent.bottom.title }}
                     </div>
                     <router-link v-bind:to="'/' + locale+'/games'">
-                        <button-arrow>Our games</button-arrow>
+                        <button-arrow>{{$t("message.OUR_GAMES")}}</button-arrow>
                     </router-link>
                 </div>
             </section>

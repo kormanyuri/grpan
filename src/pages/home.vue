@@ -128,16 +128,16 @@
                     <h1>{{staticContent ? staticContent.news.title : ''}}</h1>
                     <div class="subtitle">{{staticContent ? staticContent.news.text : ''}}</div>
                     <div class="md-layout md-gutter wrap-soc-link">
-                        <div class="md-layout-item md-size-25">
+                        <div v-bind:class="locale != 'ru'? 'md-layout-item md-size-33': 'md-layout-item md-size-25'">
                             <soc-link icon="/src/assets/img/icn-facebook.svg" link="https://www.facebook.com/GreenPandaGames/"></soc-link>
                         </div>
-                        <div class="md-layout-item md-size-25">
+                        <div v-bind:class="locale != 'ru'? 'md-layout-item md-size-33': 'md-layout-item md-size-25'">
                             <soc-link icon="/src/assets/img/icn-instagram.svg" link="https://www.instagram.com/greenpandagame"></soc-link>
                         </div>
                         <div v-if="locale == 'ru'" class="md-layout-item md-size-25">
                             <soc-link icon="/src/assets/img/icn-vk.svg" link="https://www.vk.com/green_panda_games/"></soc-link>
                         </div>
-                        <div class="md-layout-item md-size-25">
+                        <div v-bind:class="locale != 'ru'? 'md-layout-item md-size-33': 'md-layout-item md-size-25'">
                             <soc-link icon="/src/assets/img/icn-linkedin.svg" link="https://www.linkedin.com/company/green-panda-games/"></soc-link>
                         </div>
                     </div>
