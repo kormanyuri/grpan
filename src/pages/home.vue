@@ -13,12 +13,12 @@
                 <div class="md-layout btns-wrap">
                     <div class="md-layout-item md-xsmall-size-100">
                         <a href="#" v-scroll-to="{el: '#section-2', offset: -194}">
-                            <md-button class="md-primary btn-0" style="margin-right: 18px">Learn more</md-button>
+                            <md-button class="md-primary btn-0" style="margin-right: 18px">{{$t("message.learn_more")}}</md-button>
                         </a>
                     </div>
                     <div class="md-layout-item md-xsmall-size-100">
                         <router-link v-bind:to="'/' + locale + '/publishing#want-to-work-with-us-form'">
-                            <md-button class="md-primary btn-1">Submit your game</md-button>
+                            <md-button class="md-primary btn-1">{{$t("message.Submit_your_game")}}</md-button>
                         </router-link>
                     </div>
                 </div>
@@ -34,15 +34,15 @@
                 <div class="md-layout statistics container">
                     <div class="md-layout-item md-small-size-33">
                         <span>50M+</span><br>
-                        <span>users</span>
+                        <span>{{$t("message.users")}}</span>
                     </div>
                     <div class="md-layout-item md-small-size-33">
                         <span>500K+</span><br>
-                        <span>5 stars reviews</span>
+                        <span>5 {{$t("message.stars_reviews")}}</span>
                     </div>
                     <div class="md-layout-item md-small-size-33">
                         <span>30</span><br>
-                        <span>mobile experts</span>
+                        <span>{{$t("message.mobile_experts")}}</span>
                     </div>
                 </div>
             </section>
@@ -59,7 +59,7 @@
                         <card-game-all title="All games" v-bind:link="'/'+ locale + '/games'">
                             <img srcset="/src/assets/img/games/preview_appstore.png 1x,
                                          /src/assets/img/games/preview_appstore@2x.png 2x"
-                                 src="/src/assets/img/games/preview_appstore.png" alt="All games">
+                                 src="/src/assets/img/games/preview_appstore.png" v-bind:alt="$t('message.All_games')">
                         </card-game-all>
                     </div>
                 </div>
@@ -75,7 +75,7 @@
                             <!--<b>We are now a leading mobile games publisher dedicated to making your hyper-casual game a HIT.</b>-->
                         </div>
                         <router-link v-bind:to="locale + '/publishing'">
-                            <button-arrow style="background-color: rgba(32,48,87,0.53); margin-left: 0">Publishing</button-arrow>
+                            <button-arrow style="background-color: rgba(32,48,87,0.53); margin-left: 0">{{$t("message.Publishing")}}</button-arrow>
                         </router-link>
                     </div>
                 </div>
@@ -95,14 +95,14 @@
             <section id="section-6">
                 <div v-if="jobs.length > 0" class="container">
                     <div class="section-head">
-                        Jobs
+                      {{$t("message.Jobs")}}
                     </div>
 
                     <owl-carousel :autoWidth="true" :items="4" :nav="false" :dots="false" :responsive="false" class="carousel-2">
                         <div class="carousel-item" style="margin-left: 24px">
                             <div class="join-our-team">
                                 <img src="/src/assets/img/illu_join_team.png" alt="join team">
-                                <div>Want to join<br>our team?</div>
+                                <div>{{$t("message.Want_to_join_our_team")}}</div>
                             </div>
                         </div>
                         <div v-for="item in jobs" class="carousel-item">
@@ -118,7 +118,7 @@
 
                     <div style="text-align: center">
                         <router-link v-bind:to="locale+'/jobs'">
-                            <button-arrow>Check all offers</button-arrow>
+                            <button-arrow>{{$t("message.Check_all_offers")}}</button-arrow>
                         </router-link>
                     </div>
                 </div>
