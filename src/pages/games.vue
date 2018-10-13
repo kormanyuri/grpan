@@ -5,11 +5,11 @@
 
         <div id="games">
 
-            <header-my title="Our games" subtitle="We create successful games with talented partners" class="header-my"></header-my>
+            <header-my v-bind:title="staticContent ? staticContent.header.title : ''" v-bind:subtitle="staticContent ? staticContent.header.text : ''" class="header-my"></header-my>
 
             <section class="group-games container">
                 <div class="group-games-head">
-                    Published Games
+                  {{ $t("message.Published_Games") }}
                 </div>
                 <div class="group-games-body">
                     <div class="md-layout grid-card-games" >
@@ -24,7 +24,7 @@
                             <card-game-all title="See on the Appstore" v-bind:link="'/' + locale + '/games'">
                                 <img srcset="/src/assets/img/games/preview_appstore.png 1x,
                                              /src/assets/img/games/preview_appstore@2x.png 2x"
-                                     src="/src/assets/img/games/preview_appstore.png" alt="All games"/>
+                                     src="/src/assets/img/games/preview_appstore.png" v-bind:alt="$t('message.All_games')"/>
                             </card-game-all>
                         </div>
                     </div>
@@ -35,7 +35,7 @@
 
             <section class="group-games mrgn-b container">
                 <div class="group-games-head">
-                    Classic Games
+                  {{$t("message.Classic_Games")}}
                 </div>
                 <div class="group-games-body">
                     <div class="md-layout grid-card-games" >
@@ -50,7 +50,7 @@
                             <card-game-all title="See on the Appstore"  v-bind:link="'/' + locale + '/games'">
                                 <img srcset="/src/assets/img/games/preview_appstore.png 1x,
                                              /src/assets/img/games/preview_appstore@2x.png 2x"
-                                     src="/src/assets/img/games/preview_appstore.png" alt="All games">
+                                     src="/src/assets/img/games/preview_appstore.png" v-bind:alt="$t('message.All_games')"/>
                             </card-game-all>
                         </div>
                     </div>
@@ -66,7 +66,7 @@
                     <!--Please contact our team if you need more information or if you have a<br>game you want to publish with us. We will reply to you as soon as possible !-->
                 </div>
                 <router-link v-bind:to="'/' + locale + '/publishing'">
-                    <button-arrow>Publishing</button-arrow>
+                    <button-arrow>{{$t("message.Publishing")}}</button-arrow>
                 </router-link>
             </section>
 
