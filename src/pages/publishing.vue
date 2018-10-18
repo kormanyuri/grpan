@@ -95,7 +95,7 @@
                             <div class="md-layout-item md-small-size-100 md-large-size-50">
                                 <md-field>
                                     <label>NAME</label>
-                                    <md-input required placeholder="John Doe"></md-input>
+                                    <md-input required placeholder="John Doe" v-model="name"></md-input>
                                     <span class="md-error">There is an error</span>
                                 </md-field>
                             </div>
@@ -105,38 +105,47 @@
                             <div class="md-layout-item md-small-size-100 md-large-size-50">
                                 <md-field>
                                     <label>COMPANY</label>
-                                    <md-input placeholder="Company name"></md-input>
+                                    <md-input placeholder="Company name" v-model="company"></md-input>
                                 </md-field>
                             </div>
                             <div class="md-layout-item md-small-size-100 md-large-size-50">
                                 <md-field>
                                     <label>GAME URL</label>
-                                    <md-input placeholder="Store link"></md-input>
+                                    <md-input placeholder="Store link" v-model="game_url"></md-input>
                                 </md-field>
                             </div>
                             <div class="md-layout-item md-small-size-100 md-large-size-50">
                                 <md-field>
                                     <label>EMAIL</label>
-                                    <md-input type="email" required placeholder="name@societe.com"></md-input>
+                                    <md-input type="email" required placeholder="name@societe.com" v-model="email"></md-input>
                                 </md-field>
                             </div>
                             <div class="md-layout-item md-small-size-100 md-large-size-50">
                                 <md-field>
                                     <label>SKYPE</label>
-                                    <md-input placeholder="name@societe.com"></md-input>
+                                    <md-input placeholder="name@societe.com" v-model="skype"></md-input>
                                 </md-field>
                             </div>
                             <div class="md-layout-item md-size-100">
                                 <md-field>
                                     <label>MESSAGE</label>
-                                    <md-textarea required placeholder="Tell us more about your game…"></md-textarea>
+                                    <md-textarea required placeholder="Tell us more about your game…" v-model="message"></md-textarea>
                                     <span class="md-error">There is an error</span>
                                 </md-field>
                             </div>
                         </div>
+
                         <div class="form-footer">
-                            <button-rectangle>Submit</button-rectangle>
+                          <div class="md-layout-item md-layout md-gutter">
+                            <div class="md-layout-item">
+                              <vue-recaptcha sitekey="6LcVgnUUAAAAANuF4NzYi8nWKhzsrbp59SrIgDaV"></vue-recaptcha>
+                            </div>
+                            <div class="md-layout-item">
+                              <button-rectangle v-on:click="send">Submit</button-rectangle>
+                            </div>
+                          </div>
                         </div>
+
                     </form>
                 </div>
             </section>
@@ -169,6 +178,8 @@
     import cardLeftImg from '../components/cardLeftImg.vue'
     import buttonRectangle from '../components/buttonRectangle.vue'
     import owlCarousel from 'v-owl-carousel'
+    import PublicForm from '../tools/PublicForm'
+    import VueRecaptcha from 'vue-recaptcha'
 
     export default {
         name: 'publishing',
@@ -178,9 +189,16 @@
             cardRightImg,
             cardLeftImg,
             buttonRectangle,
-            owlCarousel
+            owlCarousel,
+            VueRecaptcha
         },
         data: () => ({
+          name: '',
+          company: '',
+          game_url: '',
+          email: '',
+          skype: '',
+          message: '',
           staticContent: null,
           locale: ''
         }),
@@ -192,7 +210,26 @@
           staticContent.update(json => {
             this.staticContent = json.data;
           });
+        },
+        methods: {
+          send: function(){
+            alert(this.name);
+
+            const publicForm = new PublicForm({
+              name: this.name,
+              company: this.company,
+              game_url: this.game_url,
+              email: this.email,
+              skype: this.skype,
+              message: this.message
+            });
+            publicForm.send(json => {
+              console.log(json);
+            });
+          }
         }
+
+
     }
 </script>
 

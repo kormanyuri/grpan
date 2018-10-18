@@ -1,6 +1,6 @@
 <template>
 
-    <md-button class="md-primary btn-rectangle">
+    <md-button class="md-primary btn-rectangle" v-on:click="send">
         <slot></slot>
     </md-button>
 
@@ -8,7 +8,11 @@
 
 <script>
     export default {
-
+      methods: {
+        send(){
+          this.$emit('click');
+        }
+      }
     }
 </script>
 

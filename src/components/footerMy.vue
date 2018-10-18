@@ -97,7 +97,7 @@
                     <div class="md-layout-item md-small-size-100 md-small-size-100 md-size-15">
                         <div class="block-heading">{{$t("message.CONTACT")}}</div>
                         <ul>
-                            <li><router-link v-bind:to="locale.code+'/support'">{{$t("message.Support")}}</router-link></li>
+                            <li><router-link v-bind:to="'/' + locale.code+'/support'">{{$t("message.Support")}}</router-link></li>
                         </ul>
                     </div>
                     <div class="md-layout-item md-size-25 soc-link">

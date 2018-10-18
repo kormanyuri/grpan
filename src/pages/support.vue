@@ -13,13 +13,10 @@
                     <form action="">
                         <div class="md-layout">
                             <div class="md-layout-item md-small-size-100 md-large-size-50">
-                                <md-field>
+                                <md-field v-if="games.length > 0">
                                     <label>GAME</label>
                                     <md-select md-dense required placeholder="Choose a game">
-                                        <md-option value="Golf orbit">Golf orbit</md-option>
-                                        <md-option value="brazil">Bee factory</md-option>
-                                        <md-option value="japan">Emoji craft!</md-option>
-                                        <md-option value="united-states">Axe climber</md-option>
+                                      <md-option v-for="item in games" v-bind:value="item.name">{{item.name}}</md-option>
                                     </md-select>
                                 </md-field>
                             </div>
@@ -46,7 +43,15 @@
                             </div>
                         </div>
                         <div class="form-footer">
-                            <button-rectangle>Submit</button-rectangle>
+
+                          <div class="md-layout-item md-layout md-gutter">
+                            <div class="md-layout-item">
+                              <vue-recaptcha sitekey="6LcVgnUUAAAAANuF4NzYi8nWKhzsrbp59SrIgDaV"></vue-recaptcha>
+                            </div>
+                            <div class="md-layout-item">
+                              <button-rectangle>Submit</button-rectangle>
+                            </div>
+                          </div>
                         </div>
                     </form>
                 </div>
@@ -65,6 +70,8 @@
     import mainMenu from '../components/mainMenu.vue'
     import headerMy from '../components/headerMy.vue'
     import buttonRectangle from '../components/buttonRectangle.vue'
+    import VueRecaptcha from 'vue-recaptcha'
+    import Game from '../tools/Game';
 
     export default {
         name: 'support',
@@ -72,20 +79,42 @@
             headerMy,
             mainMenu,
             buttonRectangle,
+            VueRecaptcha
         },
         data: () => ({
           staticContent: null,
+          games: [],
           locale: ''
         }),
         created: function(){
+
           const parser = new Parser();
           const staticContent = new StaticContent(parser.route, parser.locale);
           this.locale = parser.locale;
 
+
+
           staticContent.update(json => {
             this.staticContent = json.data;
           });
+        },
+        beforeCreate(){
+          const game = new Game();
+          game.update(json => {
+            for (let i = 0; i < json.length; i++ ) {
+              this.games.push({
+                name: json[i].name,
+                image: json[i].image,
+                url: json[i].url,
+                category: json[i].category
+              });
+            }
+          });
+        },
+        mounted(){
+
         }
+
     }
 </script>
 
