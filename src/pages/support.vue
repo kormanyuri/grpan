@@ -15,30 +15,31 @@
                             <div class="md-layout-item md-small-size-100 md-large-size-50">
                                 <md-field v-if="games.length > 0">
                                     <label>GAME</label>
-                                    <md-select md-dense required placeholder="Choose a game">
+                                    <md-select md-dense required placeholder="Choose a game" v-model="game">
                                       <md-option v-for="item in games" v-bind:value="item.name">{{item.name}}</md-option>
                                     </md-select>
                                 </md-field>
                             </div>
                             <div class="md-layout-item md-size-50 md-small-hide"></div>
                             <div class="md-layout-item md-small-size-100 md-large-size-50">
-                                <md-field>
+                                <md-field v-bind:class="name.error.show ? 'md-invalid' : ''">
                                     <label>NAME</label>
-                                    <md-input required placeholder="John Doe"></md-input>
-                                    <span class="md-error">There is an error</span>
+                                    <md-input required placeholder="John Doe" v-model="name.value"></md-input>
+                                    <span class="md-error">{{name.error.message}}</span>
                                 </md-field>
                             </div>
                             <div class="md-layout-item md-small-size-100 md-large-size-50 mrgn-b">
-                                <md-field>
+                                <md-field v-bind:class="email.error.show ? 'md-invalid' : ''">
                                     <label>EMAIL</label>
-                                    <md-input type="email" required placeholder="name@societe.com"></md-input>
+                                    <md-input type="email" required placeholder="name@societe.com" v-model="email.value"></md-input>
+                                    <span class="md-error">{{email.error.message}}</span>
                                 </md-field>
                             </div>
                             <div class="md-layout-item md-size-100 mssg">
                                 <md-field>
                                     <label>MESSAGE</label>
-                                    <md-textarea required placeholder="Tell us more about your game…"></md-textarea>
-                                    <span class="md-error">There is an error</span>
+                                    <md-textarea required placeholder="Tell us more about your game…" v-model="message"></md-textarea>
+
                                 </md-field>
                             </div>
                         </div>
@@ -49,7 +50,7 @@
                               <vue-recaptcha sitekey="6LcVgnUUAAAAANuF4NzYi8nWKhzsrbp59SrIgDaV"></vue-recaptcha>
                             </div>
                             <div class="md-layout-item">
-                              <button-rectangle>Submit</button-rectangle>
+                              <button-rectangle v-on:click="send">Submit</button-rectangle>
                             </div>
                           </div>
                         </div>
@@ -61,6 +62,10 @@
 
         </div>
 
+        <md-dialog-alert
+          v-bind:md-active.sync="showDialog"
+          md-content="Your request has been sent"
+          md-confirm-text="Cool!" />
     </div>
 </template>
 
@@ -72,6 +77,7 @@
     import buttonRectangle from '../components/buttonRectangle.vue'
     import VueRecaptcha from 'vue-recaptcha'
     import Game from '../tools/Game';
+    import ContactUsForm from '../tools/ContactUsForm'
 
     export default {
         name: 'support',
@@ -82,9 +88,26 @@
             VueRecaptcha
         },
         data: () => ({
+          game: '',
+          name: {
+            value: '',
+            error: {
+              message: '',
+              show: false
+            }
+          },
+          email: {
+            value: '',
+            error: {
+              message: '',
+              show: false
+            }
+          },
+          message: '',
           staticContent: null,
           games: [],
-          locale: ''
+          locale: '',
+          showDialog: false
         }),
         created: function(){
 
@@ -113,6 +136,41 @@
         },
         mounted(){
 
+        },
+        methods: {
+          send: function(){
+            //alert(this.name);
+            let isValid = true;
+
+            if (this.name.value === '') {
+              this.name.error.message = 'Please enter your name';
+              this.name.error.show = true;
+              isValid = false;
+            }
+
+            if (this.email.value === '') {
+              this.email.error.message = 'Please enter your email';
+              this.email.error.show = true;
+              isValid = false;
+            }
+
+            if (isValid) {
+              const contactUsForm = new ContactUsForm({
+                game: this.game,
+                name: this.name.value,
+                email: this.email.value,
+                message: this.message
+              });
+
+              contactUsForm.send(json => {
+                this.showDialog = true;
+                this.name.value = '';
+                this.email.value = '';
+                this.message = '';
+                console.log(json);
+              });
+            }
+          }
         }
 
     }
