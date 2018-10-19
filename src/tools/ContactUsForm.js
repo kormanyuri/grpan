@@ -7,7 +7,7 @@ export default class ContactUsForm {
   }
 
   send(callback){
-    fetch('http://greenpanda.ceant.net/admin/rest/public-form/send', {
+    fetch('http://greenpanda.ceant.net/admin/rest/contact-us-form/send', {
       method: 'POST',
       headers: {'Content-Type':'application/x-www-form-urlencoded'},
       mode: 'cors',
