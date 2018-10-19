@@ -6,7 +6,8 @@ import games from './pages/games.vue'
 import jobs from './pages/jobs.vue'
 import legal from './pages/legal.vue'
 import support from './pages/support.vue'
-import { MdToolbar, MdLayout, MdApp, MdDrawer, MdContent, MdButton, MdList, MdField, MdMenu, MdDivider, MdSnackbar } from 'vue-material/dist/components'
+import { MdToolbar, MdLayout, MdApp, MdDrawer, MdContent, MdButton, MdList, MdField, MdMenu, MdDivider, MdSnackbar} from 'vue-material/dist/components'
+import VueMaterial from 'vue-material'
 import 'vue-material/dist/vue-material.min.css'
 import 'vue-material/dist/theme/default.css'
 import cardGame from './components/cardGame.vue'
@@ -30,6 +31,7 @@ Vue.use(MdList)
 Vue.use(MdMenu)
 Vue.use(MdField)
 Vue.use(MdDivider)
+Vue.use(VueMaterial)
 Vue.use(VueRouter)
 Vue.use(VueI18n)
 

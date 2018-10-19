@@ -93,10 +93,10 @@
                     <form action="">
                         <div class="md-layout md-gutter">
                             <div class="md-layout-item md-small-size-100 md-large-size-50">
-                                <md-field>
+                                <md-field v-bind:class="name.error.show ? 'md-invalid' : ''">
                                     <label>NAME</label>
-                                    <md-input required placeholder="John Doe" v-model="name"></md-input>
-                                    <span class="md-error">There is an error</span>
+                                    <md-input required placeholder="John Doe" v-model="name.value"></md-input>
+                                    <span class="md-error">{{name.error.message}}</span>
                                 </md-field>
                             </div>
                             <div class="md-layout-item md-size-50 md-small-hide">
@@ -115,9 +115,10 @@
                                 </md-field>
                             </div>
                             <div class="md-layout-item md-small-size-100 md-large-size-50">
-                                <md-field>
+                                <md-field v-bind:class="email.error.show ? 'md-invalid' : ''">
                                     <label>EMAIL</label>
-                                    <md-input type="email" required placeholder="name@societe.com" v-model="email"></md-input>
+                                    <md-input type="email" required placeholder="name@societe.com" v-model="email.value"></md-input>
+                                    <span class="md-error">There is an error</span>
                                 </md-field>
                             </div>
                             <div class="md-layout-item md-small-size-100 md-large-size-50">
@@ -165,6 +166,10 @@
 
         </div>
 
+        <md-dialog-alert
+          v-bind:md-active.sync="showDialog"
+          md-content="Your request has been sent"
+          md-confirm-text="Cool!" />
     </div>
 </template>
 
@@ -174,11 +179,13 @@
     import StaticContent from '../tools/StaticContent'
     import mainMenu from '../components/mainMenu.vue'
     import headerMy from '../components/headerMy.vue'
+
     import cardRightImg from '../components/cardRightImg.vue'
     import cardLeftImg from '../components/cardLeftImg.vue'
     import buttonRectangle from '../components/buttonRectangle.vue'
     import owlCarousel from 'v-owl-carousel'
     import PublicForm from '../tools/PublicForm'
+
     import VueRecaptcha from 'vue-recaptcha'
 
     export default {
@@ -193,13 +200,26 @@
             VueRecaptcha
         },
         data: () => ({
-          name: '',
+          name: {
+            value: '',
+            error: {
+              message: '',
+              show: false
+            }
+          },
           company: '',
           game_url: '',
-          email: '',
+          email: {
+            value: '',
+            error: {
+              message: '',
+              show: false
+            }
+          },
           skype: '',
           message: '',
           staticContent: null,
+          showDialog: false,
           locale: ''
         }),
         created: function(){
@@ -213,19 +233,42 @@
         },
         methods: {
           send: function(){
-            alert(this.name);
+            //alert(this.name);
+            let isValid = true;
 
-            const publicForm = new PublicForm({
-              name: this.name,
-              company: this.company,
-              game_url: this.game_url,
-              email: this.email,
-              skype: this.skype,
-              message: this.message
-            });
-            publicForm.send(json => {
-              console.log(json);
-            });
+            if (this.name.value === '') {
+              this.name.error.message = 'Please enter your name';
+              this.name.error.show = true;
+              isValid = false;
+            }
+
+            if (this.email.value === '') {
+              this.email.error.message = 'Please enter your email';
+              this.email.error.show = true;
+              isValid = false;
+            }
+
+            if (isValid) {
+              const publicForm = new PublicForm({
+                name: this.name.value,
+                company: this.company,
+                game_url: this.game_url,
+                email: this.email.value,
+                skype: this.skype,
+                message: this.message
+              });
+
+              publicForm.send(json => {
+                this.showDialog = true;
+                this.name.value = '';
+                this.company = '';
+                this.game_url = '';
+                this.email.value = '';
+                this.skype = '';
+                this.message = '';
+                console.log(json);
+              });
+            }
           }
         }
 
