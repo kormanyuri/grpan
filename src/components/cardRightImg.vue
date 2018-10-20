@@ -79,7 +79,7 @@
     .shadow {
         box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.2);
     }
-    @media (max-width: 960px) {
+    @media (max-width: 1200px) {
         .card-right-img {
             img.md-small-hide {
                 display: none !important;
@@ -124,7 +124,7 @@
             }
         }
     }
-    @media (min-width: 960px) and (max-width: 1280px){
+    @media (min-width: 1200px) and (max-width: 1280px){
         .card-right-img {
             >div {
                  padding: 20px 40px;

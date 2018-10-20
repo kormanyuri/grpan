@@ -38,7 +38,7 @@
             color: #fff;
          }
     }
-    @media (max-width: 960px) {
+    @media (max-width: 991px) {
         .card-game {
             border-radius: 7px;
             border-width: 5px;

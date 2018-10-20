@@ -44,10 +44,9 @@
                             </div>
                         </div>
                         <div class="form-footer">
-
-                          <div class="md-layout-item md-layout md-gutter">
-                            <div class="md-layout-item">
-                              <vue-recaptcha sitekey="6LcVgnUUAAAAANuF4NzYi8nWKhzsrbp59SrIgDaV"></vue-recaptcha>
+                          <div class="md-layout">
+                            <div class="md-layout-item recaptcha-wrap">
+                              <vue-recaptcha sitekey="6LcVgnUUAAAAANuF4NzYi8nWKhzsrbp59SrIgDaV" class="recaptcha"></vue-recaptcha>
                             </div>
                             <div class="md-layout-item">
                               <button-rectangle v-on:click="send">Submit</button-rectangle>
@@ -198,7 +197,7 @@
 
     .form {
         /*max-width: 976px;*/
-        padding: 63px 48px 31px 75px;
+        padding: 63px 48px 58px 75px;
         /*margin: 0 auto;*/
         border-radius: 8px;
         background-color: #ffffff;
@@ -231,7 +230,7 @@
         font-weight: normal;
         font-style: normal;
         font-stretch: normal;
-        line-height: normal;
+        /*line-height: normal;*/
         letter-spacing: 0.9px;
         color: #cccccc;
     }
@@ -241,6 +240,10 @@
     }
     .md-field {
         margin-bottom: 36px;
+    }
+    .md-field .md-input, .md-field .md-textarea {
+        flex: none;
+        width: 100%;
     }
     .md-field.md-has-placeholder .md-input,
     .md-field .md-textarea {
@@ -336,6 +339,12 @@
                     text-align: center;
                 }
             }
+        }
+        .recaptcha-wrap {
+            .recaptcha {
+                display: inline-block;
+            }
+            margin-bottom: 30px;
         }
     }
 
