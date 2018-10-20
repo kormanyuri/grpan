@@ -220,7 +220,7 @@
         created: function () {
             const parser = new Parser();
 
-            const game = new Game();
+            const game = new Game(parser.locale);
             const job = new Job(parser.locale);
             const staticContent = new StaticContent(parser.route, parser.locale);
 

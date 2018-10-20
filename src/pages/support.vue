@@ -122,7 +122,8 @@
           });
         },
         beforeCreate(){
-          const game = new Game();
+          const parser = new Parser();
+          const game = new Game(parser.locale);
           game.update(json => {
             for (let i = 0; i < json.length; i++ ) {
               this.games.push({
