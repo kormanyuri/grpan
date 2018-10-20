@@ -8,17 +8,17 @@
 
             <section id="section-1">
                 <div class="slogan">
-                    We make your game a hit
+                    {{staticContent ? staticContent.header.title : ''}}
                 </div>
                 <div class="md-layout btns-wrap">
                     <div class="md-layout-item md-xsmall-size-100">
                         <a href="#" v-scroll-to="{el: '#section-2', offset: -194}">
-                            <md-button class="md-primary btn-0" style="margin-right: 18px">Learn more</md-button>
+                            <md-button class="md-primary btn-0" style="margin-right: 18px">{{$t("message.learn_more")}}</md-button>
                         </a>
                     </div>
                     <div class="md-layout-item md-xsmall-size-100">
-                        <router-link to="/publishing#want-to-work-with-us-form">
-                            <md-button class="md-primary btn-1">Submit your game</md-button>
+                        <router-link v-bind:to="'/' + locale + '/publishing#want-to-work-with-us-form'">
+                            <md-button class="md-primary btn-1">{{$t("message.Submit_your_game")}}</md-button>
                         </router-link>
                     </div>
                 </div>
@@ -34,75 +34,32 @@
                 <div class="md-layout statistics container">
                     <div class="md-layout-item md-small-size-33">
                         <span>50M+</span><br>
-                        <span>users</span>
+                        <span>{{$t("message.users")}}</span>
                     </div>
                     <div class="md-layout-item md-small-size-33">
                         <span>500K+</span><br>
-                        <span>5 stars reviews</span>
+                        <span>5 {{$t("message.stars_reviews")}}</span>
                     </div>
                     <div class="md-layout-item md-small-size-33">
                         <span>30</span><br>
-                        <span>mobile experts</span>
+                        <span>{{$t("message.mobile_experts")}}</span>
                     </div>
                 </div>
             </section>
 
             <section id="section-3" class="container">
                 <div class="md-layout grid-card-games" >
-                    <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
-                        <card-game title="Golf orbit" link="#">
-                            <img srcset="/src/assets/img/games/preview_golf_orbit.png 1x,
-                                             /src/assets/img/games/preview_golf_orbit@2x.png 2x"
-                                 src="/src/assets/img/games/preview_golf_orbit.png" alt="Golf Orbit">
-                        </card-game>
-                    </div>
-                    <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
-                        <card-game title="Bee factory" link="#">
-                            <img srcset="/src/assets/img/games/preview_bee_factory.png 1x,
-                                             /src/assets/img/games/preview_bee_factory@2x.png 2x"
-                                 src="/src/assets/img/games/preview_bee_factory.png" alt="Bee Factory">
-                        </card-game>
-                    </div>
-                    <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
-                        <card-game title="Emoji craft!" link="#">
-                            <img srcset="/src/assets/img/games/preview_emoji_craft.png 1x,
-                                             /src/assets/img/games/preview_emoji_craft@2x.png 2x"
-                                 src="/src/assets/img/games/preview_emoji_craft.png" alt="Emoji craft!">
-                        </card-game>
-                    </div>
-                    <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
-                        <card-game title="Axe climber" link="#">
-                            <img srcset="/src/assets/img/games/preview_axe_climber.png 1x,
-                                             /src/assets/img/games/preview_axe_climber@2x.png 2x"
-                                 src="/src/assets/img/games/preview_axe_climber.png" alt="Axe climber">
-                        </card-game>
-                    </div>
-                    <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
-                        <card-game title="Terrarium" link="#">
-                            <img srcset="/src/assets/img/games/preview_terrarium.png 1x,
-                                             /src/assets/img/games/preview_terrarium@2x.png 2x"
-                                 src="/src/assets/img/games/preview_terrarium.png" alt="Terrarium">
-                        </card-game>
-                    </div>
-                    <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
-                        <card-game title="Golf boy" link="#">
-                            <img srcset="/src/assets/img/games/preview_golf_boy.png 1x,
-                                             /src/assets/img/games/preview_golf_boy@2x.png 2x"
-                                 src="/src/assets/img/games/preview_golf_boy.png" alt="Golf Boy">
-                        </card-game>
-                    </div>
-                    <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
-                        <card-game title="Fish orbit" link="#">
-                            <img srcset="/src/assets/img/games/preview_fish_orbit.png 1x,
-                                             /src/assets/img/games/preview_fish_orbit@2x.png 2x"
-                                 src="/src/assets/img/games/preview_fish_orbit.png" alt="Fish orbit">
+                    <div v-for="item in games" v-if="item.category.id == 1" class="md-layout-item md-xsmall-size-50 md-small-size-25 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
+                        <card-game v-bind:title="item.name" v-bind:link="item.url">
+                            <img v-bind:srcset="'http://greenpanda.ceant.net/admin/storage/' + item.image + ' 1x, http://greenpanda.ceant.net/admin/storage/'+item.image + ' 2x'"
+                                 v-bind:src="'http://greenpanda.ceant.net/admin/storage/' + item.image" v-bind:alt="item.name">
                         </card-game>
                     </div>
                     <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-large-size-25 md-xlarge-size-25">
-                        <card-game-all title="All games" link="/games">
+                        <card-game-all title="All games" v-bind:link="'/'+ locale + '/games'">
                             <img srcset="/src/assets/img/games/preview_appstore.png 1x,
                                          /src/assets/img/games/preview_appstore@2x.png 2x"
-                                 src="/src/assets/img/games/preview_appstore.png" alt="All games">
+                                 src="/src/assets/img/games/preview_appstore.png" v-bind:alt="$t('message.All_games')">
                         </card-game-all>
                     </div>
                 </div>
@@ -111,13 +68,14 @@
             <section id="section-4">
                 <div class="container">
                     <div class="content">
-                        <div class="title">Our story</div><br>
+                        <div class="title">{{staticContent ? staticContent.our_story.title : ''}}</div><br>
                         <div class="text">
-                            Green Panda Games began in 2013 as a mobile gaming studio developing various hit classical games such as Solitaire, Blackjack, Logo Quiz and Sudoku. After much success in this field, we pivoted to a much bigger genre of games.<br>
-                            <b>We are now a leading mobile games publisher dedicated to making your hyper-casual game a HIT.</b>
+                            {{staticContent ? staticContent.our_story.text : ''}}
+                            <!--Green Panda Games began in 2013 as a mobile gaming studio developing various hit classical games such as Solitaire, Blackjack, Logo Quiz and Sudoku. After much success in this field, we pivoted to a much bigger genre of games.<br>-->
+                            <!--<b>We are now a leading mobile games publisher dedicated to making your hyper-casual game a HIT.</b>-->
                         </div>
-                        <router-link to="/publishing">
-                            <button-arrow style="background-color: rgba(32,48,87,0.53); margin-left: 0">Publishing</button-arrow>
+                        <router-link v-bind:to="locale + '/publishing'">
+                            <button-arrow style="background-color: rgba(32,48,87,0.53); margin-left: 0">{{$t("message.Publishing")}}</button-arrow>
                         </router-link>
                     </div>
                 </div>
@@ -127,65 +85,59 @@
 
             <section id="section-5" class="container">
                 <div class="carousel-wrap">
-                    <owl-carousel :items="1" :nav="false" :responsive="false" class="carousel-1">
-                        <div class="carousel-item">
-                            <card-right-img picture="/src/assets/img/story_pinpin_team.png" title="Success story" msg="« The Green Panda team impressed us at every stage with their expertise, professionalism and dedication. (…) They were with us every step of the way to create Golf Orbit and together we&apos;ve made it a success !  We found a genuine partner in Green Panda and will continue to work closely with them to create hit games.» " position="CEO OF PINPIN TEAM" project="Golf orbit, Fish Orbit" style="box-shadow: none"></card-right-img>
-                        </div>
-                        <div class="carousel-item">
-                            <card-right-img picture="/src/assets/img/story_pinpin_team.png" title="Success story" msg="« The Green Panda team impressed us at every stage with their expertise, professionalism and dedication. (…) They were with us every step of the way to create Golf Orbit and together we&apos;ve made it a success !  We found a genuine partner in Green Panda and will continue to work closely with them to create hit games.» " position="CEO OF PINPIN TEAM" project="Golf orbit, Fish Orbit" style="box-shadow: none"></card-right-img>
-                        </div>
-                        <div class="carousel-item">
-                            <card-right-img picture="/src/assets/img/story_pinpin_team.png" title="Success story" msg="« The Green Panda team impressed us at every stage with their expertise, professionalism and dedication. (…) They were with us every step of the way to create Golf Orbit and together we&apos;ve made it a success !  We found a genuine partner in Green Panda and will continue to work closely with them to create hit games.» " position="CEO OF PINPIN TEAM" project="Golf orbit, Fish Orbit" style="box-shadow: none"></card-right-img>
+                    <owl-carousel  v-if="staticContent" :items="1" :nav="false" :responsive="false" class="carousel-1">
+                        <div v-if="staticContent" v-for="item in staticContent.success_story.slides" class="carousel-item">
+                            <card-right-img picture="/src/assets/img/story_pinpin_team.png" v-bind:title="item.title" v-bind:msg="item.text" position="CEO OF PINPIN TEAM" project="Golf orbit, Fish Orbit" style="box-shadow: none"></card-right-img>
                         </div>
                     </owl-carousel>
                 </div>
             </section>
             <section id="section-6">
-                <div class="container">
+                <div v-if="jobs.length > 0" class="container">
                     <div class="section-head">
-                        Jobs
+                      {{$t("message.Jobs")}}
                     </div>
 
                     <owl-carousel :autoWidth="true" :items="4" :nav="false" :dots="false" :responsive="false" class="carousel-2">
                         <div class="carousel-item" style="margin-left: 24px">
                             <div class="join-our-team">
                                 <img src="/src/assets/img/illu_join_team.png" alt="join team">
-                                <div>Want to join<br>our team?</div>
+                                <div v-html="$t('message.Want_to_join_our_team')"></div>
                             </div>
                         </div>
-                        <div class="carousel-item">
-                            <card-vacancy vacancy="HTM5 developer" location="Paris, CDI" link="#" ></card-vacancy>
+                        <div v-for="item in jobs" class="carousel-item">
+                            <card-vacancy v-bind:vacancy="item.name" v-bind:location="item.city" link="#" ></card-vacancy>
                         </div>
-                        <div class="carousel-item">
-                            <card-vacancy vacancy="Digital advertising analyst H/F CDI" location="Paris, CDI" link="#" ></card-vacancy>
-                        </div>
-                        <div class="carousel-item">
-                            <card-vacancy vacancy="Digital advertising analyst H/F CDI" location="Paris, CDI" link="#" ></card-vacancy>
-                        </div>
+                        <!--<div class="carousel-item">-->
+                            <!--<card-vacancy vacancy="Digital advertising analyst H/F CDI" location="Paris, CDI" link="#" ></card-vacancy>-->
+                        <!--</div>-->
+                        <!--<div class="carousel-item">-->
+                            <!--<card-vacancy vacancy="Digital advertising analyst H/F CDI" location="Paris, CDI" link="#" ></card-vacancy>-->
+                        <!--</div>-->
                     </owl-carousel>
 
                     <div style="text-align: center">
-                        <router-link to="/jobs">
-                            <button-arrow>Check all offers</button-arrow>
+                        <router-link v-bind:to="locale+'/jobs'">
+                            <button-arrow>{{$t("message.Check_all_offers")}}</button-arrow>
                         </router-link>
                     </div>
                 </div>
             </section>
             <section id="section-7" class="container">
                 <div class="section-body">
-                    <h1>Green Panda News</h1>
-                    <div class="subtitle">Stay in touch and get fresh updates about Green Panda Games!</div>
+                    <h1>{{staticContent ? staticContent.news.title : ''}}</h1>
+                    <div class="subtitle">{{staticContent ? staticContent.news.text : ''}}</div>
                     <div class="md-layout md-gutter wrap-soc-link">
-                        <div class="md-layout-item md-size-25">
+                        <div v-bind:class="locale != 'ru'? 'md-layout-item md-size-33': 'md-layout-item md-size-25'">
                             <soc-link icon="/src/assets/img/icn-facebook.svg" link="https://www.facebook.com/GreenPandaGames/"></soc-link>
                         </div>
-                        <div class="md-layout-item md-size-25">
+                        <div v-bind:class="locale != 'ru'? 'md-layout-item md-size-33': 'md-layout-item md-size-25'">
                             <soc-link icon="/src/assets/img/icn-instagram.svg" link="https://www.instagram.com/greenpandagame"></soc-link>
                         </div>
-                        <div class="md-layout-item md-size-25">
+                        <div v-if="locale == 'ru'" class="md-layout-item md-size-25">
                             <soc-link icon="/src/assets/img/icn-vk.svg" link="https://www.vk.com/green_panda_games/"></soc-link>
                         </div>
-                        <div class="md-layout-item md-size-25">
+                        <div v-bind:class="locale != 'ru'? 'md-layout-item md-size-33': 'md-layout-item md-size-25'">
                             <soc-link icon="/src/assets/img/icn-linkedin.svg" link="https://www.linkedin.com/company/green-panda-games/"></soc-link>
                         </div>
                     </div>
@@ -207,7 +159,10 @@
     import socLink from '../components/socLink.vue'
     import cardRightImg from '../components/cardRightImg.vue'
     import owlCarousel from 'v-owl-carousel'
-
+    import Game from '../tools/Game';
+    import Parser from '../tools/Parser';
+    import StaticContent from '../tools/StaticContent';
+    import Job from '../tools/Job';
 
     function getPosition(element) {
         var xPosition = 0;
@@ -226,6 +181,10 @@
     export default {
         name: 'home',
         data: () => ({
+            locale: '',
+            games: [],
+            jobs: [],
+            staticContent: null,
             showRightMenu: false,
             posCopter: 120, //start Y position copter
             PosMountains: -100 //start Y position mountains
@@ -253,6 +212,36 @@
 
                 }
             })
+
+            const parser = new Parser();
+
+            this.locale = parser.locale;
+        },
+        created: function () {
+            const parser = new Parser();
+
+            const game = new Game(parser.locale);
+            const job = new Job(parser.locale);
+            const staticContent = new StaticContent(parser.route, parser.locale);
+
+            game.update(json => {
+              for (let i = 0; i < json.length; i++ ) {
+                this.games.push({
+                  name: json[i].name,
+                  image: json[i].image,
+                  url: json[i].url,
+                  category: json[i].category
+                });
+              }
+            });
+
+            staticContent.update(json => {
+              this.staticContent = json.data;
+            });
+
+            job.update(json => {
+              this.jobs = json;
+            });
         },
         components: {
             mainMenu,

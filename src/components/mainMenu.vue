@@ -3,19 +3,19 @@
     <div>
 
         <md-toolbar md-elevation="0" class="topbar"  v-bind:class="{ 'topbar-white': scrolled, 'mv-left': showRightMenu }">
-            <a href="/#/"><img v-bind:src='logo' alt="logo" class="logo"></a>
+            <a v-bind:href="'/' + locale.code"><img v-bind:src='logo' alt="logo" class="logo"></a>
             <div class="md-toolbar-section-end">
                 <ul class="top-menu md-small-hide">
-                    <li><router-link :to="{name: 'publishing'}" exact>Publishing</router-link></li>
-                    <li><router-link :to="{name: 'games'}" exact>Our games</router-link></li>
-                    <li><router-link :to="{name: 'jobs'}" exact>Jobs</router-link></li>
-                    <li><router-link :to="{name: 'support'}" exact>Support</router-link></li>
+                    <li><router-link :to="{name: 'publishing'}" exact><p>{{ $t("message.PUBLISHING") }}</p></router-link></li>
+                    <li><router-link :to="{name: 'games'}" exact>{{ $t("message.OUR_GAMES") }}</router-link></li>
+                    <li><router-link :to="{name: 'jobs'}" exact>{{ $t("message.JOBS") }}</router-link></li>
+                    <li><router-link :to="{name: 'support'}" exact>{{ $t("message.Support") }}</router-link></li>
                 </ul>
-                <router-link to="/publishing#want-to-work-with-us-form">
-                    <md-button class="md-primary md-small-hide btn-1">Submit your game</md-button>
+                <router-link v-bind:to="'/' + locale.code + '/publishing#want-to-work-with-us-form'">
+                    <md-button class="md-primary md-small-hide btn-1">{{$t("message.Submit_your_game")}}</md-button>
                 </router-link>
                 <md-button class="md-icon-button hide-small-up" @click="toggleMenu" v-bind:class="{ 'md-hide': showRightMenu }">
-                    <img v-bind:src='showMenuIco' alt="menu">
+                    <img v-bind:src='showMenuIco' alt="menu"/>
                 </md-button>
             </div>
         </md-toolbar>
@@ -25,15 +25,15 @@
                 <img v-bind:src='closeMenuIco' alt="Close menu">
             </md-button>
             <ul>
-                <li><router-link :to="{name: 'home'}" exact>Home</router-link></li>
-                <li><router-link :to="{name: 'publishing'}" exact>Publishing</router-link></li>
-                <li><router-link :to="{name: 'games'}" exact>Our games</router-link></li>
-                <li><router-link :to="{name: 'jobs'}" exact>Jobs</router-link></li>
-                <li><router-link :to="{name: 'support'}" exact>Support</router-link></li>
+                <li><router-link :to="{name: 'home'}" exact>{{$t("message.Home")}}</router-link></li>
+                <li><router-link :to="{name: 'publishing'}" exact>{{$t("message.Publishing")}}</router-link></li>
+                <li><router-link :to="{name: 'games'}" exact>{{$t("message.OUR_GAMES")}}</router-link></li>
+                <li><router-link :to="{name: 'jobs'}" exact>{{$t("message.JOBS")}}</router-link></li>
+                <li><router-link :to="{name: 'support'}" exact>{{$t("message.SUPPORT")}}</router-link></li>
             </ul>
             <div class="wrap-btn">
                 <router-link to="/publishing#want-to-work-with-us-form">
-                    <md-button class="md-primary btn-1">Submit your game</md-button>
+                    <md-button class="md-primary btn-1">{{$t("message.Submit_your_game")}}</md-button>
                 </router-link>
             </div>
         </div>
@@ -45,6 +45,7 @@
 </template>
 
 <script>
+    import Parser from '../tools/Parser';
 
     export default {
         data: function(){
@@ -55,6 +56,7 @@
                 logo: '/src/assets/img/logo-gp-white.svg',
                 showMenuIco: '/src/assets/img/menu-ico-white.svg',
                 closeMenuIco: '/src/assets/img/close-ico-white.svg',
+                locale: {code: 'en', label: 'English'},
             }
         },
         methods: {
@@ -74,6 +76,12 @@
                 }
             }
         },
+
+
+        mounted: function(){
+          const parser = new Parser();
+          this.locale = {code: parser.locale, label: parser.localeLabel};
+        },
         created () {
             window.addEventListener('scroll', this.handleScroll);
         },
@@ -84,6 +92,7 @@
 
         }
     }
+
 </script>
 
 <style lang="scss" scoped>
@@ -236,7 +245,7 @@
         font-weight: bold;
         letter-spacing: 0.7px;
     }
-    @media (min-width: 960px) {
+    @media (min-width: 961px) {
         .hide-small-up {
             display: none;
         }
@@ -253,5 +262,5 @@
             }
         }
     }
-	
+
 </style>

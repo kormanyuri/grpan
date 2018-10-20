@@ -4,8 +4,10 @@ import home from './pages/home.vue'
 import publishing from './pages/publishing.vue'
 import games from './pages/games.vue'
 import jobs from './pages/jobs.vue'
+import legal from './pages/legal.vue'
 import support from './pages/support.vue'
-import { MdToolbar, MdLayout, MdApp, MdDrawer, MdContent, MdButton, MdList, MdField, MdMenu, MdDivider, MdSnackbar } from 'vue-material/dist/components'
+import { MdToolbar, MdLayout, MdApp, MdDrawer, MdContent, MdButton, MdList, MdField, MdMenu, MdDivider, MdSnackbar} from 'vue-material/dist/components'
+import VueMaterial from 'vue-material'
 import 'vue-material/dist/vue-material.min.css'
 import 'vue-material/dist/theme/default.css'
 import cardGame from './components/cardGame.vue'
@@ -29,10 +31,15 @@ Vue.use(MdList)
 Vue.use(MdMenu)
 Vue.use(MdField)
 Vue.use(MdDivider)
+Vue.use(VueMaterial)
 Vue.use(VueRouter)
 Vue.use(VueI18n)
 
-const locale = 'en'
+const reg = /\/(ru|en|fr)/;
+
+const l = reg.exec(window.location.pathname);
+
+let locale = l !== null ? l[1] : 'en';
 
 const messages = {
   en: en,
@@ -113,6 +120,7 @@ const routes = [
       { path: 'games', name: 'games', component: games },
       { path: 'jobs', name: 'jobs', component: jobs },
       { path: 'support', name: 'support', component: support },
+      { path: 'legal/:slug', component: legal}
     ],
   }
 

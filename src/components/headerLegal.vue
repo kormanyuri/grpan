@@ -1,8 +1,7 @@
 <template>
 
     <header class="header" :title="title" :subtitle="subtitle">
-        <div class="title">{{title}}</div>
-        <div class="subtitle">{{subtitle}}</div>
+
     </header>
 
 </template>
@@ -20,10 +19,10 @@
 <style lang="scss" scoped>
     
 	header {
-        height: 450px;
+        height: 50px;
         position: relative;
         font-family: 'Poppins', sans-serif;
-        padding-top: 173px;
+        padding-top: 103px;
         .title {
             font-size: 54px;
             font-weight: bold;
