@@ -101,7 +101,7 @@
             <section id="section-6">
                 <div v-if="jobs.length > 0" class="container">
                     <div class="section-head">
-                      {{$t("message.Jobs")}}
+                      {{$t("message.JOBS")}}
                     </div>
 
                     <owl-carousel :autoWidth="true" :items="4" :nav="false" :dots="false" :responsive="false" class="carousel-2">
