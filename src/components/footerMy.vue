@@ -104,7 +104,7 @@
                         <a href="https://www.facebook.com/GreenPandaGames1/" target="_blank"><img src="/src/assets/img/icn-facebook-grey.svg" alt=""></a>
                         <a href="https://www.instagram.com/greenpandagame" target="_blank"><img src="/src/assets/img/icn-instagram-grey.svg" alt=""></a>
                         <a href="https://www.linkedin.com/company/green-panda-games/" target="_blank"><img src="/src/assets/img/icn-linkedin-grey.svg" alt=""></a>
-                        <a href="https://vk.com/green_panda_games" target="_blank"><img src="/src/assets/img/icn-vk-grey.svg" alt=""></a>
+                        <a v-if="locale.code == 'ru'" href="https://vk.com/green_panda_games" target="_blank"><img src="/src/assets/img/icn-vk-grey.svg" alt=""></a>
                     </div>
                 </div>
             </div>
