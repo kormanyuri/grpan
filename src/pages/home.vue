@@ -7,9 +7,8 @@
         <div class="wrap-content" v-bind:class="{ 'mv-left': showRightMenu }">
 
             <section id="section-1">
-                <video width="100%" height="auto" autoplay="autoplay" loop="loop" preload="auto" poster="/src/assets/img/bg-1.png">
-                    <source src="/src/assets/video/header_video.mp4" type="video/mp4" />
-                    <source src="/src/assets/video/header_video.webm" type="video/webm" />
+                <video id="head-video" width="100%" height="auto" autoplay="autoplay" muted loop="loop" preload="auto" poster="/src/assets/img/bg-1.png">
+                    <source src="/src/assets/video/header_video_2.mp4" type="video/mp4" />
                 </video>
                 <div class="content">
                     <div class="slogan">
@@ -249,6 +248,7 @@
             job.update(json => {
               this.jobs = json;
             });
+
         },
         components: {
             mainMenu,
