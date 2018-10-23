@@ -60,26 +60,26 @@
 
                     <div class="group-card-1 md-small-hide">
                         <div>
-                            <card-right-img v-if="staticContent" class="max-w" picture="/src/assets/img/story_pinpin_team.png" v-bind:title="staticContent.success_story.slides[0].title" v-bind:msg="staticContent.success_story.slides[0].text" position="CEO OF PINPIN TEAM" project="Golf orbit, Fish Orbit"></card-right-img>
+                            <card-right-img v-if="staticContent" class="max-w" picture="/src/assets/img/story_pinpin_team.png" v-bind:title="staticContent.success_story.slides[0].title" v-bind:msg="staticContent.success_story.slides[0].text" position="CEO OF PINPIN TEAM" project="Golf orbit"></card-right-img>
                         </div>
                         <div class="align-right">
-                            <card-left-img v-if="staticContent" class="max-w" picture="/src/assets/img/story_bee.png"  v-bind:title="staticContent.success_story.slides[1].title" v-bind:msg="staticContent.success_story.slides[1].text" position="CEO OF PINPIN TEAM" project="Golf orbit, Fish Orbit"></card-left-img>
+                            <card-left-img v-if="staticContent" class="max-w" picture="/src/assets/img/story_bee.png"  v-bind:title="staticContent.success_story.slides[1].title" v-bind:msg="staticContent.success_story.slides[1].text" position="CEO OF PINPIN TEAM" project="Golf orbit"></card-left-img>
                         </div>
                         <div>
-                            <card-right-img v-if="staticContent" class="max-w" picture="/src/assets/img/story_pinpin_team.png" v-bind:title="staticContent.success_story.slides[2].title" v-bind:msg="staticContent.success_story.slides[2].text" position="CEO OF PINPIN TEAM" project="Golf orbit, Fish Orbit"></card-right-img>
+                            <card-right-img v-if="staticContent" class="max-w" picture="/src/assets/img/story_pinpin_team.png" v-bind:title="staticContent.success_story.slides[2].title" v-bind:msg="staticContent.success_story.slides[2].text" position="CEO OF PINPIN TEAM" project="Golf orbit"></card-right-img>
                         </div>
                     </div>
 
                     <div class="carousel-wrap">
                         <owl-carousel :items="1" :nav="false" :responsive="false" class="carousel-1">
                             <div class="carousel-item">
-                                <card-right-img picture="/src/assets/img/story_pinpin_team.png" title="Success story" msg="« The Green Panda team impressed us at every stage with their expertise, professionalism and dedication. (…) They were with us every step of the way to create Golf Orbit and together we&apos;ve made it a success !  We found a genuine partner in Green Panda and will continue to work closely with them to create hit games.» " position="CEO OF PINPIN TEAM" project="Golf orbit, Fish Orbit" style="box-shadow: none"></card-right-img>
+                                <card-right-img picture="/src/assets/img/story_pinpin_team.png" title="Success story" msg="« The Green Panda team impressed us at every stage with their expertise, professionalism and dedication. (…) They were with us every step of the way to create Golf Orbit and together we&apos;ve made it a success !  We found a genuine partner in Green Panda and will continue to work closely with them to create hit games.» " position="CEO OF PINPIN TEAM" project="Golf orbit" style="box-shadow: none"></card-right-img>
                             </div>
                             <div class="carousel-item">
-                                <card-right-img picture="/src/assets/img/story_pinpin_team.png" title="Success story" msg="« The Green Panda team impressed us at every stage with their expertise, professionalism and dedication. (…) They were with us every step of the way to create Golf Orbit and together we&apos;ve made it a success !  We found a genuine partner in Green Panda and will continue to work closely with them to create hit games.» " position="CEO OF PINPIN TEAM" project="Golf orbit, Fish Orbit" style="box-shadow: none"></card-right-img>
+                                <card-right-img picture="/src/assets/img/story_pinpin_team.png" title="Success story" msg="« The Green Panda team impressed us at every stage with their expertise, professionalism and dedication. (…) They were with us every step of the way to create Golf Orbit and together we&apos;ve made it a success !  We found a genuine partner in Green Panda and will continue to work closely with them to create hit games.» " position="CEO OF PINPIN TEAM" project="Golf orbit" style="box-shadow: none"></card-right-img>
                             </div>
                             <div class="carousel-item">
-                                <card-right-img picture="/src/assets/img/story_pinpin_team.png" title="Success story" msg="« The Green Panda team impressed us at every stage with their expertise, professionalism and dedication. (…) They were with us every step of the way to create Golf Orbit and together we&apos;ve made it a success !  We found a genuine partner in Green Panda and will continue to work closely with them to create hit games.» " position="CEO OF PINPIN TEAM" project="Golf orbit, Fish Orbit" style="box-shadow: none"></card-right-img>
+                                <card-right-img picture="/src/assets/img/story_pinpin_team.png" title="Success story" msg="« The Green Panda team impressed us at every stage with their expertise, professionalism and dedication. (…) They were with us every step of the way to create Golf Orbit and together we&apos;ve made it a success !  We found a genuine partner in Green Panda and will continue to work closely with them to create hit games.» " position="CEO OF PINPIN TEAM" project="Golf orbit" style="box-shadow: none"></card-right-img>
                             </div>
                         </owl-carousel>
                     </div>
