@@ -33,15 +33,15 @@
 
                     <div class="group-card-1 md-small-hide">
                         <div v-bind:class="key % 2 ?'align-right':''" v-for="(item, key) in testimonials" v-bind:data="key%2">
-                            <card-right-img v-if="key % 2 === 0" class="max-w" v-bind:picture="'http://greenpanda.ceant.net/admin/storage/' + item.image" v-bind:title="item.name" v-bind:msg="item.description" v-bind:position="item.signature" project="Golf orbit, Fish Orbit"></card-right-img>
-                            <card-left-img v-if="key % 2 === 1"  class="max-w" v-bind:picture="'http://greenpanda.ceant.net/admin/storage/' + item.image"  v-bind:title="item.name" v-bind:msg="item.description" position="item.signature" project="Golf orbit, Fish Orbit"></card-left-img>
+                            <card-right-img v-if="key % 2 === 0" class="max-w" v-bind:picture="'http://greenpanda.ceant.net/admin/storage/' + item.image" v-bind:title="item.name" v-bind:msg="item.description" v-bind:position="item.signature" project="Golf orbit"></card-right-img>
+                            <card-left-img v-if="key % 2 === 1"  class="max-w" v-bind:picture="'http://greenpanda.ceant.net/admin/storage/' + item.image"  v-bind:title="item.name" v-bind:msg="item.description" position="item.signature" project="Golf orbit"></card-left-img>
                         </div>
                     </div>
 
                     <div class="carousel-wrap">
                         <owl-carousel v-if="testimonials.length > 0" :items="1" :nav="false" :responsive="false" class="carousel-1">
                             <div class="carousel-item" v-for="item in testimonials">
-                                <card-right-img v-bind:picture="'http://greenpanda.ceant.net/admin/storage/' + item.image" v-bind:title="item.name" v-bind:msg="item.description" v-bind:position="item.signature" project="Golf orbit, Fish Orbit" style="box-shadow: none"></card-right-img>
+                                <card-right-img v-bind:picture="'http://greenpanda.ceant.net/admin/storage/' + item.image" v-bind:title="item.name" v-bind:msg="item.description" v-bind:position="item.signature" project="Golf orbit" style="box-shadow: none"></card-right-img>
                             </div>
                         </owl-carousel>
                     </div>
