@@ -90,21 +90,21 @@
                     <div class="md-layout-item md-small-size-100 md-size-15">
                         <div class="block-heading">{{$t("message.LEGAL")}}</div>
                         <ul>
-                            <li><a href="">{{$t("message.privacy_policy")}}</a></li>
-                            <li><a href="">{{$t("message.terms_of_use")}}</a></li>
+                            <li v-for="item in legalPages"><a v-bind:href="'/' + locale.code + '/legal/' + item.slug">{{item.title}}</a></li>
+
                         </ul>
                     </div>
                     <div class="md-layout-item md-small-size-100 md-small-size-100 md-size-15">
                         <div class="block-heading">{{$t("message.CONTACT")}}</div>
                         <ul>
-                            <li><router-link v-bind:to="locale.code+'/support'">{{$t("message.Support")}}</router-link></li>
+                            <li><router-link v-bind:to="'/' + locale.code+'/support'">{{$t("message.Support")}}</router-link></li>
                         </ul>
                     </div>
                     <div class="md-layout-item md-size-25 soc-link">
-                        <a href="https://www.facebook.com/GreenPandaGames/"><img src="/src/assets/img/icn-facebook-grey.svg" alt=""></a>
-                        <a href="https://www.instagram.com/greenpandagame"><img src="/src/assets/img/icn-instagram-grey.svg" alt=""></a>
-                        <a href="https://www.linkedin.com/company/green-panda-games/"><img src="/src/assets/img/icn-linkedin-grey.svg" alt=""></a>
-                        <a href="https://www.vk.com/green_panda_games/"><img src="/src/assets/img/icn-vk-grey.svg" alt=""></a>
+                        <a href="https://www.facebook.com/GreenPandaGames1/" target="_blank"><img src="/src/assets/img/icn-facebook-grey.svg" alt=""></a>
+                        <a href="https://www.instagram.com/greenpandagame" target="_blank"><img src="/src/assets/img/icn-instagram-grey.svg" alt=""></a>
+                        <a href="https://www.linkedin.com/company/green-panda-games/" target="_blank"><img src="/src/assets/img/icn-linkedin-grey.svg" alt=""></a>
+                        <a v-if="locale.code == 'ru'" href="https://vk.com/green_panda_games" target="_blank"><img src="/src/assets/img/icn-vk-grey.svg" alt=""></a>
                     </div>
                 </div>
             </div>
@@ -130,6 +130,7 @@
     import LocaleSwitcher from '../components/LocaleSwitcher.vue'
     import Parser from '../tools/Parser';
     import Job from '../tools/Job';
+    import LegalPage from '../tools/LegalPage';
 
     export default {
         props: ['icon', 'link'],
@@ -138,6 +139,7 @@
            return {
                show: false,
                jobs: null,
+               legalPages: null,
                locale: {code: 'en', label: 'English'},
            }
         },
@@ -149,6 +151,18 @@
         mounted: function(){
           const parser = new Parser();
           const job = new Job(parser.locale);
+          const legalPage = new LegalPage(null, parser.locale);
+
+          legalPage.loadItems(json => {
+              this.legalPages = [];
+              for(let i = 0; i < json.length; i++) {
+                this.legalPages.push(json[i]);
+
+                if (i === 3) {
+                  break;
+                }
+              }
+          });
 
           this.locale = {code: parser.locale, label: parser.localeLabel};
 

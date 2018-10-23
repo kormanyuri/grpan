@@ -244,5 +244,4 @@
             max-width: 1200px + 24px;
         }
     }
-
 </style>

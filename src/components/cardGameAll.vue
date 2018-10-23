@@ -49,7 +49,7 @@
          }
     }
 
-    @media (max-width: 960px) {
+    @media (max-width: 991px) {
         .card-game-all {
             border-radius: 7px;
             border-width: 5px;
@@ -64,7 +64,7 @@
         }
     }
 
-    @media (min-width: 960px) and (max-width: 1280px){
+    @media (min-width: 991px) and (max-width: 1280px){
         .card-game-all > div:first-child {
             font-size: 1.7rem;
         }

@@ -2,7 +2,7 @@
 
     <div class="soc-link">
         <div>
-            <a :href="link">
+            <a :href="link" target="_blank">
                 <img :src="icon" alt="" class="ico">
             </a>
         </div>

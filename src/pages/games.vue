@@ -101,7 +101,7 @@
         created: function(){
           const parser = new Parser();
           const staticContent = new StaticContent(parser.route, parser.locale);
-          const game = new Game();
+          const game = new Game(parser.locale);
           const gameCategory = new GameCategory();
 
           this.locale = parser.locale;

@@ -245,7 +245,7 @@
         font-weight: bold;
         letter-spacing: 0.7px;
     }
-    @media (min-width: 960px) {
+    @media (min-width: 961px) {
         .hide-small-up {
             display: none;
         }

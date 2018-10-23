@@ -7,19 +7,24 @@
         <div class="wrap-content" v-bind:class="{ 'mv-left': showRightMenu }">
 
             <section id="section-1">
-                <div class="slogan">
-                    {{staticContent ? staticContent.header.title : ''}}
-                </div>
-                <div class="md-layout btns-wrap">
-                    <div class="md-layout-item md-xsmall-size-100">
-                        <a href="#" v-scroll-to="{el: '#section-2', offset: -194}">
-                            <md-button class="md-primary btn-0" style="margin-right: 18px">{{$t("message.learn_more")}}</md-button>
-                        </a>
+                <video id="head-video" width="100%" height="auto" autoplay="autoplay" muted loop="loop" preload="auto" poster="/src/assets/img/bg-1.png">
+                    <source src="/src/assets/video/header_video_2.mp4" type="video/mp4" />
+                </video>
+                <div class="content">
+                    <div class="slogan">
+                        {{staticContent ? staticContent.header.title : ''}}
                     </div>
-                    <div class="md-layout-item md-xsmall-size-100">
-                        <router-link v-bind:to="'/' + locale + '/publishing#want-to-work-with-us-form'">
-                            <md-button class="md-primary btn-1">{{$t("message.Submit_your_game")}}</md-button>
-                        </router-link>
+                    <div class="md-layout btns-wrap">
+                        <div class="md-layout-item md-xsmall-size-100 md-small-size-50">
+                            <a href="#" v-scroll-to="{el: '#section-2', offset: -194}">
+                                <md-button class="md-primary btn-0" style="margin-right: 18px">{{$t("message.learn_more")}}</md-button>
+                            </a>
+                        </div>
+                        <div class="md-layout-item md-xsmall-size-100 md-small-size-50">
+                            <router-link v-bind:to="'/' + locale + '/publishing#want-to-work-with-us-form'">
+                                <md-button class="md-primary btn-1">{{$t("message.Submit_your_game")}}</md-button>
+                            </router-link>
+                        </div>
                     </div>
                 </div>
                 <a class="md-small-hide md-medium-hide mouse" href="#" v-scroll-to="{el: '#section-2', offset: -194}">
@@ -28,6 +33,7 @@
                                  /src/assets/img/mouse@3x.png 3x"
                          src="/src/assets/img/mouse.png" alt="Golf Orbit">
                 </a>
+
             </section>
 
             <section id="section-2">
@@ -95,18 +101,18 @@
             <section id="section-6">
                 <div v-if="jobs.length > 0" class="container">
                     <div class="section-head">
-                      {{$t("message.Jobs")}}
+                      {{$t("message.JOBS")}}
                     </div>
 
                     <owl-carousel :autoWidth="true" :items="4" :nav="false" :dots="false" :responsive="false" class="carousel-2">
                         <div class="carousel-item" style="margin-left: 24px">
                             <div class="join-our-team">
                                 <img src="/src/assets/img/illu_join_team.png" alt="join team">
-                                <div>{{$t("message.Want_to_join_our_team")}}</div>
+                                <div v-html="$t('message.Want_to_join_our_team')"></div>
                             </div>
                         </div>
                         <div v-for="item in jobs" class="carousel-item">
-                            <card-vacancy v-bind:vacancy="item.name" v-bind:location="item.city" link="#" ></card-vacancy>
+                            <card-vacancy v-bind:vacancy="item.name" v-bind:location="item.city" v-bind:link="locale+'/jobs'" ></card-vacancy>
                         </div>
                         <!--<div class="carousel-item">-->
                             <!--<card-vacancy vacancy="Digital advertising analyst H/F CDI" location="Paris, CDI" link="#" ></card-vacancy>-->
@@ -129,13 +135,13 @@
                     <div class="subtitle">{{staticContent ? staticContent.news.text : ''}}</div>
                     <div class="md-layout md-gutter wrap-soc-link">
                         <div v-bind:class="locale != 'ru'? 'md-layout-item md-size-33': 'md-layout-item md-size-25'">
-                            <soc-link icon="/src/assets/img/icn-facebook.svg" link="https://www.facebook.com/GreenPandaGames/"></soc-link>
+                            <soc-link icon="/src/assets/img/icn-facebook.svg" link="https://www.facebook.com/GreenPandaGames1/"></soc-link>
                         </div>
                         <div v-bind:class="locale != 'ru'? 'md-layout-item md-size-33': 'md-layout-item md-size-25'">
                             <soc-link icon="/src/assets/img/icn-instagram.svg" link="https://www.instagram.com/greenpandagame"></soc-link>
                         </div>
                         <div v-if="locale == 'ru'" class="md-layout-item md-size-25">
-                            <soc-link icon="/src/assets/img/icn-vk.svg" link="https://www.vk.com/green_panda_games/"></soc-link>
+                            <soc-link icon="/src/assets/img/icn-vk.svg" link="https://vk.com/green_panda_games"></soc-link>
                         </div>
                         <div v-bind:class="locale != 'ru'? 'md-layout-item md-size-33': 'md-layout-item md-size-25'">
                             <soc-link icon="/src/assets/img/icn-linkedin.svg" link="https://www.linkedin.com/company/green-panda-games/"></soc-link>
@@ -220,7 +226,7 @@
         created: function () {
             const parser = new Parser();
 
-            const game = new Game();
+            const game = new Game(parser.locale);
             const job = new Job(parser.locale);
             const staticContent = new StaticContent(parser.route, parser.locale);
 
@@ -242,6 +248,7 @@
             job.update(json => {
               this.jobs = json;
             });
+
         },
         components: {
             mainMenu,
@@ -278,6 +285,23 @@
         background: url('/src/assets/img/bg-1.png') no-repeat;
         background-size: cover;
         position: relative;
+        > video {
+              position: absolute;
+              top: 0;
+              left: 0;
+              min-width: 100%;
+              min-height: 100%;
+              width: auto;
+              height: auto;
+              z-index: 1;
+          }
+        .content {
+            position: absolute;
+            z-index: 1;
+            top: 34%;
+            /*text-align: center;*/
+            width: 100%;
+        }
         .slogan {
             width: 100%;
             font-family: 'Poppins', sans-serif;
@@ -287,7 +311,7 @@
             letter-spacing: 0.9px;
             text-align: center;
             line-height: 50px;
-            margin-top: 19.5%;
+            /*margin-top: 19.5%;*/
             margin-bottom: 100px;
         }
         .mouse {
@@ -295,6 +319,16 @@
             left: 50%;
             bottom: 30px;
             margin-left: -16px;
+            z-index: 1;
+        }
+    }
+    @supports (object-fit: cover) {
+        #section-1 > video {
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
     }
     #section-3 {
@@ -323,6 +357,8 @@
                 line-height: 1.79;
                 letter-spacing: 0.9px;
                 margin-bottom: 35px;
+                position: relative;
+                z-index: 3;
             }
         }
         .mountains {
@@ -506,8 +542,10 @@
     @media (max-width: 960px) {
         #section-1 {
             height: 386px;
+            .content {
+                top: 28%;
+            }
             .slogan {
-                margin-top: 28%;
                 margin-bottom: 10%;
                 font-size: 1.6875rem;
                 letter-spacing: 0.5px;
@@ -619,6 +657,15 @@
         }
     }
 
+    @media (min-width: 600px) and (max-width: 1290px) {
+
+        #section-1 {
+            .content {
+                top: 0;
+            }
+        }
+
+    }
     @media (max-width: 376px) {
         .carousel-wrap {
             height: 418px;
@@ -638,11 +685,11 @@
             margin-top: 100px !important;
         }
         .card-right-img {
-            min-height: 0 !important;
+            /*min-height: 0 !important;*/
         }
     }
 
-    @media (min-width: 415px) and (max-width: 960px){
+    @media (min-width: 600px) and (max-width: 960px){
         #section-1 {
             .slogan {
                 margin-top: 19.5%;
@@ -656,6 +703,10 @@
                 text-align: left;
               }
         }
+
+    }
+
+    @media (min-width: 600px) and (max-width: 960px){
         .statistics {
             width: 600px;
             > div:nth-child(1),

@@ -8,46 +8,19 @@
             <header-my v-if="staticContent" v-bind:title="staticContent.header.title" v-bind:subtitle="staticContent.header.text" class="header-my"></header-my>
 
             <section class="section-1 container">
-                <div class="md-layout md-gutter group-card">
-                    <div class="md-layout-item md-xsmall-size-100 md-medium-size-50 md-small-size-50 md-xlarge-size-50">
-                        <img srcset="/src/assets/img/illu_UA.png 1x,
-                                     /src/assets/img/illu_UA@2x.png 2x"
-                             src="/src/assets/img/illu_UA.png" alt="UA">
-                        <div class="text">
-                            <div>Large Scale<br>
-                                User Acquisition
-                            </div>
-                            <div>We’ve acquired more than 50M active users in the last 6 months for our hyper-casual games. We have the know-how and cross promotion to scale your game to the top rankings without sacrificing ROI.</div>
-                        </div>
+                <div v-if="gpgPerks.length > 0" class="md-layout md-gutter group-card">
+                    <div v-for="item in gpgPerks" class="md-layout-item md-xsmall-size-100 md-medium-size-50 md-small-size-50 md-xlarge-size-50">
+                      <!--<img v-bind:srcset="'http://greenpanda.ceant.net/admin/storage/' + item.image + ' 1x,' +-->
+                                          <!--'http://greenpanda.ceant.net/admin/storage/' + item.image +' 2x'"-->
+                           <!--v-bind:src="'http://greenpanda.ceant.net/admin/storage/' + item.image" v-bind:alt="item.name">-->
+                      <img v-bind:src="'http://greenpanda.ceant.net/admin/storage/' + item.image" v-bind:alt="item.name">
+
+                      <div class="text">
+                          <div v-html="item.name"></div>
+                          <div>{{item.description}}</div>
+                      </div>
                     </div>
-                    <div class="md-layout-item md-xsmall-size-100 md-medium-size-50 md-small-size-50 md-xlarge-size-50">
-                        <img srcset="/src/assets/img/illu_monetization.png 1x,
-                                     /src/assets/img/illu_monetization@2x.png 2x"
-                             src="/src/assets/img/illu_monetization.png" alt="monetization">
-                        <div class="text">
-                            <div>Smart Monetization</div>
-                            <div>We’re always working to find the right balance of user experience and revenue generation across all our games. We have special advertising deals with all top networks to achieve the best LTV.</div>
-                        </div>
-                    </div>
-                    <div class="md-layout-item md-xsmall-size-100 md-medium-size-50 md-small-size-50 md-xlarge-size-50">
-                        <img srcset="/src/assets/img/illu_project.png 1x,
-                                     /src/assets/img/illu_project@2x.png 2x"
-                             src="/src/assets/img/illu_project.png" alt="project">
-                        <div class="text">
-                            <div>Project Management</div>
-                            <div>Marketing and advertising is half the battle.
-                                We have a dedicated game design and project management team to support game development. Our best practices and A/B testing framework guarantee continuous improvement in your game metrics.</div>
-                        </div>
-                    </div>
-                    <div class="md-layout-item md-xsmall-size-100 md-medium-size-50 md-small-size-50 md-xlarge-size-50">
-                        <img srcset="/src/assets/img/illu_terms.png 1x,
-                                     /src/assets/img/illu_terms@2x.png 2x"
-                             src="/src/assets/img/illu_terms.png" alt="terms">
-                        <div class="text">
-                            <div>Clear terms</div>
-                            <div>We aim for long term partnerships. Our terms are simple, transparent and attractive.</div>
-                        </div>
-                    </div>
+
                 </div>
             </section>
 
@@ -59,27 +32,16 @@
                     </div>
 
                     <div class="group-card-1 md-small-hide">
-                        <div>
-                            <card-right-img v-if="staticContent" class="max-w" picture="/src/assets/img/story_pinpin_team.png" v-bind:title="staticContent.success_story.slides[0].title" v-bind:msg="staticContent.success_story.slides[0].text" position="CEO OF PINPIN TEAM" project="Golf orbit"></card-right-img>
-                        </div>
-                        <div class="align-right">
-                            <card-left-img v-if="staticContent" class="max-w" picture="/src/assets/img/story_bee.png"  v-bind:title="staticContent.success_story.slides[1].title" v-bind:msg="staticContent.success_story.slides[1].text" position="CEO OF PINPIN TEAM" project="Golf orbit"></card-left-img>
-                        </div>
-                        <div>
-                            <card-right-img v-if="staticContent" class="max-w" picture="/src/assets/img/story_pinpin_team.png" v-bind:title="staticContent.success_story.slides[2].title" v-bind:msg="staticContent.success_story.slides[2].text" position="CEO OF PINPIN TEAM" project="Golf orbit"></card-right-img>
+                        <div v-bind:class="key % 2 ?'align-right':''" v-for="(item, key) in testimonials" v-bind:data="key%2">
+                            <card-right-img v-if="key % 2 === 0" class="max-w" v-bind:picture="'http://greenpanda.ceant.net/admin/storage/' + item.image" v-bind:title="item.name" v-bind:msg="item.description" v-bind:position="item.signature" project="Golf orbit, Fish Orbit"></card-right-img>
+                            <card-left-img v-if="key % 2 === 1"  class="max-w" v-bind:picture="'http://greenpanda.ceant.net/admin/storage/' + item.image"  v-bind:title="item.name" v-bind:msg="item.description" position="item.signature" project="Golf orbit, Fish Orbit"></card-left-img>
                         </div>
                     </div>
 
                     <div class="carousel-wrap">
-                        <owl-carousel :items="1" :nav="false" :responsive="false" class="carousel-1">
-                            <div class="carousel-item">
-                                <card-right-img picture="/src/assets/img/story_pinpin_team.png" title="Success story" msg="« The Green Panda team impressed us at every stage with their expertise, professionalism and dedication. (…) They were with us every step of the way to create Golf Orbit and together we&apos;ve made it a success !  We found a genuine partner in Green Panda and will continue to work closely with them to create hit games.» " position="CEO OF PINPIN TEAM" project="Golf orbit" style="box-shadow: none"></card-right-img>
-                            </div>
-                            <div class="carousel-item">
-                                <card-right-img picture="/src/assets/img/story_pinpin_team.png" title="Success story" msg="« The Green Panda team impressed us at every stage with their expertise, professionalism and dedication. (…) They were with us every step of the way to create Golf Orbit and together we&apos;ve made it a success !  We found a genuine partner in Green Panda and will continue to work closely with them to create hit games.» " position="CEO OF PINPIN TEAM" project="Golf orbit" style="box-shadow: none"></card-right-img>
-                            </div>
-                            <div class="carousel-item">
-                                <card-right-img picture="/src/assets/img/story_pinpin_team.png" title="Success story" msg="« The Green Panda team impressed us at every stage with their expertise, professionalism and dedication. (…) They were with us every step of the way to create Golf Orbit and together we&apos;ve made it a success !  We found a genuine partner in Green Panda and will continue to work closely with them to create hit games.» " position="CEO OF PINPIN TEAM" project="Golf orbit" style="box-shadow: none"></card-right-img>
+                        <owl-carousel v-if="testimonials.length > 0" :items="1" :nav="false" :responsive="false" class="carousel-1">
+                            <div class="carousel-item" v-for="item in testimonials">
+                                <card-right-img v-bind:picture="'http://greenpanda.ceant.net/admin/storage/' + item.image" v-bind:title="item.name" v-bind:msg="item.description" v-bind:position="item.signature" project="Golf orbit, Fish Orbit" style="box-shadow: none"></card-right-img>
                             </div>
                         </owl-carousel>
                     </div>
@@ -93,10 +55,10 @@
                     <form action="">
                         <div class="md-layout md-gutter">
                             <div class="md-layout-item md-small-size-100 md-large-size-50">
-                                <md-field>
+                                <md-field v-bind:class="name.error.show ? 'md-invalid' : ''">
                                     <label>NAME</label>
-                                    <md-input required placeholder="John Doe" v-model="name"></md-input>
-                                    <span class="md-error">There is an error</span>
+                                    <md-input required placeholder="John Doe" v-model="name.value"></md-input>
+                                    <span class="md-error">{{name.error.message}}</span>
                                 </md-field>
                             </div>
                             <div class="md-layout-item md-size-50 md-small-hide">
@@ -115,9 +77,10 @@
                                 </md-field>
                             </div>
                             <div class="md-layout-item md-small-size-100 md-large-size-50">
-                                <md-field>
+                                <md-field v-bind:class="email.error.show ? 'md-invalid' : ''">
                                     <label>EMAIL</label>
-                                    <md-input type="email" required placeholder="name@societe.com" v-model="email"></md-input>
+                                    <md-input type="email" required placeholder="name@societe.com" v-model="email.value"></md-input>
+                                    <span class="md-error">There is an error</span>
                                 </md-field>
                             </div>
                             <div class="md-layout-item md-small-size-100 md-large-size-50">
@@ -134,9 +97,18 @@
                                 </md-field>
                             </div>
                         </div>
+
                         <div class="form-footer">
-                            <button-rectangle v-on:click="send">Submit</button-rectangle>
+                            <div class="md-layout">
+                                <div class="md-layout-item recaptcha-wrap">
+                                    <vue-recaptcha sitekey="6LcVgnUUAAAAANuF4NzYi8nWKhzsrbp59SrIgDaV" class="recaptcha"></vue-recaptcha>
+                                </div>
+                                <div class="md-layout-item">
+                                    <button-rectangle v-on:click="send">Submit</button-rectangle>
+                                </div>
+                            </div>
                         </div>
+
                     </form>
                 </div>
             </section>
@@ -156,6 +128,10 @@
 
         </div>
 
+        <md-dialog-alert
+          v-bind:md-active.sync="showDialog"
+          md-content="Your request has been sent"
+          md-confirm-text="Cool!" />
     </div>
 </template>
 
@@ -165,11 +141,16 @@
     import StaticContent from '../tools/StaticContent'
     import mainMenu from '../components/mainMenu.vue'
     import headerMy from '../components/headerMy.vue'
+
     import cardRightImg from '../components/cardRightImg.vue'
     import cardLeftImg from '../components/cardLeftImg.vue'
     import buttonRectangle from '../components/buttonRectangle.vue'
     import owlCarousel from 'v-owl-carousel'
     import PublicForm from '../tools/PublicForm'
+    import Testimonial from '../tools/Testimonial'
+    import GPGPerk from '../tools/GPGPerk'
+
+    import VueRecaptcha from 'vue-recaptcha'
 
     export default {
         name: 'publishing',
@@ -179,42 +160,93 @@
             cardRightImg,
             cardLeftImg,
             buttonRectangle,
-            owlCarousel
+            owlCarousel,
+            VueRecaptcha
         },
         data: () => ({
-          name: '',
+          name: {
+            value: '',
+            error: {
+              message: '',
+              show: false
+            }
+          },
           company: '',
           game_url: '',
-          email: '',
+          email: {
+            value: '',
+            error: {
+              message: '',
+              show: false
+            }
+          },
+          testimonials: [],
+          gpgPerks: [],
           skype: '',
           message: '',
           staticContent: null,
+          showDialog: false,
           locale: ''
         }),
         created: function(){
           const parser = new Parser();
           const staticContent = new StaticContent(parser.route, parser.locale);
+          const testimonial = new Testimonial(parser.locale);
+          const gpgPerk = new GPGPerk(parser.locale);
           this.locale = parser.locale;
 
           staticContent.update(json => {
             this.staticContent = json.data;
           });
+
+          testimonial.update(json => {
+            //console.log(json);
+            this.testimonials = json;
+          });
+
+          gpgPerk.update(json => {
+            console.log(json);
+            this.gpgPerks = json;
+          })
         },
         methods: {
           send: function(){
-            alert(this.name);
+            //alert(this.name);
+            let isValid = true;
 
-            const publicForm = new PublicForm({
-              name: this.name,
-              company: this.company,
-              game_url: this.game_url,
-              email: this.email,
-              skype: this.skype,
-              message: this.message
-            });
-            publicForm.send(json => {
-              console.log(json);
-            });
+            if (this.name.value === '') {
+              this.name.error.message = 'Please enter your name';
+              this.name.error.show = true;
+              isValid = false;
+            }
+
+            if (this.email.value === '') {
+              this.email.error.message = 'Please enter your email';
+              this.email.error.show = true;
+              isValid = false;
+            }
+
+            if (isValid) {
+              const publicForm = new PublicForm({
+                name: this.name.value,
+                company: this.company,
+                game_url: this.game_url,
+                email: this.email.value,
+                skype: this.skype,
+                message: this.message
+              });
+
+              publicForm.send(json => {
+                this.showDialog = true;
+                this.name.value = '';
+                this.company = '';
+                this.game_url = '';
+                this.email.value = '';
+                this.skype = '';
+                this.message = '';
+                console.log(json);
+              });
+            }
           }
         }
 
@@ -334,7 +366,7 @@
             font-weight: normal;
             font-style: normal;
             font-stretch: normal;
-            line-height: normal;
+            /*line-height: normal;*/
             letter-spacing: 0.9px;
             color: #cccccc;
         }
@@ -344,6 +376,10 @@
         }
         .md-field {
             margin-bottom: 45px;
+        }
+        .md-field .md-input, .md-field .md-textarea {
+            flex: none;
+            width: 100%;
         }
         .md-field.md-has-placeholder .md-input,
         .md-field .md-textarea {
@@ -500,6 +536,12 @@
                 letter-spacing: 0.5px;
                 color: #030303;
             }
+        }
+        .recaptcha-wrap {
+            .recaptcha {
+                display: inline-block;
+            }
+            margin-bottom: 30px;
         }
 
     }
