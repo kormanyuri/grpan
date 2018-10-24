@@ -25,28 +25,28 @@
             <section class="section-1 container">
                 <card-group-jobs id="business" title="Business" ico="/src/assets/img/icn-business.svg">
                     <div class="md-layout wrap-join-our-team">
-                        <div v-for="item in jobs" v-if="item.category.name=='Business'" class="md-layout-item md-small-size-100 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
+                        <div v-for="item in jobs" v-if="item.category.name==='Business'" class="md-layout-item md-small-size-100 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
                             <card-vacancy v-bind:vacancy="item.name" v-bind:location="item.city" link="#"></card-vacancy>
                         </div>
                     </div>
                 </card-group-jobs>
                 <card-group-jobs id="marketing" title="Marketing" ico="/src/assets/img/icn-marketing.svg">
                     <div class="md-layout wrap-join-our-team">
-                      <div v-for="item in jobs" v-if="item.category.name=='Marketing'" class="md-layout-item md-small-size-100 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
+                      <div v-for="item in jobs" v-if="item.category.name==='Marketing'" class="md-layout-item md-small-size-100 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
                         <card-vacancy v-bind:vacancy="item.name" v-bind:location="item.city" link="#"></card-vacancy>
                       </div>
                     </div>
                 </card-group-jobs>
                 <card-group-jobs id="product" title="Product" ico="/src/assets/img/icn-product.svg">
                     <div class="md-layout wrap-join-our-team">
-                      <div v-for="item in jobs" v-if="item.category.name=='Product'" class="md-layout-item md-small-size-100 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
+                      <div v-for="item in jobs" v-if="item.category.name==='Product'" class="md-layout-item md-small-size-100 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
                         <card-vacancy v-bind:vacancy="item.name" v-bind:location="item.city" link="#"></card-vacancy>
                       </div>
                     </div>
                 </card-group-jobs>
                 <card-group-jobs id="human-resources" title="Human resources" ico="/src/assets/img/icn-human-resources.svg">
                     <div class="md-layout wrap-join-our-team">
-                      <div v-for="item in jobs" v-if="item.category.name=='Human resources'" class="md-layout-item md-small-size-100 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
+                      <div v-for="item in jobs" v-if="item.category.name==='Human resources'" class="md-layout-item md-small-size-100 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
                         <card-vacancy v-bind:vacancy="item.name" v-bind:location="item.city" link="#"></card-vacancy>
                       </div>
                     </div>

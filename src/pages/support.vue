@@ -13,11 +13,12 @@
                     <form action="">
                         <div class="md-layout">
                             <div class="md-layout-item md-small-size-100 md-large-size-50">
-                                <md-field v-if="games.length > 0">
+                                <md-field v-if="games.length > 0" v-bind:class="gameInput.error.show ? 'md-invalid' : ''">
                                     <label>GAME</label>
                                     <md-select md-dense required placeholder="Choose a game" v-model="game">
                                       <md-option v-for="item in games" v-bind:value="item.name">{{item.name}}</md-option>
                                     </md-select>
+                                    <span class="md-error">{{gameInput.error.message}}</span>
                                 </md-field>
                             </div>
                             <div class="md-layout-item md-size-50 md-small-hide"></div>
@@ -36,10 +37,10 @@
                                 </md-field>
                             </div>
                             <div class="md-layout-item md-size-100 mssg">
-                                <md-field>
+                                <md-field v-bind:class="messageInput.error.show ? 'md-invalid' : ''">
                                     <label>MESSAGE</label>
-                                    <md-textarea required placeholder="Tell us more about your game…" v-model="message"></md-textarea>
-
+                                    <md-textarea required placeholder="Tell us more our game…" v-model="message"></md-textarea>
+                                    <span class="md-error">{{messageInput.error.message}}</span>
                                 </md-field>
                             </div>
                         </div>
@@ -88,6 +89,20 @@
         },
         data: () => ({
           game: '',
+          gameInput: {
+            value: '',
+            error: {
+              message: '',
+              show: false
+            }
+          },
+          messageInput: {
+            value: '',
+            error: {
+              message: '',
+              show: false
+            }
+          },
           name: {
             value: '',
             error: {
@@ -152,6 +167,18 @@
               this.email.error.message = 'Please enter your email';
               this.email.error.show = true;
               isValid = false;
+            }
+
+            if (this.game === '') {
+              this.gameInput.error.message = 'Please select game';
+              this.gameInput.error.show = true;
+              isValid = false
+            }
+
+            if (this.message === '') {
+              this.messageInput.error.message = 'Please enter message';
+              this.messageInput.error.show = true;
+              isValid = false
             }
 
             if (isValid) {
