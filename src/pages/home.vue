@@ -91,9 +91,9 @@
 
             <section id="section-5" class="container">
                 <div class="carousel-wrap">
-                    <owl-carousel  v-if="staticContent" :items="1" :nav="false" :responsive="false" class="carousel-1">
-                        <div v-if="staticContent" v-for="item in staticContent.success_story.slides" class="carousel-item">
-                            <card-right-img picture="/src/assets/img/story_pinpin_team.png" v-bind:title="item.title" v-bind:msg="item.text" position="CEO OF PINPIN TEAM" project="Golf orbit, Fish Orbit" style="box-shadow: none"></card-right-img>
+                    <owl-carousel v-if="testimonials.length > 0" :items="1" :nav="false" :responsive="false" class="carousel-1">
+                        <div v-for="item in testimonials" class="carousel-item">
+                            <card-right-img v-bind:picture="'http://greenpanda.ceant.net/admin/storage/' + item.image" v-bind:title="item.name" v-bind:msg="item.description" v-bind:position="item.signature" project="Golf orbit" style="box-shadow: none"></card-right-img>
                         </div>
                     </owl-carousel>
                 </div>
@@ -168,6 +168,7 @@
     import Game from '../tools/Game';
     import Parser from '../tools/Parser';
     import StaticContent from '../tools/StaticContent';
+    import Testimonial from '../tools/Testimonial';
     import Job from '../tools/Job';
 
     function getPosition(element) {
@@ -192,6 +193,7 @@
             jobs: [],
             staticContent: null,
             showRightMenu: false,
+            testimonials: [],
             posCopter: 120, //start Y position copter
             PosMountains: -100 //start Y position mountains
         }),
@@ -229,7 +231,7 @@
         },
         created: function () {
             const parser = new Parser();
-
+            const testimonial = new Testimonial(parser.locale);
             const game = new Game(parser.locale);
             const job = new Job(parser.locale);
             const staticContent = new StaticContent(parser.route, parser.locale);
@@ -252,6 +254,11 @@
             job.update(json => {
               this.jobs = json;
             });
+
+          testimonial.update(json => {
+            //console.log(json);
+            this.testimonials = json;
+          });
 
         },
         components: {
