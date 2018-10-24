@@ -93,7 +93,7 @@
                 <div class="carousel-wrap">
                     <owl-carousel v-if="testimonials.length > 0" :items="1" :nav="false" :responsive="false" class="carousel-1">
                         <div v-for="item in testimonials" class="carousel-item">
-                            <card-right-img v-bind:picture="'http://greenpanda.ceant.net/admin/storage/' + item.image" v-bind:title="item.name" v-bind:msg="item.description" v-bind:position="item.signature" project="Golf orbit" style="box-shadow: none"></card-right-img>
+                            <card-right-img v-bind:picture="'http://greenpanda.ceant.net/admin/storage/' + item.image" v-bind:title="item.name" v-bind:msg="item.description" v-bind:position="item.signature" v-bind:project="item.game.name" style="box-shadow: none"></card-right-img>
                         </div>
                     </owl-carousel>
                 </div>
@@ -256,7 +256,7 @@
             });
 
           testimonial.update(json => {
-            //console.log(json);
+            console.log(json);
             this.testimonials = json;
           });
 
