@@ -1,6 +1,6 @@
 <template>
 
-    <a v-bind:href="link" class="card-game">
+    <a v-bind:href="link" class="card-game" target="_blank">
         <div>{{title}}</div>
         <slot></slot>
     </a>

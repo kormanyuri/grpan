@@ -7,7 +7,7 @@
         <div class="wrap-content" v-bind:class="{ 'mv-left': showRightMenu }">
 
             <section id="section-1">
-                <video id="head-video" width="100%" height="auto" autoplay="autoplay" muted loop="loop" preload="auto" poster="/src/assets/img/bg-1.png">
+                <video id="head-video" width="100%" height="auto" autoplay="autoplay" muted loop="loop" preload="auto">
                     <source src="/src/assets/video/header_video_2.mp4" type="video/mp4" />
                 </video>
                 <div class="content">
@@ -72,7 +72,7 @@
             </section>
 
             <section id="section-4">
-                <div class="container">
+                <div id="our_story_anchor" class="container">
                     <div class="content">
                         <div class="title">{{staticContent ? staticContent.our_story.title : ''}}</div><br>
                         <div class="text">
@@ -212,7 +212,11 @@
 
                     if(currScrollTop >= posSection){
                         delta = currScrollTop - posSection;
-                        document.getElementsByClassName('mountains')[0].style.bottom = delta * 0.1 + PosMountains + "px"
+
+                        if (typeof document.getElementsByClassName('mountains')[0] !== 'undefined') {
+                          document.getElementsByClassName('mountains')[0].style.bottom = delta * 0.1 + PosMountains + "px";
+                        }
+
                         document.getElementsByClassName('copter')[0].style.bottom = (delta * 0.35) +  "px";
                     }
 
@@ -282,7 +286,6 @@
     #section-1 {
         height: 100vh;
         overflow: hidden;
-        background: url('/src/assets/img/bg-1.png') no-repeat;
         background-size: cover;
         position: relative;
         > video {

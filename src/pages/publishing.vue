@@ -49,9 +49,9 @@
 
             </section>
 
-            <section id="want-to-work-with-us-form" class="section-3 container">
+            <section class="section-3 container">
                 <div class="form">
-                    <div class="form-head">Want to work with us?</div>
+                    <div class="form-head" id="want-to-work-with-us-form">Want to work with us?</div>
                     <form action="">
                         <div class="md-layout md-gutter">
                             <div class="md-layout-item md-small-size-100 md-large-size-50">

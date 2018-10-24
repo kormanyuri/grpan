@@ -47,10 +47,10 @@
                 </div>
                 <div class="wrap-soc-link">
                     <div class="soc-link">
-                        <a href="https://www.facebook.com/GreenPandaGames/"><img src="/src/assets/img/icn-facebook-grey.svg" alt=""></a>
-                        <a href="https://www.instagram.com/greenpandagame"><img src="/src/assets/img/icn-instagram-grey.svg" alt=""></a>
-                        <a href="https://www.linkedin.com/company/green-panda-games/"><img src="/src/assets/img/icn-linkedin-grey.svg" alt=""></a>
-                        <a href="https://www.vk.com/green_panda_games/"><img src="/src/assets/img/icn-vk-grey.svg" alt=""></a>
+                        <a href="https://www.facebook.com/GreenPandaGames/" target="_blank"><img src="/src/assets/img/icn-facebook-grey.svg" alt=""></a>
+                        <a href="https://www.instagram.com/greenpandagame" target="_blank"><img src="/src/assets/img/icn-instagram-grey.svg" alt=""></a>
+                        <a href="https://www.linkedin.com/company/green-panda-games/" target="_blank"><img src="/src/assets/img/icn-linkedin-grey.svg" alt=""></a>
+                        <a href="https://www.vk.com/green_panda_games/" target="_blank"><img src="/src/assets/img/icn-vk-grey.svg" alt=""></a>
                     </div>
                     <div style="text-align: center">
                         <form class="select-lang-mobile">
@@ -61,24 +61,36 @@
                 </div>
                 <div class="md-layout md-gutter md-small-hide">
                     <div class="md-layout-item md-small-size-100 md-size-15">
-                        <div class="block-heading">{{$t("message.PRESS")}}</div>
+                        <div class="block-heading">{{$t("message.MENU")}}</div>
                         <ul class="list">
                             <li><router-link v-bind:to="'/' + locale.code">{{$t("message.Home")}}</router-link></li>
                             <li><router-link v-bind:to="'/' + locale.code + '/publishing'">{{$t("message.Publishing")}}</router-link></li>
                             <li><router-link v-bind:to="'/' + locale.code + '/games'">{{$t("message.Games")}}</router-link></li>
-                            <li><router-link v-bind:to="'/' + locale.code + '/publishing#success-story'">{{$t("message.our_story")}}</router-link></li>
+                            <li>
+                              <!--<router-link v-bind:to="'/' + locale.code + '/#our_story_anchor'">{{$t("message.our_story")}}</router-link>-->
+                              <a v-bind:href="'/' + locale.code + '#our_story_anchor'">
+                                {{$t("message.our_story")}}
+                              </a>
+                            </li>
                             <li><router-link v-bind:to="'/' + locale.code + '/jobs'">{{$t("message.Career")}}</router-link></li>
                             <li><router-link v-bind:to="'/' + locale.code + '/support'">{{$t("message.contact_us")}}</router-link></li>
                         </ul>
                     </div>
                     <div class="md-layout-item md-small-size-100 md-size-15">
                         <div class="block-heading">{{$t("message.JOBS")}}</div>
-                        <ul>
+                        <ul v-if="this.$router.currentRoute.name !== 'jobs'">
                             <li><a v-bind:href="'/' + locale.code + '/jobs#business'">{{$t("message.Business")}}</a></li>
                             <li><a v-bind:href="'/' + locale.code + '/jobs#marketing'">{{$t("message.Marketing")}}</a></li>
                             <li><a v-bind:href="'/' + locale.code + '/jobs#product'">{{$t("message.Product")}}</a></li>
                             <li><a v-bind:href="'/' + locale.code + '/jobs#human-resources'">{{$t("message.Human_resources")}}</a></li>
                             <li><a v-bind:href="'/' + locale.code + '/jobs'" class="bold">+ {{$t("message.see_more")}}</a></li>
+                        </ul>
+                        <ul v-if="this.$router.currentRoute.name === 'jobs'">
+                          <li><a href="#" v-scroll-to="{el: '#business', offset: -100}">{{$t("message.Business")}}</a></li>
+                          <li><a href="#" v-scroll-to="{el: '#marketing', offset: -100}">{{$t("message.Marketing")}}</a></li>
+                          <li><a href="#" v-scroll-to="{el: '#product', offset: -100}">{{$t("message.Product")}}</a></li>
+                          <li><a href="#" v-scroll-to="{el: '#human-resources', offset: -100}">{{$t("message.Human_resources")}}</a></li>
+                          <li><a v-bind:href="'/' + locale.code + '/jobs'" class="bold">+ {{$t("message.see_more")}}</a></li>
                         </ul>
                     </div>
                     <div class="md-layout-item md-small-size-100 md-size-15">
@@ -90,7 +102,10 @@
                     <div class="md-layout-item md-small-size-100 md-size-15">
                         <div class="block-heading">{{$t("message.LEGAL")}}</div>
                         <ul>
-                            <li v-for="item in legalPages"><a v-bind:href="'/' + locale.code + '/legal/' + item.slug">{{item.title}}</a></li>
+                            <li v-for="item in legalPages">
+                              <a v-if="item.url===''" v-bind:href="'/' + locale.code + '/legal/' + item.slug">{{item.title}}</a>
+                              <a v-if="item.url!==''" v-bind:href="item.url">{{item.title}}</a>
+                            </li>
 
                         </ul>
                     </div>
@@ -148,7 +163,24 @@
 //                this.$i18n.locale = val.id
 //            }
 //        },
+        created: function(){
+          // if (this.$router.currentRoute.hash !== "") {
+          //   setTimeout(() => {
+          //     console.log(this.$router.currentRoute);
+          //     // const scrollTo = scroller();
+          //     this.$scrollTo(this.$router.currentRoute.hash, 1000, {offset: -100});
+          //     // scrollTo(this.$router.currentRoute.hash);
+          //   }, 500);
+          //
+          // }
+        },
+        updated(){
+          if (this.$router.currentRoute.hash !== "") {
+            this.$scrollTo(this.$router.currentRoute.hash, 1000, {offset: -100});
+          }
+        },
         mounted: function(){
+
           const parser = new Parser();
           const job = new Job(parser.locale);
           const legalPage = new LegalPage(null, parser.locale);
@@ -318,5 +350,11 @@
             }
         }
     }
-	
+
+  @media (max-width: 1280px) {
+    .md-layout.md-gutter {
+      margin-right: 20px;
+      margin-left: 20px;
+    }
+  }
 </style>

@@ -6,7 +6,7 @@
             <a v-bind:href="'/' + locale.code"><img v-bind:src='logo' alt="logo" class="logo"></a>
             <div class="md-toolbar-section-end">
                 <ul class="top-menu md-small-hide">
-                    <li><router-link :to="{name: 'publishing'}" exact><p>{{ $t("message.PUBLISHING") }}</p></router-link></li>
+                    <li><router-link :to="{name: 'publishing'}" exact>{{ $t("message.PUBLISHING") }}</router-link></li>
                     <li><router-link :to="{name: 'games'}" exact>{{ $t("message.OUR_GAMES") }}</router-link></li>
                     <li><router-link :to="{name: 'jobs'}" exact>{{ $t("message.JOBS") }}</router-link></li>
                     <li><router-link :to="{name: 'support'}" exact>{{ $t("message.Support") }}</router-link></li>
