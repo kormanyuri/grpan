@@ -146,7 +146,6 @@
     import Parser from '../tools/Parser';
     import Job from '../tools/Job';
     import LegalPage from '../tools/LegalPage';
-    import {scroller} from 'vue-scrollto/src/scrollTo'
 
     export default {
         props: ['icon', 'link'],
