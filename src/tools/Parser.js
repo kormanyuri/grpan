@@ -4,6 +4,7 @@
 export default class Parser {
 
   get locale(){
+    return 'en';
     return this._locale;
   }
 
@@ -14,7 +15,7 @@ export default class Parser {
   get localeLabel(){
     let label = 'English';
 
-    switch (this._locale) {
+    /* switch (this._locale) {
       case 'en':
           label = 'English';
         break;
@@ -24,7 +25,7 @@ export default class Parser {
       case 'ru':
           label = 'Русский';
         break;
-    }
+    } */
 
     return label;
   }
@@ -32,13 +33,14 @@ export default class Parser {
   constructor(){
     let regRoute=/(ru|en|fr)(\/[a-z\-]+)/;
     let routeObject = regRoute.exec(window.location.pathname);
+    console.log(routeObject);
 
     if (routeObject == null) {
       regRoute = /(ru|en|fr)/;
       routeObject = regRoute.exec(window.location.pathname);
     }
     this._route = typeof routeObject[2] == 'undefined' ? '/' : routeObject[2];
-    this._locale = routeObject[1];
+    this._locale = /* routeObject[1] */ 'en';
   }
 
 
