@@ -1,4 +1,4 @@
-
+import {config} from '../config/config';
 export default class Game {
 
   constructor(locale){
@@ -6,7 +6,7 @@ export default class Game {
   }
 
   update(callback){
-    fetch('http://greenpanda.ceant.net/admin/rest/game?locale=' + this.locale)
+    fetch(config.backendUrl + 'admin/rest/game?locale=' + this.locale)
       .then(response => {
         if (response.ok) {
           return response.json();

@@ -1,3 +1,4 @@
+import {config} from '../config/config';
 
 export default class LegalPage {
 
@@ -8,7 +9,7 @@ export default class LegalPage {
   }
 
   loadItems(callback){
-    fetch('http://greenpanda.ceant.net/admin/rest/legal-pages?locale=' + this.locale)
+    fetch(config.backendUrl + 'admin/rest/legal-pages?locale=' + this.locale)
       .then(response => {
         if (response.ok) {
           return response.json();
@@ -20,7 +21,7 @@ export default class LegalPage {
   }
 
   update(callback){
-    fetch('http://greenpanda.ceant.net/admin/rest/legal-page/show-by-slug?slug=' + this.slug + '&locale=' + this.locale)
+    fetch(config.backendUrl + 'admin/rest/legal-page/show-by-slug?slug=' + this.slug + '&locale=' + this.locale)
       .then(response => {
         if (response.ok) {
           return response.json();

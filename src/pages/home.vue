@@ -57,8 +57,8 @@
                 <div class="md-layout grid-card-games" >
                     <div v-for="item in games" v-if="item.category.id == 1" class="md-layout-item md-xsmall-size-50 md-small-size-25 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
                         <card-game v-bind:title="item.name" v-bind:link="item.url">
-                            <img v-bind:srcset="'http://greenpanda.ceant.net/admin/storage/' + item.image + ' 1x, http://greenpanda.ceant.net/admin/storage/'+item.image + ' 2x'"
-                                 v-bind:src="'http://greenpanda.ceant.net/admin/storage/' + item.image" v-bind:alt="item.name">
+                            <img v-bind:srcset="backendUrl + 'admin/storage/' + item.image + ' 1x, ' + backendUrl + 'admin/storage/'+item.image + ' 2x'"
+                                 v-bind:src="backendUrl + 'admin/storage/' + item.image" v-bind:alt="item.name">
                         </card-game>
                     </div>
                     <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-large-size-25 md-xlarge-size-25">
@@ -93,7 +93,7 @@
                 <div class="carousel-wrap">
                     <owl-carousel v-if="testimonials.length > 0" :items="1" :nav="false" :responsive="false" class="carousel-1">
                         <div v-for="item in testimonials" class="carousel-item">
-                            <card-right-img v-bind:picture="'http://greenpanda.ceant.net/admin/storage/' + item.image" v-bind:title="item.name" v-bind:msg="item.description" v-bind:position="item.signature" v-bind:project="item.game.name" style="box-shadow: none"></card-right-img>
+                            <card-right-img v-bind:picture="backendUrl + 'admin/storage/' + item.image" v-bind:title="item.name" v-bind:msg="item.description" v-bind:position="item.signature" v-bind:project="item.game.name" style="box-shadow: none"></card-right-img>
                         </div>
                     </owl-carousel>
                 </div>
@@ -160,6 +160,7 @@
 
 <script>
 
+    import {config} from '../config/config'
     import mainMenu from '../components/mainMenu.vue'
     import cardVacancy from '../components/cardVacancy.vue'
     import socLink from '../components/socLink.vue'
@@ -195,7 +196,8 @@
             showRightMenu: false,
             testimonials: [],
             posCopter: 120, //start Y position copter
-            PosMountains: -100 //start Y position mountains
+            PosMountains: -100, //start Y position mountains
+            backendUrl: config.backendUrl
         }),
         mounted: function () {
             this.$nextTick(function () {

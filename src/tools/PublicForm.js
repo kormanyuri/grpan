@@ -1,3 +1,4 @@
+import {config} from '../config/config';
 import queryString from 'query-string';
 
 export default class PublicForm {
@@ -7,7 +8,7 @@ export default class PublicForm {
   }
 
   send(callback){
-    fetch('http://greenpanda.ceant.net/admin/rest/public-form/send', {
+    fetch(config.backendUrl + 'admin/rest/public-form/send', {
       method: 'POST',
       headers: {'Content-Type':'application/x-www-form-urlencoded'},
       mode: 'cors',

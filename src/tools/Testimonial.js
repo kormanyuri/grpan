@@ -1,3 +1,4 @@
+import {config} from '../config/config';
 
 export default class Testimonial {
 
@@ -7,7 +8,7 @@ export default class Testimonial {
   }
 
   update(callback){
-    fetch('http://greenpanda.ceant.net/admin/rest/testimonials?locale=' + this.locale)
+    fetch(config.backendUrl + 'admin/rest/testimonials?locale=' + this.locale)
       .then(response => {
         if (response.ok) {
           return response.json();

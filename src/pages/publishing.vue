@@ -10,10 +10,10 @@
             <section class="section-1 container">
                 <div v-if="gpgPerks.length > 0" class="md-layout md-gutter group-card">
                     <div v-for="item in gpgPerks" class="md-layout-item md-xsmall-size-100 md-medium-size-50 md-small-size-50 md-xlarge-size-50">
-                      <!--<img v-bind:srcset="'http://greenpanda.ceant.net/admin/storage/' + item.image + ' 1x,' +-->
-                                          <!--'http://greenpanda.ceant.net/admin/storage/' + item.image +' 2x'"-->
-                           <!--v-bind:src="'http://greenpanda.ceant.net/admin/storage/' + item.image" v-bind:alt="item.name">-->
-                      <img v-bind:src="'http://greenpanda.ceant.net/admin/storage/' + item.image" v-bind:alt="item.name">
+                      <!--<img v-bind:srcset="backendUrl + 'admin/storage/' + item.image + ' 1x,' +-->
+                                          <!--backendUrl + 'admin/storage/' + item.image +' 2x'"-->
+                           <!--v-bind:src="backendUrl + 'admin/storage/' + item.image" v-bind:alt="item.name">-->
+                      <img v-bind:src="backendUrl + 'admin/storage/' + item.image" v-bind:alt="item.name">
 
                       <div class="text">
                           <div v-html="item.name"></div>
@@ -33,15 +33,15 @@
 
                     <div class="group-card-1 md-small-hide">
                         <div v-bind:class="key % 2 ?'align-right':''" v-for="(item, key) in testimonials" v-bind:data="key%2">
-                            <card-right-img v-if="key % 2 === 0" class="max-w" v-bind:picture="'http://greenpanda.ceant.net/admin/storage/' + item.image" v-bind:title="item.name" v-bind:msg="item.description" v-bind:position="item.signature" v-bind:project="item.game.name"></card-right-img>
-                            <card-left-img v-if="key % 2 === 1"  class="max-w" v-bind:picture="'http://greenpanda.ceant.net/admin/storage/' + item.image"  v-bind:title="item.name" v-bind:msg="item.description" v-bind:osition="item.signature" v-bind:project="item.game.name"></card-left-img>
+                            <card-right-img v-if="key % 2 === 0" class="max-w" v-bind:picture="backendUrl + 'admin/storage/' + item.image" v-bind:title="item.name" v-bind:msg="item.description" v-bind:position="item.signature" v-bind:project="item.game.name"></card-right-img>
+                            <card-left-img v-if="key % 2 === 1"  class="max-w" v-bind:picture="backendUrl + 'admin/storage/' + item.image"  v-bind:title="item.name" v-bind:msg="item.description" v-bind:osition="item.signature" v-bind:project="item.game.name"></card-left-img>
                         </div>
                     </div>
 
                     <div class="carousel-wrap">
                         <owl-carousel v-if="testimonials.length > 0" :items="1" :nav="false" :responsive="false" class="carousel-1">
                             <div class="carousel-item" v-for="item in testimonials">
-                                <card-right-img v-bind:picture="'http://greenpanda.ceant.net/admin/storage/' + item.image" v-bind:title="item.name" v-bind:msg="item.description" v-bind:position="item.signature" v-bind:project="item.game.name" style="box-shadow: none"></card-right-img>
+                                <card-right-img v-bind:picture="backendUrl + 'admin/storage/' + item.image" v-bind:title="item.name" v-bind:msg="item.description" v-bind:position="item.signature" v-bind:project="item.game.name" style="box-shadow: none"></card-right-img>
                             </div>
                         </owl-carousel>
                     </div>
@@ -137,6 +137,7 @@
 
 <script>
 
+    import {config} from '../config/config'
     import Parser from '../tools/Parser'
     import StaticContent from '../tools/StaticContent'
     import mainMenu from '../components/mainMenu.vue'
@@ -186,6 +187,7 @@
           message: '',
           staticContent: null,
           showDialog: false,
+          backendUrl: config.backendUrl,
           locale: ''
         }),
         created: function(){
