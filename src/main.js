@@ -39,7 +39,7 @@ const reg = /\/(ru|en|fr)/;
 
 const l = reg.exec(window.location.pathname);
 
-let locale = l !== null ? l[1] : 'en';
+let locale = /* l !== null ? l[1] : */ 'en';
 
 const messages = {
   en: en,
