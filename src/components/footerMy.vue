@@ -103,8 +103,8 @@
                         <div class="block-heading">{{$t("message.LEGAL")}}</div>
                         <ul>
                             <li v-for="item in legalPages">
-                              <a v-if="item.url===''" v-bind:href="'/' + locale.code + '/legal/' + item.slug">{{item.title}}</a>
-                              <a v-if="item.url!==''" v-bind:href="item.url">{{item.title}}</a>
+                              <a v-if="item.url==='' || item.url === null" v-bind:href="'/' + locale.code + '/legal/' + item.slug">{{item.title}}</a>
+                              <a v-if="item.url!=='' && item.url !== null" v-bind:href="item.url">{{item.title}}</a>
                             </li>
 
                         </ul>
