@@ -3,7 +3,7 @@
     <div class="vacancy-card">
         <div>{{vacancy}}</div>
         <div>{{location}}</div>
-        <div><a :href="link">{{$t("message.learn_more")}}</a></div>
+        <div><a :href="link" target="_blank">{{$t("message.learn_more")}}</a></div>
     </div>
 
 </template>
@@ -23,7 +23,7 @@
         padding: 18px 10px 17px 17px ;
         font-family: 'Poppins', sans-serif;
         position: relative;
-        height: 134px;
+        height: 164px;
         position: relative;
         div:nth-child(1){
             font-size: 18px;

@@ -112,7 +112,7 @@
                             </div>
                         </div>
                         <div v-for="item in jobs" class="carousel-item">
-                            <card-vacancy v-bind:vacancy="item.name" v-bind:location="item.city" v-bind:link="locale+'/jobs'" ></card-vacancy>
+                            <card-vacancy v-bind:vacancy="item.name" v-bind:location="item.office.city" v-bind:link="item.websites_urls[0].url" ></card-vacancy>
                         </div>
                         <!--<div class="carousel-item">-->
                             <!--<card-vacancy vacancy="Digital advertising analyst H/F CDI" location="Paris, CDI" link="#" ></card-vacancy>-->
@@ -253,8 +253,13 @@
               this.staticContent = json.data;
             });
 
-            job.update(json => {
-              this.jobs = json;
+            // job.update(json => {
+            //   this.jobs = json;
+            // });
+
+            job.updateJoongle(json => {
+              console.log(json);
+              this.jobs = json.jobs;
             });
 
           testimonial.update(json => {
@@ -527,7 +532,7 @@
         border: solid 8px #ffffff;
         position: relative;
         padding: 8px 0 4px 8px;
-        height: 134px;
+        height: 164px;
         > img {
             height: auto;
             width: auto;
