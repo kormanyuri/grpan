@@ -32,7 +32,7 @@
                 <li><router-link :to="{name: 'support'}" exact>{{$t("message.SUPPORT")}}</router-link></li>
             </ul>
             <div class="wrap-btn">
-                <router-link to="/publishing#want-to-work-with-us-form">
+                <router-link v-bind:to="'/' + locale.code + '/publishing#want-to-work-with-us-form'">
                     <md-button class="md-primary btn-1">{{$t("message.Submit_your_game")}}</md-button>
                 </router-link>
             </div>
