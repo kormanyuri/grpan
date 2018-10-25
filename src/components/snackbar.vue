@@ -5,7 +5,7 @@
                 <div class="snackbar-text">
                     We use cookies to give you the best experience on our website. By continuing to use our website without changing
                     <br> your cookie settings, you agree to our use of cookies in accordance with our updated
-                    <router-link :to="{}">Cookie Policy</router-link>
+                    <router-link :to="'/' + locale.code + '/legal/privacy_policy'">Cookie Policy</router-link>
                 </div>
                 <div class="snackbar-action">
                     <md-button class="md-icon-button close-menu-btn" @click="show = false" >
@@ -18,15 +18,21 @@
 </template>
 
 <script>
+    import Parser from '../tools/Parser';
+
     export default {
         name: 'snackbar',
 
         data() {
             return {
-                show: true
+                show: true,
+                locale: {code: 'en', label: 'English'}
             };
         },
-
+        mounted: function(){
+          const parser = new Parser();
+          this.locale = {code: parser.locale, label: parser.localeLabel};
+        },
         methods: {
             toggleSnackbar () {
                 this.showSnackbar = !this.showSnackbar;
