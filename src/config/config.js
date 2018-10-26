@@ -1,4 +1,4 @@
 export const config = {
-  backendUrl: 'http://greenpanda.ceant.net/',
-  organizationReference: '8Vgz2M1'
+  organizationReference: '8Vgz2M1',
+  backendUrl: 'http://greenpandagames.com/'
 };
