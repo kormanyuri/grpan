@@ -63,7 +63,7 @@
                         </card-game>
                     </div>
                     <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-large-size-25 md-xlarge-size-25">
-                        <card-game-all title="All games" v-bind:link="'/'+ locale + '/games'">
+                        <card-game-all title="All games" v-bind:link="'/'+ locale + '/games'" target="_self">
                             <img srcset="/src/assets/img/games/preview_appstore.png 1x,
                                          /src/assets/img/games/preview_appstore@2x.png 2x"
                                  src="/src/assets/img/games/preview_appstore.png" v-bind:alt="$t('message.All_games')">
@@ -222,7 +222,9 @@
                           document.getElementsByClassName('mountains')[0].style.bottom = delta * 0.1 + PosMountains + "px";
                         }
 
-                        document.getElementsByClassName('copter')[0].style.bottom = (delta * 0.35) +  "px";
+                        if (typeof document.getElementsByClassName('copter')[0] !== 'undefined') {
+                          document.getElementsByClassName('copter')[0].style.bottom = (delta * 0.35) + "px";
+                        }
                     }
 
                 }

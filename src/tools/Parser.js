@@ -1,10 +1,11 @@
 /**
  * This is class for parse route from browser
  */
+import {config} from "../config/config"
+
 export default class Parser {
 
   get locale(){
-    return 'en';
     return this._locale;
   }
 
@@ -15,7 +16,7 @@ export default class Parser {
   get localeLabel(){
     let label = 'English';
 
-    /* switch (this._locale) {
+    switch (this._locale) {
       case 'en':
           label = 'English';
         break;
@@ -25,7 +26,7 @@ export default class Parser {
       case 'ru':
           label = 'Русский';
         break;
-    } */
+    }
 
     return label;
   }
@@ -40,7 +41,12 @@ export default class Parser {
       routeObject = regRoute.exec(window.location.pathname);
     }
     this._route = typeof routeObject[2] == 'undefined' ? '/' : routeObject[2];
-    this._locale = /* routeObject[1] */ 'en';
+
+    if (config.enableMultiLanguage) {
+      this._locale = routeObject[1];
+    } else {
+      this._locale = 'en';
+    }
   }
 
 

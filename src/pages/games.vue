@@ -21,7 +21,7 @@
                             </card-game>
                         </div>
                         <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
-                            <card-game-all title="See on the Appstore" v-bind:link="'/' + locale + '/games'">
+                            <card-game-all title="See on the Appstore" v-bind:link="settings.app_store_url" target="_blank">
                                 <img srcset="/src/assets/img/games/preview_appstore.png 1x,
                                              /src/assets/img/games/preview_appstore@2x.png 2x"
                                      src="/src/assets/img/games/preview_appstore.png" v-bind:alt="$t('message.All_games')"/>
@@ -47,7 +47,7 @@
                         </div>
 
                         <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
-                            <card-game-all title="See on the Appstore"  v-bind:link="'/' + locale + '/games'">
+                            <card-game-all title="See on the Appstore"  v-bind:link="settings.app_store_url" target="_blank">
                                 <img srcset="/src/assets/img/games/preview_appstore.png 1x,
                                              /src/assets/img/games/preview_appstore@2x.png 2x"
                                      src="/src/assets/img/games/preview_appstore.png" v-bind:alt="$t('message.All_games')"/>
@@ -84,6 +84,7 @@
     import StaticContent from '../tools/StaticContent'
     import Game from '../tools/Game'
     import GameCategory from '../tools/GameCategory'
+    import Setting from '../tools/Setting'
     import mainMenu from '../components/mainMenu.vue'
     import headerMy from '../components/headerMy.vue'
 
@@ -97,6 +98,7 @@
           staticContent: null,
           games: [],
           gameCategories: [],
+          settings: [],
           locale: '',
           backendUrl: config.backendUrl
         }),
@@ -105,6 +107,7 @@
           const staticContent = new StaticContent(parser.route, parser.locale);
           const game = new Game(parser.locale);
           const gameCategory = new GameCategory();
+          const setting = new Setting();
 
           this.locale = parser.locale;
 
@@ -130,6 +133,10 @@
                 name: json[i].name
               });
             }
+          });
+
+          setting.update(json => {
+            this.settings = json[0].data;
           });
         }
     }

@@ -1,15 +1,19 @@
 <template>
-    <router-link :to="link" class="card-game-all">
-        <div>{{title}}</div>
-        <slot></slot>
-        <img src="/src/assets/img/arrow.svg" alt="arrow" class="arrow">
-    </router-link>
-
+    <!--<router-link :to="link" class="card-game-all">-->
+        <!--<div>{{title}}</div>-->
+        <!--<slot></slot>-->
+        <!--<img src="/src/assets/img/arrow.svg" alt="arrow" class="arrow">-->
+    <!--</router-link>-->
+    <a :href="link" class="card-game-all" :target="target">
+      <div>{{title}}</div>
+      <slot></slot>
+      <img src="/src/assets/img/arrow.svg" alt="arrow" class="arrow">
+    </a>
 </template>
 
 <script>
     export default {
-        props: ['title', 'link'],
+        props: ['title', 'link', 'target'],
     }
 </script>
 

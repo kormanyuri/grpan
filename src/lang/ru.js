@@ -37,6 +37,7 @@ export default {
                 stars_reviews: 'рейтинг',
                 mobile_experts: 'эксперты',
                 Want_to_join_our_team: 'Хотите<br>присоединиться?',
-                Check_all_offers: 'Ознакомьтесь с предложениями'
+                Check_all_offers: 'Ознакомьтесь с предложениями',
+                Follow_us: 'Подписаться'
         }
 }

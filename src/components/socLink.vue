@@ -7,7 +7,7 @@
             </a>
         </div>
         <div class="md-small-hide">
-            <md-button class="md-primary btn" :href="link" target="_blank">Follow us</md-button>
+            <md-button class="md-primary btn" :href="link" target="_blank">{{$t("message.Follow_us")}}</md-button>
         </div>
     </div>
 

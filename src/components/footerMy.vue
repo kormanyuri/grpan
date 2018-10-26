@@ -176,7 +176,10 @@
         },
         updated(){
           if (this.$router.currentRoute.hash !== "") {
-            this.$scrollTo(this.$router.currentRoute.hash, 1000, {offset: -100});
+            setTimeout(() => {
+              this.$scrollTo(this.$router.currentRoute.hash, 1000, {offset: -120});
+            }, 100);
+
           }
         },
         mounted: function(){

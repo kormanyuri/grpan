@@ -38,6 +38,7 @@ export default {
                 stars_reviews: 'stars reviews',
                 mobile_experts: 'mobile experts',
                 Want_to_join_our_team: 'Want to join<br>our team?',
-                Check_all_offers: 'Check all offers'
+                Check_all_offers: 'Check all offers',
+                Follow_us: 'Follow us'
         }
 }
