@@ -458,31 +458,6 @@
         .header-my {
             padding-top: 80px;
         }
-        .section-1 {
-            padding: 0 20px 55px;
-            .group-card {
-                padding-top: 21px;
-                text-align: center;
-                img {
-                    position: relative;
-                }
-                > div {
-                    margin-bottom: 20px;
-                  }
-                .text {
-                    margin-left: 0;
-                    text-align: center;
-                    > div:nth-child(1) {
-                            height: auto;
-                            margin-top: -16px;
-                            margin-bottom: 13px;
-                          font-size: 20px;
-                          letter-spacing: 0.3px;
-                          justify-content: center;
-                      }
-                }
-            }
-        }
         .section-2 {
             padding: 28px 20px 72px;
             .section-head {
@@ -611,6 +586,33 @@
     @media (min-width: 768px) {
         .section-2 .carousel-wrap {
             height: 270px !important;
+        }
+    }
+    @media (max-width:1280px) {
+        .section-1 {
+            padding: 0 20px 55px;
+            .group-card {
+                padding-top: 21px;
+                text-align: center;
+                img {
+                    position: relative;
+                }
+                > div {
+                      margin-bottom: 20px;
+                  }
+                .text {
+                    margin-left: 0;
+                    text-align: center;
+                    > div:nth-child(1) {
+                          height: auto;
+                          margin-top: -16px;
+                          margin-bottom: 13px;
+                          font-size: 20px;
+                          letter-spacing: 0.3px;
+                          justify-content: center;
+                      }
+                }
+            }
         }
     }
 

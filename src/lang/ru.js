@@ -1,5 +1,6 @@
 export default {
         message: {
+                Accept: 'Принимаю',
                 PUBLISHING: 'ИЗДАТЕЛЬСТВО',
                 OUR_GAMES: 'НАШИ ИГРЫ',
                 JOBS: 'КАРЬЕРА',

@@ -15,6 +15,9 @@
       html {
         font-size: 16px;
       }
+      *::selection {
+        background: #328efc !important;
+      }
       .container {
         margin: 0 auto;
       }
@@ -102,7 +105,12 @@
           max-width: 960px;
         }
       }
-      @media (min-width: 1280px) {
+      @media (min-width: 1201px) and (max-width: 1280px) {
+        .container {
+          max-width: 1100px;
+        }
+      }
+      @media (min-width: 1281px) {
         .container {
           max-width: 1200px;
         }

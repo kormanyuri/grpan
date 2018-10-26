@@ -13,7 +13,7 @@
                     <form action="">
                         <div class="md-layout">
                             <div class="md-layout-item md-small-size-100 md-large-size-50 md-xlarge-size-50">
-                                <md-field v-if="games.length > 0" v-bind:class="gameInput.error.show ? 'md-invalid' : ''">
+                                <md-field v-if="games.length > 0">
                                     <label>GAME</label>
                                     <md-select md-dense required placeholder="Choose a game" v-model="game">
                                       <md-option v-for="item in games" v-bind:value="item.name">{{item.name}}</md-option>
@@ -328,9 +328,9 @@
         padding-left: 16px;
     }
     .md-list.md-dense .md-list-item-text {}
-    .form-footer {
-        text-align: right;
-    }
+        .form-footer {
+            text-align: right;
+        }
     }
 
     @media (max-width: 960px) {
@@ -373,6 +373,26 @@
             }
             margin-bottom: 30px;
         }
+    }
+    @media (min-width: 541px) and (max-width: 960px) {
+        .form-footer {
+            .md-layout {
+                > div:last-child {
+                      text-align: right;
+                  }
+            }
+        }
+    }
+    @media (min-width: 961px) and  (max-width: 991px){
+        .form-footer {
+            text-align: center !important;
+        }
+        .recaptcha-wrap {
+        .recaptcha {
+            display: inline-block;
+        }
+        margin-bottom: 30px;
+    }
     }
 
 </style>

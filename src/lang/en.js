@@ -1,5 +1,6 @@
 export default {
         message: {
+                Accept: 'Accept',
                 hello: 'hello world',
                 PUBLISHING: 'PUBLISHING',
                 OUR_GAMES: 'OUR GAMES',
