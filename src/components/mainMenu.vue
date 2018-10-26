@@ -181,7 +181,7 @@
         .wrap-btn {
             position: absolute;
             left: 0;
-            bottom: 27px;
+            bottom: 127px;
             width: 100%;
             text-align: center;
         }
