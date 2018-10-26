@@ -12,7 +12,7 @@
                     <div class="form-head">Contact us</div>
                     <form action="">
                         <div class="md-layout">
-                            <div class="md-layout-item md-small-size-100 md-large-size-50">
+                            <div class="md-layout-item md-small-size-100 md-large-size-50 md-xlarge-size-50">
                                 <md-field v-if="games.length > 0" v-bind:class="gameInput.error.show ? 'md-invalid' : ''">
                                     <label>GAME</label>
                                     <md-select md-dense required placeholder="Choose a game" v-model="game">
@@ -22,14 +22,14 @@
                                 </md-field>
                             </div>
                             <div class="md-layout-item md-size-50 md-small-hide"></div>
-                            <div class="md-layout-item md-small-size-100 md-large-size-50">
+                            <div class="md-layout-item md-small-size-100 md-large-size-50 md-xlarge-size-50">
                                 <md-field v-bind:class="name.error.show ? 'md-invalid' : ''">
                                     <label>NAME</label>
                                     <md-input required placeholder="John Doe" v-model="name.value"></md-input>
                                     <span class="md-error">{{name.error.message}}</span>
                                 </md-field>
                             </div>
-                            <div class="md-layout-item md-small-size-100 md-large-size-50 mrgn-b">
+                            <div class="md-layout-item md-small-size-100 md-large-size-50 md-xlarge-size-50 mrgn-b">
                                 <md-field v-bind:class="email.error.show ? 'md-invalid' : ''">
                                     <label>EMAIL</label>
                                     <md-input type="email" required placeholder="name@societe.com" v-model="email.value"></md-input>

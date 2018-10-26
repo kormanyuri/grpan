@@ -54,7 +54,7 @@
                     <div class="form-head" id="want-to-work-with-us-form">Want to work with us?</div>
                     <form action="">
                         <div class="md-layout md-gutter">
-                            <div class="md-layout-item md-small-size-100 md-large-size-50">
+                            <div class="md-layout-item md-small-size-100 md-large-size-50 md-xlarge-size-50">
                                 <md-field v-bind:class="name.error.show ? 'md-invalid' : ''">
                                     <label>NAME</label>
                                     <md-input required placeholder="John Doe" v-model="name.value"></md-input>
@@ -64,26 +64,26 @@
                             <div class="md-layout-item md-size-50 md-small-hide">
 
                             </div>
-                            <div class="md-layout-item md-small-size-100 md-large-size-50">
+                            <div class="md-layout-item md-small-size-100 md-large-size-50 md-xlarge-size-50">
                                 <md-field>
                                     <label>COMPANY</label>
                                     <md-input placeholder="Company name" v-model="company"></md-input>
                                 </md-field>
                             </div>
-                            <div class="md-layout-item md-small-size-100 md-large-size-50">
+                            <div class="md-layout-item md-small-size-100 md-large-size-50 md-xlarge-size-50">
                                 <md-field>
                                     <label>GAME URL</label>
                                     <md-input placeholder="Store link" v-model="game_url"></md-input>
                                 </md-field>
                             </div>
-                            <div class="md-layout-item md-small-size-100 md-large-size-50">
+                            <div class="md-layout-item md-small-size-100 md-large-size-50 md-xlarge-size-50">
                                 <md-field v-bind:class="email.error.show ? 'md-invalid' : ''">
                                     <label>EMAIL</label>
                                     <md-input type="email" required placeholder="name@societe.com" v-model="email.value"></md-input>
                                     <span class="md-error">There is an error</span>
                                 </md-field>
                             </div>
-                            <div class="md-layout-item md-small-size-100 md-large-size-50">
+                            <div class="md-layout-item md-small-size-100 md-large-size-50 md-xlarge-size-50">
                                 <md-field>
                                     <label>SKYPE</label>
                                     <md-input placeholder="name@societe.com" v-model="skype"></md-input>
