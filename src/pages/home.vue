@@ -7,7 +7,7 @@
         <div class="wrap-content" v-bind:class="{ 'mv-left': showRightMenu }">
 
             <section id="section-1">
-                <video width="100%" height="auto" autoplay="autoplay" loop="loop" preload="auto" poster="/src/assets/img/bg-1.png">
+                <video width="100%" height="auto" autoplay="autoplay" loop="loop" preload="auto" muted="muted">
                     <source src="/src/assets/video/header_video.mp4" type="video/mp4" />
                     <source src="/src/assets/video/header_video.webm" type="video/webm" />
                 </video>
@@ -264,7 +264,6 @@
 
     $k: 768/375;
 
-
     .page-container {
         position: relative;
     }
@@ -282,7 +281,7 @@
     #section-1 {
         height: 100vh;
         overflow: hidden;
-        background: url('/src/assets/img/bg-1.png') no-repeat;
+        /*background: url('/src/assets/img/bg-1.png') no-repeat;*/
         background-size: cover;
         position: relative;
         > video {
