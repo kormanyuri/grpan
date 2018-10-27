@@ -1,6 +1,6 @@
 export default {
         message: {
-                Accept: 'J'accepte',
+                Accept: "J'accepte",
                 PUBLISHING: 'PUBLISHING',
                 OUR_GAMES: 'NOS JEUX',
                 JOBS: 'JOBS',

@@ -90,9 +90,9 @@
                 <img src="/src/assets/img/illu_our_story_copter.png" class="copter md-small-hide">
             </section>
 
-            <section id="section-5" class="container">
+            <section id="section-5">
                 <div class="carousel-wrap">
-                    <owl-carousel  v-if="staticContent" :items="1" :nav="false" :responsive="false" class="carousel-1">
+                    <owl-carousel  v-if="staticContent" :items="1" :nav="false" :responsive="false" :center="true" class="carousel-1">
                         <div v-if="staticContent" v-for="item in staticContent.success_story.slides" class="carousel-item">
                             <card-right-img picture="/src/assets/img/story_pinpin_team.png" v-bind:title="item.title" v-bind:msg="item.text" position="CEO OF PINPIN TEAM" project="Golf orbit, Fish Orbit" style="box-shadow: none"></card-right-img>
                         </div>
@@ -374,7 +374,7 @@
     }
 
     #section-5 {
-        padding: 0 50px;
+        /*padding: 0 50px;*/
         margin-bottom: 128px;
     }
     #section-6 {
@@ -490,9 +490,13 @@
     }
     .carousel-wrap {
         height: 357px;
-        border-radius: 6px;
-        background-color: #ffffff;
-        box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.2);
+        .carousel-item {
+            margin: 0 auto 40px;
+            max-width: 1098px;
+            border-radius: 6px;
+            background-color: #ffffff;
+            box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.2);
+        }
     }
     .carousel-1 {
         margin-top: -20px;
@@ -573,7 +577,7 @@
             }
         }
         #section-5 {
-            padding: 0 12px;
+            /*padding: 0 12px;*/
             margin-bottom: 60px;
         }
         #section-6 {
@@ -715,10 +719,20 @@
         }
     }
 
+    @media (max-width: 767px) {
+        .carousel-wrap {
+            .carousel-item {
+                margin-left: 11px;
+                margin-right: 11px;
+            }
+        }
+    }
+
     @media (min-width: 768px) and (max-width: 992px) {
         .carousel-wrap {
-            /*height: 0;*/
-            /*margin-bottom: 200px;*/
+            .carousel-item {
+                max-width: 658px;
+            }
         }
     }
 
@@ -746,6 +760,21 @@
         #section-6 {
             .container {
                 max-width: 1224px !important;
+            }
+        }
+    }
+
+    @media (min-width: 992px) and (max-width: 1200px) {
+        .carousel-wrap {
+            .carousel-item {
+                max-width: 878px;
+            }
+        }
+    }
+    @media (min-width: 1201px) and (max-width: 1280px) {
+        .carousel-wrap {
+            .carousel-item {
+                max-width: 1006px;
             }
         }
     }

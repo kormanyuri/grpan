@@ -26,20 +26,22 @@
 
             <section class="section-2" id="success-story">
 
-                <div class="container">
+                <div>
                     <div class="section-head">
                         Success story
                     </div>
 
-                    <div class="group-card-1 md-small-hide">
-                        <div v-bind:class="key % 2 ?'align-right':''" v-for="(item, key) in testimonials" v-bind:data="key%2">
-                            <card-right-img v-if="key % 2 === 0" class="max-w" v-bind:picture="'http://greenpanda.ceant.net/admin/storage/' + item.image" v-bind:title="item.name" v-bind:msg="item.description" v-bind:position="item.signature" project="Golf orbit, Fish Orbit"></card-right-img>
-                            <card-left-img v-if="key % 2 === 1"  class="max-w" v-bind:picture="'http://greenpanda.ceant.net/admin/storage/' + item.image"  v-bind:title="item.name" v-bind:msg="item.description" position="item.signature" project="Golf orbit, Fish Orbit"></card-left-img>
+                    <div class="container">
+                        <div class="group-card-1 md-small-hide">
+                            <div v-bind:class="key % 2 ?'align-right':''" v-for="(item, key) in testimonials" v-bind:data="key%2">
+                                <card-right-img v-if="key % 2 === 0" class="max-w" v-bind:picture="'http://greenpanda.ceant.net/admin/storage/' + item.image" v-bind:title="item.name" v-bind:msg="item.description" v-bind:position="item.signature" project="Golf orbit, Fish Orbit"></card-right-img>
+                                <card-left-img v-if="key % 2 === 1"  class="max-w" v-bind:picture="'http://greenpanda.ceant.net/admin/storage/' + item.image"  v-bind:title="item.name" v-bind:msg="item.description" position="item.signature" project="Golf orbit, Fish Orbit"></card-left-img>
+                            </div>
                         </div>
                     </div>
 
                     <div class="carousel-wrap">
-                        <owl-carousel v-if="testimonials.length > 0" :items="1" :nav="false" :responsive="false" class="carousel-1">
+                        <owl-carousel v-if="testimonials.length > 0" :items="1" :nav="false" :responsive="false" :center="true" class="carousel-1">
                             <div class="carousel-item" v-for="item in testimonials">
                                 <card-right-img v-bind:picture="'http://greenpanda.ceant.net/admin/storage/' + item.image" v-bind:title="item.name" v-bind:msg="item.description" v-bind:position="item.signature" project="Golf orbit, Fish Orbit" style="box-shadow: none"></card-right-img>
                             </div>
@@ -308,7 +310,7 @@
     .section-2 {
         font-family: 'Poppins', sans-serif;
         background-color: #f5f4f9;
-        padding: 74px 120px 50px;
+        padding: 74px 0 50px;
         .section-head {
             font-size: 36px;
             line-height: normal;
@@ -329,17 +331,22 @@
                   padding-right: 102px;
               }
         }
-        .carousel-wrap {
-            display: none;
-            height: 357px;
-            border-radius: 6px;
-            background-color: #ffffff;
-            box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.2);
-        }
     }
 
     .section-3 {
         padding: 132px 112px 193px;
+    }
+
+    .carousel-wrap {
+        height: 357px;
+        display: none;
+        .carousel-item {
+            margin: 0 auto 40px;
+            max-width: 1098px;
+            border-radius: 6px;
+            background-color: #ffffff;
+            box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.2);
+        }
     }
 
     .form {
@@ -457,7 +464,7 @@
             padding-top: 80px;
         }
         .section-2 {
-            padding: 28px 20px 72px;
+            padding: 28px 0 72px;
             .section-head {
                 margin-bottom: 35px;
                 font-size: 26px;
@@ -538,8 +545,8 @@
 
     @media (min-width: 960px) and (max-width: 1280px){
         .section-2 {
-            padding-left: 20px;
-            padding-right: 20px;
+            /*padding-left: 20px;*/
+            /*padding-right: 20px;*/
             .group-card-1 {
                 > div {
                       margin-bottom: 60px;
@@ -572,19 +579,19 @@
 
     @media (min-width: 416px) and (max-width: 768px) {
         .carousel-wrap {
-            height: 0px;
+            /*height: 0px;*/
         }
         .owl-theme .owl-nav.disabled + .owl-dots {
             margin-top: 100px !important;
         }
-        .card-right-img {
-            min-height: 0 !important;
-        }
+        /*.card-right-img {*/
+            /*min-height: 0 !important;*/
+        /*}*/
     }
     @media (min-width: 768px) {
-        .section-2 .carousel-wrap {
-            height: 270px !important;
-        }
+        /*.section-2 .carousel-wrap {*/
+            /*height: 270px !important;*/
+        /*}*/
     }
     @media (max-width:1280px) {
         .section-1 {
@@ -610,6 +617,37 @@
                           justify-content: center;
                       }
                 }
+            }
+        }
+    }
+    @media (max-width: 767px) {
+        .carousel-wrap {
+            .carousel-item {
+                margin-left: 11px;
+                margin-right: 11px;
+            }
+        }
+    }
+
+    @media (min-width: 768px) and (max-width: 992px) {
+        .carousel-wrap {
+            .carousel-item {
+                max-width: 658px;
+            }
+        }
+    }
+
+    @media (min-width: 992px) and (max-width: 1200px) {
+        .carousel-wrap {
+            .carousel-item {
+                max-width: 878px;
+            }
+        }
+    }
+    @media (min-width: 1201px) and (max-width: 1280px) {
+        .carousel-wrap {
+            .carousel-item {
+                max-width: 1006px;
             }
         }
     }
