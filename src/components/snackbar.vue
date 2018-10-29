@@ -36,11 +36,8 @@
 
         data() {
             return {
-<<<<<<< HEAD
                 show: true,
-=======
                 show: !window.localStorage.getItem('accept_cookie_police'),
->>>>>>> d912efa45cf6389f0ac22719144eeabbd0666ca8
                 locale: {code: 'en', label: 'English'}
             };
         },
