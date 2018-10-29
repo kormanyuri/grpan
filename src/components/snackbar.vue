@@ -139,7 +139,6 @@
         opacity: 0;
     }
 
-<<<<<<< HEAD
     @media(min-width: 1280px) {
         .snackbar {
             /*display: flex;*/
@@ -161,6 +160,4 @@
     }
 
 
-=======
->>>>>>> d912efa45cf6389f0ac22719144eeabbd0666ca8
 </style>
