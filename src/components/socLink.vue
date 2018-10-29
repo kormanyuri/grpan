@@ -2,12 +2,12 @@
 
     <div class="soc-link">
         <div>
-            <a :href="link">
+            <a :href="link" target="_blank">
                 <img :src="icon" alt="" class="ico">
             </a>
         </div>
         <div class="md-small-hide">
-            <md-button class="md-primary btn" :href="link">Follow us</md-button>
+            <md-button class="md-primary btn" :href="link" target="_blank">{{$t("message.Follow_us")}}</md-button>
         </div>
     </div>
 

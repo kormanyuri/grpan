@@ -1,4 +1,4 @@
-
+import {config} from '../config/config';
 export default class GPGPerk {
 
 
@@ -7,7 +7,7 @@ export default class GPGPerk {
   }
 
   update(callback){
-    fetch('http://greenpanda.ceant.net/admin/rest/gpg-perks?locale=' + this.locale)
+    fetch(config.backendUrl + 'admin/rest/gpg-perks?locale=' + this.locale)
       .then(response => {
         if (response.ok) {
           return response.json();

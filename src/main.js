@@ -17,6 +17,7 @@ import footerMy from './components/footerMy.vue'
 import VueScrollTo from 'vue-scrollto'
 import VueSelect from 'vue-select'
 import { defaultLocale } from './config/i18n'
+import { config } from "./config/config"
 import en from './lang/en';
 import fr from './lang/fr';
 import ru from './lang/ru';
@@ -39,7 +40,13 @@ const reg = /\/(ru|en|fr)/;
 
 const l = reg.exec(window.location.pathname);
 
-let locale = l !== null ? l[1] : 'en';
+let locale;
+
+if (config.enableMultiLanguage) {
+  locale = l !== null ? l[1] : 'en';
+} else {
+  locale = 'en';
+}
 
 const messages = {
   en: en,

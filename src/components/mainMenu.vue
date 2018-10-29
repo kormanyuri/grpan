@@ -6,7 +6,7 @@
             <a v-bind:href="'/' + locale.code"><img v-bind:src='logo' alt="logo" class="logo"></a>
             <div class="md-toolbar-section-end">
                 <ul class="top-menu md-small-hide">
-                    <li><router-link :to="{name: 'publishing'}" exact><p>{{ $t("message.PUBLISHING") }}</p></router-link></li>
+                    <li><router-link :to="{name: 'publishing'}" exact>{{ $t("message.PUBLISHING") }}</router-link></li>
                     <li><router-link :to="{name: 'games'}" exact>{{ $t("message.OUR_GAMES") }}</router-link></li>
                     <li><router-link :to="{name: 'jobs'}" exact>{{ $t("message.JOBS") }}</router-link></li>
                     <li><router-link :to="{name: 'support'}" exact>{{ $t("message.Support") }}</router-link></li>
@@ -32,7 +32,7 @@
                 <li><router-link :to="{name: 'support'}" exact>{{$t("message.SUPPORT")}}</router-link></li>
             </ul>
             <div class="wrap-btn">
-                <router-link to="/publishing#want-to-work-with-us-form">
+                <router-link v-bind:to="'/' + locale.code + '/publishing#want-to-work-with-us-form'">
                     <md-button class="md-primary btn-1">{{$t("message.Submit_your_game")}}</md-button>
                 </router-link>
             </div>
@@ -181,7 +181,7 @@
         .wrap-btn {
             position: absolute;
             left: 0;
-            bottom: 27px;
+            bottom: 127px;
             width: 100%;
             text-align: center;
         }

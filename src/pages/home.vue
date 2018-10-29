@@ -58,12 +58,12 @@
                 <div class="md-layout grid-card-games" >
                     <div v-for="item in games" v-if="item.category.id == 1" class="md-layout-item md-xsmall-size-50 md-small-size-25 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
                         <card-game v-bind:title="item.name" v-bind:link="item.url">
-                            <img v-bind:srcset="'http://greenpanda.ceant.net/admin/storage/' + item.image + ' 1x, http://greenpanda.ceant.net/admin/storage/'+item.image + ' 2x'"
-                                 v-bind:src="'http://greenpanda.ceant.net/admin/storage/' + item.image" v-bind:alt="item.name">
+                            <img v-bind:srcset="backendUrl + 'admin/storage/' + item.image + ' 1x, ' + backendUrl + 'admin/storage/'+item.image + ' 2x'"
+                                 v-bind:src="backendUrl + 'admin/storage/' + item.image" v-bind:alt="item.name">
                         </card-game>
                     </div>
                     <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-large-size-25 md-xlarge-size-25">
-                        <card-game-all title="All games" v-bind:link="'/'+ locale + '/games'">
+                        <card-game-all title="All games" v-bind:link="'/'+ locale + '/games'" target="_self">
                             <img srcset="/src/assets/img/games/preview_appstore.png 1x,
                                          /src/assets/img/games/preview_appstore@2x.png 2x"
                                  src="/src/assets/img/games/preview_appstore.png" v-bind:alt="$t('message.All_games')">
@@ -73,7 +73,7 @@
             </section>
 
             <section id="section-4">
-                <div class="container">
+                <div id="our_story_anchor" class="container">
                     <div class="content">
                         <div class="title">{{staticContent ? staticContent.our_story.title : ''}}</div><br>
                         <div class="text">
@@ -92,17 +92,17 @@
 
             <section id="section-5">
                 <div class="carousel-wrap">
-                    <owl-carousel  v-if="staticContent" :items="1" :nav="false" :responsive="false" :center="true" class="carousel-1">
-                        <div v-if="staticContent" v-for="item in staticContent.success_story.slides" class="carousel-item">
-                            <card-right-img picture="/src/assets/img/story_pinpin_team.png" v-bind:title="item.title" v-bind:msg="item.text" position="CEO OF PINPIN TEAM" project="Golf orbit, Fish Orbit" style="box-shadow: none"></card-right-img>
-                        </div>
-                    </owl-carousel>
+                  <owl-carousel  v-if="testimonials.length > 0"  :items="1" :nav="false" :responsive="false" :center="true" class="carousel-1">
+                    <div v-for="item in testimonials" class="carousel-item">
+                      <card-right-img v-bind:picture="backendUrl + 'admin/storage/' + item.image" v-bind:title="item.name" v-bind:msg="item.description" v-bind:position="item.signature" v-bind:project="item.game.name" style="box-shadow: none"></card-right-img>
+                    </div>
+                  </owl-carousel>
                 </div>
             </section>
             <section id="section-6">
                 <div v-if="jobs.length > 0" class="container">
                     <div class="section-head">
-                      {{$t("message.Jobs")}}
+                      {{$t("message.JOBS")}}
                     </div>
 
                     <owl-carousel :autoWidth="true" :items="4" :nav="false" :dots="false" :responsive="false" class="carousel-2">
@@ -113,7 +113,7 @@
                             </div>
                         </div>
                         <div v-for="item in jobs" class="carousel-item">
-                            <card-vacancy v-bind:vacancy="item.name" v-bind:location="item.city" link="#" ></card-vacancy>
+                            <card-vacancy v-bind:vacancy="item.name" v-bind:location="item.office.city" v-bind:link="item.websites_urls[0].url" ></card-vacancy>
                         </div>
                         <!--<div class="carousel-item">-->
                             <!--<card-vacancy vacancy="Digital advertising analyst H/F CDI" location="Paris, CDI" link="#" ></card-vacancy>-->
@@ -136,13 +136,13 @@
                     <div class="subtitle">{{staticContent ? staticContent.news.text : ''}}</div>
                     <div class="md-layout md-gutter wrap-soc-link">
                         <div v-bind:class="locale != 'ru'? 'md-layout-item md-size-33': 'md-layout-item md-size-25'">
-                            <soc-link icon="/src/assets/img/icn-facebook.svg" link="https://www.facebook.com/GreenPandaGames/"></soc-link>
+                            <soc-link icon="/src/assets/img/icn-facebook.svg" link="https://www.facebook.com/GreenPandaGames1/"></soc-link>
                         </div>
                         <div v-bind:class="locale != 'ru'? 'md-layout-item md-size-33': 'md-layout-item md-size-25'">
                             <soc-link icon="/src/assets/img/icn-instagram.svg" link="https://www.instagram.com/greenpandagame"></soc-link>
                         </div>
                         <div v-if="locale == 'ru'" class="md-layout-item md-size-25">
-                            <soc-link icon="/src/assets/img/icn-vk.svg" link="https://www.vk.com/green_panda_games/"></soc-link>
+                            <soc-link icon="/src/assets/img/icn-vk.svg" link="https://vk.com/green_panda_games"></soc-link>
                         </div>
                         <div v-bind:class="locale != 'ru'? 'md-layout-item md-size-33': 'md-layout-item md-size-25'">
                             <soc-link icon="/src/assets/img/icn-linkedin.svg" link="https://www.linkedin.com/company/green-panda-games/"></soc-link>
@@ -161,6 +161,7 @@
 
 <script>
 
+    import {config} from '../config/config'
     import mainMenu from '../components/mainMenu.vue'
     import cardVacancy from '../components/cardVacancy.vue'
     import socLink from '../components/socLink.vue'
@@ -169,6 +170,7 @@
     import Game from '../tools/Game';
     import Parser from '../tools/Parser';
     import StaticContent from '../tools/StaticContent';
+    import Testimonial from '../tools/Testimonial';
     import Job from '../tools/Job';
 
     function getPosition(element) {
@@ -193,8 +195,10 @@
             jobs: [],
             staticContent: null,
             showRightMenu: false,
+            testimonials: [],
             posCopter: 120, //start Y position copter
-            PosMountains: -100 //start Y position mountains
+            PosMountains: -100, //start Y position mountains
+            backendUrl: config.backendUrl
         }),
         mounted: function () {
             this.$nextTick(function () {
@@ -213,8 +217,14 @@
 
                     if(currScrollTop >= posSection){
                         delta = currScrollTop - posSection;
-                        document.getElementsByClassName('mountains')[0].style.bottom = delta * 0.1 + PosMountains + "px"
-                        document.getElementsByClassName('copter')[0].style.bottom = (delta * 0.35) +  "px";
+
+                        if (typeof document.getElementsByClassName('mountains')[0] !== 'undefined') {
+                          document.getElementsByClassName('mountains')[0].style.bottom = delta * 0.1 + PosMountains + "px";
+                        }
+
+                        if (typeof document.getElementsByClassName('copter')[0] !== 'undefined') {
+                          document.getElementsByClassName('copter')[0].style.bottom = (delta * 0.35) + "px";
+                        }
                     }
 
                 }
@@ -226,7 +236,7 @@
         },
         created: function () {
             const parser = new Parser();
-
+            const testimonial = new Testimonial(parser.locale);
             const game = new Game(parser.locale);
             const job = new Job(parser.locale);
             const staticContent = new StaticContent(parser.route, parser.locale);
@@ -240,15 +250,27 @@
                   category: json[i].category
                 });
               }
+
             });
 
             staticContent.update(json => {
               this.staticContent = json.data;
             });
 
-            job.update(json => {
-              this.jobs = json;
+            // job.update(json => {
+            //   this.jobs = json;
+            // });
+
+            job.updateJoongle(json => {
+              console.log(json);
+              this.jobs = json.jobs;
             });
+
+          testimonial.update(json => {
+            console.log(json);
+            this.testimonials = json;
+          });
+
         },
         components: {
             mainMenu,
@@ -281,7 +303,6 @@
     #section-1 {
         height: 100vh;
         overflow: hidden;
-        /*background: url('/src/assets/img/bg-1.png') no-repeat;*/
         background-size: cover;
         position: relative;
         > video {
@@ -490,13 +511,9 @@
     }
     .carousel-wrap {
         height: 357px;
-        .carousel-item {
-            margin: 0 auto 40px;
-            max-width: 1098px;
-            border-radius: 6px;
-            background-color: #ffffff;
-            box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.2);
-        }
+        border-radius: 6px;
+        background-color: #ffffff;
+        box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.2);
     }
     .carousel-1 {
         margin-top: -20px;
@@ -518,7 +535,7 @@
         border: solid 8px #ffffff;
         position: relative;
         padding: 8px 0 4px 8px;
-        height: 134px;
+        height: 164px;
         > img {
             height: auto;
             width: auto;
