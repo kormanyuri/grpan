@@ -92,11 +92,11 @@
 
             <section id="section-5">
                 <div class="carousel-wrap">
-                    <owl-carousel  v-if="staticContent" :items="1" :nav="false" :responsive="false" :center="true" class="carousel-1">
-                        <div v-if="staticContent" v-for="item in staticContent.success_story.slides" class="carousel-item">
-                            <card-right-img picture="/src/assets/img/story_pinpin_team.png" v-bind:title="item.title" v-bind:msg="item.text" position="CEO OF PINPIN TEAM" project="Golf orbit, Fish Orbit" style="box-shadow: none"></card-right-img>
-                        </div>
-                    </owl-carousel>
+                  <owl-carousel  v-if="testimonials.length > 0"  :items="1" :nav="false" :responsive="false" :center="true" class="carousel-1">
+                    <div v-for="item in testimonials" class="carousel-item">
+                      <card-right-img v-bind:picture="backendUrl + 'admin/storage/' + item.image" v-bind:title="item.name" v-bind:msg="item.description" v-bind:position="item.signature" v-bind:project="item.game.name" style="box-shadow: none"></card-right-img>
+                    </div>
+                  </owl-carousel>
                 </div>
             </section>
             <section id="section-6">
@@ -250,6 +250,7 @@
                   category: json[i].category
                 });
               }
+
             });
 
             staticContent.update(json => {
