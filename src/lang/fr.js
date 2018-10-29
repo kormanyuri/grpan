@@ -1,6 +1,6 @@
 export default {
         message: {
-                Accept: "J'accepte",
+                Accept: 'J\'accepte',
                 PUBLISHING: 'PUBLISHING',
                 OUR_GAMES: 'NOS JEUX',
                 JOBS: 'JOBS',
@@ -27,7 +27,7 @@ export default {
                 Support: 'Support',
                 Business: 'Business',
                 Marketing: 'Marketing',
-                Product: 'Product',
+                Product: 'Produit',
                 Human_resources: 'Ressources humaines',
                 Submit_your_game: 'Soumettre votre jeu ',
                 Published_Games: 'Jeux publiés',
@@ -37,6 +37,7 @@ export default {
                 stars_reviews: 'étoiles sur le store', // I wasn't able to see where the trad would be, it might not work.
                 mobile_experts: 'experts en mobile',
                 Want_to_join_our_team: 'Vous voulez rejoindre<br>notre équipe?',
-                Check_all_offers: 'Regarder toutes les offres'
+                Check_all_offers: 'Regarder toutes les offres',
+                Follow_us: 'Suivez nous'
         }
 }

@@ -1,39 +1,45 @@
 <template>
     <div class="snackbar-container">
-        <transition name="snackbar">
-            <div class="snackbar" v-if="show">
-                <div class="md-layout" style="width: 100%">
-                    <div class="md-layout-item md-medium-size-95 md-large-size-80 md-xlarge-size-80">
-                        <div class="snackbar-text">
-                            We use cookies to give you the best experience on our website. By continuing to use our website without changing
-                            <br> your cookie settings, you agree to our use of cookies in accordance with our updated
-                            <router-link :to="{}">Cookie Policy</router-link>
-                        </div>
-                    </div>
-                    <div class="md-layout-item md-medium-size-100 md-large-size-20 md-xlarge-size-20 wrap-btn">
-                        <md-button class="md-primary btn-1">{{$t("message.Accept")}}</md-button>
-                    </div>
-                </div>
-                <div class="snackbar-action">
-                    <md-button class="md-icon-button close-menu-btn" @click="show = false" >
-                        <img src='/src/assets/img/close-ico-white.svg' alt="Close snackbar">
-                    </md-button>
-                </div>
+      <transition name="snackbar">
+        <div class="snackbar" v-if="show">
+          <div class="md-layout" style="width: 100%">
+            <div class="md-layout-item md-medium-size-95 md-large-size-80 md-xlarge-size-80">
+              <div class="snackbar-text">
+                We use cookies to give you the best experience on our website. By continuing to use our website without changing
+                <br> your cookie settings, you agree to our use of cookies in accordance with our updated
+                <router-link :to="'/' + locale.code + '/legal/privacy_policy'">Cookie Policy</router-link>
+              </div>
             </div>
-        </transition>
+            <div class="md-layout-item md-medium-size-100 md-large-size-20 md-xlarge-size-20 wrap-btn">
+              <md-button class="md-primary btn-1">{{$t("message.Accept")}}</md-button>
+            </div>
+          </div>
+          <div class="snackbar-action">
+            <md-button class="md-icon-button close-menu-btn" @click="show = false" >
+              <img src='/src/assets/img/close-ico-white.svg' alt="Close snackbar">
+            </md-button>
+          </div>
+        </div>
+      </transition>
     </div>
 </template>
 
 <script>
+    import Parser from '../tools/Parser';
+
     export default {
         name: 'snackbar',
 
         data() {
             return {
-                show: true
+                show: true,
+                locale: {code: 'en', label: 'English'}
             };
         },
-
+        mounted: function(){
+          const parser = new Parser();
+          this.locale = {code: parser.locale, label: parser.localeLabel};
+        },
         methods: {
             toggleSnackbar () {
                 this.showSnackbar = !this.showSnackbar;
@@ -143,5 +149,6 @@
             padding-left: 0px;
         }
     }
+
 
 </style>

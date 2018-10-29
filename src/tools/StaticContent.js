@@ -1,3 +1,4 @@
+import {config} from '../config/config';
 
 export default class StaticContent {
 
@@ -8,7 +9,7 @@ export default class StaticContent {
   }
 
   update(callback){
-    fetch('http://greenpanda.ceant.net/admin/rest/static-content?route=' + this.route + '&locale=' + this.locale)
+    fetch(config.backendUrl + 'admin/rest/static-content?route=' + this.route + '&locale=' + this.locale)
       .then(response => {
         if (response.ok) {
           return response.json();
