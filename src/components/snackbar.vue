@@ -36,7 +36,6 @@
 
         data() {
             return {
-                show: true,
                 show: !window.localStorage.getItem('accept_cookie_police'),
                 locale: {code: 'en', label: 'English'}
             };
