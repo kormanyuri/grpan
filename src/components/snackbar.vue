@@ -11,11 +11,7 @@
               </div>
             </div>
             <div class="md-layout-item md-medium-size-100 md-large-size-20 md-xlarge-size-20 wrap-btn">
-<<<<<<< HEAD
-              <md-button class="md-primary btn-1">{{$t("message.Accept")}}</md-button>
-=======
               <md-button class="md-primary btn-1" v-on:click="accept">{{$t("message.Accept")}}</md-button>
->>>>>>> d912efa45cf6389f0ac22719144eeabbd0666ca8
             </div>
           </div>
           <div class="snackbar-action">
