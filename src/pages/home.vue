@@ -511,13 +511,9 @@
     }
     .carousel-wrap {
         height: 357px;
-        .carousel-item {
-            margin: 0 auto 40px;
-            max-width: 1098px;
-            border-radius: 6px;
-            background-color: #ffffff;
-            box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.2);
-        }
+        border-radius: 6px;
+        background-color: #ffffff;
+        box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.2);
     }
     .carousel-1 {
         margin-top: -20px;

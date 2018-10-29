@@ -11,7 +11,11 @@
               </div>
             </div>
             <div class="md-layout-item md-medium-size-100 md-large-size-20 md-xlarge-size-20 wrap-btn">
+<<<<<<< HEAD
               <md-button class="md-primary btn-1">{{$t("message.Accept")}}</md-button>
+=======
+              <md-button class="md-primary btn-1" v-on:click="accept">{{$t("message.Accept")}}</md-button>
+>>>>>>> d912efa45cf6389f0ac22719144eeabbd0666ca8
             </div>
           </div>
           <div class="snackbar-action">
@@ -32,7 +36,11 @@
 
         data() {
             return {
+<<<<<<< HEAD
                 show: true,
+=======
+                show: !window.localStorage.getItem('accept_cookie_police'),
+>>>>>>> d912efa45cf6389f0ac22719144eeabbd0666ca8
                 locale: {code: 'en', label: 'English'}
             };
         },
@@ -44,6 +52,11 @@
             toggleSnackbar () {
                 this.showSnackbar = !this.showSnackbar;
             },
+            accept(){
+              console.log('test');
+              window.localStorage.setItem('accept_cookie_police', true);
+              this.show = false;
+            }
         },
         transitions: {
             'ui-snackbar-toggle': {
@@ -130,6 +143,7 @@
         opacity: 0;
     }
 
+<<<<<<< HEAD
     @media(min-width: 1280px) {
         .snackbar {
             /*display: flex;*/
@@ -151,4 +165,6 @@
     }
 
 
+=======
+>>>>>>> d912efa45cf6389f0ac22719144eeabbd0666ca8
 </style>
