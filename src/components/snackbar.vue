@@ -11,7 +11,7 @@
               </div>
             </div>
             <div class="md-layout-item md-medium-size-100 md-large-size-20 md-xlarge-size-20 wrap-btn">
-              <md-button class="md-primary btn-1">{{$t("message.Accept")}}</md-button>
+              <md-button class="md-primary btn-1" v-on:click="accept">{{$t("message.Accept")}}</md-button>
             </div>
           </div>
           <div class="snackbar-action">
@@ -32,7 +32,7 @@
 
         data() {
             return {
-                show: true,
+                show: !window.localStorage.getItem('accept_cookie_police'),
                 locale: {code: 'en', label: 'English'}
             };
         },
@@ -44,6 +44,11 @@
             toggleSnackbar () {
                 this.showSnackbar = !this.showSnackbar;
             },
+            accept(){
+              console.log('test');
+              window.localStorage.setItem('accept_cookie_police', true);
+              this.show = false;
+            }
         },
         transitions: {
             'ui-snackbar-toggle': {
