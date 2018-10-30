@@ -127,7 +127,7 @@ const routes = [
       { path: 'games', name: 'games', component: games },
       { path: 'jobs', name: 'jobs', component: jobs },
       { path: 'support', name: 'support', component: support },
-      { path: 'legal/:slug', component: legal}
+      { path: ':slug', component: legal}
     ],
   }
 
