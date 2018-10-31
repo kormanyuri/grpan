@@ -94,7 +94,7 @@
                 <div class="carousel-wrap">
                   <owl-carousel  v-if="testimonials.length > 0"  :items="1" :nav="false" :responsive="false" :center="true" class="carousel-1">
                     <div v-for="item in testimonials" class="carousel-item">
-                      <card-right-img v-bind:picture="backendUrl + 'admin/storage/' + item.image" v-bind:title="item.name" v-bind:msg="item.description" v-bind:position="item.signature" v-bind:project="item.game.name" style="box-shadow: none"></card-right-img>
+                      <card-right-img v-bind:picture="backendUrl + 'admin/storage/' + item.image" v-bind:title="item.name" v-bind:msg="item.description" v-bind:position="item.signature" v-bind:project="item.game ? item.game.name: ''" style="box-shadow: none"></card-right-img>
                     </div>
                   </owl-carousel>
                 </div>
