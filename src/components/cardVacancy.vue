@@ -1,7 +1,7 @@
 <template>
 
     <div class="vacancy-card">
-        <div>{{vacancy}}</div>
+        <div v-on:click="learnMore(event, link)">{{vacancy}}</div>
         <div>{{location}}</div>
         <div><a :href="link" target="_blank">{{$t("message.learn_more")}}</a></div>
     </div>
@@ -11,6 +11,11 @@
 <script>
     export default {
         props: ['vacancy', 'location', 'link'],
+        methods: {
+          learnMore: function (event, link) {
+            window.open(link, '_blank');
+          }
+        }
     }
 </script>
 
@@ -32,6 +37,7 @@
             color: #000000;
             margin-bottom: 6px;
             line-height: normal;
+            cursor: pointer;
         }
         div:nth-child(2){
             font-size: 18px;
