@@ -104,7 +104,7 @@
                         <div class="form-footer">
                             <div class="md-layout">
                                 <div class="md-layout-item recaptcha-wrap">
-                                    <vue-recaptcha sitekey="6LcVgnUUAAAAANuF4NzYi8nWKhzsrbp59SrIgDaV" class="recaptcha"></vue-recaptcha>
+                                    <vue-recaptcha v-bind:sitekey="sitekey" class="recaptcha"></vue-recaptcha>
                                 </div>
                                 <div class="md-layout-item">
                                     <button-rectangle v-on:click="send">Submit</button-rectangle>
@@ -191,6 +191,7 @@
           staticContent: null,
           showDialog: false,
           backendUrl: config.backendUrl,
+          sitekey: config.sitekey,
           locale: ''
         }),
         created: function(){

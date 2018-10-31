@@ -47,7 +47,7 @@
                         <div class="form-footer">
                           <div class="md-layout">
                             <div class="md-layout-item recaptcha-wrap">
-                              <vue-recaptcha sitekey="6LcVgnUUAAAAANuF4NzYi8nWKhzsrbp59SrIgDaV" class="recaptcha"></vue-recaptcha>
+                              <vue-recaptcha v-bind:sitekey="sitekey" class="recaptcha"></vue-recaptcha>
                             </div>
                             <div class="md-layout-item">
                               <button-rectangle v-on:click="send">Submit</button-rectangle>
@@ -70,6 +70,7 @@
 </template>
 
 <script>
+    import {config} from '../config/config'
     import Parser from '../tools/Parser'
     import StaticContent from '../tools/StaticContent'
     import mainMenu from '../components/mainMenu.vue'
@@ -121,7 +122,8 @@
           staticContent: null,
           games: [],
           locale: '',
-          showDialog: false
+          showDialog: false,
+          sitekey: config.sitekey
         }),
         created: function(){
 
