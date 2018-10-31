@@ -46,8 +46,10 @@
                         </div>
                         <div class="form-footer">
                           <div class="md-layout">
-                            <div class="md-layout-item recaptcha-wrap">
+                            <div v-bind:class="capchaInput.error.show ? 'md-layout-item recaptcha-wrap md-invalid' : 'md-layout-item recaptcha-wrap' ">
+                              <span class="md-error" style="color: red">{{capchaInput.error.message}}</span>
                               <vue-recaptcha v-bind:sitekey="sitekey" class="recaptcha"></vue-recaptcha>
+
                             </div>
                             <div class="md-layout-item">
                               <button-rectangle v-on:click="send">Submit</button-rectangle>
@@ -98,6 +100,13 @@
             }
           },
           messageInput: {
+            value: '',
+            error: {
+              message: '',
+              show: false
+            }
+          },
+          capchaInput: {
             value: '',
             error: {
               message: '',
@@ -183,12 +192,20 @@
               isValid = false
             }
 
+            if(!grecaptcha.getResponse()) {
+              this.capchaInput.error.message = 'Capcha not verify';
+              this.capchaInput.error.show = true;
+              isValid = false;
+            }
+
             if (isValid) {
+
               const contactUsForm = new ContactUsForm({
                 game: this.game,
                 name: this.name.value,
                 email: this.email.value,
-                message: this.message
+                message: this.message,
+                capcha: grecaptcha.getResponse()
               });
 
               contactUsForm.send(json => {
