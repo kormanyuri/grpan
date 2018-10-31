@@ -1,7 +1,7 @@
 <template>
 
     <div class="vacancy-card">
-        <div v-on:click="learnMore(event, link)">{{vacancy}}</div>
+        <div v-on:click="learnMore(link)">{{vacancy}}</div>
         <div>{{location}}</div>
         <div><a :href="link" target="_blank">{{$t("message.learn_more")}}</a></div>
     </div>
@@ -12,7 +12,7 @@
     export default {
         props: ['vacancy', 'location', 'link'],
         methods: {
-          learnMore: function (event, link) {
+          learnMore: function (link) {
             window.open(link, '_blank');
           }
         }
