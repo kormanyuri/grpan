@@ -93,12 +93,12 @@
                           <li><a v-bind:href="'/' + locale.code + '/jobs'" class="bold">+ {{$t("message.see_more")}}</a></li>
                         </ul>
                     </div>
-                    <div class="md-layout-item md-small-size-100 md-size-15">
-                        <div class="block-heading">{{$t("message.PRESS")}}</div>
-                        <ul>
-                            <li><a href="">{{$t("message.press_kit")}}</a></li>
-                        </ul>
-                    </div>
+                    <!--<div class="md-layout-item md-small-size-100 md-size-15">-->
+                        <!--<div class="block-heading">{{$t("message.PRESS")}}</div>-->
+                        <!--<ul>-->
+                            <!--<li><a href="">{{$t("message.press_kit")}}</a></li>-->
+                        <!--</ul>-->
+                    <!--</div>-->
                     <div class="md-layout-item md-small-size-100 md-size-15">
                         <div class="block-heading">{{$t("message.LEGAL")}}</div>
                         <ul>

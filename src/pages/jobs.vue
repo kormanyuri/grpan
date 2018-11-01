@@ -23,28 +23,28 @@
             </section>
 
             <section class="section-1 container">
-                <card-group-jobs id="business" title="Business" ico="/src/assets/img/icn-business.svg">
+                <card-group-jobs v-if="departments.includes('Business Development')" id="business" title="Business" ico="/src/assets/img/icn-business.svg">
                     <div class="md-layout wrap-join-our-team">
                         <div v-for="item in jobs" v-if="item.department && item.department.name==='Business Development'" class="md-layout-item md-small-size-100 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
                             <card-vacancy v-bind:vacancy="item.name" v-bind:location="item.office.city" v-bind:link="item.websites_urls[0].url"></card-vacancy>
                         </div>
                     </div>
                 </card-group-jobs>
-                <card-group-jobs id="marketing" title="Marketing" ico="/src/assets/img/icn-marketing.svg">
+                <card-group-jobs v-if="departments.includes('Marketing & Monetisation')" id="marketing" title="Marketing" ico="/src/assets/img/icn-marketing.svg">
                     <div class="md-layout wrap-join-our-team">
                       <div v-for="item in jobs" v-if="item.department && item.department.name==='Marketing & Monetisation'" class="md-layout-item md-small-size-100 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
                         <card-vacancy v-bind:vacancy="item.name" v-bind:location="item.office.city" v-bind:link="item.websites_urls[0].url"></card-vacancy>
                       </div>
                     </div>
                 </card-group-jobs>
-                <card-group-jobs id="product" title="Product" ico="/src/assets/img/icn-product.svg">
+                <card-group-jobs v-if="departments.includes('Product')" id="product" title="Product" ico="/src/assets/img/icn-product.svg">
                     <div class="md-layout wrap-join-our-team">
                       <div v-for="item in jobs" v-if="item.department && item.department.name==='Product'" class="md-layout-item md-small-size-100 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
                         <card-vacancy v-bind:vacancy="item.name" v-bind:location="item.office.city" v-bind:link="item.websites_urls[0].url"></card-vacancy>
                       </div>
                     </div>
                 </card-group-jobs>
-                <card-group-jobs id="human-resources" title="Human resources" ico="/src/assets/img/icn-human-resources.svg">
+                <card-group-jobs v-if="departments.includes('Human resources')" id="human-resources" title="Human resources" ico="/src/assets/img/icn-human-resources.svg">
                     <div class="md-layout wrap-join-our-team">
                       <div v-for="item in jobs" v-if="item.department && item.department.name==='Human resources'" class="md-layout-item md-small-size-100 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
                         <card-vacancy v-bind:vacancy="item.name" v-bind:location="item.office.city" v-bind:link="item.websites_urls[0].url"></card-vacancy>
@@ -91,6 +91,7 @@
         },
         data: () => ({
           staticContent: null,
+          departments: [],
           jobs: [],
           locale: ''
         }),
@@ -108,6 +109,16 @@
           job.updateJoongle(json => {
             console.log(json);
             this.jobs = json.jobs;
+
+            for(let i = 0; i < this.jobs.length; i++) {
+              //item.department.name
+              if (!this.departments.includes(this.jobs[i].department.name)) {
+                this.departments.push(this.jobs[i].department.name);
+              }
+
+              console.log(this.departments);
+            }
+
           });
 
           this.locale = parser.locale;
