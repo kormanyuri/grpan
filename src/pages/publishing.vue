@@ -83,20 +83,20 @@
                                 <md-field v-bind:class="email.error.show ? 'md-invalid' : ''">
                                     <label>EMAIL</label>
                                     <md-input type="email" required placeholder="name@societe.com" v-model="email.value"></md-input>
-                                    <span class="md-error">There is an error</span>
+                                    <span class="md-error">{{email.error.message}}</span>
                                 </md-field>
                             </div>
                             <div class="md-layout-item md-small-size-100 md-large-size-50 md-xlarge-size-50">
                                 <md-field>
                                     <label>SKYPE</label>
-                                    <md-input placeholder="name@societe.com" v-model="skype"></md-input>
+                                    <md-input placeholder="@societe" v-model="skype"></md-input>
                                 </md-field>
                             </div>
                             <div class="md-layout-item md-size-100">
                                 <md-field>
                                     <label>MESSAGE</label>
                                     <md-textarea required placeholder="Tell us more about your game…" v-model="message"></md-textarea>
-                                    <span class="md-error">There is an error</span>
+                                    <span class="md-error">There is error</span>
                                 </md-field>
                             </div>
                         </div>
@@ -232,18 +232,28 @@
               this.name.error.message = 'Please enter your name';
               this.name.error.show = true;
               isValid = false;
+            } else {
+              this.name.error.show = false;
             }
 
             if (this.email.value === '') {
               this.email.error.message = 'Please enter your email';
               this.email.error.show = true;
               isValid = false;
+            } else if (!this.validEmail(this.email.value)) {
+              this.email.error.message = 'Please enter valid email';
+              this.email.error.show = true;
+              isValid = false;
+            } else {
+              this.email.error.show = false;
             }
 
             if(!grecaptcha.getResponse()) {
               this.capchaInput.error.message = 'Capcha not verify';
               this.capchaInput.error.show = true;
               isValid = false;
+            } else {
+              this.capchaInput.error.show = false;
             }
 
             if (isValid) {
@@ -268,6 +278,10 @@
                 console.log(json);
               });
             }
+          },
+          validEmail: function (email) {
+            const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(email);
           }
         }
 

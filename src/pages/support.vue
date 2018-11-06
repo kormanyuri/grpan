@@ -164,59 +164,77 @@
 
         },
         methods: {
-          send: function(){
-            //alert(this.name);
-            let isValid = true;
+            send: function(){
+              //alert(this.name);
+              let isValid = true;
 
-            if (this.name.value === '') {
-              this.name.error.message = 'Please enter your name';
-              this.name.error.show = true;
-              isValid = false;
+              if (this.name.value === '') {
+                this.name.error.message = 'Please enter your name';
+                this.name.error.show = true;
+                isValid = false;
+              } else {
+                this.name.error.show = false;
+              }
+
+              if (this.email.value === '') {
+                this.email.error.message = 'Please enter your email';
+                this.email.error.show = true;
+                isValid = false;
+              } else if(this.validEmail(!this.email.value)) {
+                this.email.error.message = 'Please enter valid email';
+                this.email.error.show = true;
+                isValid = false;
+              } else {
+                this.email.error.show = false;
+              }
+
+              if (this.game === '') {
+                this.gameInput.error.message = 'Please select game';
+                this.gameInput.error.show = true;
+                isValid = false
+              } else {
+                this.gameInput.error.show = false;
+              }
+
+              if (this.message === '') {
+                this.messageInput.error.message = 'Please enter message';
+                this.messageInput.error.show = true;
+                isValid = false
+              } else {
+                this.messageInput.error.show = false;
+              }
+
+              if(!grecaptcha.getResponse()) {
+                this.capchaInput.error.message = 'Capcha not verify';
+                this.capchaInput.error.show = true;
+                isValid = false;
+              } else {
+                this.capchaInput.error.show = false;
+              }
+
+              if (isValid) {
+
+                const contactUsForm = new ContactUsForm({
+                  game: this.game,
+                  name: this.name.value,
+                  email: this.email.value,
+                  message: this.message,
+                  capcha: grecaptcha.getResponse()
+                });
+
+                contactUsForm.send(json => {
+                  this.showDialog = true;
+                  this.name.value = '';
+                  this.email.value = '';
+                  this.message = '';
+                  console.log(json);
+                });
+              }
+            },
+            validEmail: function (email) {
+              const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+              return re.test(email);
             }
-
-            if (this.email.value === '') {
-              this.email.error.message = 'Please enter your email';
-              this.email.error.show = true;
-              isValid = false;
-            }
-
-            if (this.game === '') {
-              this.gameInput.error.message = 'Please select game';
-              this.gameInput.error.show = true;
-              isValid = false
-            }
-
-            if (this.message === '') {
-              this.messageInput.error.message = 'Please enter message';
-              this.messageInput.error.show = true;
-              isValid = false
-            }
-
-            if(!grecaptcha.getResponse()) {
-              this.capchaInput.error.message = 'Capcha not verify';
-              this.capchaInput.error.show = true;
-              isValid = false;
-            }
-
-            if (isValid) {
-
-              const contactUsForm = new ContactUsForm({
-                game: this.game,
-                name: this.name.value,
-                email: this.email.value,
-                message: this.message,
-                capcha: grecaptcha.getResponse()
-              });
-
-              contactUsForm.send(json => {
-                this.showDialog = true;
-                this.name.value = '';
-                this.email.value = '';
-                this.message = '';
-                console.log(json);
-              });
-            }
-          }
         }
 
     }

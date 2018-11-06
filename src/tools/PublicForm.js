@@ -10,9 +10,12 @@ export default class PublicForm {
   send(callback){
     fetch(config.backendUrl + 'admin/rest/public-form/send', {
       method: 'POST',
-      headers: {'Content-Type':'application/x-www-form-urlencoded'},
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
       mode: 'cors',
-      body: queryString.stringify(this.data)
+      body: JSON.stringify(this.data)
     })
       .then(response => {
         if (response.ok) {
