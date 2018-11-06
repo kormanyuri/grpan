@@ -86,8 +86,14 @@
                         </router-link>
                     </div>
                 </div>
-                <img src="/src/assets/img/illu_our_story.png" class="mountains md-small-hide">
-                <img src="/src/assets/img/illu_our_story_copter.png" class="copter md-small-hide">
+                <img srcset="/src/assets/img/illu_our_story.png 1x,
+                                         /src/assets/img/illu_our_story@2x.png 2x"
+                     src="/src/assets/img/illu_our_story.png" class="mountains md-small-hide">
+                <img srcset="/src/assets/img/illu_our_story_copter.png 1x,
+                                         /src/assets/img/illu_our_story_copter@2x.png 2x"
+                     src="/src/assets/img/illu_our_story_copter.png" class="copter md-small-hide">
+                <!--<img src="/src/assets/img/illu_our_story.png" class="mountains md-small-hide">-->
+                <!--<img src="/src/assets/img/illu_our_story_copter@2x.png" class="copter md-small-hide">-->
             </section>
 
             <section id="section-5">
@@ -186,6 +192,10 @@
         return { x: xPosition, y: yPosition };
     }
 
+    //reload page afrer resize
+    window.onresize = function(event) {
+        location.reload();
+    };
 
     export default {
         name: 'home',
