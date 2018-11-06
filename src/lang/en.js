@@ -39,6 +39,7 @@ export default {
                 mobile_experts: 'mobile experts',
                 Want_to_join_our_team: 'Want to join<br>our team?',
                 Check_all_offers: 'Check all offers',
-                Follow_us: 'Follow us'
+                Follow_us: 'Follow us',
+                See_on_the_Appstore: 'See on the Appstore'
         }
 }

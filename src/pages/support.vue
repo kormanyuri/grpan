@@ -46,8 +46,10 @@
                         </div>
                         <div class="form-footer">
                           <div class="md-layout">
-                            <div class="md-layout-item recaptcha-wrap">
-                              <vue-recaptcha sitekey="6LcVgnUUAAAAANuF4NzYi8nWKhzsrbp59SrIgDaV" class="recaptcha"></vue-recaptcha>
+                            <div v-bind:class="capchaInput.error.show ? 'md-layout-item recaptcha-wrap md-invalid' : 'md-layout-item recaptcha-wrap' ">
+                              <span class="md-error" style="color: red">{{capchaInput.error.message}}</span>
+                              <vue-recaptcha v-bind:sitekey="sitekey" class="recaptcha"></vue-recaptcha>
+
                             </div>
                             <div class="md-layout-item">
                               <button-rectangle v-on:click="send">Submit</button-rectangle>
@@ -70,6 +72,7 @@
 </template>
 
 <script>
+    import {config} from '../config/config'
     import Parser from '../tools/Parser'
     import StaticContent from '../tools/StaticContent'
     import mainMenu from '../components/mainMenu.vue'
@@ -103,6 +106,13 @@
               show: false
             }
           },
+          capchaInput: {
+            value: '',
+            error: {
+              message: '',
+              show: false
+            }
+          },
           name: {
             value: '',
             error: {
@@ -121,7 +131,8 @@
           staticContent: null,
           games: [],
           locale: '',
-          showDialog: false
+          showDialog: false,
+          sitekey: config.sitekey
         }),
         created: function(){
 
@@ -181,12 +192,20 @@
               isValid = false
             }
 
+            if(!grecaptcha.getResponse()) {
+              this.capchaInput.error.message = 'Capcha not verify';
+              this.capchaInput.error.show = true;
+              isValid = false;
+            }
+
             if (isValid) {
+
               const contactUsForm = new ContactUsForm({
                 game: this.game,
                 name: this.name.value,
                 email: this.email.value,
-                message: this.message
+                message: this.message,
+                capcha: grecaptcha.getResponse()
               });
 
               contactUsForm.send(json => {

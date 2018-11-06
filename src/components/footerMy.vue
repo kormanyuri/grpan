@@ -26,16 +26,12 @@
                         </ul>
                     </accordion>
                     <accordion>
-                        <div slot="header" class="block-heading">{{$t("message.PRESS")}}</div>
-                        <ul>
-                            <li><a href="">{{$t("message.press_kit")}}</a></li>
-                        </ul>
-                    </accordion>
-                    <accordion>
                         <div slot="header" class="block-heading">{{$t("message.LEGAL")}}</div>
                         <ul>
-                            <li><a href="">{{$t("message.privacy_policy")}}</a></li>
-                            <li><a href="">{{$t("message.terms_of_use")}}</a></li>
+                            <li v-for="item in legalPages">
+                              <a v-if="item.url==='' || item.url === null" v-bind:href="'/' + locale.code + '/' + item.slug">{{item.title}}</a>
+                              <a v-if="item.url!=='' && item.url !== null" v-bind:href="item.url">{{item.title}}</a>
+                            </li>
                         </ul>
                     </accordion>
                     <accordion>
@@ -47,10 +43,10 @@
                 </div>
                 <div class="wrap-soc-link">
                     <div class="soc-link">
-                        <a href="https://www.facebook.com/GreenPandaGames/" target="_blank"><img src="/src/assets/img/icn-facebook-grey.svg" alt=""></a>
+                        <a href="https://www.facebook.com/GreenPandaGames1/" target="_blank"><img src="/src/assets/img/icn-facebook-grey.svg" alt=""></a>
                         <a href="https://www.instagram.com/greenpandagame" target="_blank"><img src="/src/assets/img/icn-instagram-grey.svg" alt=""></a>
                         <a href="https://www.linkedin.com/company/green-panda-games/" target="_blank"><img src="/src/assets/img/icn-linkedin-grey.svg" alt=""></a>
-                        <a href="https://www.vk.com/green_panda_games/" target="_blank"><img src="/src/assets/img/icn-vk-grey.svg" alt=""></a>
+                        <a v-if="locale.code == 'ru'" href="https://www.vk.com/green_panda_games/" target="_blank"><img src="/src/assets/img/icn-vk-grey.svg" alt=""></a>
                     </div>
                     <div style="text-align: center">
                         <form class="select-lang-mobile">
@@ -93,17 +89,17 @@
                           <li><a v-bind:href="'/' + locale.code + '/jobs'" class="bold">+ {{$t("message.see_more")}}</a></li>
                         </ul>
                     </div>
-                    <div class="md-layout-item md-small-size-100 md-size-15">
-                        <div class="block-heading">{{$t("message.PRESS")}}</div>
-                        <ul>
-                            <li><a href="">{{$t("message.press_kit")}}</a></li>
-                        </ul>
-                    </div>
+                    <!--<div class="md-layout-item md-small-size-100 md-size-15">-->
+                        <!--<div class="block-heading">{{$t("message.PRESS")}}</div>-->
+                        <!--<ul>-->
+                            <!--<li><a href="">{{$t("message.press_kit")}}</a></li>-->
+                        <!--</ul>-->
+                    <!--</div>-->
                     <div class="md-layout-item md-small-size-100 md-size-15">
                         <div class="block-heading">{{$t("message.LEGAL")}}</div>
                         <ul>
                             <li v-for="item in legalPages">
-                              <a v-if="item.url==='' || item.url === null" v-bind:href="'/' + locale.code + '/legal/' + item.slug">{{item.title}}</a>
+                              <a v-if="item.url==='' || item.url === null" v-bind:href="'/' + locale.code + '/' + item.slug">{{item.title}}</a>
                               <a v-if="item.url!=='' && item.url !== null" v-bind:href="item.url">{{item.title}}</a>
                             </li>
 
@@ -155,6 +151,7 @@
                show: false,
                jobs: null,
                legalPages: null,
+               departments: [],
                locale: {code: 'en', label: 'English'},
            }
         },
@@ -191,10 +188,8 @@
           legalPage.loadItems(json => {
               this.legalPages = [];
               for(let i = 0; i < json.length; i++) {
-                this.legalPages.push(json[i]);
-
-                if (i === 3) {
-                  break;
+                if (json[i].status === 1) {
+                  this.legalPages.push(json[i]);
                 }
               }
           });
@@ -205,12 +200,23 @@
             this.jobs = [];
             for(let i = 0; i < json.length; i++) {
               this.jobs.push(json[i]);
-
-              if (i === 3) {
-                break;
-              }
             }
-          })
+          });
+
+          // job.updateJoongle(json => {
+          //   console.log(json);
+          //   this.jobs = json.jobs;
+          //
+          //   for(let i = 0; i < this.jobs.length; i++) {
+          //     //item.department.name
+          //     if (!this.departments.includes(this.jobs[i].department.name)) {
+          //       this.departments.push(this.jobs[i].department.name);
+          //     }
+          //
+          //     console.log(this.departments);
+          //   }
+          //
+          // });
         },
         computed: {
             currentLocale() {

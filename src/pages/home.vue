@@ -63,7 +63,7 @@
                         </card-game>
                     </div>
                     <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-large-size-25 md-xlarge-size-25">
-                        <card-game-all title="All games" v-bind:link="'/'+ locale + '/games'" target="_self">
+                        <card-game-all v-bind:title="$t('message.All_games')" v-bind:link="'/'+ locale + '/games'" target="_self">
                             <img srcset="/src/assets/img/games/preview_appstore.png 1x,
                                          /src/assets/img/games/preview_appstore@2x.png 2x"
                                  src="/src/assets/img/games/preview_appstore.png" v-bind:alt="$t('message.All_games')">
@@ -94,7 +94,7 @@
                 <div class="carousel-wrap">
                   <owl-carousel  v-if="testimonials.length > 0"  :items="1" :nav="false" :responsive="false" :center="true" class="carousel-1">
                     <div v-for="item in testimonials" class="carousel-item">
-                      <card-right-img v-bind:picture="backendUrl + 'admin/storage/' + item.image" v-bind:title="item.name" v-bind:msg="item.description" v-bind:position="item.signature" v-bind:project="item.game.name" style="box-shadow: none"></card-right-img>
+                      <card-right-img v-bind:picture="backendUrl + 'admin/storage/' + item.image" v-bind:title="item.name" v-bind:msg="item.description" v-bind:position="item.signature" v-bind:project="item.game ? item.game.name: ''" style="box-shadow: none"></card-right-img>
                     </div>
                   </owl-carousel>
                 </div>
@@ -464,7 +464,7 @@
         text-transform: none;
         padding: 0 8px;
         font-family: 'Open Sans', sans-serif;
-        font-weight: bold;
+        font-weight: normal;
         letter-spacing: 0.7px;
     }
     .btn-1 {

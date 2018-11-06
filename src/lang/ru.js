@@ -38,6 +38,7 @@ export default {
                 mobile_experts: 'эксперты',
                 Want_to_join_our_team: 'Хотите<br>присоединиться?',
                 Check_all_offers: 'Ознакомьтесь с предложениями',
-                Follow_us: 'Подписаться'
+                Follow_us: 'Подписаться',
+                See_on_the_Appstore: 'Перейти в Appstore'
         }
 }

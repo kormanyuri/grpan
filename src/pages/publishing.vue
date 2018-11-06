@@ -34,8 +34,8 @@
                     <div class="container">
                         <div class="group-card-1 md-small-hide">
                             <div v-bind:class="key % 2 ?'align-right':''" v-for="(item, key) in testimonials" v-bind:data="key%2">
-                                <card-right-img v-if="key % 2 === 0" class="max-w" v-bind:picture="backendUrl + 'admin/storage/' + item.image" v-bind:title="item.name" v-bind:msg="item.description" v-bind:position="item.signature" v-bind:project="item.game.name"></card-right-img>
-                                <card-left-img v-if="key % 2 === 1"  class="max-w" v-bind:picture="backendUrl + 'admin/storage/' + item.image"  v-bind:title="item.name" v-bind:msg="item.description" v-bind:osition="item.signature" v-bind:project="item.game.name"></card-left-img>
+                                <card-right-img v-if="key % 2 === 0" class="max-w" v-bind:picture="backendUrl + 'admin/storage/' + item.image" v-bind:title="item.name" v-bind:msg="item.description" v-bind:position="item.signature" v-bind:project="item.game ? item.game.name : ''"></card-right-img>
+                                <card-left-img v-if="key % 2 === 1"  class="max-w" v-bind:picture="backendUrl + 'admin/storage/' + item.image"  v-bind:title="item.name" v-bind:msg="item.description" v-bind:osition="item.signature" v-bind:project="item.game ? item.game.name : '' " ></card-left-img>
                             </div>
 
                         </div>
@@ -44,7 +44,7 @@
                     <div class="carousel-wrap">
                         <owl-carousel v-if="testimonials.length > 0" :items="1" :nav="false" :responsive="false" :center="true" class="carousel-1">
                             <div class="carousel-item" v-for="item in testimonials">
-                                <card-right-img v-bind:picture="backendUrl + 'admin/storage/' + item.image" v-bind:title="item.name" v-bind:msg="item.description" v-bind:position="item.signature" v-bind:project="item.game.name" style="box-shadow: none"></card-right-img>
+                                <card-right-img v-bind:picture="backendUrl + 'admin/storage/' + item.image" v-bind:title="item.name" v-bind:msg="item.description" v-bind:position="item.signature" v-bind:project="item.game ? item.game.name: ''" style="box-shadow: none"></card-right-img>
                             </div>
                         </owl-carousel>
                     </div>
@@ -103,8 +103,9 @@
 
                         <div class="form-footer">
                             <div class="md-layout">
-                                <div class="md-layout-item recaptcha-wrap">
-                                    <vue-recaptcha sitekey="6LcVgnUUAAAAANuF4NzYi8nWKhzsrbp59SrIgDaV" class="recaptcha"></vue-recaptcha>
+                                <div v-bind:class="capchaInput.error.show ? 'md-layout-item recaptcha-wrap md-invalid' : 'md-layout-item recaptcha-wrap'">
+                                    <span class="md-error" style="color: red">{{capchaInput.error.message}}</span>
+                                    <vue-recaptcha v-bind:sitekey="sitekey" class="recaptcha"></vue-recaptcha>
                                 </div>
                                 <div class="md-layout-item">
                                     <button-rectangle v-on:click="send">Submit</button-rectangle>
@@ -184,6 +185,13 @@
               show: false
             }
           },
+          capchaInput: {
+            value: '',
+            error: {
+              message: '',
+              show: false
+            }
+          },
           testimonials: [],
           gpgPerks: [],
           skype: '',
@@ -191,6 +199,7 @@
           staticContent: null,
           showDialog: false,
           backendUrl: config.backendUrl,
+          sitekey: config.sitekey,
           locale: ''
         }),
         created: function(){
@@ -231,6 +240,12 @@
               isValid = false;
             }
 
+            if(!grecaptcha.getResponse()) {
+              this.capchaInput.error.message = 'Capcha not verify';
+              this.capchaInput.error.show = true;
+              isValid = false;
+            }
+
             if (isValid) {
               const publicForm = new PublicForm({
                 name: this.name.value,
@@ -238,7 +253,8 @@
                 game_url: this.game_url,
                 email: this.email.value,
                 skype: this.skype,
-                message: this.message
+                message: this.message,
+                capcha: grecaptcha.getResponse()
               });
 
               publicForm.send(json => {
