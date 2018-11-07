@@ -180,7 +180,7 @@
                 this.email.error.message = 'Please enter your email';
                 this.email.error.show = true;
                 isValid = false;
-              } else if(this.validEmail(!this.email.value)) {
+              } else if(!this.validEmail(this.email.value)) {
                 this.email.error.message = 'Please enter valid email';
                 this.email.error.show = true;
                 isValid = false;
