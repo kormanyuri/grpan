@@ -40,6 +40,10 @@ export default {
                 Want_to_join_our_team: 'Want to join<br>our team?',
                 Check_all_offers: 'Check all offers',
                 Follow_us: 'Follow us',
-                See_on_the_Appstore: 'See on the Appstore'
+                See_on_the_Appstore: 'See on the Appstore',
+
+                Cookie_Policy: 'Cookie Policy',
+                Cookie_Policy_Text: 'We use cookies to give you the best experience on our website. By continuing to use our website without changing' +
+                                    '<br> your cookie settings, you agree to our use of cookies in accordance with our updated'
         }
 }

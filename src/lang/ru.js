@@ -39,6 +39,11 @@ export default {
                 Want_to_join_our_team: 'Хотите<br>присоединиться?',
                 Check_all_offers: 'Ознакомьтесь с предложениями',
                 Follow_us: 'Подписаться',
-                See_on_the_Appstore: 'Перейти в Appstore'
+                See_on_the_Appstore: 'Перейти в Appstore',
+
+                Cookie_Policy: 'Cookie Policy',
+                Cookie_Policy_Text: 'We use cookies to give you the best experience on our website. By continuing to use our website without changing' +
+                  '<br> your cookie settings, you agree to our use of cookies in accordance with our updated'
+
         }
 }

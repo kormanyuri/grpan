@@ -39,6 +39,10 @@ export default {
                 Want_to_join_our_team: 'Vous voulez rejoindre<br>notre équipe?',
                 Check_all_offers: 'Regarder toutes les offres',
                 Follow_us: 'Suivez nous',
-                See_on_the_Appstore: 'Voir sur l\'Appstore'
+                See_on_the_Appstore: 'Voir sur l\'Appstore',
+
+                Cookie_Policy: 'Cookie Policy',
+                Cookie_Policy_Text: 'We use cookies to give you the best experience on our website. By continuing to use our website without changing' +
+                  '<br> your cookie settings, you agree to our use of cookies in accordance with our updated'
         }
 }
