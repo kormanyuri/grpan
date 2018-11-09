@@ -28,14 +28,14 @@
 
                 <div>
                     <div class="section-head">
-                        Success story
+                        {{$t('message.Success_story')}}
                     </div>
 
                     <div class="container">
                         <div class="group-card-1 md-small-hide">
                             <div v-bind:class="key % 2 ?'align-right':''" v-for="(item, key) in testimonials" v-bind:data="key%2">
                                 <card-right-img v-if="key % 2 === 0" class="max-w" v-bind:picture="backendUrl + 'admin/storage/' + item.image" v-bind:title="item.name" v-bind:msg="item.description" v-bind:position="item.signature" v-bind:project="item.game ? item.game.name : ''"></card-right-img>
-                                <card-left-img v-if="key % 2 === 1"  class="max-w" v-bind:picture="backendUrl + 'admin/storage/' + item.image"  v-bind:title="item.name" v-bind:msg="item.description" v-bind:osition="item.signature" v-bind:project="item.game ? item.game.name : '' " ></card-left-img>
+                                <card-left-img v-if="key % 2 === 1"  class="max-w" v-bind:picture="backendUrl + 'admin/storage/' + item.image"  v-bind:title="item.name" v-bind:msg="item.description" v-bind:position="item.signature" v-bind:project="item.game ? item.game.name : '' " ></card-left-img>
                             </div>
 
                         </div>

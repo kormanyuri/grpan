@@ -62,7 +62,8 @@ export default {
                 Company_name: 'Company name',
                 Store_link: 'Store link',
                 SKYPE: 'SKYPE',
-                Tell_us_more_about_your_game: 'Tell us more about your game...'
+                Tell_us_more_about_your_game: 'Tell us more about your game...',
+                Success_story: 'Success story'
 
         }
 }
