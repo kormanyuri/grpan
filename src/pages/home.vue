@@ -276,10 +276,10 @@
               this.jobs = json.jobs;
             });
 
-          testimonial.update(json => {
-            console.log(json);
-            this.testimonials = json;
-          });
+            testimonial.update(json => {
+              console.log(json);
+              this.testimonials = json;
+            });
 
         },
         components: {
