@@ -43,7 +43,16 @@ export default {
 
                 Cookie_Policy: 'Cookie Policy',
                 Cookie_Policy_Text: 'We use cookies to give you the best experience on our website. By continuing to use our website without changing' +
-                  '<br> your cookie settings, you agree to our use of cookies in accordance with our updated'
+                  '<br> your cookie settings, you agree to our use of cookies in accordance with our updated',
+
+                Contact_us: 'Contact us',
+                GAME: '',
+                Choose_a_game: 'Choose a game',
+                NAME: 'NAME',
+                EMAIL: 'EMAIL',
+                MESSAGE: 'MESSAGE',
+                Submit: 'Submit',
+                Tell_us_more_our_game: 'Tell us more our game…'
 
         }
 }
