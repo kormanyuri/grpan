@@ -1,6 +1,6 @@
 export const config = {
-  backendUrl: 'http://greenpanda.ceant.net/',
+  backendUrl: 'https://greenpandagames.com/',
   organizationReference: '8Vgz2M1',
   enableMultiLanguage: true,
-  sitekey: '6LcVgnUUAAAAANuF4NzYi8nWKhzsrbp59SrIgDaV'
+  sitekey: '6LfJ93cUAAAAAPW6ELmmZsHgsa0eutsFfewshMBa'
 };
