@@ -54,12 +54,12 @@
 
             <section class="section-3 container">
                 <div class="form">
-                    <div class="form-head" id="want-to-work-with-us-form">Want to work with us?</div>
+                    <div class="form-head" id="want-to-work-with-us-form">{{$t('message.Want_to_work_with_us')}}</div>
                     <form action="">
                         <div class="md-layout md-gutter">
                             <div class="md-layout-item md-small-size-100 md-large-size-50 md-xlarge-size-50">
                                 <md-field v-bind:class="name.error.show ? 'md-invalid' : ''">
-                                    <label>NAME</label>
+                                    <label>{{$t('message.NAME')}}</label>
                                     <md-input required placeholder="John Doe" v-model="name.value"></md-input>
                                     <span class="md-error">{{name.error.message}}</span>
                                 </md-field>
@@ -69,33 +69,33 @@
                             </div>
                             <div class="md-layout-item md-small-size-100 md-large-size-50 md-xlarge-size-50">
                                 <md-field>
-                                    <label>COMPANY</label>
-                                    <md-input placeholder="Company name" v-model="company"></md-input>
+                                    <label>{{$t('message.COMPANY')}}</label>
+                                    <md-input v-bind:placeholder="$t('message.Company_name')" v-model="company"></md-input>
                                 </md-field>
                             </div>
                             <div class="md-layout-item md-small-size-100 md-large-size-50 md-xlarge-size-50">
                                 <md-field>
-                                    <label>GAME URL</label>
-                                    <md-input placeholder="Store link" v-model="game_url"></md-input>
+                                    <label>{{$t('message.GAME_URL')}}</label>
+                                    <md-input v-bind:placeholder="$t('message.Store_link')" v-model="game_url"></md-input>
                                 </md-field>
                             </div>
                             <div class="md-layout-item md-small-size-100 md-large-size-50 md-xlarge-size-50">
                                 <md-field v-bind:class="email.error.show ? 'md-invalid' : ''">
-                                    <label>EMAIL</label>
+                                    <label>{{$t('message.EMAIL')}}</label>
                                     <md-input type="email" required placeholder="name@societe.com" v-model="email.value"></md-input>
                                     <span class="md-error">{{email.error.message}}</span>
                                 </md-field>
                             </div>
                             <div class="md-layout-item md-small-size-100 md-large-size-50 md-xlarge-size-50">
                                 <md-field>
-                                    <label>SKYPE</label>
+                                    <label>{{$t('message.SKYPE')}}</label>
                                     <md-input placeholder="@societe" v-model="skype"></md-input>
                                 </md-field>
                             </div>
                             <div class="md-layout-item md-size-100">
                                 <md-field>
-                                    <label>MESSAGE</label>
-                                    <md-textarea required placeholder="Tell us more about your game…" v-model="message"></md-textarea>
+                                    <label>{{$t('message.MESSAGE')}}</label>
+                                    <md-textarea required v-bind:placeholder="$t('message.Tell_us_more_about_your_game')" v-model="message"></md-textarea>
                                     <span class="md-error">There is error</span>
                                 </md-field>
                             </div>
@@ -108,7 +108,7 @@
                                     <vue-recaptcha v-bind:sitekey="sitekey" class="recaptcha"></vue-recaptcha>
                                 </div>
                                 <div class="md-layout-item">
-                                    <button-rectangle v-on:click="send">Submit</button-rectangle>
+                                    <button-rectangle v-on:click="send">{{$t('message.Submit')}}</button-rectangle>
                                 </div>
                             </div>
                         </div>

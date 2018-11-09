@@ -52,6 +52,14 @@ export default {
                 EMAIL: 'EMAIL',
                 MESSAGE: 'MESSAGE',
                 Submit: 'Submit',
-                Tell_us_more_our_game: 'Tell us more our game…'
+                Tell_us_more_our_game: 'Tell us more our game…',
+
+                Want_to_work_with_us: 'Want to work with us?',
+                COMPANY: 'COMPANY',
+                GAME_URL: 'GAME URL',
+                Company_name: 'Company name',
+                Store_link: 'Store link',
+                SKYPE: 'SKYPE',
+                Tell_us_more_about_your_game: 'Tell us more about your game...'
         }
 }
