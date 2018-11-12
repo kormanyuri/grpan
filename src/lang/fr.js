@@ -40,7 +40,7 @@ export default {
                 Want_to_join_our_team: 'Vous voulez rejoindre<br>notre équipe?',
                 Check_all_offers: 'Regarder toutes les offres',
                 Follow_us: 'Suivez-nous',
-                See_on_the_Appstore: "Voir sur l'Appstore"
+                See_on_the_Appstore: "Voir sur l'Appstore",
 
                 Cookie_Policy_Text: 'Nous utilisons des cookies pour vous garantir la meilleure expérience sur notre site. En continuant d’utiliser notre site sans changer'+
                 					'<br> vos paramètres, vous acceptez d’utiliser nos cookies en accord avec notre',
