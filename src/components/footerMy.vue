@@ -174,8 +174,8 @@
         updated(){
           if (this.$router.currentRoute.hash !== "") {
             setTimeout(() => {
-              this.$scrollTo(this.$router.currentRoute.hash, 1000, {offset: -120});
-            }, 100);
+              this.$scrollTo(this.$router.currentRoute.hash, 500, {offset: -120});
+            }, 500);
 
           }
         },
