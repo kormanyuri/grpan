@@ -197,12 +197,8 @@
 
     //reload page afrer resize
     window.onresize = function(event) {
-      console.log(width, window.innerWidth);
-      console.log(height, window.innerHeight);
 
       if (width !== window.innerWidth) {
-          location.reload()
-      } else if (height !== width.innerHeight) {
           location.reload()
       }
         //location.reload();
