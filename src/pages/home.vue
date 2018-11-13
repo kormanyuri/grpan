@@ -192,9 +192,20 @@
         return { x: xPosition, y: yPosition };
     }
 
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
     //reload page afrer resize
     window.onresize = function(event) {
-        location.reload();
+      console.log(width, window.innerWidth);
+      console.log(height, window.innerHeight);
+
+      if (width !== window.innerWidth) {
+          location.reload()
+      } else if (height !== width.innerHeight) {
+          location.reload()
+      }
+        //location.reload();
     };
 
     export default {
@@ -252,15 +263,14 @@
             const staticContent = new StaticContent(parser.route, parser.locale);
 
             game.update(json => {
-              for (let i = 0; i < json.length; i++ ) {
-                this.games.push({
-                  name: json[i].name,
-                  image: json[i].image,
-                  url: json[i].url,
-                  category: json[i].category
-                });
-              }
-
+                for (let i = 0; i < json.length; i++ ) {
+                    this.games.push({
+                        name: json[i].name,
+                        image: json[i].image,
+                        url: json[i].url,
+                        category: json[i].category
+                    });
+                }
             });
 
             staticContent.update(json => {
