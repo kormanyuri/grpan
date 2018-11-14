@@ -60,6 +60,10 @@ export default {
                 Store_link: 'Lien de la page store',
                 SKYPE: 'SKYPE',
                 Tell_us_more_about_your_game: 'Dites-nous en plus à propos de votre jeu...',
-                Success_story: 'Success story'                    
+                Success_story: 'Success story',
+
+                product: "Product",
+                marketing_monetisation: "Marketing",
+                business_development: "Business"
         }
 }

@@ -75,11 +75,11 @@
                     <div class="md-layout-item md-small-size-100 md-size-15">
                         <div class="block-heading">{{$t("message.JOBS")}}</div>
                         <ul v-if="this.$router.currentRoute.name !== 'jobs'">
-                            <li><a v-bind:href="'/' + locale.code + '/jobs#business'">{{$t("message.Business")}}</a></li>
-                            <li><a v-bind:href="'/' + locale.code + '/jobs#marketing'">{{$t("message.Marketing")}}</a></li>
-                            <li><a v-bind:href="'/' + locale.code + '/jobs#product'">{{$t("message.Product")}}</a></li>
-                            <li><a v-bind:href="'/' + locale.code + '/jobs#human-resources'">{{$t("message.Human_resources")}}</a></li>
-                            <li><a v-bind:href="'/' + locale.code + '/jobs'" class="bold">+ {{$t("message.see_more")}}</a></li>
+                            <li v-for="department in departments"><a v-bind:href="'/' + locale.code + '/jobs#' + department.slug">{{ $t("message." + department.slug)}}</a></li>
+                            <!--<li><a v-bind:href="'/' + locale.code + '/jobs#marketing'">{{$t("message.Marketing")}}</a></li>-->
+                            <!--<li><a v-bind:href="'/' + locale.code + '/jobs#product'">{{$t("message.Product")}}</a></li>-->
+                            <!--<li><a v-bind:href="'/' + locale.code + '/jobs#human-resources'">{{$t("message.Human_resources")}}</a></li>-->
+                            <!--<li><a v-bind:href="'/' + locale.code + '/jobs'" class="bold">+ {{$t("message.see_more")}}</a></li>-->
                         </ul>
                         <ul v-if="this.$router.currentRoute.name === 'jobs'">
                           <li><a href="#" v-scroll-to="{el: '#business', offset: -100}">{{$t("message.Business")}}</a></li>
@@ -203,20 +203,26 @@
             }
           });
 
-          // job.updateJoongle(json => {
-          //   console.log(json);
-          //   this.jobs = json.jobs;
-          //
-          //   for(let i = 0; i < this.jobs.length; i++) {
-          //     //item.department.name
-          //     if (!this.departments.includes(this.jobs[i].department.name)) {
-          //       this.departments.push(this.jobs[i].department.name);
-          //     }
-          //
-          //     console.log(this.departments);
-          //   }
-          //
-          // });
+          job.updateJoongle(json => {
+            //console.log(json);
+            this.jobs = json.jobs;
+            const compareArray = [];
+
+            for(let i = 0; i < this.jobs.length; i++) {
+              //item.department.name
+
+              if (!compareArray.includes(this.jobs[i].department.id)) {
+                this.departments.push({
+                  slug: this.jobs[i].department.name.replace(/[\W]+/, '_').toLowerCase(),
+                  name: this.jobs[i].department.name
+                });
+                compareArray.push(this.jobs[i].department.id);
+              }
+
+
+            }
+            console.log(this.departments);
+          });
         },
         computed: {
             currentLocale() {

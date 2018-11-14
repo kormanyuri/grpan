@@ -8,10 +8,10 @@
             <header-my v-if="staticContent" v-bind:title="staticContent.header.title" v-bind:subtitle="staticContent.header.text" class="header-my"></header-my>
 
             <section class="nav-in-page">
-                <a href="#" v-scroll-to="'#business'">
+                <a href="#" v-scroll-to="'#business_development'">
                     <img src="/src/assets/img/icn-business.svg" alt="">{{$t('message.Business')}}
                 </a>
-                <a href="#" v-scroll-to="'#marketing'">
+                <a href="#" v-scroll-to="'#marketing_monetisation'">
                     <img src="/src/assets/img/icn-marketing.svg" alt="">{{$t('message.Marketing')}}
                 </a>
                 <a href="#" v-scroll-to="'#product'">
@@ -23,14 +23,14 @@
             </section>
 
             <section class="section-1 container">
-                <card-group-jobs v-if="departments.includes('Business Development')" id="business" title="Business" ico="/src/assets/img/icn-business.svg">
+                <card-group-jobs v-if="departments.includes('Business Development')" id="business_development" title="Business" ico="/src/assets/img/icn-business.svg">
                     <div class="md-layout wrap-join-our-team">
                         <div v-for="item in jobs" v-if="item.department && item.department.name==='Business Development'" class="md-layout-item md-small-size-100 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
                             <card-vacancy v-bind:vacancy="item.name" v-bind:location="item.office.city" v-bind:link="item.websites_urls[0].url"></card-vacancy>
                         </div>
                     </div>
                 </card-group-jobs>
-                <card-group-jobs v-if="departments.includes('Marketing & Monetisation')" id="marketing" title="Marketing" ico="/src/assets/img/icn-marketing.svg">
+                <card-group-jobs v-if="departments.includes('Marketing & Monetisation')" id="marketing_monetisation" title="Marketing" ico="/src/assets/img/icn-marketing.svg">
                     <div class="md-layout wrap-join-our-team">
                       <div v-for="item in jobs" v-if="item.department && item.department.name==='Marketing & Monetisation'" class="md-layout-item md-small-size-100 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
                         <card-vacancy v-bind:vacancy="item.name" v-bind:location="item.office.city" v-bind:link="item.websites_urls[0].url"></card-vacancy>
@@ -116,9 +116,8 @@
                 this.departments.push(this.jobs[i].department.name);
               }
 
-              console.log(this.departments);
-            }
 
+            }
           });
 
           this.locale = parser.locale;
