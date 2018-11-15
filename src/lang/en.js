@@ -67,7 +67,8 @@ export default {
 
                 product: "Product",
                 marketing_monetisation: "Marketing",
-                business_development: "Business"
+                business_development: "Business",
+                optional: 'optional'
 
         }
 }

@@ -69,13 +69,13 @@
                             </div>
                             <div class="md-layout-item md-small-size-100 md-large-size-50 md-xlarge-size-50">
                                 <md-field>
-                                    <label>{{$t('message.COMPANY')}}</label>
+                                    <label>{{$t('message.COMPANY')}}<span style="font-weight: 300"> ({{$t('message.optional')}})</span></label>
                                     <md-input v-bind:placeholder="$t('message.Company_name')" v-model="company"></md-input>
                                 </md-field>
                             </div>
                             <div class="md-layout-item md-small-size-100 md-large-size-50 md-xlarge-size-50">
                                 <md-field>
-                                    <label>{{$t('message.GAME_URL')}}</label>
+                                    <label>{{$t('message.GAME_URL')}}<span style="font-weight: 300"> ({{$t('message.optional')}})</span></label>
                                     <md-input v-bind:placeholder="$t('message.Store_link')" v-model="game_url"></md-input>
                                 </md-field>
                             </div>
@@ -88,7 +88,7 @@
                             </div>
                             <div class="md-layout-item md-small-size-100 md-large-size-50 md-xlarge-size-50">
                                 <md-field>
-                                    <label>{{$t('message.SKYPE')}}</label>
+                                    <label>{{$t('message.SKYPE')}}<span style="font-weight: 300"> ({{$t('message.optional')}})</span></label>
                                     <md-input placeholder="@societe" v-model="skype"></md-input>
                                 </md-field>
                             </div>
@@ -449,10 +449,6 @@
         }
         .md-focused textarea {
             padding-top: 15px;
-        }
-        .md-field label:after {
-            content: ' (optional)';
-            font-weight: 300;
         }
         .md-field.md-required label:after {
             display: none;

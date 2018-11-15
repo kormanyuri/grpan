@@ -65,7 +65,8 @@ export default {
 
                 product: "Разработка",
                 marketing_monetisation: "Маркетинг",
-                business_development: "Бизнес"
+                business_development: "Бизнес",
+                optional: 'не обязательное поле'
 
         }
 }
