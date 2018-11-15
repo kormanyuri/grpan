@@ -18,11 +18,8 @@
                     <accordion>
                         <div slot="header" class="block-heading">{{$t("message.JOBS")}}</div>
                         <ul>
-                            <li><a v-bind:href="'/' + locale.code + '/jobs#business'">{{$t("message.Business")}}</a></li>
-                            <li><a v-bind:href="'/' + locale.code + '/jobs#marketing'">{{$t("message.Marketing")}}</a></li>
-                            <li><a v-bind:href="'/' + locale.code + '/jobs#product'">{{$t("message.Product")}}</a></li>
-                            <li><a v-bind:href="'/' + locale.code + '/jobs#human-resources'">{{$t("message.Human_resources")}}</a></li>
-                            <li><a v-bind:href="'/' + locale.code + '/jobs'"  class="bold">+ {{$t("message.see_more")}}</a></li>
+                          <li v-for="department in departments"><a v-bind:href="'/' + locale.code + '/jobs#' + department.slug">{{ $t("message." + department.slug)}}</a></li>
+                          <li><a v-bind:href="'/' + locale.code + '/jobs'"  class="bold">+ {{$t("message.see_more")}}</a></li>
                         </ul>
                     </accordion>
                     <accordion>
@@ -82,10 +79,7 @@
                             <!--<li><a v-bind:href="'/' + locale.code + '/jobs'" class="bold">+ {{$t("message.see_more")}}</a></li>-->
                         </ul>
                         <ul v-if="this.$router.currentRoute.name === 'jobs'">
-                          <li><a href="#" v-scroll-to="{el: '#business', offset: -100}">{{$t("message.Business")}}</a></li>
-                          <li><a href="#" v-scroll-to="{el: '#marketing', offset: -100}">{{$t("message.Marketing")}}</a></li>
-                          <li><a href="#" v-scroll-to="{el: '#product', offset: -100}">{{$t("message.Product")}}</a></li>
-                          <li><a href="#" v-scroll-to="{el: '#human-resources', offset: -100}">{{$t("message.Human_resources")}}</a></li>
+                          <li v-for="department in departments"><a href="#" v-scroll-to="{el: '#' + department.slug, offset: -100}">{{ $t("message." + department.slug)}}</a></li>
                           <li><a v-bind:href="'/' + locale.code + '/jobs'" class="bold">+ {{$t("message.see_more")}}</a></li>
                         </ul>
                     </div>
