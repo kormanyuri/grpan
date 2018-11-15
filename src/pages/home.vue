@@ -115,7 +115,7 @@
                         <div class="carousel-item" style="margin-left: 24px">
                             <div class="join-our-team">
                                 <img src="/src/assets/img/illu_join_team.png" alt="join team">
-                                <div v-html="$t('message.Want_to_join_our_team')"></div>
+                                <div v-html="$t('message.Want_to_join_our_team')" style="font-size: 1.01rem"></div>
                             </div>
                         </div>
                         <div v-for="item in jobs" class="carousel-item">
