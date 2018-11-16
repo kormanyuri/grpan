@@ -1,7 +1,7 @@
 <template>
     <div class="page-container">
 
-        <main-menu></main-menu>
+        <main-menu class="main-menu"></main-menu>
 
         <div id="jobs">
 
@@ -136,6 +136,9 @@
     }
 
     @media (max-width: 960px) {
+        .main-menu {
+            visibility: hidden;
+        }
         .header-my {
             padding-top: 125px;
             margin-bottom: 7px;

@@ -11,3 +11,6 @@ yarn-error.log
 *.njsproj
 *.sln
 .idea/
+Dockerfile
+web.Dockerfile
+vhost.conf
