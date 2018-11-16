@@ -137,10 +137,12 @@
 
     @media (max-width: 960px) {
         .main-menu {
-            visibility: hidden;
+            display: none;
         }
         .header-my {
-            visibility: hidden;
+            display: none;
+            padding-top: 125px;
+            margin-bottom: 7px;
         }
         .nav-in-page {
             display: block;
