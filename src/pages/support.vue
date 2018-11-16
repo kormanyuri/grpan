@@ -9,13 +9,13 @@
 
             <section class="section-3 container">
                 <div class="form">
-                    <div class="form-head">Contact us</div>
+                    <div class="form-head">{{$t('message.Contact_us')}}</div>
                     <form action="">
                         <div class="md-layout">
                             <div class="md-layout-item md-small-size-100 md-large-size-50 md-xlarge-size-50">
                                 <md-field v-if="games.length > 0">
-                                    <label>GAME</label>
-                                    <md-select md-dense required placeholder="Choose a game" v-model="game">
+                                    <label>{{$t('message.GAME')}}</label>
+                                    <md-select md-dense required v-bind:placeholder="$t('message.Choose_a_game')" v-model="game">
                                       <md-option v-for="item in games" v-bind:value="item.name">{{item.name}}</md-option>
                                     </md-select>
                                     <span class="md-error">{{gameInput.error.message}}</span>
@@ -24,22 +24,22 @@
                             <div class="md-layout-item md-size-50 md-small-hide"></div>
                             <div class="md-layout-item md-small-size-100 md-large-size-50 md-xlarge-size-50">
                                 <md-field v-bind:class="name.error.show ? 'md-invalid' : ''">
-                                    <label>NAME</label>
+                                    <label>{{$t('message.NAME')}}</label>
                                     <md-input required placeholder="John Doe" v-model="name.value"></md-input>
                                     <span class="md-error">{{name.error.message}}</span>
                                 </md-field>
                             </div>
                             <div class="md-layout-item md-small-size-100 md-large-size-50 md-xlarge-size-50 mrgn-b">
                                 <md-field v-bind:class="email.error.show ? 'md-invalid' : ''">
-                                    <label>EMAIL</label>
+                                    <label>{{$t('message.EMAIL')}}</label>
                                     <md-input type="email" required placeholder="name@societe.com" v-model="email.value"></md-input>
                                     <span class="md-error">{{email.error.message}}</span>
                                 </md-field>
                             </div>
                             <div class="md-layout-item md-size-100 mssg">
                                 <md-field v-bind:class="messageInput.error.show ? 'md-invalid' : ''">
-                                    <label>MESSAGE</label>
-                                    <md-textarea required placeholder="Tell us more our game…" v-model="message"></md-textarea>
+                                    <label>{{$t('message.MESSAGE')}}</label>
+                                    <md-textarea required v-bind:placeholder="$t('message.Tell_us_more_our_game')" v-model="message"></md-textarea>
                                     <span class="md-error">{{messageInput.error.message}}</span>
                                 </md-field>
                             </div>
@@ -52,7 +52,7 @@
 
                             </div>
                             <div class="md-layout-item">
-                              <button-rectangle v-on:click="send">Submit</button-rectangle>
+                              <button-rectangle v-on:click="send">{{$t('message.Submit')}}</button-rectangle>
                             </div>
                           </div>
                         </div>
@@ -164,59 +164,77 @@
 
         },
         methods: {
-          send: function(){
-            //alert(this.name);
-            let isValid = true;
+            send: function(){
+              //alert(this.name);
+              let isValid = true;
 
-            if (this.name.value === '') {
-              this.name.error.message = 'Please enter your name';
-              this.name.error.show = true;
-              isValid = false;
+              if (this.name.value === '') {
+                this.name.error.message = 'Please enter your name';
+                this.name.error.show = true;
+                isValid = false;
+              } else {
+                this.name.error.show = false;
+              }
+
+              if (this.email.value === '') {
+                this.email.error.message = 'Please enter your email';
+                this.email.error.show = true;
+                isValid = false;
+              } else if(!this.validEmail(this.email.value)) {
+                this.email.error.message = 'Please enter valid email';
+                this.email.error.show = true;
+                isValid = false;
+              } else {
+                this.email.error.show = false;
+              }
+
+              if (this.game === '') {
+                this.gameInput.error.message = 'Please select game';
+                this.gameInput.error.show = true;
+                isValid = false
+              } else {
+                this.gameInput.error.show = false;
+              }
+
+              if (this.message === '') {
+                this.messageInput.error.message = 'Please enter message';
+                this.messageInput.error.show = true;
+                isValid = false
+              } else {
+                this.messageInput.error.show = false;
+              }
+
+              if(!grecaptcha.getResponse()) {
+                this.capchaInput.error.message = 'Capcha not verify';
+                this.capchaInput.error.show = true;
+                isValid = false;
+              } else {
+                this.capchaInput.error.show = false;
+              }
+
+              if (isValid) {
+
+                const contactUsForm = new ContactUsForm({
+                  game: this.game,
+                  name: this.name.value,
+                  email: this.email.value,
+                  message: this.message,
+                  capcha: grecaptcha.getResponse()
+                });
+
+                contactUsForm.send(json => {
+                  this.showDialog = true;
+                  this.name.value = '';
+                  this.email.value = '';
+                  this.message = '';
+                  console.log(json);
+                });
+              }
+            },
+            validEmail: function (email) {
+              const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+              return re.test(email);
             }
-
-            if (this.email.value === '') {
-              this.email.error.message = 'Please enter your email';
-              this.email.error.show = true;
-              isValid = false;
-            }
-
-            if (this.game === '') {
-              this.gameInput.error.message = 'Please select game';
-              this.gameInput.error.show = true;
-              isValid = false
-            }
-
-            if (this.message === '') {
-              this.messageInput.error.message = 'Please enter message';
-              this.messageInput.error.show = true;
-              isValid = false
-            }
-
-            if(!grecaptcha.getResponse()) {
-              this.capchaInput.error.message = 'Capcha not verify';
-              this.capchaInput.error.show = true;
-              isValid = false;
-            }
-
-            if (isValid) {
-
-              const contactUsForm = new ContactUsForm({
-                game: this.game,
-                name: this.name.value,
-                email: this.email.value,
-                message: this.message,
-                capcha: grecaptcha.getResponse()
-              });
-
-              contactUsForm.send(json => {
-                this.showDialog = true;
-                this.name.value = '';
-                this.email.value = '';
-                this.message = '';
-                console.log(json);
-              });
-            }
-          }
         }
 
     }

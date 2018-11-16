@@ -16,7 +16,7 @@
                         <div v-for="item in games" v-if="item.category.id == 1" class="md-layout-item md-xsmall-size-50 md-small-size-25 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
                             <card-game v-bind:title="item.name" v-bind:link="item.url">
                                 <img v-bind:srcset="backendUrl + 'admin/storage/' + item.image + ' 1x,'+
-                                             backendUrl + 'admin/storage/' + item.image +' 2x'"
+                                             backendUrl + 'admin/storage/' + (item.image_2x ? item.image_2x : item.image) +' 2x'"
                                      v-bind:src="backendUrl + 'admin/storage/' + item.image" v-bind:alt="item.name">
                             </card-game>
                         </div>
@@ -42,12 +42,12 @@
                         <div v-for="item in games" v-if="item.category.id == 2" class="md-layout-item md-xsmall-size-50 md-small-size-25 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
                             <card-game v-bind:title="item.name" v-bind:link="item.url">
                               <img v-bind:srcset="backendUrl + 'admin/storage/' + item.image + ' 1x,'+
-                                             backendUrl + 'admin/storage/' + item.image +' 2x'"
+                                             backendUrl + 'admin/storage/' + (item.image_2x ? item.image_2x : item.image) +' 2x'"
                                    v-bind:src="backendUrl + 'admin/storage/' + item.image" v-bind:alt="item.name">                            </card-game>
                         </div>
 
                         <div class="md-layout-item md-xsmall-size-50 md-small-size-25 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
-                            <card-game-all title="See on the Appstore"  v-bind:link="settings.app_store_url" target="_blank">
+                            <card-game-all v-bind:title="$t('message.See_on_the_Appstore')"  v-bind:link="settings.app_store_url" target="_blank">
                                 <img srcset="/src/assets/img/games/preview_appstore.png 1x,
                                              /src/assets/img/games/preview_appstore@2x.png 2x"
                                      src="/src/assets/img/games/preview_appstore.png" v-bind:alt="$t('message.All_games')"/>

@@ -28,14 +28,14 @@
 
                 <div>
                     <div class="section-head">
-                        Success story
+                        {{$t('message.Success_story')}}
                     </div>
 
                     <div class="container">
                         <div class="group-card-1 md-small-hide">
                             <div v-bind:class="key % 2 ?'align-right':''" v-for="(item, key) in testimonials" v-bind:data="key%2">
                                 <card-right-img v-if="key % 2 === 0" class="max-w" v-bind:picture="backendUrl + 'admin/storage/' + item.image" v-bind:title="item.name" v-bind:msg="item.description" v-bind:position="item.signature" v-bind:project="item.game ? item.game.name : ''"></card-right-img>
-                                <card-left-img v-if="key % 2 === 1"  class="max-w" v-bind:picture="backendUrl + 'admin/storage/' + item.image"  v-bind:title="item.name" v-bind:msg="item.description" v-bind:osition="item.signature" v-bind:project="item.game ? item.game.name : '' " ></card-left-img>
+                                <card-left-img v-if="key % 2 === 1"  class="max-w" v-bind:picture="backendUrl + 'admin/storage/' + item.image"  v-bind:title="item.name" v-bind:msg="item.description" v-bind:position="item.signature" v-bind:project="item.game ? item.game.name : '' " ></card-left-img>
                             </div>
 
                         </div>
@@ -54,12 +54,12 @@
 
             <section class="section-3 container">
                 <div class="form">
-                    <div class="form-head" id="want-to-work-with-us-form">Want to work with us?</div>
+                    <div class="form-head" id="want-to-work-with-us-form">{{$t('message.Want_to_work_with_us')}}</div>
                     <form action="">
                         <div class="md-layout md-gutter">
                             <div class="md-layout-item md-small-size-100 md-large-size-50 md-xlarge-size-50">
                                 <md-field v-bind:class="name.error.show ? 'md-invalid' : ''">
-                                    <label>NAME</label>
+                                    <label>{{$t('message.NAME')}}</label>
                                     <md-input required placeholder="John Doe" v-model="name.value"></md-input>
                                     <span class="md-error">{{name.error.message}}</span>
                                 </md-field>
@@ -69,34 +69,34 @@
                             </div>
                             <div class="md-layout-item md-small-size-100 md-large-size-50 md-xlarge-size-50">
                                 <md-field>
-                                    <label>COMPANY</label>
-                                    <md-input placeholder="Company name" v-model="company"></md-input>
+                                    <label>{{$t('message.COMPANY')}}<span style="font-weight: 300"> ({{$t('message.optional')}})</span></label>
+                                    <md-input v-bind:placeholder="$t('message.Company_name')" v-model="company"></md-input>
                                 </md-field>
                             </div>
                             <div class="md-layout-item md-small-size-100 md-large-size-50 md-xlarge-size-50">
                                 <md-field>
-                                    <label>GAME URL</label>
-                                    <md-input placeholder="Store link" v-model="game_url"></md-input>
+                                    <label>{{$t('message.GAME_URL')}}<span style="font-weight: 300"> ({{$t('message.optional')}})</span></label>
+                                    <md-input v-bind:placeholder="$t('message.Store_link')" v-model="game_url"></md-input>
                                 </md-field>
                             </div>
                             <div class="md-layout-item md-small-size-100 md-large-size-50 md-xlarge-size-50">
                                 <md-field v-bind:class="email.error.show ? 'md-invalid' : ''">
-                                    <label>EMAIL</label>
+                                    <label>{{$t('message.EMAIL')}}</label>
                                     <md-input type="email" required placeholder="name@societe.com" v-model="email.value"></md-input>
-                                    <span class="md-error">There is an error</span>
+                                    <span class="md-error">{{email.error.message}}</span>
                                 </md-field>
                             </div>
                             <div class="md-layout-item md-small-size-100 md-large-size-50 md-xlarge-size-50">
                                 <md-field>
-                                    <label>SKYPE</label>
-                                    <md-input placeholder="name@societe.com" v-model="skype"></md-input>
+                                    <label>{{$t('message.SKYPE')}}<span style="font-weight: 300"> ({{$t('message.optional')}})</span></label>
+                                    <md-input placeholder="@societe" v-model="skype"></md-input>
                                 </md-field>
                             </div>
                             <div class="md-layout-item md-size-100">
                                 <md-field>
-                                    <label>MESSAGE</label>
-                                    <md-textarea required placeholder="Tell us more about your game…" v-model="message"></md-textarea>
-                                    <span class="md-error">There is an error</span>
+                                    <label>{{$t('message.MESSAGE')}}</label>
+                                    <md-textarea required v-bind:placeholder="$t('message.Tell_us_more_about_your_game')" v-model="message"></md-textarea>
+                                    <span class="md-error">There is error</span>
                                 </md-field>
                             </div>
                         </div>
@@ -108,7 +108,7 @@
                                     <vue-recaptcha v-bind:sitekey="sitekey" class="recaptcha"></vue-recaptcha>
                                 </div>
                                 <div class="md-layout-item">
-                                    <button-rectangle v-on:click="send">Submit</button-rectangle>
+                                    <button-rectangle v-on:click="send">{{$t('message.Submit')}}</button-rectangle>
                                 </div>
                             </div>
                         </div>
@@ -232,18 +232,28 @@
               this.name.error.message = 'Please enter your name';
               this.name.error.show = true;
               isValid = false;
+            } else {
+              this.name.error.show = false;
             }
 
             if (this.email.value === '') {
               this.email.error.message = 'Please enter your email';
               this.email.error.show = true;
               isValid = false;
+            } else if (!this.validEmail(this.email.value)) {
+              this.email.error.message = 'Please enter valid email';
+              this.email.error.show = true;
+              isValid = false;
+            } else {
+              this.email.error.show = false;
             }
 
             if(!grecaptcha.getResponse()) {
               this.capchaInput.error.message = 'Capcha not verify';
               this.capchaInput.error.show = true;
               isValid = false;
+            } else {
+              this.capchaInput.error.show = false;
             }
 
             if (isValid) {
@@ -268,6 +278,10 @@
                 console.log(json);
               });
             }
+          },
+          validEmail: function (email) {
+            const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(email);
           }
         }
 
@@ -435,10 +449,6 @@
         }
         .md-focused textarea {
             padding-top: 15px;
-        }
-        .md-field label:after {
-            content: ' (optional)';
-            font-weight: 300;
         }
         .md-field.md-required label:after {
             display: none;

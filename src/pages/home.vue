@@ -58,7 +58,7 @@
                 <div class="md-layout grid-card-games" >
                     <div v-for="item in games" v-if="item.category.id == 1" class="md-layout-item md-xsmall-size-50 md-small-size-25 md-medium-size-25 md-large-size-25 md-xlarge-size-25">
                         <card-game v-bind:title="item.name" v-bind:link="item.url">
-                            <img v-bind:srcset="backendUrl + 'admin/storage/' + item.image + ' 1x, ' + backendUrl + 'admin/storage/'+item.image + ' 2x'"
+                            <img v-bind:srcset="backendUrl + 'admin/storage/' + item.image + ' 1x, ' + backendUrl + 'admin/storage/'+(item.image_2x ? item.image_2x : item.image) + ' 2x'"
                                  v-bind:src="backendUrl + 'admin/storage/' + item.image" v-bind:alt="item.name">
                         </card-game>
                     </div>
@@ -86,8 +86,14 @@
                         </router-link>
                     </div>
                 </div>
-                <img src="/src/assets/img/illu_our_story.png" class="mountains md-small-hide">
-                <img src="/src/assets/img/illu_our_story_copter.png" class="copter md-small-hide">
+                <img srcset="/src/assets/img/illu_our_story.png 1x,
+                                         /src/assets/img/illu_our_story@2x.png 2x"
+                     src="/src/assets/img/illu_our_story.png" class="mountains md-small-hide">
+                <img srcset="/src/assets/img/illu_our_story_copter.png 1x,
+                                         /src/assets/img/illu_our_story_copter@2x.png 2x"
+                     src="/src/assets/img/illu_our_story_copter.png" class="copter md-small-hide">
+                <!--<img src="/src/assets/img/illu_our_story.png" class="mountains md-small-hide">-->
+                <!--<img src="/src/assets/img/illu_our_story_copter@2x.png" class="copter md-small-hide">-->
             </section>
 
             <section id="section-5">
@@ -109,7 +115,7 @@
                         <div class="carousel-item" style="margin-left: 24px">
                             <div class="join-our-team">
                                 <img src="/src/assets/img/illu_join_team.png" alt="join team">
-                                <div v-html="$t('message.Want_to_join_our_team')"></div>
+                                <div v-html="$t('message.Want_to_join_our_team')" style="font-size: 1.01rem"></div>
                             </div>
                         </div>
                         <div v-for="item in jobs" class="carousel-item">
@@ -186,6 +192,17 @@
         return { x: xPosition, y: yPosition };
     }
 
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    //reload page afrer resize
+    window.onresize = function(event) {
+
+      if (width !== window.innerWidth) {
+          location.reload()
+      }
+        //location.reload();
+    };
 
     export default {
         name: 'home',
@@ -242,15 +259,14 @@
             const staticContent = new StaticContent(parser.route, parser.locale);
 
             game.update(json => {
-              for (let i = 0; i < json.length; i++ ) {
-                this.games.push({
-                  name: json[i].name,
-                  image: json[i].image,
-                  url: json[i].url,
-                  category: json[i].category
-                });
-              }
-
+                for (let i = 0; i < json.length; i++ ) {
+                    this.games.push({
+                        name: json[i].name,
+                        image: json[i].image,
+                        url: json[i].url,
+                        category: json[i].category
+                    });
+                }
             });
 
             staticContent.update(json => {
@@ -266,10 +282,10 @@
               this.jobs = json.jobs;
             });
 
-          testimonial.update(json => {
-            console.log(json);
-            this.testimonials = json;
-          });
+            testimonial.update(json => {
+              console.log(json);
+              this.testimonials = json;
+            });
 
         },
         components: {

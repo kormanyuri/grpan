@@ -5,9 +5,8 @@
           <div class="md-layout" style="width: 100%">
             <div class="md-layout-item md-medium-size-95 md-large-size-80 md-xlarge-size-80">
               <div class="snackbar-text">
-                We use cookies to give you the best experience on our website. By continuing to use our website without changing
-                <br> your cookie settings, you agree to our use of cookies in accordance with our updated
-                <router-link :to="'/' + locale.code + '/legal/privacy_policy'">Cookie Policy</router-link>
+                <span v-html="$t('message.Cookie_Policy_Text')"></span>
+                <router-link :to="'/' + locale.code + '/legal/privacy_policy'">{{$t("message.Cookie_Policy")}}</router-link>
               </div>
             </div>
             <div class="md-layout-item md-medium-size-100 md-large-size-20 md-xlarge-size-20 wrap-btn">
