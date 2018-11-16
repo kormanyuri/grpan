@@ -141,8 +141,6 @@
         }
         .header-my {
             visibility: hidden;
-            padding-top: 125px;
-            margin-bottom: 7px;
         }
         .nav-in-page {
             display: block;
