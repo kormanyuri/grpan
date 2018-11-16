@@ -140,6 +140,7 @@
             visibility: hidden;
         }
         .header-my {
+            visibility: hidden;
             padding-top: 125px;
             margin-bottom: 7px;
         }
