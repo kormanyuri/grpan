@@ -40,7 +40,7 @@ export default {
                 Want_to_join_our_team: 'Want to join<br>our team?',
                 Check_all_offers: 'Check all offers',
                 Follow_us: 'Follow us',
-                See_on_the_Appstore: 'See on the Appstore',
+                See_on_the_Appstore: 'See on the App Store',
 
                 Cookie_Policy: 'Cookie Policy',
                 Cookie_Policy_Text: 'We use cookies to give you the best experience on our website. By continuing to use our website without changing' +
@@ -63,12 +63,7 @@ export default {
                 Store_link: 'Store link',
                 SKYPE: 'SKYPE',
                 Tell_us_more_about_your_game: 'Tell us more about your game...',
-                Success_story: 'Success story',
-
-                product: "Product",
-                marketing_monetisation: "Marketing",
-                business_development: "Business",
-                optional: 'optional'
+                Success_story: 'Success story'
 
         }
 }
