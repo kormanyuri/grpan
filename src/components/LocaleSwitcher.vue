@@ -1,6 +1,6 @@
 <template>
     <div>
-        <v-select v-model="locale" :options="options" :on-change="changeLanguage" class="select-lang" readonly="true">
+        <v-select v-model="locale" :options="options" :on-change="changeLanguage" class="select-lang" readonly="true" filter="false">
             <!--<template slot="option" slot-scope="option">-->
                 <!--<div class="d-center" style="background: #000000">-->
                     <!--<router-link :to="`/${locale.code}`">-->
