@@ -7,7 +7,7 @@
         <div class="wrap-content" v-bind:class="{ 'mv-left': showRightMenu }">
 
             <section id="section-1">
-                <video width="100%" height="auto" autoplay="autoplay" loop="loop" preload="auto" muted="muted">
+                <video controls="true" width="100%" height="auto" autoplay="autoplay" loop="loop" preload="auto" muted="muted">
                     <source src="/src/assets/video/header_video.mp4" type="video/mp4" />
                     <source src="/src/assets/video/header_video.webm" type="video/webm" />
                 </video>
